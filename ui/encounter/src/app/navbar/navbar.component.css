@@ -1,0 +1,20 @@
+.navbar {
+    background-color: #ea152e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 30px 25px;
+}
+
+.menu {
+}
+
+.title{
+    font-size: 200%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.search{
+
+}
