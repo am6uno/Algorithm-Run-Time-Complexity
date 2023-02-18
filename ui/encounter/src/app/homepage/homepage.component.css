@@ -1,0 +1,22 @@
+.homepage-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+}
+
+.role-selection{
+    position: relative;
+    top: 20%;
+    width: auto;
+    height: fit-content;
+}
+
+.role-selection > button {
+    margin: 20px;
+    padding: 30px;
+    color: #49494b;
+    background-color: #d1bfa7;
+}

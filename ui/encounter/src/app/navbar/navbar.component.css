@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #ea152e;
+    background-color: #49494b;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,13 +8,44 @@
 }
 
 .menu {
+    height: auto;
+    width: auto;
+    background-color: #49494b;
+    border:  none;
+    color: #d1bfa7;
 }
 
-.title{
-    font-size: 200%;
+.menu mat-icon {
+    font-size: 2em;
+    height: auto;
+    width: auto;
+}
+
+.title {
+    font-size: 4em;
     font-family: "Times New Roman", Times, serif;
+    color: #d1bfa7;
 }
 
-.search{
+.search {
+    border: 3px solid #d1bfa7;
+    background-color: white;
+    border-radius: 6px;
+    color: #bd8c7d;
+}
 
+::placeholder {
+    color: #bd8c7d;
+    opacity: .5;
+}
+
+::-ms-input-placeholder { /* For Microsoft Edge */
+    color: #bd8c7d;
+    opacity: .5;
+  }
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: #bd8c7d;
 }

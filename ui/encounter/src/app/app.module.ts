@@ -9,6 +9,8 @@ import {MatIconModule}  from '@angular/material/icon'
 import { RouterModule } from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
     RouterModule.forRoot([
       {path: '', component: HomepageComponent},
     ])
