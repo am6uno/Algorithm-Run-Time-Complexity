@@ -15,8 +15,9 @@
 }
 
 .role-selection > button {
-    margin: 20px;
-    padding: 30px;
+    margin: 30px;
+    padding: 40px;
     color: #49494b;
+    font-size: larger;
     background-color: #d1bfa7;
 }
