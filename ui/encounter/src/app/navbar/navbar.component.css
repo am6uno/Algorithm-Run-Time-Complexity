@@ -35,15 +35,15 @@
     font-size: 1.1em;
 }
 
+.search:focus{ 
+    outline-color: white;
+    outline-style: solid; /* Needed for firefox */
+}
+
 ::placeholder {
     color: #bd8c7d;
     opacity: .5;
 }
-
-::-ms-input-placeholder { /* For Microsoft Edge */
-    color: #bd8c7d;
-    opacity: .5;
-  }
 
 .line {
     width: 100%;
