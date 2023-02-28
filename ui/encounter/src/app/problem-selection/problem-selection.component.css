@@ -1,0 +1,25 @@
+.search-page {
+  margin: 5%;
+}
+
+.problem {
+  color: #d1bfa7;
+  background-color: #49494b;
+  border: 5px solid #bd8c7d;
+  border-radius: 5px;
+  padding: 0px 0px 0px 4px;
+  margin: 10px 0px;
+}
+
+.search {
+    border: 3px solid #bd8c7d;;
+    background-color: white;
+    border-radius: 6px;
+    color: #d1bfa7;
+    font-size: 1.1em;
+}
+
+.search:focus{ 
+    outline-color: white;
+    outline-style: solid; /* Needed for firefox */
+}

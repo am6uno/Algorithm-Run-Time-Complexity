@@ -38,7 +38,7 @@ export class ProblemSelectionComponent implements OnInit {
   }
 
   matchesSearch(searchText: string, problem: Problem){
-    if(problem.name == searchText || problem.name.includes(searchText)){
+    if(problem.name.toLowerCase() == searchText.toLowerCase() || problem.name.toLowerCase().includes(searchText.toLowerCase())){
         return true;
     }
     else{
