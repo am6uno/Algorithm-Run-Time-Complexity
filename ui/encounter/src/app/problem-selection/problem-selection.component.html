@@ -1,1 +1,8 @@
-<p>problem-selection goes here!</p>
+<h1>Find Problems</h1>
+<input class="search" (keyup)="searchProblems(searchValue.value)" matInput placeholder="Search" #searchValue>
+
+<div class="problems">
+    <div class = problem *ngFor="let problem of selectedProblems">
+        <h3>{{problem.name}}</h3>
+    </div>
+</div>
