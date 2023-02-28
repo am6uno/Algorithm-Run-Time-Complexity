@@ -1,0 +1,21 @@
+<nav>
+  <div class="navbar">
+    <button mat-icon-button class="menu" [matMenuTriggerFor]="navMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #navMenu="matMenu">
+      <button mat-menu-item routerLink="">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-menu>
+    
+    <span class="title">Encounter</span>
+    <input class="search" matInput placeholder="Search">
+  </div>
+  <div class="line"></div>
+</nav>

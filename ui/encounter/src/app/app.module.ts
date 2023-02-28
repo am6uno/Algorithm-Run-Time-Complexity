@@ -2,13 +2,40 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule}  from '@angular/material/icon'
+import { RouterModule } from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
+import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
+import { MatMenuModule } from '@angular/material/menu'
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomepageComponent,
+    TeacherLoginComponent,
+    ProblemSelectionComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatMenuModule,
+    RouterModule.forRoot([
+      {path: '', component: HomepageComponent},
+      {path: 'login', component: TeacherLoginComponent},
+      {path: 'problem-selection', component: ProblemSelectionComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
