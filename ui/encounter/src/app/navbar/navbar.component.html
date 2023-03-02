@@ -3,17 +3,21 @@
     <button mat-icon-button class="menu" [matMenuTriggerFor]="navMenu">
       <mat-icon>menu</mat-icon>
     </button>
-    <mat-menu #navMenu="matMenu">
+    <mat-menu class="dropdown-menu" #navMenu="matMenu">
       <button mat-menu-item routerLink="">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="problem-selection">
+        <mat-icon>search</mat-icon>
+        <span>Problem Search</span>
+      </button>
+      <button mat-menu-item> <!-- add logic so this only shows up to teachers -->
         <mat-icon>logout</mat-icon>
         <span>Log Out</span>
       </button>
     </mat-menu>
-    
+
     <span class="title">Encounter</span>
     <input class="search" matInput placeholder="Search">
   </div>

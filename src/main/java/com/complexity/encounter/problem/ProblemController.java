@@ -13,6 +13,7 @@ public class ProblemController {
     private ProblemService problemService;
 
     @RequestMapping("/problems")
+    @CrossOrigin(origins ="http://localhost:4200")
     public List<Problem> getAllProblems(){
         return problemService.getAllProblems();
     }

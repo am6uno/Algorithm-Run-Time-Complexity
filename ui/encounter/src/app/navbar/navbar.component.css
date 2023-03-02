@@ -35,7 +35,7 @@
     font-size: 1.1em;
 }
 
-.search:focus{ 
+.search:focus{
     outline-color: white;
     outline-style: solid; /* Needed for firefox */
 }
