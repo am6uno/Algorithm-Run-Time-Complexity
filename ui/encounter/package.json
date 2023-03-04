@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "jest --collect-coverage --colors"
+    "test": "jest --collect-coverage --colors",
+    "compodocs": "npx compodoc -p tsconfig.doc.json -w -s",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
