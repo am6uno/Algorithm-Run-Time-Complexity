@@ -20,17 +20,29 @@ public class SolutionService {
     public Optional<com.complexity.encounter.solution.Solution> getSolutionById(long id) {
         return solutionRepository.findById(id);
     }
+    public Optional<com.complexity.encounter.solution.Solution> getSolutionByStudentId(long studentId) {
+        return solutionRepository.findByStudentId(studentId);
+    }
+
+    public Optional<com.complexity.encounter.solution.Solution> getSolutionByProblemId(long problemId) {
+        return solutionRepository.findByProblemId(problemId);
+    }
+
+    public Optional<com.complexity.encounter.solution.Solution> getSolutionByStudentAndProblem(long studentId, long problemId) {
+        return solutionRepository.findByStudentIdAndProblemId(studentId, problemId);
+    }
+
     public void deleteSolution(long id) {
         solutionRepository.deleteById(id);
     }
-    /* TODO: finish implementation
-    public void updateProblem(com.complexity.encounter.solution.Solution solution, Long id) {
-          Optional<Solution> updatedProblem = solutionRepository.findById(id);
-        updatedProblem.get().setName(problem.getName());
-        updatedProblem.get().setSourceCode(problem.getSourceCode());
-        updatedProblem.get().setComplexity(problem.getComplexity());
-        updatedProblem.get().setTotalScore(problem.getTotalScore());
-        updatedProblem.get().setCurrentScore(problem.getCurrentScore());
-        problemRepository.save(updatedProblem.get());
-    }*/
+
+    public void updateSolution(com.complexity.encounter.solution.Solution solution, Long id) {
+          Optional<Solution> updatedSolution = solutionRepository.findById(id);
+        updatedSolution.get().setStudentId(solution.getStudentId());
+        updatedSolution.get().setStudentId(solution.getStudentId());
+        updatedSolution.get().setProblemId(solution.getProblemId());
+        updatedSolution.get().setComplexityAnswer(solution.getComplexityAnswer());
+        updatedSolution.get().setScore(solution.getScore());
+        solutionRepository.save(updatedSolution.get());
+    }
 }

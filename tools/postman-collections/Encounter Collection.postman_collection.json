@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "c6bc2f09-7efd-43a1-b8b5-610964b29fd9",
+		"name": "Encounter Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21157022"
+	},
+	"item": [
+		{
+			"name": "Problem",
+			"item": [
+				{
+					"name": "Get Problems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/problems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Problem By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/problems/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Problem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"For loop analysis\",\r\n    \"sourceCode\": [\r\n        \"for (int i = 0; i < 10; i++) {\",\r\n        \"   // Do Something\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"totalScore\": 5,\r\n    \"currentScore\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/problems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Problem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"prob 2\",\r\n        \"sourceCode\": [\r\n            \"for (int i = 0; i < 10; i++) {\",\r\n            \"   // Do Something\",\r\n            \"}\",\r\n            \"int test = 2;\"\r\n        ],\r\n        \"complexity\": [\r\n            \"O(n)\"\r\n        ],\r\n        \"totalScore\": 10,\r\n        \"currentScore\": 9\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/problems/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Problem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/problems/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Solution",
+			"item": [
+				{
+					"name": "Get Solutions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/solutions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Solution By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/solutions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Solution By Student Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/solutions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Solution By Problem Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/solutions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Solution By Student and Problem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/solutions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Solution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"123123\",\r\n    \"problemId\": \"1\",\r\n    \"complexityAnswer\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"score\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/solutions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Solution",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"123123\",\r\n    \"problemId\": \"1\",\r\n    \"complexityAnswer\": [\r\n        \"O(1)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"score\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/solutions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"solutions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete solution",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/problems/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"problems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

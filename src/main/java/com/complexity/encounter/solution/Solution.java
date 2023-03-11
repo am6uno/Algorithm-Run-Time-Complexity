@@ -19,4 +19,5 @@ public class Solution {
     private long problemId;
     private String[] complexityAnswer;
     private int score;
+
 }
