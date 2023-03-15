@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "31dfd9f3-8f46-43dd-af4c-5f14f7126f69",
+		"_postman_id": "23820c33-637d-47a4-a5b0-d8a34149ec2b",
 		"name": "Problem",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -30,7 +30,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/problems/1",
+					"raw": "http://localhost:8080/problems/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -38,7 +38,13 @@
 					"port": "8080",
 					"path": [
 						"problems",
-						"1"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -51,7 +57,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"For loop analysis\",\r\n    \"sourceCode\": [\r\n        \"for (int i = 0; i < 10; i++) {\",\r\n        \"   // Do Something\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"totalScore\": 5,\r\n    \"currentScore\": 5\r\n}",
+					"raw": "{\r\n    \"setId\": 1,\r\n    \"name\": \"For loop analysis\",\r\n    \"sourceCode\": [\r\n        \"for (int i = 0; i < 10; i++) {\",\r\n        \"   // Do Something\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"hints\": [\r\n        \"The progression here is linear.\",\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\"\r\n    ],\r\n    \"totalScore\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,7 +85,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"While loop analysis\",\r\n    \"sourceCode\": [\r\n        \"int iter = 5;\",\r\n        \"while (iter > 0) {\",\r\n        \"   // Do Something\",\r\n        \"   iter--;\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(1)\",\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"totalScore\": 5,\r\n    \"currentScore\": 5\r\n}",
+					"raw": "{\r\n    \"setId\": 1,\r\n    \"name\": \"Simple analysis\",\r\n    \"sourceCode\": [\r\n        \"int i = 1;\",\r\n        \"int i = 2;\",\r\n        \"int i = 3;\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(1)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"hints\": [\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\"\r\n    ],\r\n    \"totalScore\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -87,7 +93,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/problems/1",
+					"raw": "http://localhost:8080/problems/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -95,7 +101,13 @@
 					"port": "8080",
 					"path": [
 						"problems",
-						"1"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -107,7 +119,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/problems/1",
+					"raw": "http://localhost:8080/problems/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -115,7 +127,13 @@
 					"port": "8080",
 					"path": [
 						"problems",
-						"1"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},

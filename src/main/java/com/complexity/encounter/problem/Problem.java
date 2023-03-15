@@ -15,9 +15,10 @@ public class Problem {
     @Id
     @GeneratedValue
     private long id;
+    private long setId;
     private String name;
     private String[] sourceCode; // stored as an array of lines
     private String[] complexity; // stored as an array of lines
-    private int totalScore;     // this would need to be stored on the student account
-    private int currentScore;   // this would need to be stored on the student account
+    private String[] hints;      // stored as an array of lines
+    private int totalScore;
 }
