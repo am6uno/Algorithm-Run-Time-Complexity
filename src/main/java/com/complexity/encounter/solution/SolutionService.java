@@ -11,32 +11,32 @@ public class SolutionService {
     @Autowired
     private SolutionRepository solutionRepository;
 
-    public void saveSolution(com.complexity.encounter.solution.Solution solution) {
+    public void saveSolution(Solution solution) {
         solutionRepository.save(solution);
     }
-    public List<com.complexity.encounter.solution.Solution> getAllSolutions() {
+    public List<Solution> getAllSolutions() {
         return solutionRepository.findAll();
     }
-    public Optional<com.complexity.encounter.solution.Solution> getSolutionById(long id) {
+    public Optional<Solution> getSolutionById(Long id) {
         return solutionRepository.findById(id);
     }
-    public Optional<com.complexity.encounter.solution.Solution> getSolutionByStudentId(long studentId) {
+    public List<Solution> getSolutionsByStudentId(long studentId) {
         return solutionRepository.findByStudentId(studentId);
     }
 
-    public Optional<com.complexity.encounter.solution.Solution> getSolutionByProblemId(long problemId) {
+    public List<Solution> getSolutionsByProblemId(long problemId) {
         return solutionRepository.findByProblemId(problemId);
     }
 
-    public Optional<com.complexity.encounter.solution.Solution> getSolutionByStudentAndProblem(long studentId, long problemId) {
+    public Optional<Solution> getSolutionByStudentAndProblem(long studentId, long problemId) {
         return solutionRepository.findByStudentIdAndProblemId(studentId, problemId);
     }
 
-    public void deleteSolution(long id) {
+    public void deleteSolution(Long id) {
         solutionRepository.deleteById(id);
     }
 
-    public void updateSolution(com.complexity.encounter.solution.Solution solution, Long id) {
+    public void updateSolution(Solution solution, Long id) {
           Optional<Solution> updatedSolution = solutionRepository.findById(id);
         updatedSolution.get().setStudentId(solution.getStudentId());
         updatedSolution.get().setStudentId(solution.getStudentId());
