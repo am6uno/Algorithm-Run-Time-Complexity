@@ -13,6 +13,7 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { ProblemCreationComponent } from './problem-creation/problem-creation.component';
 
 
 
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomepageComponent,
     TeacherLoginComponent,
     ProblemSelectionComponent,
+    ProblemCreationComponent,
   ],
   imports: [
     BrowserModule,

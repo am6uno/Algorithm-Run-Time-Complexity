@@ -1,2 +1,35 @@
-<p>teacher-login works! :D</p>
-<p>Login page goes here</p>
+<div class="loginPage">
+    <form class="login" *ngIf="showLoginPage">
+        <mat-form-field>
+            <mat-label>Email</mat-label><br>
+            <input type="email" matInput #email>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput #password>
+        </mat-form-field><br>
+        <button class="switchPage" (click)="switchPage()">Create Account</button><br>
+        <button>Login</button>
+
+    </form>
+    <form class="login" *ngIf="!showLoginPage">
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput #firstName>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput #lastName>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput #email>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput #password>
+        </mat-form-field><br>
+        <button class="switchPage" (click)="switchPage()">Already Have An Account?</button><br>
+        <button>Create Account</button>
+    </form>
+</div>

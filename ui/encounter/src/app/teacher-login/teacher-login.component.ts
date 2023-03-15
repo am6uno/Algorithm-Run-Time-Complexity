@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./teacher-login.component.css']
 })
 export class TeacherLoginComponent {
+showLoginPage: boolean = true;
+
+switchPage(){
+  this.showLoginPage = !this.showLoginPage;
+}
 
 }
