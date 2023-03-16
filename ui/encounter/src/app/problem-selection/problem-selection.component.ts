@@ -34,7 +34,6 @@ export class ProblemSelectionComponent implements OnInit {
         }
       });
     }
-    console.log(this.selectedProblems);
   }
 
   matchesSearch(searchText: string, problem: Problem){

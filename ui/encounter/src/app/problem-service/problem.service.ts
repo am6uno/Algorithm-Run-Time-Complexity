@@ -13,6 +13,10 @@ export class ProblemService {
 
 
   getAllProblems(): Observable<Problem[]>{
-    return this.http.get<Problem[]>("http://localhost:8080/problems")
+    return this.http.get<Problem[]>("http://localhost:8080/problems");
+  }
+
+  addProblem(problem: Problem): Observable<Problem>{
+    return this.http.post<Problem>("http://localhost:8080/problems", problem)
   }
 }
