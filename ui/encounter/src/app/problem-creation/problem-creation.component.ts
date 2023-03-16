@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-problem-creation',
@@ -12,6 +13,7 @@ export class ProblemCreationComponent {
   sourceCode: string[] = [];
   name: string = '';
   complexity: string[] = [];
+  hints: string[] = [];
   answer: string = '';
   totalScore: Number = 0;
 
@@ -26,22 +28,12 @@ export class ProblemCreationComponent {
       for (const line of fileContent.split(/[\r\n]+/)){
         this.sourceCode.push(line);
         this.complexity.push('');
+        this.hints.push('');
       }
     }
     reader.readAsText(file);
   }
 
-  updateComplexity(complexity: any, index: number){
-    this.complexity[index] = complexity;
-  }
-  
-  updateAnswer(answer: any){
-    this.answer = answer;
-  }
-
-  updateProblemName(problemName: string){
-    this.name = problemName;
-  }
 
   formComplete(){
     if(this.name && this.answer && this.sourceCode.length > 0 

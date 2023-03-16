@@ -5,19 +5,20 @@
     <div class="annotate" *ngIf="sourceCode.length > 0">
         <mat-form-field>
             <mat-label>Problem Name</mat-label>
-            <input matInput #problemName (change)="updateProblemName(problemName.value)">
+            <input matInput [(ngModel)]="name">
         </mat-form-field>
         <table>
             <tr>
                 <th>Complexity</th>
             </tr>
             <tr *ngFor="let code of sourceCode; index as i">
-                <td><input type="text" #lineComplexity (change)="updateComplexity(lineComplexity.value,i)"></td>
+                <td><input type="text" [(ngModel)]="complexity[i]"></td>
+                <td><input type="text" [(ngModel)]="hints[i]"></td>
                 <td>{{i}}</td>
                 <td>{{code}}</td>
             </tr>
             <tr>
-                <td><input type="text" #answer (change)="updateAnswer(answer.value)" placeholder="Overall Complexity"></td>
+                <td><input type="text" [(ngModel)]="answer" placeholder="Overall Complexity"></td>
             </tr>
         </table>
         <button type="submit" (click)="submitProblem()">Submit</button>

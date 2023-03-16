@@ -17,6 +17,7 @@ import { ProblemCreationComponent } from './problem-creation/problem-creation.co
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -41,6 +42,7 @@ import { NgComponentOutlet } from '@angular/common';
     MatTableModule,
     FormsModule,
     NgComponentOutlet,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {path: '', component: HomepageComponent},
       {path: 'login', component: TeacherLoginComponent},
