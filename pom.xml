@@ -51,6 +51,15 @@
             <version>3.0.2</version>
         </dependency>
     </dependencies>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
     <build>
         <plugins>
             <plugin>
@@ -65,6 +74,23 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                        <id>create javadocs</id>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
             </plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -106,6 +132,15 @@
 							<arguments>test</arguments>
 						</configuration>
 					</execution>
+                    <execution>
+                        <id>create frontend documentation</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run compodoc</arguments>
+                        </configuration>
+                    </execution>
 				</executions>
 			</plugin>
         </plugins>
