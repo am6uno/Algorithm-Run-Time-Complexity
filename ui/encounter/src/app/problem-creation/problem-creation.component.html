@@ -1,7 +1,12 @@
 <div class="problem-creation">
     <h1>Create Problem</h1>
-    <input *ngIf="sourceCode.length < 1" type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
-
+    <div class="get-source-code" *ngIf="sourceCode.length < 1">
+        <mat-label>Enter source code</mat-label><br>
+        <textarea #sourceCodeTextInput></textarea><br>
+        <input type="submit" (click)="getSourceCodeFromTextInput(sourceCodeTextInput)">
+        <p>or</p>
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+    </div>
     <div class="annotate" *ngIf="sourceCode.length > 0">
         <mat-form-field>
             <mat-label>Problem Name</mat-label>

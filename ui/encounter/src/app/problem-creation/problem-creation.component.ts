@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Router } from '@angular/router';
-import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-problem-creation',
@@ -19,6 +18,13 @@ export class ProblemCreationComponent {
 
   constructor(private problemService: ProblemService, private router: Router){ }
 
+  getSourceCodeFromTextInput(input: any){
+    for (const line of (input as string).split(/[\r\n]+/)){
+      this.sourceCode.push(line);
+      this.complexity.push('');
+      this.hints.push('');
+    }
+  }
 
   onFileSelected(event: any){
     const file:File = event.target.files[0];
