@@ -1,0 +1,143 @@
+.page-title{
+    text-align: left;
+    margin: 15px;
+}
+
+.problem-creation{
+    text-align: center;
+}
+
+.source-code-entry{
+    resize: none;
+}
+
+/* file text upload */
+input[type='file']{
+    display: none;
+}
+
+.upload-code{
+    border: 3px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.upload-icon{
+    margin: 0px 5px 0px 0px;
+}
+
+/* source code entry box*/
+.source-code{
+    width: 60em;
+    min-height: 10em;
+    resize: none;
+    border: 3px solid #ccc;
+    word-wrap: break-word;
+    margin: auto;
+    text-align: left;
+}
+
+.source-code-entry-label{
+    padding: 6px 12px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.problem-name{
+    text-align: left;
+    margin: auto;
+    padding: 10px;
+    width: 90%;
+}
+
+/* table */
+.annotations{
+    width: 90%;
+    border: 1px solid green;
+    margin: auto;
+    padding: 10px;
+}
+
+.problem-name-label{
+    text-align: left;
+}
+.problem-name{
+    text-align: left;
+}
+.problem-name td{
+    border: 2px solid Black;
+}
+.problem-name input{
+    outline: none;
+    border: none;
+    width: 16em;
+}
+
+.line-complexity{
+    border: 2px solid Black;
+    max-width: 10em;
+}
+
+.line-complexity input{
+    outline: none;
+    border: none;
+    width: 6em;
+}
+
+.line-hint{
+    border: 2px solid Black;
+    max-width: 15em;
+}
+
+.line-hint input{
+    outline: none;
+    border: none;
+    width: 10em;
+}
+
+.overall-complexity{
+    border: 2px solid red;
+    max-width: 10em;
+}
+
+.overall-complexity input{
+    outline: none;
+    border: none;
+    width: 6em;
+}
+
+.line-code{
+    width: 90%;
+    text-align: left;
+}
+.line-number{
+    color: blue;
+    background-color: aliceblue;
+    padding: 2px;
+}
+.code{
+    padding-left: 8px;
+}
+
+.line-code:first-of-type {
+   border-width: 1px 1px 1px 1px;
+   border-style: solid;
+   border-color: black;
+}
+
+.annotations>.line-code {
+    border: 0px 1px solid blue;
+}
+
+.annotations>.line-code:last-child {
+    border: 0px 1px 1px 1px solid blue;
+}
+
+
+.teacher-annotations button{
+    margin: 5px;
+}
+
+

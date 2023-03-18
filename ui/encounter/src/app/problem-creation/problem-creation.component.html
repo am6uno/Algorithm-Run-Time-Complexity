@@ -1,29 +1,40 @@
 <div class="problem-creation">
-    <h1>Create Problem</h1>
+    <h1 class="page-title">Create Problem</h1>
     <div class="get-source-code" *ngIf="sourceCode.length < 1">
-        <mat-label>Enter source code</mat-label><br>
-        <textarea #sourceCodeTextInput></textarea><br>
-        <input type="submit" (click)="getSourceCodeFromTextInput(sourceCodeTextInput)">
+        <div class="source-code-entry">
+            <h2 class="source-code-entry-label">Enter Source Code</h2><br>
+            <div class="source-code" name="source-code" [(ngModel)]="codeInput" (keyup)="setCodeInput($event)" ngDefaultControl contenteditable></div><br>
+            <input type="submit" (click)="getSourceCodeFromTextInput()">
+        </div>
         <p>or</p>
-        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <label class="upload-code" for="file-input">
+            <mat-icon class="upload-icon">cloud_upload</mat-icon>
+            Upload Problem Code
+        </label>
+        <input type="file" id="file-input" (change)="onFileSelected($event)" #fileUpload>
     </div>
-    <div class="annotate" *ngIf="sourceCode.length > 0">
-        <mat-form-field>
-            <mat-label>Problem Name</mat-label>
-            <input matInput [(ngModel)]="name">
-        </mat-form-field>
-        <table>
+    <div class="teacher-annotations" *ngIf="sourceCode.length > 0">
+        <table class="annotations">
+            <tr class="problem-name-label">
+                <th colspan="2" >Problem Name</th>
+            </tr>
+            <tr class="problem-name">
+                <td colspan="2"><input [(ngModel)]="name">
+            </tr>
             <tr>
                 <th>Complexity</th>
+                <th>Hints</th>
             </tr>
             <tr *ngFor="let code of sourceCode; index as i">
-                <td><input type="text" [(ngModel)]="complexity[i]"></td>
-                <td><input type="text" [(ngModel)]="hints[i]"></td>
-                <td>{{i}}</td>
-                <td>{{code}}</td>
+                <td class="line-complexity"><input type="text" [(ngModel)]="complexity[i]" maxlength="20"></td>
+                <td class="line-hint"><input type="text" [(ngModel)]="hints[i]"></td>
+                <td class="line-code" ><span class="line-number">{{i }}</span><span class="code">{{sourceCode[i]}}</span></td>
             </tr>
             <tr>
-                <td><input type="text" [(ngModel)]="answer" placeholder="Overall Complexity"></td>
+                <th>Overall Complexity</th>
+            </tr>
+            <tr>
+                <td class="overall-complexity"><input type="text" [(ngModel)]="answer"></td>
             </tr>
         </table>
         <button type="submit" (click)="submitProblem()">Submit</button>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-problem-creation',
@@ -15,14 +16,20 @@ export class ProblemCreationComponent {
   hints: string[] = [];
   answer: string = '';
   totalScore: Number = 0;
+  codeInput: string = '';
 
-  constructor(private problemService: ProblemService, private router: Router){ }
+  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar){ }
 
-  getSourceCodeFromTextInput(input: any){
-    for (const line of (input as string).split(/[\r\n]+/)){
-      this.sourceCode.push(line);
-      this.complexity.push('');
-      this.hints.push('');
+  getSourceCodeFromTextInput(){
+    if(this.codeInput.length > 0){
+      for (const line of this.codeInput.split(/[\r\n]+/)){
+        this.sourceCode.push(line);
+        this.complexity.push('');
+        this.hints.push('');
+      }
+    }
+    else{
+      this._snackBar.open('Enter Source Code or Upload a File','X', {duration: 2000})
     }
   }
 
@@ -42,16 +49,20 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.answer && this.sourceCode.length > 0 
+    if(this.name && this.answer && this.sourceCode.length > 0  
       && this.complexity.length > 0){
         return true;
     }
     return false;
   }
 
+setCodeInput(event: any){
+  this.codeInput = event.target.innerText;
+}
+
   submitProblem(){
     if(!this.formComplete()){
-      // TODO: add snackbar
+      this._snackBar.open('Form Incomplete','X', {duration: 2000})
     }
     else{
       const createdProblem: Problem = {
@@ -61,9 +72,8 @@ export class ProblemCreationComponent {
         totalScore: 4,
         currentScore: 0,
       }
-      this.problemService.addProblem(createdProblem).subscribe(() =>{console.log("success")});
+      this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
     }    
   }
-
 }
