@@ -30,7 +30,7 @@ input[type='file']{
 
 /* source code entry box*/
 .source-code{
-    width: 60em;
+    width: 60%;
     min-height: 10em;
     resize: none;
     border: 3px solid #ccc;
@@ -45,99 +45,148 @@ input[type='file']{
     align-items: center;
 }
 
+
+
+
 .problem-name{
     text-align: left;
-    margin: auto;
-    padding: 10px;
-    width: 90%;
+    margin: 1% 4%;
+    padding: 10px 10px 0px;
 }
 
-/* table */
-.annotations{
-    width: 90%;
-    border: 1px solid green;
-    margin: auto;
-    padding: 10px;
-}
-
-.problem-name-label{
-    text-align: left;
-}
-.problem-name{
-    text-align: left;
-}
-.problem-name td{
-    border: 2px solid Black;
-}
 .problem-name input{
+    width: 30%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 8px 3px 0px;
     outline: none;
-    border: none;
-    width: 16em;
+    border: 2px solid #49494b;
+    border-radius: 5px;
+}
+
+.annotations{
+    text-align: left;
+    margin: 2% 4%;
+    padding: 10px 10px 0px 10px;
+    width: 90%;
+}
+
+.complexity-column-label{
+    display: inline-block;
+    width: 10%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 10px 0px 0px;
+}
+
+.hints-column-label{
+    display: inline-block;
+    width: 20%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 10px 0px 10px;
+}
+
+.form-line{
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .line-complexity{
-    border: 2px solid Black;
-    max-width: 10em;
+    width: 10%;
+    height: 30px;
+    padding: 4px;
+    margin: 0px 10px 0px 0px;
+    line-height: 1;
 }
 
 .line-complexity input{
+    width: 100%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 8px 3px 0px;
     outline: none;
-    border: none;
-    width: 6em;
+    border: 2px solid #49494b;
+    border-radius: 5px;
 }
 
-.line-hint{
-    border: 2px solid Black;
-    max-width: 15em;
+.line-hints{
+    width: 20%;
+    height: 30px;
+    padding: 4px;
+    margin: 0px 10px 0px 0px;
 }
 
-.line-hint input{
+.line-hints input{
+    width: 100%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 8px 3px 0px;
     outline: none;
-    border: none;
-    width: 10em;
+    border: 2px solid #49494b;
+    border-radius: 5px;
 }
 
-.overall-complexity{
-    border: 2px solid red;
-    max-width: 10em;
+.code{
+    display: flex;
+    align-content: center;
+    vertical-align: middle;
+    width: 60%;
+    height: 30px;
+    padding: 5px;
+    margin: 0px 6px;
 }
 
-.overall-complexity input{
-    outline: none;
-    border: none;
-    width: 6em;
-}
+.line-number{
+    line-height: 2.5;
+    margin: 0px 10px 0px 0px;
+    color: #bd8c7d;
+} 
 
 .line-code{
-    width: 90%;
-    text-align: left;
+    line-height: 2.5;
+    font-family: Consolas,"courier new";
 }
-.line-number{
-    color: blue;
-    background-color: aliceblue;
+
+.annotations:nth-child(1n) .form-line:nth-child(2) .code{
+    border-width: 2px 2px 0px 2px;
+    border-style: solid;
+    border-color: #d1bfa7;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.form-line:nth-child(n) .code{
+    border-width: 0px 2px 0px 2px;
+    border-style: solid;
+    border-color: #d1bfa7;
+}
+
+.annotations:nth-child(1n) .form-line:nth-last-child(2) .code{
+    border-width: 0px 2px 2px 2px;
+    border-style: solid;
+    border-color: #d1bfa7;
+    border-radius:0px 0px 5px 5px;
+}
+
+
+.overall-complexity{
+    margin: 2% 0%;
+}
+.overall-complexity input{
+    width: 10%;
+    height: 24px;
     padding: 2px;
-}
-.code{
-    padding-left: 8px;
-}
-
-.line-code:first-of-type {
-   border-width: 1px 1px 1px 1px;
-   border-style: solid;
-   border-color: black;
+    margin: 3px 4px 3px 0px;
+    outline: none;
+    border: 2px solid #49494b;
+    border-radius: 5px;
 }
 
-.annotations>.line-code {
-    border: 0px 1px solid blue;
+.teacher-annotations > button{
+    background-color: #d1bfa7;
+    margin: 10px;
+    padding: 20px;
+    color: #49494b;
+    font-size: larger;
 }
-
-.annotations>.line-code:last-child {
-    border: 0px 1px 1px 1px solid blue;
-}
-
-
-.teacher-annotations button{
-    margin: 5px;
-}
-
-

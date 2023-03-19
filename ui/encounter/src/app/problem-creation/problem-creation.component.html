@@ -14,30 +14,39 @@
         <input type="file" id="file-input" (change)="onFileSelected($event)" #fileUpload>
     </div>
     <div class="teacher-annotations" *ngIf="sourceCode.length > 0">
-        <table class="annotations">
-            <tr class="problem-name-label">
-                <th colspan="2" >Problem Name</th>
-            </tr>
-            <tr class="problem-name">
-                <td colspan="2"><input [(ngModel)]="name">
-            </tr>
-            <tr>
-                <th>Complexity</th>
-                <th>Hints</th>
-            </tr>
-            <tr *ngFor="let code of sourceCode; index as i">
-                <td class="line-complexity"><input type="text" [(ngModel)]="complexity[i]" maxlength="20"></td>
-                <td class="line-hint"><input type="text" [(ngModel)]="hints[i]"></td>
-                <td class="line-code" ><span class="line-number">{{i }}</span><span class="code">{{sourceCode[i]}}</span></td>
-            </tr>
-            <tr>
-                <th>Overall Complexity</th>
-            </tr>
-            <tr>
-                <td class="overall-complexity"><input type="text" [(ngModel)]="answer"></td>
-            </tr>
-        </table>
-        <button type="submit" (click)="submitProblem()">Submit</button>
+        <div class="problem-form">
+                <div class="problem-name">
+                    <mat-label>Problem Name</mat-label><br>
+                    <input [(ngModel)]="name">
+                </div>
+            <div class="annotations">
+                <div class="column-labels">
+                    <div class="complexity-column-label">
+                        <mat-label>Complexity</mat-label>
+                    </div>
+                    <div class="hints-column-label">
+                        <mat-label>Hints</mat-label>
+                    </div>
+                </div>
+                <div class="form-line" *ngFor="let code of sourceCode; index as i">
+                    <span class="line-complexity">
+                        <input type="text" [(ngModel)]="complexity[i]" maxlength="20">
+                    </span>
+                    <span class="line-hints">
+                        <input type="text" [(ngModel)]="hints[i]">
+                    </span>
+                    <span class="code">
+                        <span class="line-number">{{i + 1}}</span>
+                        <span class="line-code">{{sourceCode[i]}}</span>
+                    </span>
+                </div>
+                <div class="overall-complexity">
+                    <mat-label>Overall Complexity</mat-label><br>
+                    <input type="text" [(ngModel)]="answer">
+                </div>
+                </div><br>
+            </div>
+        <button type="submit" class="problem-submit" mat-raised-button (click)="submitProblem()">Submit</button>
     </div>
     
 </div>
