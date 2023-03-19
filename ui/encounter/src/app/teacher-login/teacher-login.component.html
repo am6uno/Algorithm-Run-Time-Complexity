@@ -1,5 +1,6 @@
 <div class="loginPage">
-    <div class="login" *ngIf="showLoginPage">
+    <div class="login-form" *ngIf="showLoginPage">
+        <div class="fields">
         <mat-form-field>
             <mat-label>Email</mat-label><br>
             <input type="email" matInput #email>
@@ -8,10 +9,11 @@
             <mat-label>Password</mat-label>
             <input type="password" matInput #password>
         </mat-form-field><br>
-        <button class="switchPage" (click)="switchPage()">Create Account</button><br>
-        <button routerLink="../problem-creation">Login</button>
     </div>
-    <div class="login" *ngIf="!showLoginPage">
+        <button class="switch-page" (click)="switchPage()">Don't have an account?</button>
+        <button class="login"  routerLink="../problem-creation">Login</button>
+    </div>
+    <div class="login-form" *ngIf="!showLoginPage">
         <mat-form-field>
             <mat-label>First name</mat-label>
             <input matInput #firstName>
@@ -28,7 +30,7 @@
             <mat-label>Password</mat-label>
             <input type="password" matInput #password>
         </mat-form-field><br>
-        <button class="switchPage" (click)="switchPage()">Already Have An Account?</button><br>
-        <button routerLink="../problem-creation">Create Account</button>
+        <button class="switch-page" (click)="switchPage()">Have an account already?</button>
+        <button class= "create-account" routerLink="../problem-creation">Create Account</button>
     </div>
 </div>

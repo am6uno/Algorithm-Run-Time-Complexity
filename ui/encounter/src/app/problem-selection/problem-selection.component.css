@@ -1,5 +1,6 @@
 .search-page {
   margin: 5%;
+  padding: 0px 0px 10px 0px;
 }
 
 .problem {
@@ -27,4 +28,8 @@
 .no-match{
   text-align: center;
   margin: 10% 0%;
+}
+
+.problems{
+  margin: 3% 0;
 }
