@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+}
+
+.links{
+    text-align: center;
+    padding: 20vw 0vw;
+}
+
+a {
+    text-decoration: none;
+    color: #49494b;
+    border-radius: 5px;
+    background-color: #d1bfa7;
+    padding: 5px;
+}

@@ -12,7 +12,10 @@ export class ProblemService {
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
   }
 
-
+  /**
+   * Retrieves all problems from the backend.
+   * @returns The list of all problems.
+   */
   getAllProblems(): Observable<Problem[]>{
     return this.http.get<Problem[]>("http://localhost:8080/problems").pipe(
       tap(

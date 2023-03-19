@@ -5,7 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule}  from '@angular/material/icon'
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -20,7 +20,12 @@ import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
-
+const APP_ROUTES: Routes = [
+  {path: '', component: HomepageComponent},
+  {path: 'login', component: TeacherLoginComponent},
+  {path: 'problem-selection', component: ProblemSelectionComponent},
+  {path: 'problem-creation', component: ProblemCreationComponent}
+];
 
 @NgModule({
   declarations: [
@@ -43,12 +48,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     NgComponentOutlet,
     MatSnackBarModule,
-    RouterModule.forRoot([
-      {path: '', component: HomepageComponent},
-      {path: 'login', component: TeacherLoginComponent},
-      {path: 'problem-selection', component: ProblemSelectionComponent},
-      {path: 'problem-creation', component: ProblemCreationComponent}
-    ]),
+    RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
   ],
   providers: [],

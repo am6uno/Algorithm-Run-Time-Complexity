@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.complexity.encounter"},{"l":"com.complexity.encounter.problem"}];updateSearchResults();

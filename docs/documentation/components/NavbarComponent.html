@@ -1,0 +1,337 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>encounter documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">encounter documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  NavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/navbar/navbar.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./navbar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-navbar&#x27;,
+  templateUrl: &#x27;./navbar.component.html&#x27;,
+  styleUrls: [&#x27;./navbar.component.css&#x27;]
+})
+export class NavbarComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav&gt;
+  &lt;div class&#x3D;&quot;navbar&quot;&gt;
+    &lt;button mat-icon-button class&#x3D;&quot;menu&quot; [matMenuTriggerFor]&#x3D;&quot;navMenu&quot;&gt;
+      &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;mat-menu class&#x3D;&quot;dropdown-menu&quot; #navMenu&#x3D;&quot;matMenu&quot;&gt;
+      &lt;button mat-menu-item routerLink&#x3D;&quot;&quot;&gt;
+        &lt;mat-icon&gt;home&lt;/mat-icon&gt;
+        &lt;span&gt;Home&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item routerLink&#x3D;&quot;problem-selection&quot;&gt;
+        &lt;mat-icon&gt;search&lt;/mat-icon&gt;
+        &lt;span&gt;Problem Search&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item&gt; &lt;!-- add logic so this only shows up to teachers --&gt;
+        &lt;mat-icon&gt;logout&lt;/mat-icon&gt;
+        &lt;span&gt;Log Out&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+
+    &lt;span class&#x3D;&quot;title&quot;&gt;Encounter&lt;/span&gt;
+    &lt;input class&#x3D;&quot;search&quot; matInput placeholder&#x3D;&quot;Search&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;line&quot;&gt;&lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./navbar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.navbar {
+    background-color: #49494b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 30px 25px;
+}
+
+.menu {
+    height: auto;
+    width: auto;
+    background-color: #49494b;
+    border:  none;
+    color: #d1bfa7;
+}
+
+.menu mat-icon {
+    font-size: 2em;
+    height: auto;
+    width: auto;
+}
+
+.title {
+    font-size: 4em;
+    font-family: &quot;Times New Roman&quot;, Times, serif;
+    color: #d1bfa7;
+}
+
+.search {
+    border: 3px solid #d1bfa7;
+    background-color: white;
+    border-radius: 6px;
+    color: #bd8c7d;
+    font-size: 1.1em;
+}
+
+.search:focus{
+    outline-color: white;
+    outline-style: solid; /* Needed for firefox */
+}
+
+::placeholder {
+    color: #bd8c7d;
+    opacity: .5;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: #bd8c7d;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav>  <div class="navbar">    <button mat-icon-button class="menu" [matMenuTriggerFor]="navMenu">      <mat-icon>menu</mat-icon>    </button>    <mat-menu class="dropdown-menu" #navMenu="matMenu">      <button mat-menu-item routerLink="">        <mat-icon>home</mat-icon>        <span>Home</span>      </button>      <button mat-menu-item routerLink="problem-selection">        <mat-icon>search</mat-icon>        <span>Problem Search</span>      </button>      <button mat-menu-item> <!-- add logic so this only shows up to teachers -->        <mat-icon>logout</mat-icon>        <span>Log Out</span>      </button>    </mat-menu>    <span class="title">Encounter</span>    <input class="search" matInput placeholder="Search">  </div>  <div class="line"></div></nav></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProblemSelectionComponent', 'selector': 'app-problem-selection'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
