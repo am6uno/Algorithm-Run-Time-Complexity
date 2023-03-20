@@ -23,7 +23,6 @@ export class ProblemCreationComponent {
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
       for (let line of this.codeInput.split(/[\r\n]+/)){
-        line = this.addTabsToLine(line); 
         this.sourceCode.push(line);
         this.complexity.push('');
         this.hints.push('');
@@ -32,12 +31,6 @@ export class ProblemCreationComponent {
     else{
       this._snackBar.open('Enter Source Code or Upload a File','X', {duration: 2000})
     }
-  }
-
-  addTabsToLine(line: string){
-    line.replace('\u0009','    ');
-    console.log(line);
-    return line;
   }
 
   onFileSelected(event: any){
@@ -72,11 +65,11 @@ export class ProblemCreationComponent {
   handleTab(event: any){
     this.codeInput = event.target.innerText;
 
-    event.preventDefault();  // prevent default behaviour, which is "blur"
+    event.preventDefault();
   
     let sel          = document.getSelection(),
         range        = sel?.getRangeAt(0),
-        tabNodeValue = '    ',
+        tabNodeValue = '\t',
         tabNode      = document.createTextNode(tabNodeValue);
       if(range){
         range.insertNode(tabNode)
