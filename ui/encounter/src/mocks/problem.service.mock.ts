@@ -1,4 +1,5 @@
 import { jest } from '@jest/globals';
+import { of } from 'rxjs';
 
 export const mockProblem1 = {
     id: 1,
@@ -17,9 +18,13 @@ export const mockProblem2 = {
     currentScore: 1,
 }
 
+export const mockProblemArray = [mockProblem1, mockProblem2];
+
+const mockAddProblem = jest.fn().mockReturnValue(of(mockProblemArray))
+
 const mockProblemList = jest.fn().mockReturnValue([mockProblem1, mockProblem2])
 
 export const MockProblemService = {
     getAllProblems: mockProblemList,
-    addProblem: jest.fn()
+    addProblem: mockAddProblem
 }
