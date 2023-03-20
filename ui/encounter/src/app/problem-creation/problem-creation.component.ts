@@ -22,7 +22,8 @@ export class ProblemCreationComponent {
 
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
-      for (const line of this.codeInput.split(/[\r\n]+/)){
+      for (let line of this.codeInput.split(/[\r\n]+/)){
+        line = this.addTabsToLine(line); 
         this.sourceCode.push(line);
         this.complexity.push('');
         this.hints.push('');
@@ -31,6 +32,12 @@ export class ProblemCreationComponent {
     else{
       this._snackBar.open('Enter Source Code or Upload a File','X', {duration: 2000})
     }
+  }
+
+  addTabsToLine(line: string){
+    line.replace('\u0009','    ');
+    console.log(line);
+    return line;
   }
 
   onFileSelected(event: any){
@@ -56,10 +63,27 @@ export class ProblemCreationComponent {
     return false;
   }
 
-setCodeInput(event: any){
-  this.codeInput = event.target.innerText;
-}
+  setCodeInput(event: any){
+    this.codeInput = event.target.innerText;
+  }
 
+  /*https://stackoverflow.com/questions/2237497/make-the-tab-key-insert-a-tab-character
+  -in-a-contenteditable-div-and-not-blur */
+  handleTab(event: any){
+    this.codeInput = event.target.innerText;
+
+    event.preventDefault();  // prevent default behaviour, which is "blur"
+  
+    let sel          = document.getSelection(),
+        range        = sel?.getRangeAt(0),
+        tabNodeValue = '    ',
+        tabNode      = document.createTextNode(tabNodeValue);
+      if(range){
+        range.insertNode(tabNode)
+        range.setStartAfter(tabNode)
+        range.setEndAfter(tabNode)
+      }
+  }
   submitProblem(){
     if(!this.formComplete()){
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
