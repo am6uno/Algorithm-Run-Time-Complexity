@@ -9,9 +9,9 @@ import { jest } from '@jest/globals';
 import { mockMatSnackBar } from '../../mocks/snack.bar.mock';
 import { of } from 'rxjs';
 
-describe('ProblemCreationComponent', () => {
 
-    describe('HeroComponent', () => {
+
+    describe('ProblemCreationComponent', () => {
         let component: ProblemCreationComponent;
         let fixture: ComponentFixture<ProblemCreationComponent>;
         let problemService: ProblemService;
@@ -98,5 +98,12 @@ describe('ProblemCreationComponent', () => {
             });
         });
 
+        describe('getTotalScore', () => {
+            it('should calculate the total score', () => {
+                component.complexity = ["O(N)", "O(N)"];
+                expect(component.getTotalScore()).toEqual(3);
+            });
+        });
+
     });
-});
+
