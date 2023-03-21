@@ -22,7 +22,7 @@ export class ProblemCreationComponent {
 
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
-      for (const line of this.codeInput.split(/[\r\n]+/)){
+      for (let line of this.codeInput.split(/[\r\n]+/)){
         this.sourceCode.push(line);
         this.complexity.push('');
         this.hints.push('');
@@ -56,10 +56,27 @@ export class ProblemCreationComponent {
     return false;
   }
 
-setCodeInput(event: any){
-  this.codeInput = event.target.innerText;
-}
+  setCodeInput(event: any){
+    this.codeInput = event.target.innerText;
+  }
 
+  /*https://stackoverflow.com/questions/2237497/make-the-tab-key-insert-a-tab-character
+  -in-a-contenteditable-div-and-not-blur */
+  handleTab(event: any){
+    this.codeInput = event.target.innerText;
+
+    event.preventDefault();
+  
+    let sel          = document.getSelection(),
+        range        = sel?.getRangeAt(0),
+        tabNodeValue = '\t',
+        tabNode      = document.createTextNode(tabNodeValue);
+      if(range){
+        range.insertNode(tabNode)
+        range.setStartAfter(tabNode)
+        range.setEndAfter(tabNode)
+      }
+  }
   submitProblem(){
     if(!this.formComplete()){
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
@@ -69,11 +86,21 @@ setCodeInput(event: any){
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
-        totalScore: 4,
+        totalScore: this.getTotalScore(),
         currentScore: 0,
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
     }    
+  }
+
+  getTotalScore(){
+    let totalScore: number = 1;
+    this.complexity.forEach(line => {
+      if(line){
+        totalScore++;
+      }
+    });
+    return totalScore;
   }
 }

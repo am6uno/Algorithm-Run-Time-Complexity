@@ -51,6 +51,7 @@ input[type='file']{
     word-wrap: break-word;
     margin: auto;
     text-align: left;
+    white-space: pre;
 }
 .source-code:focus{
     outline: 3px solid #49494b;

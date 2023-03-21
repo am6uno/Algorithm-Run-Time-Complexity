@@ -31,7 +31,7 @@ export class ProblemService {
       tap(
       {
         next: () => this._snackBar.open(`Problem ${problem.name} Created`, 'X', {duration: 2000}),
-        error: () => this._snackBar.open('Unable create problem','X', {duration: 2000})
+        error: () => this._snackBar.open('Unable to Create Problem','X', {duration: 2000})
       }
       )
     );

@@ -3,7 +3,7 @@
     <div class="get-source-code" *ngIf="sourceCode.length < 1">
         <div class="source-code-entry">
             <h2 class="source-code-entry-label">Enter Source Code</h2><br>
-            <div class="source-code" [(ngModel)]="codeInput" (keyup)="setCodeInput($event)" ngDefaultControl contenteditable></div><br>
+            <div class="source-code" [(ngModel)]="codeInput" (keydown.Tab)="handleTab($event); false;" (keyup)="setCodeInput($event)" ngDefaultControl contenteditable></div><br>
             <input type="submit" (click)="getSourceCodeFromTextInput()">
         </div>
         <p>or</p>
@@ -37,7 +37,7 @@
                     </span>
                     <span class="code">
                         <span class="line-number">{{i + 1}}</span>
-                        <span class="line-code">{{sourceCode[i]}}</span>
+                        <span class="line-code" style="white-space:pre">{{sourceCode[i]}}</span>
                     </span>
                 </div>
                 <div class="overall-complexity">
