@@ -86,11 +86,21 @@ export class ProblemCreationComponent {
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
-        totalScore: 4,
+        totalScore: this.getTotalScore(),
         currentScore: 0,
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
     }    
+  }
+
+  getTotalScore(){
+    let totalScore: number = 1;
+    this.complexity.forEach(line => {
+      if(line){
+        totalScore++;
+      }
+    });
+    return totalScore;
   }
 }
