@@ -4,6 +4,14 @@
   - We aim to create an online web application which emphasizes an interesting presentation to appeal to students, interactivity, and understandable feedback. This webpage will allow teachers to upload programs/code snippets. The teachers will then go on to annotate line by line the time complexity of each program. Students will then go in and annotate the programs. The students' annotations will be compared with the teachers' annotations and feedback will be provided on which lines the student has annotated incorrectly.
 
 - **Release notes:**
+ - **Milestone 2 (3/22/2023)**
+    - Added the ability for teachers to create problems on the front end.
+    - Added the login/create account HTML and CSS (the logic is not setup yet).
+    - Setup the documentation for both frontend(Compodocs) and backend(Javadoc).
+    - Added jest tests to cover the code that allows teachers to create problems.
+    - Added the teacher service and solution service in the backend.
+    - Finalized our data model.
+
   - **Milestone 1 (3/1/2023)**
     - Created frontend Angular application
     - Created backend Spring application
@@ -12,4 +20,6 @@
     - Added in frontend tests for UI components
 
 - **Additional branches:**
-  - `student-problem-search-component` - This branch contains features that have not been merged, however, everything planned and developed for Milestone 1 is on `main`.
+  - `student-problem-search-component` - This branch contains the ProblemSet service that is currently being reviewed.
+  - `backend-testing` - This branch contains the start on JUnit tests for the backend.
+    

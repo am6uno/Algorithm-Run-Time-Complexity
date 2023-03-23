@@ -1,0 +1,53 @@
+<div class="problem-creation">
+    <h1 class="page-title">Create Problem</h1>
+    <div class="get-source-code" *ngIf="sourceCode.length < 1">
+        <div class="source-code-entry">
+            <h2 class="source-code-entry-label">Enter Source Code</h2><br>
+            <div class="source-code" [(ngModel)]="codeInput" (keydown.Tab)="handleTab($event); false;" (keyup)="setCodeInput($event)" ngDefaultControl contenteditable></div><br>
+            <input type="submit" (click)="getSourceCodeFromTextInput()">
+        </div>
+        <p>or</p>
+        <label class="upload-code" for="file-input">
+            <mat-icon class="upload-icon">cloud_upload</mat-icon>
+            Upload Problem Code
+        </label>
+        <input type="file" id="file-input" (change)="onFileSelected($event)" #fileUpload>
+    </div>
+    <div class="teacher-annotations" *ngIf="sourceCode.length > 0">
+        <div class="problem-form">
+                <div class="problem-name">
+                    <mat-label>Problem Name</mat-label><br>
+                    <input [(ngModel)]="name">
+                </div>
+            <div class="annotations">
+                <div class="column-labels">
+                    <div class="complexity-column-label">
+                        <mat-label>Complexity</mat-label>
+                    </div>
+                    <div class="hints-column-label">
+                        <mat-label>Hints</mat-label>
+                    </div>
+                </div>
+                <div class="form-line" *ngFor="let code of sourceCode; index as i">
+                    <span class="line-complexity">
+                        <input type="text" [(ngModel)]="complexity[i]" maxlength="20">
+                    </span>
+                    <span class="line-hints">
+                        <input type="text" [(ngModel)]="hints[i]">
+                    </span>
+                    <span class="code">
+                        <span class="line-number">{{i + 1}}</span>
+                        <span class="line-code" style="white-space:pre">{{sourceCode[i]}}</span>
+                    </span>
+                </div>
+                <div class="overall-complexity">
+                    <mat-label>Overall Complexity</mat-label><br>
+                    <input type="text" [(ngModel)]="answer">
+                </div>
+                </div><br>
+            </div>
+        <button type="submit" class="problem-submit" (click)="submitProblem()">Submit</button>
+    </div>
+    
+</div>
+

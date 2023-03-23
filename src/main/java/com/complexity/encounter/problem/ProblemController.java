@@ -21,6 +21,7 @@ public class ProblemController {
     public Problem getProblem(@PathVariable long id){
         return problemService.getProblemById(id).get();
     }
+    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/problems")
     public void addProblem(@RequestBody Problem problem){
         problemService.saveProblem(problem);
