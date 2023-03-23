@@ -1,5 +1,5 @@
 export interface Problem {
-    id: number;
+    id?: number;
     name: string;
     sourceCode: string[];
     complexity: string[];

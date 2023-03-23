@@ -44,7 +44,6 @@ export class ProblemSelectionComponent implements OnInit {
         }
       });
     }
-    console.log(this.selectedProblems);
   }
 
   /**

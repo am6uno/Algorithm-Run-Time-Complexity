@@ -13,11 +13,18 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { ProblemCreationComponent } from './problem-creation/problem-creation.component';
+import { MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+import { NgComponentOutlet } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: TeacherLoginComponent},
   {path: 'problem-selection', component: ProblemSelectionComponent},
+  {path: 'problem-creation', component: ProblemCreationComponent}
 ];
 
 @NgModule({
@@ -27,6 +34,7 @@ const APP_ROUTES: Routes = [
     HomepageComponent,
     TeacherLoginComponent,
     ProblemSelectionComponent,
+    ProblemCreationComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +44,10 @@ const APP_ROUTES: Routes = [
     MatInputModule,
     MatButtonModule,
     MatMenuModule,
+    MatTableModule,
+    FormsModule,
+    NgComponentOutlet,
+    MatSnackBarModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
   ],

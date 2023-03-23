@@ -1,5 +1,6 @@
 .search-page {
   margin: 5%;
+  padding: 0px 0px 10px 0px;
 }
 
 .problem {
@@ -12,7 +13,7 @@
 }
 
 .search {
-    border: 3px solid #bd8c7d;;
+    border: 3px solid #bd8c7d;
     background-color: white;
     border-radius: 6px;
     color: #d1bfa7;
@@ -27,4 +28,8 @@
 .no-match{
   text-align: center;
   margin: 10% 0%;
+}
+
+.problems{
+  margin: 3% 0;
 }
