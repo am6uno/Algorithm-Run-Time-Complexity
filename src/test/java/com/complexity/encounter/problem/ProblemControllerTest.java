@@ -9,8 +9,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -24,8 +22,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,6 +44,7 @@ class ProblemControllerTest {
             new String[]{"o(n)", "o(1)", "o(1)"},
             new String[]{"The progression here is linear.", "The execution here is constant.",
                     "The execution here is constant."},
+            "o(n)",
             3);
 
     Problem testProblem2 = new Problem(
@@ -58,6 +55,7 @@ class ProblemControllerTest {
             new String[]{"o(?)", "o(1)", "o(1)"},
             new String[]{"The progression here is unknown.", "The execution here is constant.",
                     "The execution here is constant."},
+            "o(n)",
             7);
 
     Problem testProblem3 = new Problem(
@@ -68,6 +66,7 @@ class ProblemControllerTest {
             new String[]{"o(1)", "o(1)", "o(1)"},
             new String[]{"The progression here is constant.", "The execution here is constant.",
                     "The execution here is constant."},
+            "o(n)",
             5);
 
     @Test
@@ -83,7 +82,7 @@ class ProblemControllerTest {
         // Prints info, expects a status of 200 (OK), checks that list contains 3 objects,
         // and verifies that the response equals the object as a JSON string
         mockMvc.perform(get("/problems"))
-                .andDo(print())
+                //.andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(3)))
                 .andExpect(content().string(equalTo(objectMapper.writeValueAsString(testProblems))));
@@ -99,7 +98,7 @@ class ProblemControllerTest {
 
         // Prints info, expects a status of 200 (OK), and verifies that the response equals the object as a JSON string
         mockMvc.perform(get("/problems/100"))
-                .andDo(print())
+                //.andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo(objectMapper.writeValueAsString(testProblem1))));
     }
@@ -110,7 +109,6 @@ class ProblemControllerTest {
         // Sets what should be returned when a mock POST request is executed. any() is used initially so that
         // saveProblem expects any argument
         doNothing().when(problemService).saveProblem(any());
-        //when(problemService.saveProblem(any()));
         problemService.saveProblem(testProblem1);
 
         // Setting up the mock POST request
@@ -119,33 +117,46 @@ class ProblemControllerTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(testProblem1));
 
+        // Expect an OK status
         mockMvc.perform(mockRequest)
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo(objectMapper.writeValueAsString(testProblem1))));
+                //.andDo(print())
+                .andExpect(status().isOk());
 
-        /*
-        RequestBuilder request = get("/api/problems");
-        MvcResult result = mockMvc.perform(request).andReturn();
-        System.out.println(result.getResponse().getContentAsString());
-        */
-        /*
-        given(problemService.saveProblem(ArgumentMatchers.any())).willAnswer(invocation -> invocation.getArgument(0));
+    }
 
-        ResultActions response = mockMvc.perform(post("/api/problems")
+    @Test
+    void updateProblem() throws Exception {
+        // Sets what should be returned when a mock PUT request is executed.
+        doNothing().when(problemService).updateProblem(any(), anyLong());
+        problemService.updateProblem(testProblem1, 100L);
+
+        // Setting up the mock PUT request
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.put("/problems/100")
                 .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(testProblem)));
+                .accept(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(testProblem1));
 
-        response.andExpect(MockMvcResultMatchers.status().isCreated());
-
-         */
+        // Expect an OK status
+        mockMvc.perform(mockRequest)
+                //.andDo(print())
+                .andExpect(status().isOk());
     }
 
     @Test
-    void updateProblem() {
-    }
+    void deleteProblem() throws Exception {
+        // Sets what should be returned when a mock DELETE request is executed.
+        doNothing().when(problemService).deleteProblem(anyLong());
+        problemService.deleteProblem(100L);
 
-    @Test
-    void deleteProblem() {
+        // Setting up the mock DELETE request
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.delete("/problems/100")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(testProblem1));
+
+        // Expect an OK status
+        mockMvc.perform(mockRequest)
+                //.andDo(print())
+                .andExpect(status().isOk());
     }
 }

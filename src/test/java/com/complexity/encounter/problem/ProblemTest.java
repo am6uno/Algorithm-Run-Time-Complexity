@@ -13,6 +13,7 @@ class ProblemTest {
             new String[]{"o(n)", "o(1)", "o(1)"},
             new String[]{"The progression here is linear.", "The execution here is constant.",
                     "The execution here is constant."},
+            "o(n)",
             3);
     Problem emptyProblem = new Problem();
 
@@ -49,7 +50,10 @@ class ProblemTest {
                         "The execution here is constant."},
                 testProblem.getHints());
     }
-
+    @Test
+    void getOverallComplexity() {
+        assertEquals("o(n)", testProblem.getOverallComplexity());
+    }
     @Test
     void getTotalScore() {
         assertEquals(3, testProblem.getTotalScore());
@@ -93,6 +97,12 @@ class ProblemTest {
                 "The execution here is constant."};
         testProblem.setHints(newHints);
         assertEquals(newHints, testProblem.getHints());
+    }
+
+    @Test
+    void setOverallComplexity() {
+        testProblem.setOverallComplexity("o(logn)");
+        assertEquals("o(logn)", testProblem.getOverallComplexity());
     }
 
     @Test
