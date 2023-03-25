@@ -3,6 +3,7 @@ import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ComplexityParserService } from '../complexity-parser/complexity-parser.service';
 
 @Component({
   selector: 'app-problem-creation',
@@ -18,7 +19,7 @@ export class ProblemCreationComponent {
   totalScore: Number = 0;
   codeInput: string = '';
 
-  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar){ }
+  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar, private complexityParserService: ComplexityParserService){ }
 
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
@@ -103,4 +104,9 @@ export class ProblemCreationComponent {
     });
     return totalScore;
   }
+
+parser() {
+  this.complexityParserService.parse()
+}
+
 }
