@@ -1,5 +1,6 @@
 export interface Problem {
     id?: number;
+    setId: number;
     name: string;
     sourceCode: string[];
     complexity: string[];

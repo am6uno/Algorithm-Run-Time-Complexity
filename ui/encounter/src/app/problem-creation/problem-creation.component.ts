@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./problem-creation.component.css']
 })
 export class ProblemCreationComponent {
+  setId: number = 1;
   sourceCode: string[] = [];
   name: string = '';
   complexity: string[] = [];
@@ -83,6 +84,7 @@ export class ProblemCreationComponent {
     }
     else{
       const createdProblem: Problem = {
+        setId: this.setId,
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,

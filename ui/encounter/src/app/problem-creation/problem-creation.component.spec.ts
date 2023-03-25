@@ -63,7 +63,7 @@ import { of } from 'rxjs';
                 component.name = "Problem 1";
                 component.sourceCode = ["int x = 5;", "int z = 6;"];
                 component.complexity = ["O(C)","O(C)"];
-                component.answer = "O(C)";
+                component.overallComplexity = "O(C)";
                 expect(component.formComplete()).toBeTrue;
             });
             it('should return false because the required values have not been set', ()=> {
@@ -91,7 +91,7 @@ import { of } from 'rxjs';
                 component.name = "Problem 1";
                 component.sourceCode = ["int x = 5;", "int z = 6;"];
                 component.complexity = ["O(C)","O(C)"];
-                component.answer = "O(C)";
+                component.overallComplexity = "O(C)";
                 let problemServiceSpy = jest.spyOn(problemService, 'addProblem').mockReturnValue(of(mockProblemArray as any))
                 component.submitProblem()
                 expect(problemServiceSpy).toHaveBeenCalled();

@@ -17,6 +17,7 @@ public class ProblemController {
     public List<Problem> getAllProblems(){
         return problemService.getAllProblems();
     }
+    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping("/problems/{id}")
     public Problem getProblem(@PathVariable long id){
         return problemService.getProblemById(id).get();

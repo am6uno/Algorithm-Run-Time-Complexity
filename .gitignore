@@ -47,4 +47,5 @@ build/
 ### VS Code ###
 .vscode/
 /node/
+
 /.env
