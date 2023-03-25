@@ -18,13 +18,18 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
 
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: TeacherLoginComponent},
   {path: 'problem-selection', component: ProblemSelectionComponent},
-  {path: 'problem-creation', component: ProblemCreationComponent}
+  {path: 'problem-creation', component: ProblemCreationComponent},
+  {path: 'student-solution/:id', component: StudentSolutionComponent}
 ];
 
 @NgModule({
@@ -35,6 +40,7 @@ const APP_ROUTES: Routes = [
     TeacherLoginComponent,
     ProblemSelectionComponent,
     ProblemCreationComponent,
+    StudentSolutionComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,7 @@ const APP_ROUTES: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

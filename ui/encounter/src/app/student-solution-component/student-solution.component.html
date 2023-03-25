@@ -1,0 +1,30 @@
+<div class="student-solution">
+    <div class="problem-form" *ngIf="!isLoading">
+        <h1 class="problem-name">{{problem.name}}</h1>
+        <div class="annotations">
+            <div class="column-labels">
+                <div class="complexity-column-label">
+                    <mat-label>Complexity</mat-label>
+                </div>
+            </div>
+            <div class="form-line" *ngFor="let code of problem.sourceCode; index as i">
+                <span class="line-complexity">
+                    <input type="text" [(ngModel)]="complexityAnswer[i]" maxlength="20">
+                </span>
+                <span class="code">
+                    <span class="line-number">{{i + 1}}</span>
+                    <span class="line-code" style="white-space:pre">{{problem.sourceCode[i]}}</span>
+                </span>
+            </div>
+            <div class="overall-complexity">
+                <mat-label>Overall Complexity</mat-label><br>
+                <input type="text" [(ngModel)]="overallComplexity">
+            </div>
+            </div><br>
+            <button type="submit" class="problem-submit" (click)="submitProblem()">Submit</button>
+        </div>
+
+    <div class="loading" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

@@ -3,6 +3,7 @@ export interface Problem {
     name: string;
     sourceCode: string[];
     complexity: string[];
+    hints: string[];
+    overallComplexity: string;
     totalScore: number;
-    currentScore: number;
 }

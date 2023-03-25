@@ -14,7 +14,7 @@ export class ProblemCreationComponent {
   name: string = '';
   complexity: string[] = [];
   hints: string[] = [];
-  answer: string = '';
+  overallComplexity: string = '';
   totalScore: Number = 0;
   codeInput: string = '';
 
@@ -49,7 +49,7 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.answer && this.sourceCode.length > 0  
+    if(this.name && this.overallComplexity && this.sourceCode.length > 0  
       && this.complexity.length > 0){
         return true;
     }
@@ -86,8 +86,9 @@ export class ProblemCreationComponent {
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
+        hints: this.hints,
+        overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
-        currentScore: 0,
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
