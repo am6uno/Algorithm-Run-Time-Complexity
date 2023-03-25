@@ -1,6 +1,5 @@
 package com.complexity.encounter.problem;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,11 +16,11 @@ public class Problem {
     @GeneratedValue
 
     private long id;
+    private long setId;
     private String name;
-    @Embedded
     private String[] sourceCode; // stored as an array of lines
-    @Embedded
     private String[] complexity; // stored as an array of lines
-    private int totalScore;     // this would need to be stored on the student account
-    private int currentScore;   // this would need to be stored on the student account
+    private String[] hints;      // stored as an array of lines
+    private String overallComplexity;
+    private int totalScore;
 }

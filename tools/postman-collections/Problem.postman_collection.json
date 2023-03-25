@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "0d4a6935-170e-4bd6-adb9-628a982be008",
+		"_postman_id": "23820c33-637d-47a4-a5b0-d8a34149ec2b",
 		"name": "Problem",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21157022"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -58,7 +57,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"For loop analysis\",\r\n    \"sourceCode\": [\r\n        \"for (int i = 0; i < 10; i++) {\",\r\n        \"   // Do Something\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"totalScore\": 5,\r\n    \"currentScore\": 5\r\n}",
+					"raw": "{\r\n    \"setId\": 1,\r\n    \"name\": \"For loop analysis\",\r\n    \"sourceCode\": [\r\n        \"for (int i = 0; i < 10; i++) {\",\r\n        \"   // Do Something\",\r\n        \"}\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(n)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"hints\": [\r\n        \"The progression here is linear.\",\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\"\r\n    ],\r\n    \"overallComplexity\": \"o(n)\",\r\n    \"totalScore\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,7 +85,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"name\": \"prob 2\",\r\n        \"sourceCode\": [\r\n            \"for (int i = 0; i < 10; i++) {\",\r\n            \"   // Do Something\",\r\n            \"}\",\r\n            \"int test = 2;\"\r\n        ],\r\n        \"complexity\": [\r\n            \"O(n)\"\r\n        ],\r\n        \"totalScore\": 10,\r\n        \"currentScore\": 9\r\n    }",
+					"raw": "{\r\n    \"setId\": 1,\r\n    \"name\": \"Simple analysis\",\r\n    \"sourceCode\": [\r\n        \"int i = 1;\",\r\n        \"int i = 2;\",\r\n        \"int i = 3;\"\r\n    ],\r\n    \"complexity\": [\r\n        \"O(1)\",\r\n        \"O(1)\",\r\n        \"O(1)\"\r\n    ],\r\n    \"hints\": [\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\",\r\n        \"The execution here is constant.\"\r\n    ],\r\n    \"overallComplexity\": \"o(1)\",\r\n    \"totalScore\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
