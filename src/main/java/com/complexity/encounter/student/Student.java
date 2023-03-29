@@ -18,7 +18,7 @@ public class Student {
     private Long id;
     private String first_name;
     private String last_name;
-    @ManyToMany(mappedBy = "classroom_set")
+    @ManyToMany(mappedBy = "enrolled_students")
     private Set<Classroom> enrolled_classes;
     private char[] password_hash;
 
