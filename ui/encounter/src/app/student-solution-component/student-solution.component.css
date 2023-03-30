@@ -1,6 +1,8 @@
-.problem-name{
+.page-header{
+    display: flex;
+    justify-content: space-between;
     text-align: left;
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
 }
 
 .annotations{
@@ -100,7 +102,7 @@ mat-label{
     width: 10%;
     height: 24px;
     padding: 2px;
-    margin: 3px 4px 3px 0px;
+    margin: 3px 4px 3px 3px;
     outline: none;
     border: 3px solid #49494b;
     border-radius: 5px;
@@ -113,7 +115,6 @@ mat-label{
     min-width: 88px;
     border-radius: 3px;
     font-size: 14px;
-    text-align: center;
     text-decoration:none;
     border: none;
     outline: none;
@@ -127,4 +128,20 @@ mat-label{
     width: 100px;
     top: 50%;
     left: 50%;
+}
+
+.correctAnswer{
+    background-color: #e6ffe6;
+}
+
+.incorrectAnswer{
+    background-color: #ffe6e6;
+}
+
+.solution-form{
+    text-align: center;
+}
+
+.line-answer{
+    height: 42px;
 }

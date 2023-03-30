@@ -20,6 +20,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -57,6 +58,7 @@ const APP_ROUTES: Routes = [
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

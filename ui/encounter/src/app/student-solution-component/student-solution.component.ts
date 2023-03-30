@@ -19,21 +19,21 @@ export class StudentSolutionComponent implements OnInit{
     private _snackBar: MatSnackBar,
     private solutionService: SolutionService
   ) {}
-  private sub: any;
+  showResults: boolean = false;
   problem: Problem;
   studentId: number;
   problemId: number = 0;
   complexityAnswer: string[];
-  overallComplexity: "";
-  score: 0;
+  overallComplexity: string = "";
+  score: number = 0;
 
   isLoading = true;
 
   ngOnInit(): void {
     this.problemService
 
-    this.sub = this.route.params.subscribe(params => {
-      this.problemId = +params['id']; 
+    this.route.params.subscribe(params => {
+      this.problemId = +params['id'];
       this.problemService.getProblemById(this.problemId).subscribe({
         next: (problem) => {
           this.problem = problem;
@@ -46,18 +46,22 @@ export class StudentSolutionComponent implements OnInit{
         }
       });
    });
-    
+
   }
 
-  submitProblem(){
+  submitSolution(){
+    this.score = this.calculateScore();
     const studentSolution: Solution = {
       studentId: 1,
       problemId: this.problemId,
       complexityAnswer: this.complexityAnswer,
       overallComplexity: this.overallComplexity,
-      score: this.calculateScore(),
+      score: this.score,
     }
     this.solutionService.addSolution(studentSolution).subscribe({
+      next: () =>{
+        this.showResults = true;
+      },
       error: () => {
         this._snackBar.open('Could not submit solution','X', {duration: 2000});
       }
@@ -67,15 +71,23 @@ export class StudentSolutionComponent implements OnInit{
   calculateScore(): number{
     let score = 0;
     for(let i = 0; i < this.problem.complexity.length; i++){
-      if(this.problem.complexity[i] === this.complexityAnswer[i]){
+      if(this.lineComplexityCorrect(i)){
         score++
       }
     }
 
-    if(this.problem.overallComplexity == this.overallComplexity){
+    if(this.overallComplexityCorrect()){
       score++;
     }
     return score;
   }
-  
+
+  overallComplexityCorrect(){
+    return this.problem.overallComplexity?.toLowerCase() == this.overallComplexity?.toLowerCase() ? true : false;
+  }
+
+  lineComplexityCorrect(index: number){
+    return this.problem.complexity[index].toLowerCase() === this.complexityAnswer[index].toLowerCase() ? true : false;
+  }
+
 }
