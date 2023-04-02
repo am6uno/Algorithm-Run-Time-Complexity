@@ -3,7 +3,7 @@ version: '3'
 volumes:
   mysql_data:
     driver: local
-
+# based off of https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-mysql.yml
 services:
   mysql:
     image: mysql:8.0.32
@@ -23,13 +23,15 @@ services:
       timeout: 20s
       retries: 10
   keycloak:
-    image: quay.io/keycloak/keycloak:legacy
+    image: quay.io/keycloak/keycloak:13.0.1
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: mysql
       DB_DATABASE: mydb
       DB_USER: admin
       DB_PASSWORD: admin
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
     command: ["-Djboss.http.port=8084"]
     ports:
       - 8084:8084

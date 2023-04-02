@@ -16,7 +16,7 @@
         <mat-icon>create</mat-icon>
         <span>Create a Problem</span>
       </button>
-      <button mat-menu-item> <!-- add logic so this only shows up to teachers -->
+      <button mat-menu-item (click)="logout()"> <!-- add logic so this only shows up to teachers -->
         <mat-icon>logout</mat-icon>
         <span>Log Out</span>
       </button>

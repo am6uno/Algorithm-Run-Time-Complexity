@@ -1,4 +1,4 @@
- import { NgModule } from '@angular/core';
+ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,13 +18,17 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializer } from 'AppInit';
+import { AuthService } from './auth.service';
+import { AuthGuard } from 'auth';
 
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'login', component: TeacherLoginComponent},
-  {path: 'problem-selection', component: ProblemSelectionComponent},
-  {path: 'problem-creation', component: ProblemCreationComponent}
+  {path: 'login', component: TeacherLoginComponent, canActivate: [AuthGuard], data: {roles: ['teacher']}},
+  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard], data: {roles: ['student']}},
+  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {roles: ['teacher']}},
 ];
 
 @NgModule({
@@ -50,8 +54,18 @@ const APP_ROUTES: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+    KeycloakAngularModule,
   ],
-  providers: [],
+  providers: [
+    KeycloakService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    },
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
