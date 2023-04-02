@@ -19,6 +19,12 @@
                     <mat-label>Problem Name</mat-label><br>
                     <input [(ngModel)]="name">
                 </div>
+        <div class="problem-form">
+                <div class="problem-name">
+                    <mat-label>Tools</mat-label><br>
+                    <button type="button" class="tools-button" (click)="parser()">Parse</button>
+                    <button type="button" class="tools-button" (click)="setAllToConstant()">All o(1)</button>
+                </div>
             <div class="annotations">
                 <div class="column-labels">
                     <div class="complexity-column-label">

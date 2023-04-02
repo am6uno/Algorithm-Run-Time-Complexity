@@ -159,7 +159,12 @@ export class ProblemCreationComponent {
 
 
 parser() {
-  this.complexityParserService.parse(this.forloopExample2)
+  this.complexityParserService.parse(this.forloopExample)
+}
+
+setAllToConstant() {
+  this.complexity.forEach ((line) => line = "o(1)")
+  this.hints.forEach ((line) => line = "The complexity is linear")
 }
 
 }
