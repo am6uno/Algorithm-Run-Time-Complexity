@@ -22,7 +22,7 @@
         <div class="problem-form">
                 <div class="problem-name">
                     <mat-label>Tools</mat-label><br>
-                    <button type="button" class="tools-button" (click)="parser()">Parse</button>
+                    <button type="button" class="tools-button" (click)="parse()">Parse</button>
                     <button type="button" class="tools-button" (click)="setAllToConstant()">All o(1)</button>
                 </div>
             <div class="annotations">
@@ -41,19 +41,17 @@
                     <span class="line-hints">
                         <input type="text" [(ngModel)]="hints[i]">
                     </span>
-                    <span class="code" style="background-color: #b3f0ed">
+                    <span class="code">
                         <span class="line-number">{{i + 1}}</span>
                         <span class="line-code" style="white-space:pre">{{sourceCode[i]}}</span>
                     </span>
                 </div>
                 <div class="overall-complexity">
                     <mat-label>Overall Complexity</mat-label><br>
-                    <input type="text" [(ngModel)]="answer">
+                    <input type="text" [(ngModel)]="overallComplexity">
                 </div>
                 </div><br>
             </div>
         <button type="submit" class="problem-submit" (click)="submitProblem()">Submit</button>
     </div>
-    <button type="button" class="problem-submit" style="color:rgb(11, 255, 121); background-color:rgb(255, 0, 115)" (click)="parser()">Parse</button>
 </div>
-

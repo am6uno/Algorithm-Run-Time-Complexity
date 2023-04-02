@@ -15,7 +15,7 @@ export class ProblemCreationComponent {
   name: string = '';
   complexity: string[] = [];
   hints: string[] = [];
-  answer: string = '';
+  overallComplexity: string = '';
   totalScore: Number = 0;
   codeInput: string = '';
 
@@ -50,7 +50,7 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.answer && this.sourceCode.length > 0  
+    if(this.name && this.overallComplexity && this.sourceCode.length > 0  
       && this.complexity.length > 0){
         return true;
     }
@@ -87,6 +87,8 @@ export class ProblemCreationComponent {
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
+        hints: this.hints,
+        overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
         currentScore: 0,
       }
@@ -105,71 +107,7 @@ export class ProblemCreationComponent {
     return totalScore;
   }
 
-  forloopSimpleExample: string = `
-  for (int x = 0; x < 10; i++) {
-    int x = 5;
-  }
-
-  for (int x = 0; x < 10; i++) {
-    int x = 5;
-  }
-  `;
-
-  forloopExample: string = `
-  for (int x = 0; x < 10; i++) {
-    int x = 5;
-  }
-
-  int y = 5;
-
-  while (true) {
-    int x = 5;
-  }
-
-  if (true){
-
-  }
-
-  do {
-    //something
-  } while (i <= 10);
-  `;
-
-  forloopExample2: string = `
-  for (int x = 0; x < 10; i++) {
-    for (int y = 0; y < 10; y++) {
-        for (int z = 0; z < 10; z++) {
-          if (true){
-            something }
-        }
-    }
-  }
-
-  
-  for (int x = 0; x < 10; i++) {
-    for (int y = 0; y < 10; y++) {
-        for (int z = 0; z < 10; z++) {
-          if (true){
-            something }
-          
-          if (true){
-            something }
-
-          if (false) {
-            
-            while (true) {
-              // wow
-            } 
-            
-          }
-        }
-    }
-  }
-  
-  `;
-
-
-parser() {
+parse() {
 
   this.setAllToConstant();
   let blockList = this.complexityParserService.parse(this.sourceCode.join("\n"))
@@ -186,13 +124,14 @@ parser() {
 
   })
 
-  this.answer = this.formatComplexity(maxN)
+  this.overallComplexity = this.formatComplexity(maxN)
 }
 
 setAllToConstant() {
   for (let i = 0; i < this.complexity.length; i++) {
     this.complexity[i] = "o(1)";
     this.hints[i] = "The complexity is linear";
+    this.overallComplexity = "o(1)";
   }
 }
 

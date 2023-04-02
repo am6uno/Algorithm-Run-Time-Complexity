@@ -9,7 +9,6 @@ export class ComplexityParserService {
 
   constructor() { }
 
-
   parse(sourceCode: string): Block[] {
 
     let lexer = new Tokenizr()
