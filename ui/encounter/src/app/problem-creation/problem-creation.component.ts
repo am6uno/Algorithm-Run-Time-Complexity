@@ -151,6 +151,17 @@ export class ProblemCreationComponent {
         for (int z = 0; z < 10; z++) {
           if (true){
             something }
+          
+          if (true){
+            something }
+
+          if (false) {
+            
+            while (true) {
+              // wow
+            } 
+            
+          }
         }
     }
   }
@@ -159,12 +170,52 @@ export class ProblemCreationComponent {
 
 
 parser() {
-  this.complexityParserService.parse(this.forloopExample)
+
+  this.setAllToConstant();
+  let blockList = this.complexityParserService.parse(this.sourceCode.join("\n"))
+  let maxN = 0;
+
+  blockList.forEach((block) => {
+
+    this.complexity[block.begLine - 1] = this.formatComplexity(block.complexity)
+    
+    this.hints[block.begLine - 1] = block.complexity == 0 ? "The complexity is linear" : "The complexity is exponential"
+
+    if (block.complexity > maxN)
+      maxN = block.complexity
+
+  })
+
+  this.answer = this.formatComplexity(maxN)
 }
 
 setAllToConstant() {
-  this.complexity.forEach ((line) => line = "o(1)")
-  this.hints.forEach ((line) => line = "The complexity is linear")
+  for (let i = 0; i < this.complexity.length; i++) {
+    this.complexity[i] = "o(1)";
+    this.hints[i] = "The complexity is linear";
+  }
+}
+
+private formatComplexity(complexity: number): string {
+
+let output: string
+
+switch (complexity) {
+    case 0: {
+      output = "o(1)"
+      break;
+    }
+    case 1: {
+      output = "o(n)"
+      break;
+    }
+    default: {
+      output = "o(n^" + complexity + ")"
+      break;
+    }
+  }
+
+  return output
 }
 
 }
