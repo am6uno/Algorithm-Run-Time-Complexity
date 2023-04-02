@@ -20,7 +20,7 @@
                         'incorrectAnswer' : !lineComplexityCorrect(i) && showResults
                      }">
                 </span>
-                <span class="code">
+                <span class="code" [ngStyle]="{'background-color': getLineColor(i)}">
                     <span class="line-number">{{i + 1}}</span>
                     <span class="line-code" style="white-space:pre" matTooltip="{{problem.hints[i]}}" [matTooltipPosition]="'right'">{{problem.sourceCode[i]}}</span>
                 </span>

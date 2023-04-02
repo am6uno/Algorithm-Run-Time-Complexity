@@ -1,5 +1,6 @@
 package com.complexity.encounter.solution;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,7 +18,9 @@ public class Solution {
     private long id;
     private long studentId;
     private long problemId;
+    @Column(length = 5000)
     private String[] complexityAnswer;
+    @Column(length = 5000)
     private String overallComplexity;
     private int score;
 

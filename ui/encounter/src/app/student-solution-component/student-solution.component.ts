@@ -6,6 +6,8 @@ import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Solution } from '../solution';
 import { SolutionService } from '../solution-service/solution.service';
+import { ComplexityParserService } from '../complexity-parser/complexity-parser.service';
+import { Block } from '../complexity-parser/block';
 
 @Component({
   selector: 'app-student-solution',
@@ -17,7 +19,8 @@ export class StudentSolutionComponent implements OnInit{
     private problemService: ProblemService,
     private router: Router, private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
-    private solutionService: SolutionService
+    private solutionService: SolutionService,
+    private complexityParserService: ComplexityParserService
   ) {}
   showResults: boolean = false;
   problem: Problem;
@@ -26,6 +29,8 @@ export class StudentSolutionComponent implements OnInit{
   complexityAnswer: string[];
   overallComplexity: string = "";
   score: number = 0;
+  blockList: Block[];
+  blockColors: string[] = ["#feffb7", "#d0ffb7", "#b7fff8", "#b8b7ff", "#ffb7f5", "#ffb7bd"]
 
   isLoading = true;
 
@@ -39,6 +44,7 @@ export class StudentSolutionComponent implements OnInit{
           this.problem = problem;
           this.complexityAnswer = new Array(problem.complexity.length).fill('');
           this.isLoading = false;
+          this.blockList = this.complexityParserService.parse(this.problem.sourceCode.join("\n"))
         },
         error: () => {
           this._snackBar.open('Could not fetch problem','X', {duration: 2000});
@@ -90,4 +96,22 @@ export class StudentSolutionComponent implements OnInit{
     return this.problem.complexity[index].toLowerCase() === this.complexityAnswer[index].toLowerCase() ? true : false;
   }
 
+  getLineColor(lineNum: number): string {
+
+    // Start from line 1
+    lineNum++;
+
+    // Set the background colors of the smaller blocks first
+    this.blockList.sort((a, b) => b.begLine - a.begLine)
+
+    // Check if the line number is in a block
+    for (let i = 0; i < this.blockList.length; i++) {
+      if (lineNum >= this.blockList[i].begLine && lineNum <= this.blockList[i].endLine) {
+        return this.blockColors[this.blockList[i].depth % this.blockColors.length]
+      }
+    }
+
+    // If line isn't in block, return white
+    return "white"
+  }
 }

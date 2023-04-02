@@ -43,7 +43,8 @@ export class ComplexityParserService {
         let newBlock = {
           complexity: 1,
           begLine: currToken.line,
-          endLine: -1
+          endLine: -1,
+          depth: 0
         }
 
         // Add the new block to the block list
@@ -77,6 +78,8 @@ export class ComplexityParserService {
 
         // Decrease the block depth now that a block has been formed
         blockDepth--;
+
+        blockList[blockDepth + rootBlock].depth = blockDepth;
 
         // Check if this block is inside another block, if so, update the previous block complexities
         if (blockDepth > 0) {
