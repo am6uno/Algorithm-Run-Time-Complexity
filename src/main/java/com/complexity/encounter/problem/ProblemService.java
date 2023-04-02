@@ -25,11 +25,12 @@ public class ProblemService {
     }
     public void updateProblem(Problem problem, Long id) {
         Optional<Problem> updatedProblem = problemRepository.findById(id);
+        updatedProblem.get().setSetId(problem.getSetId());
         updatedProblem.get().setName(problem.getName());
         updatedProblem.get().setSourceCode(problem.getSourceCode());
         updatedProblem.get().setComplexity(problem.getComplexity());
+        updatedProblem.get().setHints(problem.getHints());
         updatedProblem.get().setTotalScore(problem.getTotalScore());
-        updatedProblem.get().setCurrentScore(problem.getCurrentScore());
         problemRepository.save(updatedProblem.get());
     }
 }
