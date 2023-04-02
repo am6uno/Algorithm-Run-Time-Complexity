@@ -105,8 +105,61 @@ export class ProblemCreationComponent {
     return totalScore;
   }
 
+  forloopSimpleExample: string = `
+  for (int x = 0; x < 10; i++) {
+    int x = 5;
+  }
+
+  for (int x = 0; x < 10; i++) {
+    int x = 5;
+  }
+  `;
+
+  forloopExample: string = `
+  for (int x = 0; x < 10; i++) {
+    int x = 5;
+  }
+
+  int y = 5;
+
+  while (true) {
+    int x = 5;
+  }
+
+  if (true){
+
+  }
+
+  do {
+    //something
+  } while (i <= 10);
+  `;
+
+  forloopExample2: string = `
+  for (int x = 0; x < 10; i++) {
+    for (int y = 0; y < 10; y++) {
+        for (int z = 0; z < 10; z++) {
+          if (true){
+            something }
+        }
+    }
+  }
+
+  
+  for (int x = 0; x < 10; i++) {
+    for (int y = 0; y < 10; y++) {
+        for (int z = 0; z < 10; z++) {
+          if (true){
+            something }
+        }
+    }
+  }
+  
+  `;
+
+
 parser() {
-  this.complexityParserService.parse()
+  this.complexityParserService.parse(this.forloopExample2)
 }
 
 }
