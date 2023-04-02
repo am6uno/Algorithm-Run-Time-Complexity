@@ -32,6 +32,7 @@ public class SolutionController {
     public Optional<Solution> getSolutionByStudentAndProblem(@PathVariable long studentId, @PathVariable long problemId){
         return solutionService.getSolutionByStudentAndProblem(studentId,problemId);
     }
+    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/solutions")
     public void addSolution(@RequestBody Solution solution){
         solutionService.saveSolution(solution);

@@ -5,7 +5,7 @@
   </div>
 
   <div class="problems">
-      <div class = problem *ngFor="let problem of selectedProblems">
+      <div class = problem *ngFor="let problem of selectedProblems" (click)="selectProblem(problem.id)">
           <h3>{{problem.name}}</h3>
       </div>
       <div *ngIf="selectedProblems.length == 0" class="no-match">

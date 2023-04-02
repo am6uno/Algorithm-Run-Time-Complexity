@@ -36,4 +36,8 @@ export class ProblemService {
       )
     );
   }
+
+  getProblemById(problemId:number): Observable<Problem>{
+    return this.http.get<Problem>("http://localhost:8080/problems/" + problemId);
+  }
 }

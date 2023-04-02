@@ -50,6 +50,11 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>3.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>me.paulschwarz</groupId>
+            <artifactId>spring-dotenv</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
     <reporting>
         <plugins>
@@ -123,24 +128,6 @@
 							<arguments>run build</arguments>
 						</configuration>
 					</execution>
-					<execution>
-						<id>npm test</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>test</arguments>
-						</configuration>
-					</execution>
-                    <execution>
-                        <id>create frontend documentation</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run compodoc</arguments>
-                        </configuration>
-                    </execution>
 				</executions>
 			</plugin>
         </plugins>

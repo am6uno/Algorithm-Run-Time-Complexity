@@ -11,6 +11,7 @@ import { ComplexityParserService } from '../complexity-parser/complexity-parser.
   styleUrls: ['./problem-creation.component.css']
 })
 export class ProblemCreationComponent {
+  setId: number = 1;
   sourceCode: string[] = [];
   name: string = '';
   complexity: string[] = [];
@@ -84,13 +85,13 @@ export class ProblemCreationComponent {
     }
     else{
       const createdProblem: Problem = {
+        setId: this.setId,
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
         hints: this.hints,
         overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
-        currentScore: 0,
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProblemService } from '../problem-service/problem.service';
 import { Problem } from '../problem';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-problem-selection',
@@ -12,7 +13,7 @@ export class ProblemSelectionComponent implements OnInit {
   /**
    * @param problemService The problemService is used to get problems from the backend.
    */
-  constructor(private problemService: ProblemService) {}
+  constructor(private problemService: ProblemService, private router: Router) {}
 
   allProblems: any = [];
   selectedProblems: any = [];
@@ -59,6 +60,10 @@ export class ProblemSelectionComponent implements OnInit {
     else{
       return false;
     }
+  }
+
+  selectProblem(problemId: number){
+    this.router.navigate(['student-solution/' + problemId])
   }
 
 }
