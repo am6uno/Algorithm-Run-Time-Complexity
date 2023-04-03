@@ -1,27 +1,24 @@
 import { KeycloakService } from "keycloak-angular";
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { tap } from "rxjs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
 export class AuthService {
-    constructor(private keycloakService: KeycloakService, private http: HttpClient) {}
+    constructor(private keycloakService: KeycloakService, private _snackBar: MatSnackBar) {}
 
     getLoggedUser(){
         try {
             let userDetails = this.keycloakService.getKeycloakInstance().idTokenParsed;
-            /*console.log('UserDetails', userDetails);
-            console.log('UserRoles', this.keycloakService.getUserRoles());*/
             return userDetails;
         }
         catch (e) {
-            console.log('getLoggedUser Exception', e);
             return undefined;
         }
     }
     
     logout() {
         this.keycloakService.logout();
+        this._snackBar.open(`Logged out`, 'X', {duration: 4000})
     }
 
     redirectToProfile(){

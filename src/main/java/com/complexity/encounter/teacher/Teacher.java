@@ -19,7 +19,7 @@ public class Teacher {
     private long id;
     private String first_name;
     private String last_name;
-    private String teacher_email;
+    private String teacherEmail;
     private char[] password_hash;
 
 }

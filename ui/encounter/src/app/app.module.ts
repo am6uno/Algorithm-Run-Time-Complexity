@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
+import { LoginComponent } from './login/login.component';
 import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,9 +26,9 @@ import { AuthGuard } from 'auth';
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'login', component: TeacherLoginComponent, canActivate: [AuthGuard], data: {roles: ['teacher']}},
-  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard], data: {roles: ['student']}},
-  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {roles: ['teacher']}},
+  {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
+  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
@@ -36,7 +36,7 @@ const APP_ROUTES: Routes = [
     AppComponent,
     NavbarComponent,
     HomepageComponent,
-    TeacherLoginComponent,
+    LoginComponent,
     ProblemSelectionComponent,
     ProblemCreationComponent,
   ],

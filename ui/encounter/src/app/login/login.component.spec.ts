@@ -1,4 +1,4 @@
-import { TeacherLoginComponent } from './teacher-login.component';
+import { TeacherLoginComponent } from './login.component';
 
 
 describe('TeacherLoginComponent', () => {
