@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {}
-  showLoginPage: boolean = true;
   teacherExists: boolean = false;
   studentExists: boolean = false;
   role: string = 'student';
@@ -84,10 +83,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       }
     })
-  }
-
-  switchPage(){
-    this.showLoginPage = !this.showLoginPage;
   }
 
 }
