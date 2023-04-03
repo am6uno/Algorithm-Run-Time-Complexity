@@ -5,6 +5,17 @@ volumes:
     driver: local
 # based off of https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-mysql.yml
 services:
+  encounter-backend:
+    container_name: encounter-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
   mysql:
     image: mysql:8.0.32
     volumes:
