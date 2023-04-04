@@ -1,9 +1,9 @@
 package com.complexity.encounter.student;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
@@ -19,6 +19,13 @@ public class StudentController {
         return studentService.getStudentById(id).get();
     }
 
+    @RequestMapping("/students/email/{email}")
+    @CrossOrigin(origins ="http://localhost:4200")
+    public Optional<Student> getStudentByEmail(@PathVariable String email){
+        return studentService.getStudentByEmail(email);
+    }
+
+    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/students")
     public void addStudent(@RequestBody Student student){
         studentService.saveStudent(student);

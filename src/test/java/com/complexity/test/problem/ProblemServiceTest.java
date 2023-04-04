@@ -1,5 +1,8 @@
-package com.complexity.encounter.problem;
+package com.complexity.test.problem;
 
+import com.complexity.encounter.problem.Problem;
+import com.complexity.encounter.problem.ProblemRepository;
+import com.complexity.encounter.problem.ProblemService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

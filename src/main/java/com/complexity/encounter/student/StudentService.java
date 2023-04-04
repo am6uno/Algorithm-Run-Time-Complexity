@@ -1,5 +1,4 @@
 package com.complexity.encounter.student;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +16,8 @@ public class StudentService {
 
     public Optional<Student> getStudentById(long id) {return studentRepository.findById(id);}
 
+    public Optional<Student> getStudentByEmail(String email){ return studentRepository.findByEmail(email);}
+
     public void deleteStudent(long id) {
         // To-do: Find out if I need to manage classrooms here.
         studentRepository.deleteById(id);
@@ -24,6 +25,7 @@ public class StudentService {
 
     public void updateStudent(Student student, Long id) {
         Optional<Student> updatedStudent = studentRepository.findById(id);
+        updatedStudent.get().setEmail(student.getEmail());
         updatedStudent.get().setFirst_name(student.getFirst_name());
         updatedStudent.get().setLast_name(student.getLast_name());
         updatedStudent.get().setPassword_hash(student.getPassword_hash());

@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 import { Teacher } from '../teacher';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,9 @@ export class LoginComponent implements OnInit {
   role: string = 'student';
 
   ngOnInit(): void {
+    if(this.userService.user){
+      this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
+    }
     this.route.params.subscribe(params => {
       this.role = params['role'];
       if(this.role !== 'student' && this.role !== 'teacher'){
@@ -40,29 +44,35 @@ export class LoginComponent implements OnInit {
     }
   }
 
- updateUser(userDetails: any, role: string){
-  this.userService.user = {
-    firstName: userDetails.given_name,
-    lastName: userDetails.family_name,
-    email: userDetails.email,
-    role: role,
-  }
- }
-
   handleStudentLogin(userDetails: any){
-    console.log('student login');
-    this.router.navigate(['problem-selection'])
+    this.userService.getStudentByEmail(userDetails.email).subscribe({
+      next: student => {
+        if(!student){
+          this.addStudent(userDetails);
+        }
+        this.userService.updateUser(userDetails, 'student');
+        this.router.navigate(['problem-selection']);
+      },
+      error: () => {
+        this.addStudent(userDetails);
+        this.userService.updateUser(userDetails, 'student');
+        this.router.navigate(['problem-selection']);
+      }
+    });
   }
 
   handleTeacherLogin(userDetails: any){
     this.userService.getTeacherByEmail(userDetails.email).subscribe({
-      next: () => {
-        this.updateUser(userDetails, 'teacher');
+      next: teacher => {
+        if(!teacher){
+          this.addTeacher(userDetails);
+        }
+        this.userService.updateUser(userDetails, 'teacher');
         this.router.navigate(['problem-creation']);
       },
       error: () => {
         this.addTeacher(userDetails);
-        this.updateUser(userDetails, 'teacher');
+        this.userService.updateUser(userDetails, 'teacher');
         this.router.navigate(['problem-creation']);
       }
     });
@@ -80,6 +90,23 @@ export class LoginComponent implements OnInit {
     this.userService.addTeacher(teacher).subscribe({
       error: () => {
         console.log("Unable to add teacher");
+        this.router.navigate(['']);
+      }
+    })
+  }
+
+  addStudent(userDetails: any){
+    console.log(userDetails);
+    let student: Student = {
+      first_name: userDetails.given_name,
+      last_name: userDetails.family_name,
+      email: userDetails.email,
+      enrolled_classes: [],
+      password_hash: "placeholder"
+    }
+    this.userService.addStudent(student).subscribe({
+      error: () => {
+        console.log("Unable to add student");
         this.router.navigate(['']);
       }
     })

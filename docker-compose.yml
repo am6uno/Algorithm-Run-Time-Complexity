@@ -5,17 +5,25 @@ volumes:
     driver: local
 # based off of https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-mysql.yml
 services:
-  encounter-backend:
-    container_name: encounter-backend
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 8080:8080
-    depends_on:
-      mysql:
-        condition: service_healthy
+  #encounter-backend:
+  #  container_name: encounter-backend
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
+  #  environment:
+  #    SPRING_APPLICATION_JSON: '{
+  #            "spring.datasource.url"  : "jdbc:mysql://localhost:3306/mydb",
+  #            "spring.datasource.username" : "admin",
+  #            "spring.datasource.password" : "admin",
+  #            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
+  #            "spring.jpa.hibernate.ddl-auto" : "update"
+  #          }'
+  #  restart: always
+  #  ports:
+  #    - 8080:8080
+  #  depends_on:
+  #    mysql:
+  #      condition: service_healthy
   mysql:
     image: mysql:8.0.32
     volumes:
@@ -37,6 +45,7 @@ services:
     image: quay.io/keycloak/keycloak:13.0.1
     volumes:
       - ./keycloak:/opt/jboss/keycloak/imports
+    restart: always
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: mysql
