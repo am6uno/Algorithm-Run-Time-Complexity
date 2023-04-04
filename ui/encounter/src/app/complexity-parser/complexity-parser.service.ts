@@ -100,10 +100,10 @@ export class ComplexityParserService {
   private parserConfiguration(lexer: Tokenizr) {
 
     // Rules for the loop headers
-    lexer.rule(/for\s*\(.*\)\s+\{/, (ctx, match) => {
+    lexer.rule(/for\s*\(.*\)\s*\{/, (ctx, match) => {
       ctx.accept("loop");
     });
-    lexer.rule(/while\s*\(.*\)\s+\{/, (ctx, match) => {
+    lexer.rule(/while\s*\(.*\)\s*\{/, (ctx, match) => {
       ctx.accept("loop");
     });
     lexer.rule(/do\s*\{/, (ctx, match) => {
