@@ -3,6 +3,7 @@ import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ComplexityParserService } from '../complexity-parser/complexity-parser.service';
 
 @Component({
   selector: 'app-problem-creation',
@@ -10,15 +11,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./problem-creation.component.css']
 })
 export class ProblemCreationComponent {
+  setId: number = 1;
   sourceCode: string[] = [];
   name: string = '';
   complexity: string[] = [];
   hints: string[] = [];
-  answer: string = '';
+  overallComplexity: string = '';
   totalScore: Number = 0;
   codeInput: string = '';
 
-  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar){ }
+  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar, private complexityParserService: ComplexityParserService){ }
 
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
@@ -49,7 +51,7 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.answer && this.sourceCode.length > 0  
+    if(this.name && this.overallComplexity && this.sourceCode.length > 0  
       && this.complexity.length > 0){
         return true;
     }
@@ -83,11 +85,13 @@ export class ProblemCreationComponent {
     }
     else{
       const createdProblem: Problem = {
+        setId: this.setId,
         name: this.name,
         sourceCode: this.sourceCode,
         complexity: this.complexity,
+        hints: this.hints,
+        overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
-        currentScore: 0,
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
@@ -103,4 +107,55 @@ export class ProblemCreationComponent {
     });
     return totalScore;
   }
+
+parse() {
+
+  this.setAllToConstant();
+  let blockList = this.complexityParserService.parse(this.sourceCode.join("\n"))
+  let maxN = 0;
+
+  blockList.forEach((block) => {
+
+    this.complexity[block.begLine - 1] = this.formatComplexity(block.complexity)
+    
+    this.hints[block.begLine - 1] = block.complexity == 0 ? "The complexity is linear" : "The complexity is exponential"
+
+    if (block.complexity > maxN)
+      maxN = block.complexity
+
+  })
+
+  this.overallComplexity = this.formatComplexity(maxN)
+}
+
+setAllToConstant() {
+  for (let i = 0; i < this.complexity.length; i++) {
+    this.complexity[i] = "o(1)";
+    this.hints[i] = "The complexity is linear";
+    this.overallComplexity = "o(1)";
+  }
+}
+
+private formatComplexity(complexity: number): string {
+
+let output: string
+
+switch (complexity) {
+    case 0: {
+      output = "o(1)"
+      break;
+    }
+    case 1: {
+      output = "o(n)"
+      break;
+    }
+    default: {
+      output = "o(n^" + complexity + ")"
+      break;
+    }
+  }
+
+  return output
+}
+
 }
