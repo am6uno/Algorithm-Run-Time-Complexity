@@ -39,9 +39,9 @@ public class SolutionService {
     public void updateSolution(Solution solution, Long id) {
           Optional<Solution> updatedSolution = solutionRepository.findById(id);
         updatedSolution.get().setStudentId(solution.getStudentId());
-        updatedSolution.get().setStudentId(solution.getStudentId());
         updatedSolution.get().setProblemId(solution.getProblemId());
         updatedSolution.get().setComplexityAnswer(solution.getComplexityAnswer());
+        updatedSolution.get().setOverallComplexity(solution.getOverallComplexity());
         updatedSolution.get().setScore(solution.getScore());
         solutionRepository.save(updatedSolution.get());
     }

@@ -19,6 +19,12 @@
                     <mat-label>Problem Name</mat-label><br>
                     <input [(ngModel)]="name">
                 </div>
+        <div class="problem-form">
+                <div class="problem-name">
+                    <mat-label>Tools</mat-label><br>
+                    <button type="button" class="tools-button" (click)="parse()">Parse</button>
+                    <button type="button" class="tools-button" (click)="setAllToConstant()">All o(1)</button>
+                </div>
             <div class="annotations">
                 <div class="column-labels">
                     <div class="complexity-column-label">
@@ -42,12 +48,10 @@
                 </div>
                 <div class="overall-complexity">
                     <mat-label>Overall Complexity</mat-label><br>
-                    <input type="text" [(ngModel)]="answer">
+                    <input type="text" [(ngModel)]="overallComplexity">
                 </div>
                 </div><br>
             </div>
         <button type="submit" class="problem-submit" (click)="submitProblem()">Submit</button>
     </div>
-    
 </div>
-

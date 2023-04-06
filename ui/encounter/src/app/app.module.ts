@@ -1,4 +1,4 @@
- import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -22,6 +22,10 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializer } from 'AppInit';
 import { AuthService } from './auth.service';
 import { AuthGuard } from 'auth';
+import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 const APP_ROUTES: Routes = [
@@ -29,6 +33,8 @@ const APP_ROUTES: Routes = [
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({
@@ -39,6 +45,7 @@ const APP_ROUTES: Routes = [
     LoginComponent,
     ProblemSelectionComponent,
     ProblemCreationComponent,
+    StudentSolutionComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +62,8 @@ const APP_ROUTES: Routes = [
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     KeycloakAngularModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   providers: [
     KeycloakService,
