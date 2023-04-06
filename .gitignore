@@ -48,4 +48,6 @@ build/
 .vscode/
 /node/
 
+/docker/
+
 /.env

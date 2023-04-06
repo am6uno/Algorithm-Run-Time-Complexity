@@ -1,4 +1,4 @@
- import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
+import { LoginComponent } from './login/login.component';
 import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,19 +18,23 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializer } from 'AppInit';
+import { AuthService } from './auth.service';
+import { AuthGuard } from 'auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
-
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'login', component: TeacherLoginComponent},
-  {path: 'problem-selection', component: ProblemSelectionComponent},
-  {path: 'problem-creation', component: ProblemCreationComponent},
-  {path: 'student-solution/:id', component: StudentSolutionComponent}
+  {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
+  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({
@@ -38,7 +42,7 @@ const APP_ROUTES: Routes = [
     AppComponent,
     NavbarComponent,
     HomepageComponent,
-    TeacherLoginComponent,
+    LoginComponent,
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
@@ -57,10 +61,20 @@ const APP_ROUTES: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+    KeycloakAngularModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [
+    KeycloakService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    },
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

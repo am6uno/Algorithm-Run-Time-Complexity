@@ -1,7 +1,10 @@
 <div class="homepage-content">
-    <div class="role-selection">
-        <button mat-raised-button class="teacher" routerLink="login">Teachers</button>
+    <div class="role-selection" *ngIf="loggedIn">
+        <button mat-raised-button class="teacher" routerLink="login/teacher">Teachers</button>
         <br>
-        <button mat-raised-button class="student" routerLink="problem-selection">Students</button>
+        <button mat-raised-button class="student" routerLink="login/student">Students</button>
+    </div>
+    <div class="role-selection" *ngIf="!loggedIn">
+        <button mat-raised-button routerLink="login/login">Login</button>
     </div>
 </div>

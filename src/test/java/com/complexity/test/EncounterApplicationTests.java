@@ -1,6 +1,4 @@
-package com.complexity.encounter;
-
-import org.junit.jupiter.api.Test;
+package com.complexity.test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

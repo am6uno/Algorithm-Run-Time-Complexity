@@ -15,6 +15,7 @@
     <description>This is a web application that teaches how to analyze run-time complexity.</description>
     <properties>
         <java.version>17</java.version>
+        <start-class>com.complexity.encounter.EncounterApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -71,7 +72,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>src\main\java\com\complexity\encounter\EncounterApplication.java</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

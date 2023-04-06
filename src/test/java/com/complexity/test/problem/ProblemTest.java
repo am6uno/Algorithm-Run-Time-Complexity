@@ -1,5 +1,6 @@
-package com.complexity.encounter.problem;
+package com.complexity.test.problem;
 
+import com.complexity.encounter.problem.Problem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
