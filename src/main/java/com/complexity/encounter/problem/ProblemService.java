@@ -15,18 +15,53 @@ public class ProblemService {
     @Autowired
     private ProblemRepository problemRepository;
 
+    /**
+     * <p>
+     *     Creates a problem
+     * </p>
+     * @param problem the problem to add
+     */
     public void saveProblem(Problem problem) {
         problemRepository.save(problem);
     }
+
+    /**
+     * <p>
+     *     Retrieves all of the problems
+     * </p>
+     * @return the list of problems
+     */
     public List<Problem> getAllProblems() {
         return problemRepository.findAll();
     }
+
+    /**
+     * <p>
+     *     Retrieves a problem
+     * </p>
+     * @param id the id of desired problem
+     * @return the problem
+     */
     public Optional<Problem> getProblemById(long id) {
         return problemRepository.findById(id);
     }
+
+    /**
+     * <p>
+     *     Deletes a problem
+     * </p>
+     * @param id the id of the problem to delete
+     */
     public void deleteProblem(long id) {
         problemRepository.deleteById(id);
     }
+
+    /**
+     * <p>
+     *     Updates a problem
+     * </p>
+     * @param problem the problem to update
+     */
     public void updateProblem(Problem problem, Long id) {
         Optional<Problem> updatedProblem = problemRepository.findById(id);
         updatedProblem.get().setSetId(problem.getSetId());

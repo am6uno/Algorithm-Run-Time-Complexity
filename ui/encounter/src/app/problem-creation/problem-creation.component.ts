@@ -51,7 +51,7 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.overallComplexity && this.sourceCode.length > 0  
+    if(this.name && this.overallComplexity && this.sourceCode.length > 0
       && this.complexity.length > 0){
         return true;
     }
@@ -68,7 +68,7 @@ export class ProblemCreationComponent {
     this.codeInput = event.target.innerText;
 
     event.preventDefault();
-  
+
     let sel          = document.getSelection(),
         range        = sel?.getRangeAt(0),
         tabNodeValue = '\t',
@@ -95,7 +95,7 @@ export class ProblemCreationComponent {
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
-    }    
+    }
   }
 
   getTotalScore(){
@@ -108,6 +108,10 @@ export class ProblemCreationComponent {
     return totalScore;
   }
 
+
+/**
+*   Parses the source code to autofill the complexity within the problem creation panel and find the total complexity.
+**/
 parse() {
 
   this.setAllToConstant();
@@ -117,7 +121,7 @@ parse() {
   blockList.forEach((block) => {
 
     this.complexity[block.begLine - 1] = this.formatComplexity(block.complexity)
-    
+
     this.hints[block.begLine - 1] = block.complexity == 0 ? "The complexity is linear" : "The complexity is exponential"
 
     if (block.complexity > maxN)
@@ -128,6 +132,9 @@ parse() {
   this.overallComplexity = this.formatComplexity(maxN)
 }
 
+/**
+*   Sets all line to constant. Hints will mention linear complexiity.
+**/
 setAllToConstant() {
   for (let i = 0; i < this.complexity.length; i++) {
     this.complexity[i] = "o(1)";
@@ -136,6 +143,11 @@ setAllToConstant() {
   }
 }
 
+  /**
+  *   Returns the string equivalent of a complexity
+  *   @param complexity a problem.
+  *   @returns The complexity.
+  **/
 private formatComplexity(complexity: number): string {
 
 let output: string
