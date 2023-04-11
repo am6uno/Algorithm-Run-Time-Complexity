@@ -8,6 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+* This POJO class establishes the Solution object for our database.
+*/
+
 @Data
 @Entity
 @NoArgsConstructor

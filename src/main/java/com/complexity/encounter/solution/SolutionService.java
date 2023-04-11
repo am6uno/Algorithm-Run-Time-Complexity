@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+* This service contains the business logic for Solution objects.
+*/
+
 @Service
 public class SolutionService {
     @Autowired

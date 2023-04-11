@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+* This controller handles request for Student objects.
+*/
+
 @RestController
 public class StudentController {
     @Autowired

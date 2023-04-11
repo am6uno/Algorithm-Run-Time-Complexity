@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
-* This service handles the business logic for Classroom objects.
+* This service contains the business logic for Classroom objects.
 */
 
 @Service

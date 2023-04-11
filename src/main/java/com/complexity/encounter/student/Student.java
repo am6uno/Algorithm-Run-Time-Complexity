@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+/**
+* This POJO class establishes the Student object for our database.
+*/
+
 @Data
 @Entity
 @NoArgsConstructor
