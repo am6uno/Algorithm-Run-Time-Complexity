@@ -13,20 +13,43 @@ import java.util.Optional;
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
-
+    /**
+     * Communicates with the database to create a new Student object.
+     * @param student Student object containing the new data to be added.
+     */
     public void saveStudent(Student student) { studentRepository.save(student);}
-
+    /**
+     * Queries the database to look up all Student objects and returns them as a List
+     * @return The list of all Student objects.
+     */
     public List<Student> getAllStudents() {return studentRepository.findAll();}
-
+    /**
+     * Queries the database using the passed id value and converts the result into an
+     * Optional object.
+     * @param id The id used in the query to look up a Student
+     * @return An Optional object which contains the Student object on a hit.
+     */
     public Optional<Student> getStudentById(long id) {return studentRepository.findById(id);}
-
+    /**
+     * Queries the database using the pass email address and converts the result into
+     * and Optional object.
+     * @param email The email address used in the query.
+     * @return An Optional object which contains the Student object on a hit.
+     */
     public Optional<Student> getStudentByEmail(String email){ return studentRepository.findByEmail(email);}
-
+    /**
+     * Deletes a Student object from the database.
+     * @param id The id of the Student to be deleted.
+     */
     public void deleteStudent(long id) {
         // To-do: Find out if I need to manage classrooms here.
         studentRepository.deleteById(id);
     }
-
+    /**
+     * Updates the database with contents of the passed Student Object.
+     * @param student A Student object with updated information.
+     * @param id The id of the Student being updated.
+     */
     public void updateStudent(Student student, Long id) {
         Optional<Student> updatedStudent = studentRepository.findById(id);
         updatedStudent.get().setEmail(student.getEmail());
