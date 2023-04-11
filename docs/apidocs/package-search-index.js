@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.complexity.encounter"},{"l":"com.complexity.encounter.problem"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.complexity.encounter"},{"l":"com.complexity.encounter.classroom"},{"l":"com.complexity.encounter.problem"},{"l":"com.complexity.encounter.problemset"},{"l":"com.complexity.encounter.solution"},{"l":"com.complexity.encounter.student"},{"l":"com.complexity.encounter.teacher"}];updateSearchResults();
