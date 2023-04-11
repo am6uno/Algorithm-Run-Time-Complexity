@@ -1,4 +1,4 @@
-import { KeycloakService, KeycloakOptions } from "keycloak-angular";
+ import { KeycloakService, KeycloakOptions } from "keycloak-angular";
 
 const keycloakConfig = {
     clientId: 'encounter-ui',
