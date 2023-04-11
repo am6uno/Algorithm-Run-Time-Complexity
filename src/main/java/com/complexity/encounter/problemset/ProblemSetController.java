@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+/**
+ * This is the controller for the ProblemSet class.
+ * @Author Cole Gregory
+ */
 public class ProblemSetController
 {
     @Autowired
