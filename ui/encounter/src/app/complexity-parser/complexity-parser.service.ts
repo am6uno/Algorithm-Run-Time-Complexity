@@ -9,6 +9,11 @@ export class ComplexityParserService {
 
   constructor() { }
 
+   /**
+     * Parses the source code and returns the blocks of code.
+     * @param {string} sourceCode  The source code being parsed.
+     * @returns A list of blocks.
+     */
   parse(sourceCode: string): Block[] {
 
     let lexer = new Tokenizr()
@@ -87,7 +92,7 @@ export class ComplexityParserService {
             blockList[i - 1].complexity++
           }
         }
-        
+
         // Update the previous blocks's endline value
         blockList[blockDepth + rootBlock].endLine = currToken.line;
       }
@@ -97,6 +102,10 @@ export class ComplexityParserService {
     return blockList
   }
 
+  /**
+     * Configures the parser to identify java code.
+     * @param {Tokenizr} lexer The lexer to configure.
+     */
   private parserConfiguration(lexer: Tokenizr) {
 
     // Rules for the loop headers

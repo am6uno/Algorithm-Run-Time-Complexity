@@ -79,7 +79,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#addProblem" >addProblem</a>
+                            </li>
+                            <li>
                                 <a href="#getAllProblems" >getAllProblems</a>
+                            </li>
+                            <li>
+                                <a href="#getProblemById" >getProblemById</a>
                             </li>
                         </ul>
                     </td>
@@ -99,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _snackBar: MatSnackBar)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/problem-service/problem.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/problem-service/problem.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -133,6 +139,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -147,6 +165,85 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProblem"></a>
+                    <span class="name">
+                        <span ><b>addProblem</b></span>
+                        <a href="#addProblem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addProblem(problem: <a href="../interfaces/Problem.html" target="_self">Problem</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/problem-service/problem.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>  Posts a problem to the backend.
+  @param problem a problem.
+  @returns a Problem Observable.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>problem</td>
+                                    <td>
+                                                <code><a href="../interfaces/Problem.html" target="_self" >Problem</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a problem.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>a Problem Observable.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -167,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/problem-service/problem.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -192,6 +289,85 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProblemById"></a>
+                    <span class="name">
+                        <span ><b>getProblemById</b></span>
+                        <a href="#getProblemById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProblemById(problemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/problem-service/problem.service.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>  Retrieves a problem from the backend with the specified Id.
+  @param problemId The id of the problem to retrieve.
+  @returns Returns an observable of the problem that it receives from the backend.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>problemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The id of the problem to retrieve.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns an observable of the problem that it receives from the backend.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -200,15 +376,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable} from &#x27;rxjs&#x27;;
+import { Observable, tap} from &#x27;rxjs&#x27;;
 import { Problem } from &#x27;../problem&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class ProblemService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
   }
 
   /**
@@ -216,7 +393,38 @@ export class ProblemService {
    * @returns The list of all problems.
    */
   getAllProblems(): Observable&lt;Problem[]&gt;{
-    return this.http.get&lt;Problem[]&gt;(&quot;http://localhost:8080/problems&quot;)
+    return this.http.get&lt;Problem[]&gt;(&quot;http://localhost:8080/problems&quot;).pipe(
+      tap(
+      {
+        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to get problems&#x27;,&#x27;X&#x27;, {duration: 2000})
+      }
+      )
+    );
+  }
+
+  /**
+  *   Posts a problem to the backend.
+  *   @param problem a problem.
+  *   @returns a Problem Observable.
+  **/
+  addProblem(problem: Problem): Observable&lt;Problem&gt;{
+    return this.http.post&lt;Problem&gt;(&quot;http://localhost:8080/problems&quot;, problem).pipe(
+      tap(
+      {
+        next: () &#x3D;&gt; this._snackBar.open(&#x60;Problem ${problem.name} Created&#x60;, &#x27;X&#x27;, {duration: 2000}),
+        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to Create Problem&#x27;,&#x27;X&#x27;, {duration: 2000})
+      }
+      )
+    );
+  }
+
+  /**
+  *   Retrieves a problem from the backend with the specified Id.
+  *   @param problemId The id of the problem to retrieve.
+  *   @returns Returns an observable of the problem that it receives from the backend.
+  **/
+  getProblemById(problemId:number): Observable&lt;Problem&gt;{
+    return this.http.get&lt;Problem&gt;(&quot;http://localhost:8080/problems/&quot; + problemId);
   }
 }
 </code></pre>
