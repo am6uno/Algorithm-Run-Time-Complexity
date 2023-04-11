@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+/**
+ * This is the service for the ProblemSet class.
+ * @Author Cole Gregory
+ */
 public class ProblemSetService
 {
     @Autowired
