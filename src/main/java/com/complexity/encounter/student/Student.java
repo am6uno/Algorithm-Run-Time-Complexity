@@ -9,7 +9,12 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 /**
-* This POJO class establishes the Student object for our database.
+* This Java class acts as the user object for student accounts. It contains basic
+ * fields for email address, first and last names, and references all classrooms that
+ * the students are enrolled in. The primary difference is that enrolled students
+ * are many to many with classrooms, while a classroom can only be owned by one
+ * teacher.
+ * @author Jason Siciliano
 */
 
 @Data

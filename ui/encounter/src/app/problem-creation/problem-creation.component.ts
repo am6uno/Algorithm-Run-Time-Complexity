@@ -51,7 +51,7 @@ export class ProblemCreationComponent {
 
 
   formComplete(){
-    if(this.name && this.overallComplexity && this.sourceCode.length > 0  
+    if(this.name && this.overallComplexity && this.sourceCode.length > 0
       && this.complexity.length > 0){
         return true;
     }
@@ -68,7 +68,7 @@ export class ProblemCreationComponent {
     this.codeInput = event.target.innerText;
 
     event.preventDefault();
-  
+
     let sel          = document.getSelection(),
         range        = sel?.getRangeAt(0),
         tabNodeValue = '\t',
@@ -95,7 +95,7 @@ export class ProblemCreationComponent {
       }
       this.problemService.addProblem(createdProblem).subscribe();
       this.router.navigate(['']);
-    }    
+    }
   }
 
   getTotalScore(){
@@ -117,8 +117,8 @@ parse() {
   blockList.forEach((block) => {
 
     this.complexity[block.begLine - 1] = this.formatComplexity(block.complexity)
-    
-    this.hints[block.begLine - 1] = block.complexity == 0 ? "The complexity is linear" : "The complexity is exponential"
+
+    this.hints[block.begLine - 1] = block.complexity == 0 ? "The complexity is constant" : "The complexity is linear"
 
     if (block.complexity > maxN)
       maxN = block.complexity
@@ -131,7 +131,7 @@ parse() {
 setAllToConstant() {
   for (let i = 0; i < this.complexity.length; i++) {
     this.complexity[i] = "o(1)";
-    this.hints[i] = "The complexity is linear";
+    this.hints[i] = "The complexity is constant";
     this.overallComplexity = "o(1)";
   }
 }

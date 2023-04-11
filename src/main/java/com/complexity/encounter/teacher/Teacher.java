@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 /**
-* This POJO class establishes the Teacher object for our database.
+* This Java class holds the user information for teacher type users in the
+ * database. It consists of fields for email, first and last name, as well
+ * as a set of references to the classrooms that the teacher has created.
+ * @author Jason Siciliano
 */
 
 @Data

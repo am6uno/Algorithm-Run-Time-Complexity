@@ -11,7 +11,11 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 /**
-* This POJO class establishes the Classroom object for our database.
+* This is the Java class for classroom organization, and holds a reference to
+ * the teacher who created the class, as well as a list of students in the class.
+ * Classrooms are primarily a method to organize students so that teachers can
+ * deploy Problemsets and give feedback.
+ * @author Jason Siciliano
 */
 
 @Data
