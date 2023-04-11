@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >ProblemService</li>
+  <li >AuthService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/problem-service/problem.service.ts</code>
+            <code>src/app/auth.service.ts</code>
         </p>
 
 
@@ -79,13 +79,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#addProblem" >addProblem</a>
+                                <a href="#getLoggedUser" >getLoggedUser</a>
                             </li>
                             <li>
-                                <a href="#getAllProblems" >getAllProblems</a>
+                                <a href="#getRoles" >getRoles</a>
                             </li>
                             <li>
-                                <a href="#getProblemById" >getProblemById</a>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#redirectToProfile" >redirectToProfile</a>
                             </li>
                         </ul>
                     </td>
@@ -105,12 +108,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _snackBar: MatSnackBar)</code>
+<code>constructor(keycloakService: KeycloakService, _snackBar: MatSnackBar)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/problem-service/problem.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/auth.service.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -128,10 +131,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>http</td>
+                                                        <td>keycloakService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                                    <code>KeycloakService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -169,75 +172,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addProblem"></a>
+                    <a name="getLoggedUser"></a>
                     <span class="name">
-                        <span ><b>addProblem</b></span>
-                        <a href="#addProblem"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getLoggedUser</b></span>
+                        <a href="#getLoggedUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>addProblem(problem: <a href="../interfaces/Problem.html" target="_self">Problem</a>)</code>
+<code>getLoggedUser()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">src/app/auth.service.ts:9</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>  Posts a problem to the backend.
-  @param problem a problem.
-  @returns a Problem Observable.</p>
-</div>
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>problem</td>
-                                    <td>
-                                                <code><a href="../interfaces/Problem.html" target="_self" >Problem</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>a problem.</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>a Problem Observable.</p>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -248,16 +209,53 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getAllProblems"></a>
+                    <a name="getRoles"></a>
                     <span class="name">
-                        <span ><b>getAllProblems</b></span>
-                        <a href="#getAllProblems"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getRoles</b></span>
+                        <a href="#getRoles"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAllProblems()</code>
+<code>getRoles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/auth.service.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
                 </td>
             </tr>
 
@@ -265,24 +263,16 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:19</a></div>
+                            class="link-to-prism">src/app/auth.service.ts:19</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Retrieves all problems from the backend.</p>
-</div>
 
-                    <div>
-                    </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>The list of all problems.</p>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -293,75 +283,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getProblemById"></a>
+                    <a name="redirectToProfile"></a>
                     <span class="name">
-                        <span ><b>getProblemById</b></span>
-                        <a href="#getProblemById"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>redirectToProfile</b></span>
+                        <a href="#redirectToProfile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getProblemById(problemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>redirectToProfile()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/auth.service.ts:24</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>  Retrieves a problem from the backend with the specified Id.
-  @param problemId The id of the problem to retrieve.
-  @returns Returns an observable of the problem that it receives from the backend.</p>
-</div>
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>problemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>The id of the problem to retrieve.</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>Returns an observable of the problem that it receives from the backend.</p>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -374,60 +322,37 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable, tap} from &#x27;rxjs&#x27;;
-import { Problem } from &#x27;../problem&#x27;;
-import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { KeycloakService } from &quot;keycloak-angular&quot;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { MatSnackBar } from &quot;@angular/material/snack-bar&quot;;
 
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class ProblemService {
+@Injectable()
+export class AuthService {
+    constructor(private keycloakService: KeycloakService, private _snackBar: MatSnackBar) {}
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
-  }
+    getLoggedUser(){
+        try {
+            let userDetails &#x3D; this.keycloakService.getKeycloakInstance().idTokenParsed;
+            return userDetails;
+        }
+        catch (e) {
+            return undefined;
+        }
+    }
+    
+    logout() {
+        this.keycloakService.logout();
+        this._snackBar.open(&#x60;Logged out&#x60;, &#x27;X&#x27;, {duration: 4000})
+    }
 
-  /**
-   * Retrieves all problems from the backend.
-   * @returns The list of all problems.
-   */
-  getAllProblems(): Observable&lt;Problem[]&gt;{
-    return this.http.get&lt;Problem[]&gt;(&quot;http://localhost:8080/problems&quot;).pipe(
-      tap(
-      {
-        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to get problems&#x27;,&#x27;X&#x27;, {duration: 2000})
-      }
-      )
-    );
-  }
+    redirectToProfile(){
+        this.keycloakService.getKeycloakInstance().accountManagement();
+    }
 
-  /**
-  *   Posts a problem to the backend.
-  *   @param problem a problem.
-  *   @returns a Problem Observable.
-  **/
-  addProblem(problem: Problem): Observable&lt;Problem&gt;{
-    return this.http.post&lt;Problem&gt;(&quot;http://localhost:8080/problems&quot;, problem).pipe(
-      tap(
-      {
-        next: () &#x3D;&gt; this._snackBar.open(&#x60;Problem ${problem.name} Created&#x60;, &#x27;X&#x27;, {duration: 2000}),
-        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to Create Problem&#x27;,&#x27;X&#x27;, {duration: 2000})
-      }
-      )
-    );
-  }
-
-  /**
-  *   Retrieves a problem from the backend with the specified Id.
-  *   @param problemId The id of the problem to retrieve.
-  *   @returns Returns an observable of the problem that it receives from the backend.
-  **/
-  getProblemById(problemId:number): Observable&lt;Problem&gt;{
-    return this.http.get&lt;Problem&gt;(&quot;http://localhost:8080/problems/&quot; + problemId);
-  }
-}
-</code></pre>
+    getRoles(): string[]{
+        return this.keycloakService.getUserRoles();
+    }
+}</code></pre>
     </div>
 
 </div>
@@ -470,7 +395,7 @@ export class ProblemService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ProblemService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

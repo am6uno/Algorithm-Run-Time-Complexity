@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >ProblemService</li>
+  <li >ComplexityParserService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/problem-service/problem.service.ts</code>
+            <code>src/app/complexity-parser/complexity-parser.service.ts</code>
         </p>
 
 
@@ -79,13 +79,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#addProblem" >addProblem</a>
+                                <a href="#parse" >parse</a>
                             </li>
                             <li>
-                                <a href="#getAllProblems" >getAllProblems</a>
-                            </li>
-                            <li>
-                                <a href="#getProblemById" >getProblemById</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#parserConfiguration" >parserConfiguration</a>
                             </li>
                         </ul>
                     </td>
@@ -105,57 +103,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _snackBar: MatSnackBar)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/problem-service/problem.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/complexity-parser/complexity-parser.service.ts:8</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>http</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>_snackBar</td>
-                                                  
-                                                        <td>
-                                                                    <code>MatSnackBar</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -169,33 +125,31 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addProblem"></a>
+                    <a name="parse"></a>
                     <span class="name">
-                        <span ><b>addProblem</b></span>
-                        <a href="#addProblem"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>parse</b></span>
+                        <a href="#parse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>addProblem(problem: <a href="../interfaces/Problem.html" target="_self">Problem</a>)</code>
+<code>parse(sourceCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/complexity-parser/complexity-parser.service.ts:17</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>  Posts a problem to the backend.
-  @param problem a problem.
-  @returns a Problem Observable.</p>
+                    <div class="io-description"><p>Parses the source code and returns the blocks of code.</p>
 </div>
 
                     <div class="io-description">
@@ -212,9 +166,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>problem</td>
+                                    <td>sourceCode</td>
                                     <td>
-                                                <code><a href="../interfaces/Problem.html" target="_self" >Problem</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -223,7 +177,7 @@
 
 
                                     <td>
-                                        <p>a problem.</p>
+                                        <p>The source code being parsed.</p>
 
                                     </td>
                                 </tr>
@@ -233,11 +187,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/Block.html" target="_self" >Block[]</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>a Problem Observable.</p>
+                        <p>A list of blocks.</p>
 
                     </div>
                 </td>
@@ -248,78 +202,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getAllProblems"></a>
+                    <a name="parserConfiguration"></a>
                     <span class="name">
-                        <span ><b>getAllProblems</b></span>
-                        <a href="#getAllProblems"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>parserConfiguration</b></span>
+                        <a href="#parserConfiguration"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAllProblems()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parserConfiguration(lexer: Tokenizr)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/complexity-parser/complexity-parser.service.ts:109</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Retrieves all problems from the backend.</p>
-</div>
-
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>The list of all problems.</p>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getProblemById"></a>
-                    <span class="name">
-                        <span ><b>getProblemById</b></span>
-                        <a href="#getProblemById"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getProblemById(problemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/problem-service/problem.service.ts:50</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>  Retrieves a problem from the backend with the specified Id.
-  @param problemId The id of the problem to retrieve.
-  @returns Returns an observable of the problem that it receives from the backend.</p>
+                    <div class="io-description"><p>Configures the parser to identify java code.</p>
 </div>
 
                     <div class="io-description">
@@ -336,9 +245,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>problemId</td>
+                                    <td>lexer</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <code>Tokenizr</code>
                                     </td>
 
                                     <td>
@@ -347,7 +256,7 @@
 
 
                                     <td>
-                                        <p>The id of the problem to retrieve.</p>
+                                        <p>The lexer to configure.</p>
 
                                     </td>
                                 </tr>
@@ -357,12 +266,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Problem.html" target="_self" >Observable&lt;Problem&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>Returns an observable of the problem that it receives from the backend.</p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -375,56 +283,158 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable, tap} from &#x27;rxjs&#x27;;
-import { Problem } from &#x27;../problem&#x27;;
-import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Block } from &#x27;./block&#x27;;
+import Tokenizr, { Token } from &quot;tokenizr&quot;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class ProblemService {
+export class ComplexityParserService {
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
-  }
+  constructor() { }
 
-  /**
-   * Retrieves all problems from the backend.
-   * @returns The list of all problems.
-   */
-  getAllProblems(): Observable&lt;Problem[]&gt;{
-    return this.http.get&lt;Problem[]&gt;(&quot;http://localhost:8080/problems&quot;).pipe(
-      tap(
-      {
-        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to get problems&#x27;,&#x27;X&#x27;, {duration: 2000})
+   /**
+     * Parses the source code and returns the blocks of code.
+     * @param {string} sourceCode  The source code being parsed.
+     * @returns A list of blocks.
+     */
+  parse(sourceCode: string): Block[] {
+
+    let lexer &#x3D; new Tokenizr()
+    let blockList: Block[] &#x3D; []
+
+    let blockDepth: number &#x3D; 0            // keeps track of the number of nested blocks
+    let rootBlock: number &#x3D; 0             // keeps track of the index of the uppermost block
+    let initialStackLength: number &#x3D; 0
+    let stack: Token[] &#x3D; []               // I might not need this, I could just use lexer.tokens()
+    let openCurCount: number &#x3D; 0          // keeps track of the open braces that don&#x27;t belong to any of the loops
+
+
+    // Configure the parser
+    this.parserConfiguration(lexer);
+
+    // Execute lexer and configure stack
+    lexer.input(sourceCode)
+    lexer.tokens().forEach((token) &#x3D;&gt; {
+      stack.push(token)
+    })
+    stack.reverse()
+    initialStackLength &#x3D; stack.length
+
+    console.log(stack)
+
+    for (let i &#x3D; 0; i &lt; initialStackLength; i++) {
+
+      let currToken &#x3D; stack.pop()
+
+      if (currToken?.type &#x3D;&#x3D;&#x3D; &quot;loop&quot;) {
+
+        let newBlock &#x3D; {
+          complexity: 1,
+          begLine: currToken.line,
+          endLine: -1,
+          depth: 0
+        }
+
+        // Add the new block to the block list
+        blockList.push(newBlock)
+
+        // Set the root block
+        if (blockDepth &#x3D;&#x3D; 0) {
+          rootBlock &#x3D; blockList.length - 1;
+        }
+
+        // Increase the block depth
+        blockDepth++;
+
+        continue;
       }
-      )
-    );
-  }
 
-  /**
-  *   Posts a problem to the backend.
-  *   @param problem a problem.
-  *   @returns a Problem Observable.
-  **/
-  addProblem(problem: Problem): Observable&lt;Problem&gt;{
-    return this.http.post&lt;Problem&gt;(&quot;http://localhost:8080/problems&quot;, problem).pipe(
-      tap(
-      {
-        next: () &#x3D;&gt; this._snackBar.open(&#x60;Problem ${problem.name} Created&#x60;, &#x27;X&#x27;, {duration: 2000}),
-        error: () &#x3D;&gt; this._snackBar.open(&#x27;Unable to Create Problem&#x27;,&#x27;X&#x27;, {duration: 2000})
+      // Check if the current token is an opening brace for a block that isn&#x27;t a loop (and track it)
+      if (currToken?.type &#x3D;&#x3D;&#x3D; &quot;openCur&quot;) {
+        openCurCount++;
+        continue;
       }
-      )
-    );
+
+      // Check if the current token is a closing curly brace for a block that isn&#x27;t a loop
+      if (currToken?.type &#x3D;&#x3D;&#x3D; &quot;closeCur&quot; &amp;&amp; openCurCount &gt; 0) {
+        openCurCount--;
+        continue;
+      }
+
+      // Check if the current token is a closing brace or closing do while statment
+      if ((currToken?.type &#x3D;&#x3D;&#x3D; &quot;closeCur&quot; || currToken?.type &#x3D;&#x3D;&#x3D; &quot;closeDoWhile&quot;) &amp;&amp; openCurCount &#x3D;&#x3D; 0) {
+
+        // Decrease the block depth now that a block has been formed
+        blockDepth--;
+
+        blockList[blockDepth + rootBlock].depth &#x3D; blockDepth;
+
+        // Check if this block is inside another block, if so, update the previous block complexities
+        if (blockDepth &gt; 0) {
+          for (let i &#x3D; blockList.length - blockDepth; i &gt; rootBlock; i--) {
+            blockList[i - 1].complexity++
+          }
+        }
+
+        // Update the previous blocks&#x27;s endline value
+        blockList[blockDepth + rootBlock].endLine &#x3D; currToken.line;
+      }
+    }
+
+    console.log(blockList);
+    return blockList
   }
 
   /**
-  *   Retrieves a problem from the backend with the specified Id.
-  *   @param problemId The id of the problem to retrieve.
-  *   @returns Returns an observable of the problem that it receives from the backend.
-  **/
-  getProblemById(problemId:number): Observable&lt;Problem&gt;{
-    return this.http.get&lt;Problem&gt;(&quot;http://localhost:8080/problems/&quot; + problemId);
+     * Configures the parser to identify java code.
+     * @param {Tokenizr} lexer The lexer to configure.
+     */
+  private parserConfiguration(lexer: Tokenizr) {
+
+    // Rules for the loop headers
+    lexer.rule(/for\s*\(.*\)\s*\{/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;loop&quot;);
+    });
+    lexer.rule(/while\s*\(.*\)\s*\{/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;loop&quot;);
+    });
+    lexer.rule(/do\s*\{/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;loop&quot;);
+    });
+
+    // Rules for curly braces
+    lexer.rule(/\{/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;openCur&quot;);
+    });
+    lexer.rule(/\}\s*while.+\;/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;closeDoWhile&quot;);
+    });
+    lexer.rule(/\}/, (ctx, match) &#x3D;&gt; {
+      ctx.accept(&quot;closeCur&quot;);
+    });
+
+
+    // Rules for other uneeded characters and whitespace
+    // Ignore single line comment
+    lexer.rule(/\/\/[^\r\n]*\r?\n/, (ctx, match) &#x3D;&gt; {
+      ctx.ignore();
+    });
+
+    // Ignore multiline comment
+    lexer.rule(/\/\*[^*]*\*+(?:[^/*][^*]*\*+)*\//, (ctx, match) &#x3D;&gt; {
+      ctx.ignore();
+    });
+
+    // Ignore white space
+    lexer.rule(/[ \t\r\n]+/, (ctx, match) &#x3D;&gt; {
+      ctx.ignore();
+    });
+
+    // Ignore other characters
+    lexer.rule(/./, (ctx, match) &#x3D;&gt; {
+      ctx.ignore();
+    });
   }
 }
 </code></pre>
@@ -470,7 +480,7 @@ export class ProblemService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ProblemService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ComplexityParserService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

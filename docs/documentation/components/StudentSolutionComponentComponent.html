@@ -94,7 +94,10 @@
                                     <a href="../components/ProblemSelectionComponent.html" >ProblemSelectionComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/TeacherLoginComponent.html"  class="active" >TeacherLoginComponent</a>
+                                    <a href="../components/StudentSolutionComponentComponent.html"  class="active" >StudentSolutionComponentComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TeacherLoginComponent.html" >TeacherLoginComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -239,7 +242,10 @@
                                            <a href="../components/ProblemSelectionComponent.html" >ProblemSelectionComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/TeacherLoginComponent.html"  class="active" >TeacherLoginComponent</a>
+                                           <a href="../components/StudentSolutionComponentComponent.html"  class="active" >StudentSolutionComponentComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TeacherLoginComponent.html" >TeacherLoginComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -310,7 +316,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>TeacherLoginComponent</li>
+  <li>StudentSolutionComponentComponent</li>
 </ol>
 
 
@@ -328,7 +334,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/teacher-login/teacher-login.component.ts</code>
+    <code>src/app/student-solution-component/student-solution-component.component.ts</code>
 </p>
 
 
@@ -351,19 +357,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-teacher-login</code></td>
+                <td class="col-md-9"><code>app-student-solution-component</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>teacher-login.component.css</code></td>
+                <td class="col-md-9"><code>student-solution-component.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>teacher-login.component.html</code></td>
+                <td class="col-md-9"><code>student-solution-component.component.html</code></td>
             </tr>
 
 
@@ -373,34 +379,20 @@
 
 
 
-
     <section>
-        <h3 id="methods">Methods</h3>
+        <h3 id="constructor">Constructor</h3>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> switchPage</b>
+                            <code>constructor(problemService: <a href="../injectables/ProblemService.html" >ProblemService</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>, _snackBar: MatSnackBar)</code>
                         </td>
                     </tr>
     
-                    <tr>
-                        <td class="col-md-4">
-    <code>switchPage()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
     </section>
+
 
     <section>
         <h3 id="inputs">Properties</h3>
@@ -408,39 +400,44 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> showLoginPage</b>
+                            <b> problem</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>showLoginPage:     <code>boolean</code>
+                            <code>problem:     <code>Problem</code>
     </bcode>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>true</code>
-                            </td>
-                        </tr>
                 </tbody>
             </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Problem } from &#x27;../problem&#x27;;
+import { ProblemService } from &#x27;../problem-service/problem.service&#x27;;
 
 @Component({
-  selector: &#x27;app-teacher-login&#x27;,
-  templateUrl: &#x27;./teacher-login.component.html&#x27;,
-  styleUrls: [&#x27;./teacher-login.component.css&#x27;]
+  selector: &#x27;app-student-solution-component&#x27;,
+  templateUrl: &#x27;./student-solution-component.component.html&#x27;,
+  styleUrls: [&#x27;./student-solution-component.component.css&#x27;]
 })
-export class TeacherLoginComponent {
-showLoginPage: boolean &#x3D; true;
+export class StudentSolutionComponentComponent implements OnInit{
+  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar) {}
+  problem: Problem;
 
-switchPage(){
-  this.showLoginPage &#x3D; !this.showLoginPage;
-}
+  ngOnInit(): void {
+      this.problem &#x3D; this.problemService.getSelectedProblem();
+      if(!this.problem){
+        this._snackBar.open(&#x27;No problem selected&#x27;,&#x27;X&#x27;, {duration: 2000});
+        this.router.navigate([&#x27;problem-selection&#x27;]);
+      }
+  }
 
+  
 }
 </code></pre>
         </div>
