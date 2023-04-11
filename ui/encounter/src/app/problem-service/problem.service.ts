@@ -26,6 +26,11 @@ export class ProblemService {
     );
   }
 
+  /**
+  *   Posts a problem to the backend.
+  *   @param problem a problem.
+  *   @returns a Problem Observable.
+  **/
   addProblem(problem: Problem): Observable<Problem>{
     return this.http.post<Problem>("http://localhost:8080/problems", problem).pipe(
       tap(
@@ -37,6 +42,11 @@ export class ProblemService {
     );
   }
 
+  /**
+  *   Retrieves a problem from the backend with the specified Id.
+  *   @param problemId The id of the problem to retrieve.
+  *   @returns Returns an observable of the problem that it receives from the backend.
+  **/
   getProblemById(problemId:number): Observable<Problem>{
     return this.http.get<Problem>("http://localhost:8080/problems/" + problemId);
   }
