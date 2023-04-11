@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+* This controller handles request for Classroom objects.
+*/
 
 @RestController
 public class ClassroomController {

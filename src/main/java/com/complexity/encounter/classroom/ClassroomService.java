@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+* This service handles the business logic for Classroom objects.
+*/
+
 @Service
 public class ClassroomService {
     @Autowired

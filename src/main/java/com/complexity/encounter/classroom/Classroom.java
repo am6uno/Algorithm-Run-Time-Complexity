@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+/**
+* This POJO class establishes the Classroom object for our database.
+*/
+
 @Data
 @Entity
 @NoArgsConstructor
