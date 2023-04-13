@@ -25,6 +25,8 @@ import { AuthGuard } from 'auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ProblemSetComponent } from './problem-set/problem-set.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -33,7 +35,8 @@ const APP_ROUTES: Routes = [
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]}
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]}
 
 ];
 
@@ -46,6 +49,8 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    ProblemSetComponent
+
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ const APP_ROUTES: Routes = [
     KeycloakAngularModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatExpansionModule,
   ],
   providers: [
     KeycloakService,
