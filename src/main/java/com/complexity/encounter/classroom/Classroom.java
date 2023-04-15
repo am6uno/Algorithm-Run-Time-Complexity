@@ -28,6 +28,10 @@ public class Classroom {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
+    private String entryCode;
+
     @ManyToOne
     @JoinColumn(name="teacher_id", nullable = false)
     private Teacher teacher;

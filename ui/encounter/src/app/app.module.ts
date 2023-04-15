@@ -25,6 +25,7 @@ import { AuthGuard } from 'auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ClassroomCreationComponent } from './classroom-creation/classroom-creation.component';
 
 
 
@@ -46,6 +47,7 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    ClassroomCreationComponent,
   ],
   imports: [
     BrowserModule,
