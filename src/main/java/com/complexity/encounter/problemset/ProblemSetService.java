@@ -63,7 +63,10 @@ public class ProblemSetService
         Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
         updatedProblemSet.get().setName(set.getName());
         updatedProblemSet.get().setProblemList(set.getProblemList());
-        updatedProblemSet.get().setNumCompleted(set.getNumCompleted());
+        updatedProblemSet.get().setType(set.getType());
+        updatedProblemSet.get().setShowDate(set.getShowDate());
+        updatedProblemSet.get().setDueDate(set.getDueDate());
+        updatedProblemSet.get().setVisibility(set.getVisibility());
         problemSetRepository.save(updatedProblemSet.get());
     }
 }

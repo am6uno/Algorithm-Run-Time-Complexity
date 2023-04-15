@@ -25,6 +25,7 @@ import { AuthGuard } from 'auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 
 
 
@@ -33,7 +34,8 @@ const APP_ROUTES: Routes = [
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]}
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-problemset/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]}
 
 ];
 
@@ -46,6 +48,7 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    TeacherProblemsetPageComponent,
   ],
   imports: [
     BrowserModule,
