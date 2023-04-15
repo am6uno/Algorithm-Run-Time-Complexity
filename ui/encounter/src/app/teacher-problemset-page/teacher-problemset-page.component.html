@@ -1,8 +1,40 @@
 <div class="teacher-problemset-page">
     <h1 class="page-title">Sets</h1>
     <div class="sets">
-        <div class = set>
-            <h3>Getting Started</h3>
+        <div class="flex-container">
+            <div class="sidebar">
+                <div> <!-- Problem Form -->
+                    <form>
+                        <div class="form-group">
+                            <mat-label>Set Name</mat-label><br>
+                            <!-- [(ngModel)]="overallComplexity"> -->
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <mat-label>Show Date</mat-label><br>
+                            <!-- [(ngModel)]="overallComplexity"> -->
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <mat-label>Due Date</mat-label>
+                            <!-- [(ngModel)]="overallComplexity"> -->
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <mat-label>Visibility</mat-label><br>
+                            <!-- [(ngModel)]="overallComplexity"> -->
+                            <input type="text">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="main">
+                <div class="set">
+                    <h3>Practice Problems</h3>
+                    <span>Show Date: 4/16/2022</span>
+                    <span> - Due Date: 5/16/2023</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
