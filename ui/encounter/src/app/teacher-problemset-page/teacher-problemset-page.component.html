@@ -11,6 +11,11 @@
                             <input type="text">
                         </div>
                         <div class="form-group">
+                            <mat-label>Set Type</mat-label><br>
+                            <!-- [(ngModel)]="overallComplexity"> -->
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
                             <mat-label>Show Date</mat-label><br>
                             <!-- [(ngModel)]="overallComplexity"> -->
                             <input type="text">
@@ -25,14 +30,26 @@
                             <!-- [(ngModel)]="overallComplexity"> -->
                             <input type="text">
                         </div>
+                        <button type="button" class="form-button">Create</button>
+                        <button type="button" class="form-button">Update</button>
+                        <button type="button" class="form-button">Delete</button>
+                        <button type="button" class="form-button">View Problems</button>
                     </form>
                 </div>
             </div>
             <div class="main">
                 <div class="set">
                     <h3>Practice Problems</h3>
-                    <span>Show Date: 4/16/2022</span>
-                    <span> - Due Date: 5/16/2023</span>
+                    <div class="set-flex-container">
+                        <div class="set-left-content">
+                            <label>Type: Assignment</label><br>
+                            <label>Problems: 0</label><br>
+                        </div>
+                        <div class="set-right-content">
+                            <label>Show Date: 4/16/2022</label><br>
+                            <label>Due Date: 5/16/2023</label><br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

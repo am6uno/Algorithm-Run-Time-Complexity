@@ -23,17 +23,28 @@
     flex-direction: row;
 }
 
+.set-flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.set-left-content {
+    width: 250px;
+}
+
+.set-right-content {
+    flex-grow: 1;
+}
+
 .sidebar {
-    /* background-color: #2cb949; */
     width: 400px;
 }
 
 .main {
-    /* background-color: #3b3bcb; */
     flex-grow: 1;
 }
 
-.tools-button {
+.form-button {
     background-color: #d1bfa7;
     padding: 10px;
     margin: 6px 5px 6px 8px;
