@@ -28,12 +28,8 @@
     flex-direction: row;
 }
 
-.set-left-content {
-    width: 250px;
-}
-
-.set-right-content {
-    flex-grow: 1;
+.set-content {
+    margin: 0px 35px 10px 0px;
 }
 
 .sidebar {
@@ -47,8 +43,8 @@
 .form-button {
     background-color: #d1bfa7;
     padding: 10px;
-    margin: 6px 5px 6px 8px;
-    min-width: 88px;
+    margin: 0px 0px 5px 0px;
+    width: 100%;
     border-radius: 3px;
     font-size: 14px;
     text-align: center;
@@ -57,6 +53,20 @@
     outline: none;
     cursor: pointer;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.buttom-form-group {
+    text-align: left;
+    margin: 1% 4%;
+    padding: 10px 10px 0px;
+    font-weight: bold;
+    width: 80.5%;
+}
+
+.inline-form-group {
+    display: inline-flex;
+    width: 100%;
+    gap: 4px;
 }
 
 .form-group {
