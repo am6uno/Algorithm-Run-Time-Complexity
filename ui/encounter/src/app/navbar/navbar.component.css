@@ -25,6 +25,7 @@
     font-size: 4em;
     font-family: "Times New Roman", Times, serif;
     color: #d1bfa7;
+    cursor: default;
 }
 
 .search {
@@ -49,4 +50,18 @@
     width: 100%;
     height: 4px;
     background-color: #bd8c7d;
+}
+
+.user-exists {
+    background-color: #d1bfa7;
+    padding: 10px;
+    margin: 0 5% 0 0;
+    border-radius: 50%;
+    cursor:default;
+    color: #49494b;
+}
+
+b {
+    letter-spacing: .1rem;
+    font-size: 1.5em;
 }

@@ -22,10 +22,10 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializer } from 'AppInit';
 import { AuthService } from './auth.service';
 import { AuthGuard } from 'auth';
-import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
+import { StudentSolutionComponent } from './student-solution/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 const APP_ROUTES: Routes = [
@@ -64,6 +64,7 @@ const APP_ROUTES: Routes = [
     KeycloakAngularModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatSelectModule
   ],
   providers: [
     KeycloakService,
