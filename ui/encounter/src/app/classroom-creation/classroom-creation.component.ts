@@ -15,11 +15,12 @@ import {Student} from "../student";
 export class ClassroomCreationComponent {
   id?: number = 1
   name: string = ''
+  length: number
   access_code: string = ''
   teacher: Teacher
-  teacherName: string = ''
   teacherEmail: string
-  enrolled_students: Set<Student>
+  teacherClassrooms?: any
+  enrolled_students: any = undefined
 
   constructor(private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
   }
@@ -30,10 +31,18 @@ export class ClassroomCreationComponent {
     next:(teacher) => {
       this.teacher = teacher;
       this.teacherEmail = teacher.teacherEmail;
-      this.teacherName = this.teacher.first_name + " " + this.teacher.last_name;
+      this.name= this.teacher.first_name + " " + this.teacher.last_name + "'s Classroom";
     },
       error: () => {
         this._snackBar.open('Could not fetch teacher','X', {duration: 2000});
+      }
+    })
+    this.classroomService.getClassroomsByTeacherEmail(this.userService.user.email).subscribe({
+      next: data=>{
+      this.teacherClassrooms = data
+      },
+      error: () => {
+        this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
       }
     })
 
@@ -46,9 +55,10 @@ export class ClassroomCreationComponent {
 
   setTitleInput(event: any){
     this.name = event.target.innerText;
+    this.length = this.name.length;
   }
   formComplete() {
-    if (this.name.length > 0) {
+    if (this.length > 0) {
       return true;
     }
     return false;

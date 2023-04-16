@@ -36,4 +36,9 @@ export class ClassroomService {
   getClassroomById(classroomId: number): Observable<Classroom> {
     return this.http.get<Classroom> ("http://localhost:8080/classrooms/" + classroomId)
   }
+
+  getClassroomsByTeacherEmail(teacherEmail: string): Observable<Classroom[]> {
+    console.log("!");
+    return this.http.get<Classroom[]>(`http://localhost:8080/classrooms?teacherEmail=${teacherEmail}`)
+  }
 }
