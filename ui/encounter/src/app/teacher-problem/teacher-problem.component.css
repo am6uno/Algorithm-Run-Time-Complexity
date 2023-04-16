@@ -1,0 +1,28 @@
+.search-page {
+    margin: 5%;
+    padding: 0px 0px 10px 0px;
+  }
+  
+  .problem {
+    color: #d1bfa7;
+    background-color: #49494b;
+    border: 5px solid #bd8c7d;
+    border-radius: 5px;
+    padding: 0px 0px 0px 4px;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+
+  .problem-info {
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .options {
+    background-color: inherit;
+  }
+  
+  .problems{
+    margin: 3% 0;
+  }

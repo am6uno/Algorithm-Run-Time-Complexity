@@ -1,0 +1,26 @@
+<div class="search-page">
+    <h1>Problems</h1>
+  
+    <div class="add" >
+        <button mat-flat-button>
+            <mat-icon>add</mat-icon>
+            Add Problem
+        </button>
+        <button mat-flat-button>
+            <mat-icon>create</mat-icon>
+            Create Problem
+        </button>
+    </div>
+
+    <div class="problems">
+        <div class="problem" *ngFor="let problem of problems">
+            <div class="problem-info">
+                <h3 class="problem-name">{{problem.name}}</h3>
+                <button mat-icon-button class="options">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+  </div>

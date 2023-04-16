@@ -19,14 +19,15 @@ import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { initializer } from 'AppInit';
+import { initializer } from './AppInit';
 import { AuthService } from './auth.service';
-import { AuthGuard } from 'auth';
+import { AuthGuard } from './auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
 import { ProblemSetComponent } from './problem-set/problem-set.component';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -36,7 +37,8 @@ const APP_ROUTES: Routes = [
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]}
+  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, }
 
 ];
 
@@ -49,6 +51,7 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    TeacherProblemComponent,
     ProblemSetComponent
 
   ],

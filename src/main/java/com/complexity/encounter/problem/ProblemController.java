@@ -42,6 +42,17 @@ public class ProblemController {
     }
 
     /**
+     * Get all the problems with the specified setId.
+     * @param setId the setId of the problems.
+     * @return A list of problems.
+     */
+    @CrossOrigin(origins ="http://localhost:4200")
+    @RequestMapping("/set/problems/{setId}")
+    public List<Problem> getProblemBySetId(@PathVariable long setId){
+        return problemService.getProblemsBySetId(setId);
+    }
+
+    /**
      * <p>
      *     Creates a problem
      * </p>
