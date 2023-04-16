@@ -20,9 +20,9 @@ public class ProblemSetService
      * This method saves a ProblemSet to the backend.
      * @param set - the ProblemSet to be saved
      */
-    public void saveProblemSet(ProblemSet set)
+    public ProblemSet saveProblemSet(ProblemSet set)
     {
-        problemSetRepository.save(set);
+        return problemSetRepository.save(set);
     }
 
     /**

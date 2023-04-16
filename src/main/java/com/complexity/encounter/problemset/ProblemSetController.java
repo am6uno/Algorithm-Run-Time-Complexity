@@ -47,9 +47,9 @@ public class ProblemSetController
      */
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/problemsets")
-    public void addProblemSet(@RequestBody ProblemSet ps)
+    public ProblemSet addProblemSet(@RequestBody ProblemSet ps)
     {
-        problemSetService.saveProblemSet(ps);
+        return problemSetService.saveProblemSet(ps);
     }
 
     /**
