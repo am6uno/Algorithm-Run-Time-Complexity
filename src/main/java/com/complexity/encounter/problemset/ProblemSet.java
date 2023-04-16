@@ -37,5 +37,5 @@ public class ProblemSet
     private String dueDate;
     // The visibility of the problem set:
     // (0: Enabled, 1: Disabled, 2: Based on date)
-    private int visibility;
+    private String visibility;
 }

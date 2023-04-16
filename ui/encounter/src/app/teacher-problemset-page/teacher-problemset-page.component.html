@@ -4,17 +4,17 @@
         <div class="flex-container">
             <div class="sidebar">
                 <div> <!-- Problem Form - might not need the form tag -->
-                    <form>
+                    <div>
                         <div class="form-group">
                             <mat-label>Set Name</mat-label><br>
                             <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text">
+                            <input type="text" [(ngModel)]="selectedProblemset.name">
                         </div>
                         <div class="form-group">
                             <mat-label>Set Type</mat-label><br>
                             <!-- <select [(ngModel)]="selectedTeam"> -->
                             <div class="custom-select">
-                                <select>
+                                <select [(ngModel)]="selectedProblemset.type">
                                     <option>Practice</option>
                                     <option default>Assignment</option>
                                     <option>Quiz</option>
@@ -23,52 +23,52 @@
                         </div>
                         <div class="form-group">
                             <mat-label>Show Date</mat-label><br>
-                            <input type="date">
+                            <input type="date" [(ngModel)]="selectedProblemset.showDate">
                         </div>
                         <div class="form-group">
                             <mat-label>Due Date</mat-label>
-                            <input type="date">
+                            <input type="date" [(ngModel)]="selectedProblemset.dueDate">
                         </div>
                         <div class="form-group">
                             <mat-label>Visibility</mat-label><br>
-                            <!-- <select [(ngModel)]="selectedTeam"> -->
                             <div class="custom-select">
-                                <select>
-                                    <option default>Enabled</option>
+                                <select [(ngModel)]="selectedProblemset.visibility">
+                                    <option>Enabled</option>
                                     <option>Disabled</option>
-                                    <option>Based on due date</option>
+                                    <option default>Based on due date</option>
                                 </select>
                             </div>
                         </div>
                         <div class="buttom-form-group">
-                        <button type="button" class="form-button">Create</button>
+                        <button type="button" class="form-button" (click)="createProblemSet()">Create</button>
                             <div class="inline-form-group">
                                 <button type="button" class="form-button">Update</button>
                                 <button type="button" class="form-button">Delete</button>
                             </div>
                         <button type="button" class="form-button">View Problems</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="main">
-                <div class="set">
-                    <h3>Practice Problems</h3>
+                <!-- *ngFor="let problemset of allProblemSets" (click)="selectProblemSet(problemset.id)" -->
+                <div class="set" *ngFor="let problemset of allProblemSets">
+                    <h3>{{problemset.name}}</h3>
                     <div class="set-flex-container">
                         <div class="set-content">
-                            <label>Type: Assignment</label><br>
+                            <label>Type: {{problemset.type}}</label><br>
                         </div>
                         <div class="set-content">
-                            <label>Problems: 0</label><br>
+                            <label>Problems: {{problemset.problemList.length}}</label><br>
                         </div>
                         <div class="set-content">
-                            <label>Show Date: 4/16/2022</label><br>
+                            <label>Show Date: {{problemset.showDate}}</label><br>
                         </div>
                         <div class="set-content">
-                            <label>Due Date: 5/16/2023</label><br>
+                            <label>Due Date: {{problemset.dueDate}}</label><br>
                         </div>
                         <div class="set-content">
-                            <label>Visibility: Three days after due date</label><br>
+                            <label>Visibility: {{problemset.visibility}}</label><br>
                         </div>
                     </div>
                 </div>

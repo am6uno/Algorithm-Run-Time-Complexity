@@ -12,7 +12,7 @@ export class ProblemsetService {
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   getProblemSetsByClassroomId(classroomId: number): Observable<ProblemSet[]>{
-    return this.http.get<ProblemSet[]>("http://localhost:8080//problemsets/classroom/" + classroomId);
+    return this.http.get<ProblemSet[]>("http://localhost:8080/problemsets/classroom/" + classroomId);
   }
 
   getProblemSetById(problemsetId: number): Observable<ProblemSet>{
@@ -25,6 +25,17 @@ export class ProblemsetService {
       {
         next: () => this._snackBar.open(`Problem Set ${problemset.name} Created`, 'X', {duration: 2000}),
         error: () => this._snackBar.open('Unable to Create Problem Set','X', {duration: 2000})
+      }
+      )
+    );
+  }
+
+  updateProblemSet(problemset: ProblemSet, problemsetId: number): Observable<ProblemSet>{
+    return this.http.put<ProblemSet>("http://localhost:8080/problemsets/" + problemsetId, problemset).pipe(
+      tap(
+      {
+        next: () => this._snackBar.open(`Problem Set ${problemset.name} was Updated`, 'X', {duration: 2000}),
+        error: () => this._snackBar.open('Unable to update Problem Set','X', {duration: 2000})
       }
       )
     );

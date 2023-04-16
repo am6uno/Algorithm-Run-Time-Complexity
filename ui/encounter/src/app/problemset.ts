@@ -6,5 +6,5 @@ export interface ProblemSet {
     type: string;
     showDate: string;
     dueDate: string;
-    visibility: number;
+    visibility: string;
 }
