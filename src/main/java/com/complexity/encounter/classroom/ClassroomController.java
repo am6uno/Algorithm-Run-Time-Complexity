@@ -37,6 +37,7 @@ public class ClassroomController {
      * This method is used to add a new Classroom object to the database.
      * @param classroom A Classroom oject to be added.
      */
+    @CrossOrigin(origins=host_url)
     @RequestMapping(method = RequestMethod.POST, value=classroom_url)
     public void addClassroom(@RequestBody Classroom classroom) {classroomService.saveClassroom(classroom);}
 

@@ -2,7 +2,8 @@ export interface Classroom {
 
   id?: number
   name: string
-  teacherID: any
+  teacher: any
+  access_code: string
   enrolled_students: any
 
 }

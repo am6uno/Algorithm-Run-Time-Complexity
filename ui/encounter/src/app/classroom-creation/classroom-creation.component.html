@@ -1,1 +1,14 @@
-<p>classroom-creation works!</p>
+<div class="classroom-creation">
+
+  <h1 class="page-title">Create a New Classroom</h1>
+  <div class="classroom-form-entry">
+    <h2 class="classroom-name-label">What would you like to name this classroom?</h2>
+    <div class="source-code"[(ngModel)]="name" (keyup)="setTitleInput($event)" ngDefaultControl contenteditable>
+      {{ teacherName }}'s Classroom
+
+    </div>
+    <input type="submit" (click)="submitClassroom()">
+
+  </div>
+
+</div>

@@ -5,6 +5,7 @@ import {Classroom} from "../classroom";
 import {Teacher} from "../teacher";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {UserService} from "../user.service";
+import {Student} from "../student";
 
 @Component({
   selector: 'app-classroom-creation',
@@ -15,17 +16,21 @@ export class ClassroomCreationComponent {
   id?: number = 1
   name: string = ''
   access_code: string = ''
-  teacher: any
-  enrolled_students: Set<any>
+  teacher: Teacher
+  teacherName: string = ''
+  teacherEmail: string
+  enrolled_students: Set<Student>
 
-  constructor(private userService: UserService, classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.userService;
     this.userService.getTeacherByEmail(this.userService.user.email).subscribe({
     next:(teacher) => {
-      this.teacher = teacher
+      this.teacher = teacher;
+      this.teacherEmail = teacher.teacherEmail;
+      this.teacherName = this.teacher.first_name + " " + this.teacher.last_name;
     },
       error: () => {
         this._snackBar.open('Could not fetch teacher','X', {duration: 2000});
@@ -39,6 +44,9 @@ export class ClassroomCreationComponent {
     return Math.random().toString(36).substring(2, length);
   }
 
+  setTitleInput(event: any){
+    this.name = event.target.innerText;
+  }
   formComplete() {
     if (this.name.length > 0) {
       return true;
@@ -51,10 +59,13 @@ export class ClassroomCreationComponent {
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
     }
     else {
-      const newClassroom = {
+      const newClassroom: Classroom = {
         name: this.name,
         access_code: this.generateAccessCode(),
+        teacher: this.teacher,
+        enrolled_students: this.enrolled_students
       }
+      this.classroomService.addClassroom(newClassroom).subscribe()
     }
   }
 }
