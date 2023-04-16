@@ -4,6 +4,7 @@ import { Problem } from '../problem';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-teacher-problem',
   templateUrl: './teacher-problem.component.html',
@@ -36,5 +37,9 @@ export class TeacherProblemComponent {
         }
       });
    });
+  }
+
+  openModal(event:any){
+    event.stopPropagation();
   }
 }

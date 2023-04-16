@@ -14,15 +14,27 @@
   }
 
   .problem-info {
-    margin-left: 10px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color:  #d1bfa7;
   }
-
+ 
   .options {
     background-color: inherit;
+    color: white;
   }
   
   .problems{
-    margin: 3% 0;
+    margin: 3px;
+  }
+
+  .mat-expansion-panel-header {
+    flex-direction: row-reverse;
+    padding: 0px 2px 0px 10px;
+  }
+
+  ::ng-deep .header > .mat-expansion-indicator:after {
+    color: white;
   }

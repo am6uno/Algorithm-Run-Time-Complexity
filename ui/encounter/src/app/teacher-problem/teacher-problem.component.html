@@ -11,7 +11,7 @@
             Create Problem
         </button>
     </div>
-
+    <!--
     <div class="problems">
         <div class="problem" *ngFor="let problem of problems">
             <div class="problem-info">
@@ -19,8 +19,24 @@
                 <button mat-icon-button class="options">
                     <mat-icon>more_vert</mat-icon>
                 </button>
-                
             </div>
         </div>
     </div>
-  </div>
+-->
+    <div class="problems">
+        <mat-accordion multi>
+            <mat-expansion-panel class="problem"  *ngFor="let problem of problems">
+                <mat-expansion-panel-header class="header">
+                    <mat-panel-title class="problem-info">
+                        <h3 class="problem-name">{{problem.name}}</h3>
+                    </mat-panel-title>
+                    <mat-action-row class="options">
+                        <button mat-icon-button class="options" (click)="openModal($event)">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                    </mat-action-row>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

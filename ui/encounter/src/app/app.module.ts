@@ -27,7 +27,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
 import { ProblemSetComponent } from './problem-set/problem-set.component';
-import { MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule, MatAccordion} from '@angular/material/expansion';
 
 
 
