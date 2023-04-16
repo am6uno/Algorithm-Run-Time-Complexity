@@ -1,28 +1,16 @@
 <div class="search-page">
     <h1>Problems</h1>
   
-    <div class="add" >
-        <button mat-flat-button>
+    <div class="add-problem">
+        <button mat-button color="basic">
             <mat-icon>add</mat-icon>
             Add Problem
         </button>
-        <button mat-flat-button>
+        <button mat-button color="basic">
             <mat-icon>create</mat-icon>
             Create Problem
         </button>
     </div>
-    <!--
-    <div class="problems">
-        <div class="problem" *ngFor="let problem of problems">
-            <div class="problem-info">
-                <h3 class="problem-name">{{problem.name}}</h3>
-                <button mat-icon-button class="options">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-            </div>
-        </div>
-    </div>
--->
     <div class="problems">
         <mat-accordion multi>
             <mat-expansion-panel class="problem"  *ngFor="let problem of problems">
@@ -31,11 +19,29 @@
                         <h3 class="problem-name">{{problem.name}}</h3>
                     </mat-panel-title>
                     <mat-action-row class="options">
-                        <button mat-icon-button class="options" (click)="openModal($event)">
+                        <button mat-icon-button class="options" (click)="openModal($event)" [matMenuTriggerFor]="optionMenu">
                             <mat-icon>more_vert</mat-icon>
                         </button>
+                        <mat-menu class="dropdown-menu" #optionMenu="matMenu">
+                            <button mat-menu-item>
+                              <mat-icon>edit</mat-icon>
+                              <span>Edit Problem</span>
+                            </button>
+                            <button mat-menu-item (click)="handleDelete(problem.id)">
+                              <mat-icon>delete</mat-icon>
+                              <span>Delete Problem</span>
+                            </button>
+                          </mat-menu>
                     </mat-action-row>
                 </mat-expansion-panel-header>
+                <div class="expanded-content">
+                    <table class="problem-values">
+                        <tr *ngFor="let codeLine of problem.sourceCode; index as i">
+                            <td class="line-complexity">{{problem.complexity[i]}}</td>
+                            <td class="line-code">{{problem.sourceCode[i]}}</td>
+                        </tr>
+                    </table>
+                </div>
             </mat-expansion-panel>
         </mat-accordion>
     </div>

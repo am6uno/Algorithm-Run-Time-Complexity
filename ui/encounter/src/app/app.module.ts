@@ -27,7 +27,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
 import { ProblemSetComponent } from './problem-set/problem-set.component';
-import { MatExpansionModule, MatAccordion} from '@angular/material/expansion';
+import { MatExpansionModule} from '@angular/material/expansion';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -52,7 +54,8 @@ const APP_ROUTES: Routes = [
     ProblemCreationComponent,
     StudentSolutionComponent,
     TeacherProblemComponent,
-    ProblemSetComponent
+    ProblemSetComponent,
+    ConfirmationModalComponent
 
   ],
   imports: [
@@ -73,6 +76,7 @@ const APP_ROUTES: Routes = [
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatDialogModule
   ],
   providers: [
     KeycloakService,
@@ -82,8 +86,9 @@ const APP_ROUTES: Routes = [
       multi: true,
       deps: [KeycloakService]
     },
-    AuthService
+    AuthService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationModalComponent]
 })
 export class AppModule { }
