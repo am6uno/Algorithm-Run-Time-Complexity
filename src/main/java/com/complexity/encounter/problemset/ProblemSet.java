@@ -25,6 +25,8 @@ public class ProblemSet
     private Long id;
     //The problem set's name
     private String name;
+    //The ID of the classroom this problem set belongs to
+    private Long classroomId;
     //Each problem set contains a list of problems accessible via an array of their ids
     private int[] problemList;
     // The type of set - (Practice, Quiz, or Assignment)
@@ -34,6 +36,6 @@ public class ProblemSet
     // The due date for the problem
     private String dueDate;
     // The visibility of the problem set:
-    // (0: Based on due date, 1: Disabled, 2: Three days after due date)
+    // (0: Enabled, 1: Disabled, 2: Based on date)
     private int visibility;
 }

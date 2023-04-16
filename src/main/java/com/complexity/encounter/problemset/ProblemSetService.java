@@ -34,6 +34,10 @@ public class ProblemSetService
         return problemSetRepository.findAll();
     }
 
+    public List<ProblemSet> getProblemSetsByClassroomId(long classroomId) {
+        return problemSetRepository.findByClassroomId(classroomId);
+    }
+
     /**
      * This method is a getter for a single ProblemSet.
      * @param id - the id of the problem set being returned
@@ -62,6 +66,7 @@ public class ProblemSetService
     {
         Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
         updatedProblemSet.get().setName(set.getName());
+        updatedProblemSet.get().setClassroomId(set.getClassroomId());
         updatedProblemSet.get().setProblemList(set.getProblemList());
         updatedProblemSet.get().setType(set.getType());
         updatedProblemSet.get().setShowDate(set.getShowDate());
@@ -69,4 +74,5 @@ public class ProblemSetService
         updatedProblemSet.get().setVisibility(set.getVisibility());
         problemSetRepository.save(updatedProblemSet.get());
     }
+
 }

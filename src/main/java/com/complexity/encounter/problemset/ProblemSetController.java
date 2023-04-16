@@ -13,49 +13,57 @@ import java.util.List;
 public class ProblemSetController
 {
     @Autowired
-    private ProblemSetService set;
+    private ProblemSetService problemSetService;
 
-    //FIXME: is this where this should be mapped? or just /problems?
-    @RequestMapping("/problemsets")
-    @CrossOrigin(origins = "http://localhost:4200")
     /**
      * A Getter method for all problem sets.
      */
+    @RequestMapping("/problemsets")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<ProblemSet> getAllProblemSets()
     {
-        return set.getAllProblemSets();
+        return problemSetService.getAllProblemSets();
     }
-    @RequestMapping("/problemsets{id}")
+
+    @RequestMapping("/problemsets/classroom/{classroomId}")
+    public List<ProblemSet> getProblemSetsByClassroomId(@PathVariable long classroomId){
+        return problemSetService.getProblemSetsByClassroomId(classroomId);
+    }
+
     /**
      * A Getter method for a single problem set.
      */
+    @RequestMapping("/problemsets/{id}")
     public ProblemSet getProblemSet(@PathVariable long id)
     {
-        return set.getProblemSetById(id).get();
+        return problemSetService.getProblemSetById(id).get();
     }
-    @RequestMapping(method= RequestMethod.POST, value="/problemsets")
+
     /**
      * This method adds a problem set to the backend
      */
+    @RequestMapping(method= RequestMethod.POST, value="/problemsets")
     public void addProblemSet(@RequestBody ProblemSet ps)
     {
-        set.saveProblemSet(ps);
+        problemSetService.saveProblemSet(ps);
     }
-    @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}")
+
     /**
      * This method is for updating a problem set.
      */
+    @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}")
     public void updateProblemSet(@RequestBody ProblemSet ps, @PathVariable Long id)
     {
-        set.updateProblemSet(ps, id);
+        problemSetService.updateProblemSet(ps, id);
     }
-    @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")
+
     /**
      * This method deletes a problem set from the backend.
      */
+    @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")
     public void deleteProblemSet(@PathVariable long id)
     {
-        set.deleteProblemSet(id);
+        problemSetService.deleteProblemSet(id);
     }
 
 }

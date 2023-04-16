@@ -3,7 +3,7 @@
     <div class="sets">
         <div class="flex-container">
             <div class="sidebar">
-                <div> <!-- Problem Form -->
+                <div> <!-- Problem Form - might not need the form tag -->
                     <form>
                         <div class="form-group">
                             <mat-label>Set Name</mat-label><br>
@@ -12,23 +12,33 @@
                         </div>
                         <div class="form-group">
                             <mat-label>Set Type</mat-label><br>
-                            <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text">
+                            <!-- <select [(ngModel)]="selectedTeam"> -->
+                            <div class="custom-select">
+                                <select>
+                                    <option>Practice</option>
+                                    <option default>Assignment</option>
+                                    <option>Quiz</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <mat-label>Show Date</mat-label><br>
-                            <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text">
+                            <input type="date">
                         </div>
                         <div class="form-group">
                             <mat-label>Due Date</mat-label>
-                            <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text">
+                            <input type="date">
                         </div>
                         <div class="form-group">
                             <mat-label>Visibility</mat-label><br>
-                            <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text">
+                            <!-- <select [(ngModel)]="selectedTeam"> -->
+                            <div class="custom-select">
+                                <select>
+                                    <option default>Enabled</option>
+                                    <option>Disabled</option>
+                                    <option>Based on due date</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="buttom-form-group">
                         <button type="button" class="form-button">Create</button>
