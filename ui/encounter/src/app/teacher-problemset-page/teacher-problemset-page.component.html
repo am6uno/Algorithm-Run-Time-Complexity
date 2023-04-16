@@ -43,7 +43,7 @@
                         <button type="button" class="form-button" (click)="createProblemSet()">Create</button>
                             <div class="inline-form-group">
                                 <button type="button" class="form-button">Update</button>
-                                <button type="button" class="form-button">Delete</button>
+                                <button type="button" class="form-button" (click)="deleteProblemSet()">Delete</button>
                             </div>
                         <button type="button" class="form-button">View Problems</button>
                         </div>
@@ -51,8 +51,7 @@
                 </div>
             </div>
             <div class="main">
-                <!-- *ngFor="let problemset of allProblemSets" (click)="selectProblemSet(problemset.id)" -->
-                <div class="set" *ngFor="let problemset of allProblemSets">
+                <div class="set" *ngFor="let problemset of allProblemSets" (click)="selectProblemSet(problemset)">
                     <h3>{{problemset.name}}</h3>
                     <div class="set-flex-container">
                         <div class="set-content">

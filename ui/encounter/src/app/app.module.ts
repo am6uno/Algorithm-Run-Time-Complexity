@@ -26,6 +26,7 @@ import { StudentSolutionComponent } from './student-solution-component/student-s
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -76,7 +77,8 @@ const APP_ROUTES: Routes = [
       multi: true,
       deps: [KeycloakService]
     },
-    AuthService
+    AuthService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
