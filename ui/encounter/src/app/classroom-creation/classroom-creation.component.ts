@@ -6,6 +6,7 @@ import {Teacher} from "../teacher";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {UserService} from "../user.service";
 import {Student} from "../student";
+import {BehaviorSubject, Observable, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-classroom-creation',
@@ -13,13 +14,14 @@ import {Student} from "../student";
   styleUrls: ['./classroom-creation.component.css']
 })
 export class ClassroomCreationComponent {
+  refreshClassrooms$ = new BehaviorSubject<boolean>(true)
   id?: number = 1
   name: string = ''
   length: number
   access_code: string = ''
   teacher: Teacher
   teacherEmail: string
-  teacherClassrooms?: any
+  teacherClassrooms?: Classroom[]
   enrolled_students: any = undefined
 
   constructor(private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
@@ -31,7 +33,8 @@ export class ClassroomCreationComponent {
     next:(teacher) => {
       this.teacher = teacher;
       this.teacherEmail = teacher.teacherEmail;
-      this.name= this.teacher.first_name + " " + this.teacher.last_name + "'s Classroom";
+      this.name= '';
+      // this.name= this.teacher.first_name + " " + this.teacher.last_name + "'s Classroom";
     },
       error: () => {
         this._snackBar.open('Could not fetch teacher','X', {duration: 2000});
@@ -45,7 +48,6 @@ export class ClassroomCreationComponent {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
       }
     })
-
   }
 
   /** Generates a random 8 digit code for classroom enrollment. Not secure. */
@@ -64,9 +66,22 @@ export class ClassroomCreationComponent {
     return false;
   }
 
+  checkUniqueClassroomName(){
+    // @ts-ignore
+    var classroom_names = this.teacherClassrooms.map(t=>t.name)
+    for (let name of classroom_names){
+      if (this.name == name){
+        return false
+      }
+    }
+    return true
+  }
   submitClassroom() {
     if (!this.formComplete()) {
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
+    }
+    else if(!this.checkUniqueClassroomName()){
+      this._snackBar.open('Classroom name not unique','X', {duration: 2000})
     }
     else {
       const newClassroom: Classroom = {
@@ -75,7 +90,8 @@ export class ClassroomCreationComponent {
         teacher: this.teacher,
         enrolled_students: this.enrolled_students
       }
-      this.classroomService.addClassroom(newClassroom).subscribe()
+      this.classroomService.addClassroom(newClassroom).subscribe();
+      this._snackBar.open('Classroom added','X', {duration: 2000})
     }
   }
 }

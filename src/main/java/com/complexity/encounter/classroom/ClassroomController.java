@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
 * This is the controller class for the classroom object. Its purpose is to manage
@@ -32,6 +33,17 @@ public class ClassroomController {
      */
     @RequestMapping(classroom_url + "/{id}")
     public Classroom getClassroom(@PathVariable Long id) { return classroomService.getClassroomById(id).get();}
+
+    @GetMapping(classroom_url)
+    @CrossOrigin(origins ="http://localhost:4200")
+    public List<Classroom> getClassroomsByEmail(@RequestParam("email") String email) {
+        List<Classroom> items = classroomService.getAllClassrooms();
+                List<Classroom> classrooms = items.stream()
+                        .filter(item -> item.getTeacher().getTeacherEmail().equals(email))
+                        .collect(Collectors.toList());
+
+        return classrooms;
+    }
 
     /**
      * This method is used to add a new Classroom object to the database.
