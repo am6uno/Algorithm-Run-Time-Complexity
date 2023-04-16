@@ -23,7 +23,9 @@ export class UserService {
   **/
   updateUser(userObject: any, role: string){
     this.user = userObject;
-    this.user.role = role;
+    if(this.user){
+      this.user.role = role;
+    }
   }
 
   /**

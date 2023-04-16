@@ -1,7 +1,4 @@
 package com.complexity.encounter.teacher;
-
-import com.complexity.encounter.teacher.Teacher;
-import com.complexity.encounter.teacher.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,7 +63,6 @@ public class TeacherService {
         updatedTeacher.get().setFirst_name(teacher.getFirst_name());
         updatedTeacher.get().setLast_name(teacher.getLast_name());
         updatedTeacher.get().setTeacherEmail(teacher.getTeacherEmail());
-        updatedTeacher.get().setPassword_hash(teacher.getPassword_hash());
         teacherRepository.save(updatedTeacher.get());
     }
 }
