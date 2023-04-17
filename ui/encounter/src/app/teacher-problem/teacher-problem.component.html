@@ -36,7 +36,7 @@
                 </mat-expansion-panel-header>
                 <mat-tab-group>
                     <mat-tab label="Problem">
-                        <div class="expanded-content">
+                        <div class="expanded-content-problem">
                             <table class="problem-values">
                                 <tr *ngFor="let codeLine of problem.sourceCode; index as i">
                                     <td class="line-complexity">{{problem.complexity[i]}}</td>
@@ -44,18 +44,38 @@
                                 </tr>
                             </table>
                         </div>
-                        <h4>Overall Complexity: {{problem.overallComplexity}}</h4>
+                        <h4 class="overall-complexity">Overall Complexity: {{problem.overallComplexity}}</h4>
                     </mat-tab>
                     <mat-tab label="Student Statistics">
-                        <div class="expanded-content">
+                        <div class="expanded-content-stats">
                             <div class="has-submissions" *ngIf="problem.submissions && problem.submissions > 0">
-                                <p>Number of Submissions: {{problem.submissions}}</p>
-                                <p>Average Score: {{problem.avg}}</p>
-                                <p>High Score: {{problem.highScore}}</p>
-                                <p>Low Score: {{problem.lowScore}}</p>
+                                <table>
+                                    <tr>
+                                        <td>Number of Submissions:</td>
+                                        <td>{{problem.submissions}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Average Score:</td>
+                                        <td>{{problem.avg}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High Score:</td>
+                                        <td>{{problem.highScore}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low Score:</td>
+                                        <td>{{problem.lowScore}}</td>
+                                    </tr>
+                                </table>
                             </div>
+                            <!--<div class="has-submissions" *ngIf="problem.submissions && problem.submissions > 0">
+                                <h4>Number of Submissions:</h4><p>{{problem.submissions}}</p>
+                                <h4>Average Score:</h4><p>{{problem.avg}}</p>
+                                <h4>High Score:</h4><p>{{problem.highScore}}</p>
+                                <h4>Low Score:</h4><p>{{problem.lowScore}}</p>
+                            </div>-->
                             <div class="no-submissions" *ngIf="!problem.submissions || problem.submissions < 0">
-                                <p>No submissions yet</p>
+                                <h4>No submissions</h4>
                             </div>
                         </div>
                     </mat-tab>        

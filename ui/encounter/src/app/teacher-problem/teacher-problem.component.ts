@@ -43,15 +43,22 @@ export class TeacherProblemComponent {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
+    dialogConfig.data = {
+      title: "Delete Confirmation",
+      message: "Are you sure you want to delete the problem?",
+      acceptText: "Delete"
+    }
 
-    const dialogRef = this.dialog.open(ConfirmationModalComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(
-      data => {
-        if(data) {
-          this.deleteProblem(problemId);
+    this.zone.run(() => {
+      const dialogRef = this.dialog.open(ConfirmationModalComponent, dialogConfig);
+      dialogRef.afterClosed().subscribe(
+        data => {
+          if(data) {
+            this.deleteProblem(problemId);
+          }
         }
-      }
-    );
+      );
+    });
   }
 
   deleteProblem(problemId: number){

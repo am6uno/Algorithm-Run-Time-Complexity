@@ -56,3 +56,15 @@
     border: 1px solid #d1bfa7;
     border-spacing: 0px;
   }
+
+  .mat-mdc-dialog-actions{
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-mdc-dialog-actions > button{
+    margin: 10px;
+  }
+
+  
+  
