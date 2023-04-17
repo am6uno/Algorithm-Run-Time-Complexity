@@ -1,9 +1,9 @@
 <div class="classroom-creation">
   <div class="classroom-list">
     <div class="classroom-list-items">
+      <h2>Existing Classrooms</h2>
       <div class = classroom *ngFor="let classroom of teacherClassrooms">
-        <h3>{{classroom.name}}!!!</h3>
-        <h3>Entry Code: {{classroom.access_code}} {{classroom.teacher.teacherEmail}}</h3>
+        <app-classroom-detail [classroom]="classroom"></app-classroom-detail>
       </div>
     </div>
     <h1  *ngIf="!this.teacherClassrooms">No Classrooms Have been Created Yet.</h1>

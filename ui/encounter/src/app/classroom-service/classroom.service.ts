@@ -46,7 +46,7 @@ export class ClassroomService {
   addStudentToClassroom(classroom: Classroom, student: Student): void {
     const classroom_id = classroom.id;
     const student_id = student.id;
-    const url = `http://localhost:8080/classrooms/${classroom_id}/students/${student_id}`
+    const url = `http://localhost:8080/classrooms/${classroom_id}/add/students/${student_id}`
 
     this.http.post(url, null).pipe(
       tap(
@@ -62,7 +62,7 @@ export class ClassroomService {
   removeStudentFromClassroom(classroom: Classroom, student:Student): void {
     const classroom_id = classroom.id;
     const student_id = student.id;
-    const url = `http://localhost:8080/classrooms/${classroom_id}/students/${student_id}`
+    const url = `http://localhost:8080/classrooms/${classroom_id}/remove/students/${student_id}`
 
     this.http.post(url, null).pipe(
       tap(

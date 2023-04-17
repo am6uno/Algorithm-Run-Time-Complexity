@@ -26,6 +26,7 @@ import { StudentSolutionComponent } from './student-solution-component/student-s
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ClassroomCreationComponent } from './classroom-creation/classroom-creation.component';
+import { ClassroomDetailComponent } from './classroom-detail/classroom-detail.component';
 
 
 
@@ -49,6 +50,7 @@ const APP_ROUTES: Routes = [
     ProblemCreationComponent,
     StudentSolutionComponent,
     ClassroomCreationComponent,
+    ClassroomDetailComponent,
   ],
   imports: [
     BrowserModule,
