@@ -75,13 +75,14 @@ public class ClassroomController {
 
 
     @CrossOrigin(origins = host_url)
-    @RequestMapping(method=RequestMethod.POST, value=localhost + classroom_url + "/{classroom_id}/add/students/{student_id}")
+    @PostMapping("/classrooms/addstudent/{classroom_id}/{student_id}")
     public void addStudentToClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
+        System.out.println("Method Entered2");
         classroomService.addStudentToClassroom(classroom_id, student_id);
     }
 
     @CrossOrigin(origins = host_url)
-    @RequestMapping(method=RequestMethod.POST, value=localhost + classroom_url + "/{classroom_id}/remove/students/{student_id}")
+    @PostMapping(value=localhost + classroom_url + "/{classroom_id}/remove/students/{student_id}")
     public void removeStudentFromClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
         classroomService.addStudentToClassroom(classroom_id, student_id);
     }

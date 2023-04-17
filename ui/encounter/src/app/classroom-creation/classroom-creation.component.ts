@@ -92,6 +92,9 @@ export class ClassroomCreationComponent {
       }
       this.classroomService.addClassroom(newClassroom).subscribe();
       this._snackBar.open('Classroom added','X', {duration: 2000})
+      this.router.navigateByUrl('/',{skipLocationChange: true}).then(
+        () => {this.router.navigate([this.router.url])}
+      )
     }
   }
 }
