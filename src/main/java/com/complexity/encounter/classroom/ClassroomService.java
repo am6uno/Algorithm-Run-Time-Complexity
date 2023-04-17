@@ -1,5 +1,6 @@
 package com.complexity.encounter.classroom;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.complexity.encounter.student.Student;
 import com.complexity.encounter.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,10 @@ import org.springframework.boot.context.config.ConfigDataResourceNotFoundExcepti
 import org.springframework.stereotype.Service;
 
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
 * This service contains the business logic for Classroom objects.
@@ -64,12 +67,12 @@ public class ClassroomService {
         Optional<Classroom> classroom = classroomRepository.findById(classroom_id);
         Optional<Student> student = studentRepository.findById(student_id);
 
-        System.out.println(classroom.get().toString());
-        System.out.println(student.get().toString());
 
-        classroom.get().getEnrolled_students().add(student.get());
-        student.get().getEnrolled_classes().add(classroom.get());
 
+//        classroom.get().setEnrolled_students(updatedStudentList);
+
+//        classroom.get().getEnrolled_students().add(student.get());
+//        student.get().getEnrolled_classes().add(classroom.get());
 
         classroomRepository.save(classroom.get());
         studentRepository.save(student.get());
