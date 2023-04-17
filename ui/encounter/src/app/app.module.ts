@@ -30,7 +30,9 @@ import { ProblemSetComponent } from './problem-set/problem-set.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { AddProblemModalComponent } from './add-problem-modal/add-problem-modal.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 const APP_ROUTES: Routes = [
@@ -55,7 +57,8 @@ const APP_ROUTES: Routes = [
     StudentSolutionComponent,
     TeacherProblemComponent,
     ProblemSetComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    AddProblemModalComponent
 
   ],
   imports: [
@@ -76,7 +79,9 @@ const APP_ROUTES: Routes = [
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule,
+    MatTabsModule,
   ],
   providers: [
     KeycloakService,
@@ -89,6 +94,6 @@ const APP_ROUTES: Routes = [
     AuthService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationModalComponent]
+  entryComponents: [ConfirmationModalComponent, AddProblemModalComponent]
 })
 export class AppModule { }

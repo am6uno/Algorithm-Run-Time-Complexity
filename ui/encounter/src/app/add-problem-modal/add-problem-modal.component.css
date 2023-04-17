@@ -1,0 +1,58 @@
+.problem {
+    color: #d1bfa7;
+    background-color: #49494b;
+    border: 5px solid #bd8c7d;
+    border-radius: 5px;
+    padding: 0px 0px 0px 4px;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+  
+  .problem-info {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:  #d1bfa7;
+  }
+
+.problems{
+    margin: 5px 3px 3px 3px;
+    height: 70vh;
+    overflow: auto;
+    border-radius: 2px;
+  }
+  
+  .mat-expansion-panel-header {
+    flex-direction: row-reverse;
+    padding: 0px 2px 0px 10px;
+  }
+  
+  ::ng-deep .header > .mat-expansion-indicator:after {
+    color: white;
+  }
+  
+  .problem-values {
+    background-color: white;
+  }
+  
+  .expanded-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  td, th {
+    border: 3px solid #d1bfa7;
+    border-collapse: collapse;
+    font-size: .9em;
+    padding: 3px;
+    cursor:default;
+    color: #49494b;
+  }
+  
+  table {
+    width: 90%;
+    border-radius: 3px;
+    border: 1px solid #d1bfa7;
+    border-spacing: 0px;
+  }
