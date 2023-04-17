@@ -147,6 +147,14 @@ export class TeacherProblemComponent {
     });
   }
 
+  createProblem(){
+    this.router.navigate(['problem-creation/' + this.setId]);
+  }
+  
+  updateProblem(problemId: any){
+    this.router.navigate(['problem-creation/' + this.setId + '/' + problemId]);
+  }
+
   addProblems(problems: Map<number, Problem>){
     problems.forEach(problem => {
       problem.id = undefined;
@@ -154,7 +162,6 @@ export class TeacherProblemComponent {
       this.problemService.addProblem(problem).subscribe(() => {
         this.updateProblemList();
       });
-      
     })
     
   }

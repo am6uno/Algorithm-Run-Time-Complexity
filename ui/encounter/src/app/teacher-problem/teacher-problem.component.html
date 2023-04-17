@@ -6,7 +6,7 @@
             <mat-icon>add</mat-icon>
             Add Problems
         </button>
-        <button mat-button color="basic">
+        <button mat-button color="basic" (click)="createProblem()">
             <mat-icon>create</mat-icon>
             Create Problem
         </button>
@@ -23,7 +23,7 @@
                             <mat-icon>more_vert</mat-icon>
                         </button>
                         <mat-menu class="dropdown-menu" #optionMenu="matMenu">
-                            <button mat-menu-item>
+                            <button mat-menu-item (click)="updateProblem(problem.id)">
                               <mat-icon>edit</mat-icon>
                               <span>Edit Problem</span>
                             </button>

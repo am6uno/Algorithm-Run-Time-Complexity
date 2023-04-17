@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComplexityParserService } from '../complexity-parser/complexity-parser.service';
 
@@ -19,8 +19,36 @@ export class ProblemCreationComponent {
   overallComplexity: string = '';
   totalScore: Number = 0;
   codeInput: string = '';
+  problemId: number;
 
-  constructor(private problemService: ProblemService, private router: Router, private _snackBar: MatSnackBar, private complexityParserService: ComplexityParserService){ }
+  constructor(private problemService: ProblemService, 
+    private router: Router, private _snackBar: MatSnackBar, 
+    private complexityParserService: ComplexityParserService,
+    private route: ActivatedRoute
+    ){ }
+  ngOnInit(){
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.setId = +params['setId'];
+      this.problemId = +params['problemId']
+   });
+
+   if(this.problemId){
+    this.problemService.getProblemById(this.problemId).subscribe({
+      next: (problem: Problem) => {
+        this.sourceCode = problem.sourceCode;
+        this.name = problem.name;
+        this.complexity = problem.complexity;
+        this.overallComplexity = problem.overallComplexity;
+        this.totalScore = problem.totalScore;
+      },
+      error: () => {
+        this.router.navigate(['/teacher-set-problems/' + this.setId])
+      }
+    })
+   }
+  }
+
 
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
@@ -93,8 +121,21 @@ export class ProblemCreationComponent {
         overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
       }
-      this.problemService.addProblem(createdProblem).subscribe();
-      this.router.navigate(['']);
+      if(this.problemId){
+        this.problemService.updateProblem(this.problemId, createdProblem).subscribe({
+          next: () => {
+            this._snackBar.open(`Problem ${createdProblem.name} Updated`, 'X', {duration: 2000});
+            this.router.navigate(['/teacher-set-problems/' + this.setId]);
+          },
+          error: () => this._snackBar.open('Unable to Update Problem','X', {duration: 2000})
+        });
+      }
+      else {
+        this.problemService.addProblem(createdProblem).subscribe({
+          next: () => this.router.navigate(['/teacher-set-problems/' + this.setId])
+        });
+      }
+      
     }
   }
 
