@@ -1,6 +1,9 @@
 package com.complexity.encounter.classroom;
 
+import com.complexity.encounter.student.Student;
+import com.complexity.encounter.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +17,8 @@ import java.util.Optional;
 public class ClassroomService {
     @Autowired
     private ClassroomRepository classroomRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     /**
      * Communicates with the database to create a new Classroom object.
@@ -51,5 +56,32 @@ public class ClassroomService {
         Optional<Classroom> updatedClassroom = classroomRepository.findById(id);
         updatedClassroom.get().setEnrolled_students(classroom.getEnrolled_students());
         classroomRepository.save(updatedClassroom.get());
+    }
+
+    public void addStudentToClassroom(Long classroom_id, Long student_id) throws Exception {
+        Classroom classroom = classroomRepository.findById(classroom_id)
+                .orElseThrow(() -> new Exception("Classroom not found"));
+        Student student = studentRepository.findById(student_id)
+                .orElseThrow(() -> new Exception("Student not found"));
+
+        classroom.getEnrolled_students().add(student);
+        student.getEnrolled_classes().add(classroom);
+
+        classroomRepository.save(classroom);
+        studentRepository.save(student);
+
+    }
+
+    public void removeStudentFromClassroom(Long classroom_id, Long student_id) throws Exception {
+        Classroom classroom = classroomRepository.findById(classroom_id)
+                .orElseThrow(() -> new Exception("Classroom not found"));
+        Student student = studentRepository.findById(student_id)
+                .orElseThrow(() -> new Exception("Student not found"));
+
+        classroom.getEnrolled_students().remove(student);
+        student.getEnrolled_classes().remove(classroom);
+
+        classroomRepository.save(classroom);
+        studentRepository.save(student);
     }
 }

@@ -1,5 +1,6 @@
 package com.complexity.encounter.classroom;
 
+import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class ClassroomController {
     @Autowired
     private ClassroomService classroomService;
     final String classroom_url = "/classrooms";
+    final String localhost = "http://localhost:8080";
     final String host_url = "http://localhost:4200";
 
     /**
@@ -70,4 +72,17 @@ public class ClassroomController {
      */
     @RequestMapping(method=RequestMethod.DELETE, value=classroom_url + "/{id}")
     public void deleteClassroom(@PathVariable Long id) {classroomService.deleteClassroom(id);}
+
+
+    @CrossOrigin(origins = host_url)
+    @RequestMapping(method=RequestMethod.POST, value=localhost + classroom_url + "/{classroom_id}/students/{student_id}")
+    public void addStudentToClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
+        classroomService.addStudentToClassroom(classroom_id, student_id);
+    }
+
+    @CrossOrigin(origins = host_url)
+    @RequestMapping(method=RequestMethod.POST, value=localhost + classroom_url + "/{classroom_id}/students/{student_id}")
+    public void removeStudentFromClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
+        classroomService.addStudentToClassroom(classroom_id, student_id);
+    }
 }
