@@ -44,15 +44,15 @@ services:
       mysql:
         condition: service_healthy
 
-  encounter-backend:
-    container_name: encounter-backend
-    build: .
-    ports:
-      - "8080:8080"
-    restart: always
-    depends_on:
-      mysql:
-        condition: service_healthy
+  #encounter-backend:
+  #  container_name: encounter-backend
+  #  build: .
+  #  ports:
+  #    - "8080:8080"
+  #  restart: always
+  #  depends_on:
+  #    mysql:
+  #      condition: service_healthy
 
   #encounter-frontend:
   #  container_name: encounter-frontend
