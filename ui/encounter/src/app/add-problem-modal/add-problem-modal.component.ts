@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
+import CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-add-problem-modal',
@@ -10,7 +11,7 @@ import { ProblemService } from '../problem-service/problem.service';
 })
 export class AddProblemModalComponent implements OnInit {
   currentProblems: Problem[] = [];
-  currentProblemMap: Map<number, Problem> = new Map<number, Problem>();
+  currentProblemMap: Map<string, Problem> = new Map<string, Problem>();
   allProblems: Problem[] = [];
   problemCandidates: Problem[] = [];
   problemsToAdd: Map<number, Problem> = new Map<number, Problem>();
@@ -27,16 +28,16 @@ export class AddProblemModalComponent implements OnInit {
 
   createProblemMap(){
     this.currentProblems.forEach( (problem: Problem) => {
-      if(problem.id){
-        this.currentProblemMap.set(problem.id, problem);
-      }
+      const problemContentHash = this.getProblemHash(problem);  
+      this.currentProblemMap.set(problemContentHash, problem);
     })
   }
 
   getProblemCandidates(allProblems: Problem[]){
     this.problemCandidates = [];
     allProblems.forEach((problem: Problem) => {
-      if (problem.id && !this.currentProblemMap.has(problem.id)){
+      const problemContentHash = this.getProblemHash(problem);
+      if (!this.currentProblemMap.has(problemContentHash)){
         this.problemCandidates.push(problem);
       }
     })
@@ -54,8 +55,18 @@ export class AddProblemModalComponent implements OnInit {
     }
   }
 
+  getProblemHash(problem: Problem){
+    let problemContent = {
+      sourceCode: problem.sourceCode,
+      complexity: problem.complexity,
+      hints: problem.hints,
+      overallComplexity: problem.overallComplexity,
+      totalScore: problem.totalScore
+    }
+    return CryptoJS.SHA256(JSON.stringify(problemContent)).toString();
+  }
+
   add(){
-    console.log(this.problemsToAdd);
     this.dialog.close(this.problemsToAdd)
   }
 

@@ -28,19 +28,21 @@ export class ProblemCreationComponent {
     ){ }
   ngOnInit(){
     this.route.params.subscribe(params => {
-      console.log(params);
-      this.setId = +params['setId'];
-      this.problemId = +params['problemId']
+      const setIdParam = params['setId'];
+      if(setIdParam) {this.setId = setIdParam;}
+      const problemIdParam = params['problemId'];
+      if(problemIdParam) {this.problemId = problemIdParam;}
    });
 
    if(this.problemId){
     this.problemService.getProblemById(this.problemId).subscribe({
       next: (problem: Problem) => {
-        this.sourceCode = problem.sourceCode;
         this.name = problem.name;
+        this.sourceCode = problem.sourceCode;
         this.complexity = problem.complexity;
         this.overallComplexity = problem.overallComplexity;
         this.totalScore = problem.totalScore;
+        this.hints = problem.hints
       },
       error: () => {
         this.router.navigate(['/teacher-set-problems/' + this.setId])
