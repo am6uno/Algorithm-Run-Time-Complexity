@@ -20,8 +20,6 @@ export class ProblemsetService {
   }
 
   addProblemSet(problemset: ProblemSet): Observable<ProblemSet>{
-    console.log("attempting to add: ");
-    console.log(problemset);
     return this.http.post<ProblemSet>("http://localhost:8080/problemsets", problemset).pipe(
       tap(
       {

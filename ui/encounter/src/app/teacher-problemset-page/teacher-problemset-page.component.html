@@ -3,18 +3,16 @@
     <div class="sets">
         <div class="flex-container">
             <div class="sidebar">
-                <div> <!-- Problem Form - might not need the form tag -->
+                <div> 
                     <div>
                         <div class="form-group">
                             <mat-label>Set Name</mat-label><br>
-                            <!-- [(ngModel)]="overallComplexity"> -->
-                            <input type="text" [(ngModel)]="selectedProblemset.name">
+                            <input type="text" [(ngModel)]="problemsetForm.name">
                         </div>
                         <div class="form-group">
                             <mat-label>Set Type</mat-label><br>
-                            <!-- <select [(ngModel)]="selectedTeam"> -->
                             <div class="custom-select">
-                                <select [(ngModel)]="selectedProblemset.type">
+                                <select [(ngModel)]="problemsetForm.type">
                                     <option>Practice</option>
                                     <option default>Assignment</option>
                                     <option>Quiz</option>
@@ -23,16 +21,16 @@
                         </div>
                         <div class="form-group">
                             <mat-label>Show Date</mat-label><br>
-                            <input type="date" [(ngModel)]="selectedProblemset.showDate">
+                            <input type="date" [(ngModel)]="problemsetForm.showDate">
                         </div>
                         <div class="form-group">
                             <mat-label>Due Date</mat-label>
-                            <input type="date" [(ngModel)]="selectedProblemset.dueDate">
+                            <input type="date" [(ngModel)]="problemsetForm.dueDate">
                         </div>
                         <div class="form-group">
                             <mat-label>Visibility</mat-label><br>
                             <div class="custom-select">
-                                <select [(ngModel)]="selectedProblemset.visibility">
+                                <select [(ngModel)]="problemsetForm.visibility">
                                     <option>Enabled</option>
                                     <option>Disabled</option>
                                     <option default>Based on due date</option>
@@ -40,18 +38,18 @@
                             </div>
                         </div>
                         <div class="buttom-form-group">
-                        <button type="button" class="form-button" (click)="createProblemSet()">Create</button>
-                            <div class="inline-form-group">
-                                <button type="button" class="form-button">Update</button>
-                                <button type="button" class="form-button" (click)="deleteProblemSet()">Delete</button>
-                            </div>
-                        <button type="button" class="form-button">View Problems</button>
+                        <button type="button" class="form-button" *ngIf="selectedProblemset === null" (click)="createProblemSet()">Create</button>
+                        <div class="inline-form-group">
+                            <button type="button" class="form-button" *ngIf="selectedProblemset !== null" (click)="updateProblemSet()">Update</button>
+                            <button type="button" class="form-button" *ngIf="selectedProblemset !== null" (click)="deleteProblemSet()">Delete</button>
+                        </div>
+                        <button type="button" class="form-button" *ngIf="selectedProblemset !== null" (click)="viewProblemSet()">View Problems</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="main">
-                <div class="set" *ngFor="let problemset of allProblemSets" (click)="selectProblemSet(problemset)">
+                <div class="set" *ngFor="let problemset of allProblemSets" [ngStyle]="{'border-color': getBorderColor(problemset)}" (click)="selectProblemSet(problemset)">
                     <h3>{{problemset.name}}</h3>
                     <div class="set-flex-container">
                         <div class="set-content">
