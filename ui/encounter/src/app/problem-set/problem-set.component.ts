@@ -15,7 +15,7 @@ export class ProblemSetComponent implements OnInit {
   Problems: Problem[] = [];
   Sets: any = [];
 
-  constructor(private problemService: ProblemService) {
+  constructor(private problemSetService: ProblemSetService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -24,5 +24,13 @@ export class ProblemSetComponent implements OnInit {
 
     In the Html you can use *ngFor on the Sets variable to create a mat expansion panel for each set.*/
 
+    //FIXME: Alex has branch with problem service request to get all problem sets for a given teacher. Use that
+    this.activatedRoute.params.subscribe(params => {
+      this.classroomId = params["id"];
+    });
+
+    this.problemSetService.getProblemSetsByClassroomId(this.classroomId).subscribe(data => {
+      this.Sets = data;
+    });
   }
 }
