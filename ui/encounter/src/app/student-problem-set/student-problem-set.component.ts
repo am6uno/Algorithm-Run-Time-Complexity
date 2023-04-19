@@ -7,11 +7,11 @@ import { ProblemService } from '../problem-service/problem.service';
  * @title Accordion with expand/collapse all toggles
  */
 @Component({
-  selector: 'app-problem-set-component',
-  templateUrl: './problem-set.component.html',
-  styleUrls: ['./problem-set.component.css'],
+  selector: 'app-student-problem-set-component',
+  templateUrl: './student-problem-set.component.html',
+  styleUrls: ['./student-problem-set.component.css'],
 })
-export class ProblemSetComponent implements OnInit {
+export class StudentProblemSetComponent implements OnInit {
   Problems: Problem[] = [];
   Sets: any = [];
 

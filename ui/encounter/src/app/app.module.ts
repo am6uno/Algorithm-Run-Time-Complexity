@@ -36,7 +36,7 @@ const APP_ROUTES: Routes = [
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]}
+  {path: 'student-problem-set', component: StudentProblemSetComponent, canActivate: [AuthGuard]}
 
 ];
 
@@ -49,7 +49,7 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
-    ProblemSetComponent
+    StudentProblemSetComponent
 
   ],
   imports: [
