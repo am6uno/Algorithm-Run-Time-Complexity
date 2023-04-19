@@ -74,15 +74,4 @@ public class ClassroomController {
     public void deleteClassroom(@PathVariable Long id) {classroomService.deleteClassroom(id);}
 
 
-//    @CrossOrigin(origins = host_url)
-//    @PostMapping("/classrooms/addstudent/{classroom_id}/{student_id}")
-//    public void addStudentToClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
-//        classroomService.addStudentToClassroom(classroom_id, student_id);
-//    }
-//
-//    @CrossOrigin(origins = host_url)
-//    @PostMapping(value=localhost + classroom_url + "/{classroom_id}/remove/students/{student_id}")
-//    public void removeStudentFromClassroom(@PathVariable Long classroom_id, @PathVariable Long student_id) throws Exception {
-//        classroomService.addStudentToClassroom(classroom_id, student_id);
-//    }
 }

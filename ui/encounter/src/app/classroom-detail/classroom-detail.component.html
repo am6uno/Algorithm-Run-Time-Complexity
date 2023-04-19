@@ -1,6 +1,10 @@
-<h3>{{classroom.name}}</h3>
-<h3>Entry Code: {{classroom.access_code}}</h3>
-<h4>{{message}}</h4>
-<h4 *ngFor="let student of student_list">
-  {{student.first_name}} {{student.last_name}} ({{student.email}})
-</h4>
+<div class="classroom-item">
+  <div class="all details" *nfIf="this.viewdetail">
+    <h3>{{classroom.name}}</h3>
+    <h3>Entry Code: {{classroom.access_code}}</h3>
+    <h4>{{message}}</h4>
+    <h4 *ngFor="let student of student_list">
+      {{student.first_name}} {{student.last_name}} ({{student.email}})
+    </h4>
+  </div>
+</div>

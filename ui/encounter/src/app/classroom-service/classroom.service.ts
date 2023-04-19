@@ -44,7 +44,7 @@ export class ClassroomService {
   }
 
   updateClassroom(classroom: Classroom): Observable<Classroom> {
-    return this.http.post<Classroom>("http://localhost:8080/classrooms/", classroom);
+    return this.http.put<Classroom>("http://localhost:8080/classrooms/", classroom);
   }
 
   addStudentToClassroom(classroom: Classroom, student:Student): void {
@@ -60,11 +60,6 @@ export class ClassroomService {
       .filter(student => student_id !== student.id );
 
     this.updateClassroom(classroom);
-
-
-
-
-
 
   }
 }

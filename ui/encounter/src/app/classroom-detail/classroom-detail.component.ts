@@ -12,10 +12,11 @@ import {StudentService} from "../student-service/student.service";
 })
 export class ClassroomDetailComponent implements OnChanges{
   @Input() classroom: Classroom;
-
+  @Input() classroom_service: ClassroomService;
   message = '';
   students = true;
   student_list: Student[]
+  viewdetail = false;
 
 
   constructor(private classroomService:ClassroomService, private _snackBar: MatSnackBar ) {
@@ -30,6 +31,8 @@ export class ClassroomDetailComponent implements OnChanges{
     }
 
   }
+
+
 
 
 
