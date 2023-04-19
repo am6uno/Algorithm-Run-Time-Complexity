@@ -7,7 +7,7 @@ import {ClassroomService} from "../classroom-service/classroom.service";
 import {UserService} from "../user.service";
 import {Student} from "../student";
 import {BehaviorSubject, Observable, switchMap, tap} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {StudentService} from "../student-service/student.service";
 
 @Component({
   selector: 'app-classroom-creation',
@@ -27,22 +27,29 @@ export class ClassroomCreationComponent {
   student_list?: Student[]
   view_student: boolean = false;
 
-  constructor(private http: HttpClient, private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private classroomService: ClassroomService,
+              private studentService: StudentService, private router: Router,
+              private route:ActivatedRoute, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
-    this.userService;
+
+    this.studentService.getStudents()
+      .subscribe(students => {
+        this.student_list = students;
+      });
+
     this.userService.getTeacherByEmail(this.userService.user.email).subscribe({
     next:(teacher) => {
       this.teacher = teacher;
       this.teacherEmail = teacher.teacherEmail;
-      this.name= '';
-      // this.name= this.teacher.first_name + " " + this.teacher.last_name + "'s Classroom";
+
     },
       error: () => {
         this._snackBar.open('Could not fetch teacher','X', {duration: 2000});
       }
     })
+
     this.classroomService.getClassroomsByTeacherEmail(this.userService.user.email).subscribe({
       next: data=>{
       this.teacherClassrooms = data
@@ -81,16 +88,11 @@ export class ClassroomCreationComponent {
     return true
   }
 
-  getAllStudents(): Observable<any>{
-    return this.http.get("http://localhost:8080/students")
+  getAllStudents(): void {
+
+    this.view_student = true;
   }
 
-  studentMap(): void {
-    this.getAllStudents()
-      .pipe(tap()).subscribe( data => {
-        this.student_list = data
-      })
-}
 
   submitClassroom() {
     if (!this.formComplete()) {

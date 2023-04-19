@@ -17,8 +17,8 @@ public class StudentController {
      * This method is used to return a list of all Students in the database.
      * @return A List object containing all Students
      */
-    @RequestMapping("/students")
-    @CrossOrigin(origins="http://locahost:4200")
+    @GetMapping("/students")
+    @CrossOrigin(origins="*")
     public List<Student> getAllStudents() {return studentService.getAllStudents();}
     /**
      * This method looks up a Student by id and have the Student service return it.

@@ -17,7 +17,7 @@
 
   </div>
   <div>
-    <input type="submit" value = "View Students" (click)="studentMap()">
+    <input type="submit" value = "View Students" (click)="getAllStudents()">
     <div *ngIf="this.view_student">
       <div *ngFor="let student of student_list">{{student.email}}</div>
     </div>
