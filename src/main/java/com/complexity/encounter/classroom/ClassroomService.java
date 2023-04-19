@@ -61,34 +61,4 @@ public class ClassroomService {
         updatedClassroom.get().setEnrolled_students(classroom.getEnrolled_students());
         classroomRepository.save(updatedClassroom.get());
     }
-
-    public void addStudentToClassroom(Long classroom_id, Long student_id) {
-
-        Optional<Classroom> classroom = classroomRepository.findById(classroom_id);
-        Optional<Student> student = studentRepository.findById(student_id);
-
-
-
-//        classroom.get().setEnrolled_students(updatedStudentList);
-
-//        classroom.get().getEnrolled_students().add(student.get());
-//        student.get().getEnrolled_classes().add(classroom.get());
-
-        classroomRepository.save(classroom.get());
-        studentRepository.save(student.get());
-
-    }
-
-    public void removeStudentFromClassroom(Long classroom_id, Long student_id) throws Exception {
-        Classroom classroom = classroomRepository.findById(classroom_id)
-                .orElseThrow(() -> new Exception("Classroom not found"));
-        Student student = studentRepository.findById(student_id)
-                .orElseThrow(() -> new Exception("Student not found"));
-
-        classroom.getEnrolled_students().remove(student);
-        student.getEnrolled_classes().remove(classroom);
-
-        classroomRepository.save(classroom);
-        studentRepository.save(student);
-    }
 }

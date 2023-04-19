@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Classroom} from "../classroom";
@@ -6,7 +6,8 @@ import {Teacher} from "../teacher";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {UserService} from "../user.service";
 import {Student} from "../student";
-import {BehaviorSubject, Observable, switchMap} from "rxjs";
+import {BehaviorSubject, Observable, switchMap, tap} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-classroom-creation',
@@ -23,8 +24,10 @@ export class ClassroomCreationComponent {
   teacherEmail: string
   teacherClassrooms?: Classroom[]
   enrolled_students: any = undefined
+  student_list?: Student[]
+  view_student: boolean = false;
 
-  constructor(private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private userService: UserService, private classroomService: ClassroomService, private router: Router, private route:ActivatedRoute, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -48,6 +51,7 @@ export class ClassroomCreationComponent {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
       }
     })
+
   }
 
   /** Generates a random 8 digit code for classroom enrollment. Not secure. */
@@ -76,6 +80,18 @@ export class ClassroomCreationComponent {
     }
     return true
   }
+
+  getAllStudents(): Observable<any>{
+    return this.http.get("http://localhost:8080/students")
+  }
+
+  studentMap(): void {
+    this.getAllStudents()
+      .pipe(tap()).subscribe( data => {
+        this.student_list = data
+      })
+}
+
   submitClassroom() {
     if (!this.formComplete()) {
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
@@ -92,9 +108,6 @@ export class ClassroomCreationComponent {
       }
       this.classroomService.addClassroom(newClassroom).subscribe();
       this._snackBar.open('Classroom added','X', {duration: 2000})
-      this.router.navigateByUrl('/',{skipLocationChange: true}).then(
-        () => {this.router.navigate([this.router.url])}
-      )
     }
   }
 }

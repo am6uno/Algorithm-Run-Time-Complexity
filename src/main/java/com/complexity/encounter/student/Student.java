@@ -1,10 +1,9 @@
 package com.complexity.encounter.student;
 
 import com.complexity.encounter.classroom.Classroom;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +29,8 @@ public class Student {
     private String first_name;
     private String last_name;
     @ManyToMany(mappedBy = "enrolled_students")
-    private Set<Classroom> enrolled_classes;
+    @JsonIgnore
+    private Set<Classroom> enrolled_classes= new HashSet<>();
     private char[] password_hash;
 
 }
