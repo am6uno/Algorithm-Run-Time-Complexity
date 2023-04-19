@@ -93,7 +93,7 @@ export class TeacherProblemsetPageComponent {
   }
 
   viewProblemSet() {
-   // this.router.navigate(['THE ROUTE GOES HERE/' + this.selectedProblemset?.id])
+    this.router.navigate(['teacher-set-problems/' + this.selectedProblemset?.id])
   }
 
   addToAllProblemSetsList(problemSet: ProblemSet) {
