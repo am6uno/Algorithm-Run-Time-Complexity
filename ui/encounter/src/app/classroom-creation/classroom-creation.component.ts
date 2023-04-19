@@ -89,7 +89,6 @@ export class ClassroomCreationComponent {
   }
 
   getAllStudents(): void {
-
     this.view_student = true;
   }
 

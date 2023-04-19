@@ -3,6 +3,7 @@ import {Classroom} from "../classroom";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Student} from "../student";
+import {StudentService} from "../student-service/student.service";
 
 @Component({
   selector: 'app-classroom-detail',
@@ -11,6 +12,7 @@ import {Student} from "../student";
 })
 export class ClassroomDetailComponent implements OnChanges{
   @Input() classroom: Classroom;
+
   message = '';
   students = true;
   student_list: Student[]
@@ -28,6 +30,8 @@ export class ClassroomDetailComponent implements OnChanges{
     }
 
   }
+
+
 
 
 }

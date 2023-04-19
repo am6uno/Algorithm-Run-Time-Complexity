@@ -43,34 +43,28 @@ export class ClassroomService {
     return this.http.get<Classroom[]>(`http://localhost:8080/classrooms?email=${teacherEmail}`)
   }
 
-  addStudentToClassroom(classroom: Classroom, student: Student): void {
-    const classroom_id = classroom.id;
-    const student_id = student.id;
-    const url = `http://localhost:8080/classrooms/${classroom_id}/add/students/${student_id}`
+  updateClassroom(classroom: Classroom): Observable<Classroom> {
+    return this.http.post<Classroom>("http://localhost:8080/classrooms/", classroom);
+  }
 
-    this.http.post(url, null).pipe(
-      tap(
-        {
-          next:() => this._snackBar.open(`Classroom ${classroom.name} updated`, "X", {duration:2000}),
-          error:() => this._snackBar.open('Unable to add student', 'X', {duration:2000})
-        }
-      )
-    );
+  addStudentToClassroom(classroom: Classroom, student:Student): void {
+    classroom.enrolled_students.concat(student);
 
+    this.updateClassroom(classroom);
   }
 
   removeStudentFromClassroom(classroom: Classroom, student:Student): void {
-    const classroom_id = classroom.id;
-    const student_id = student.id;
-    const url = `http://localhost:8080/classrooms/${classroom_id}/remove/students/${student_id}`
 
-    this.http.post(url, null).pipe(
-      tap(
-        {
-          next:() => this._snackBar.open(`Classroom ${classroom.name} Updated (Delete Student)`, "X", {duration:2000}),
-          error:() => this._snackBar.open('Unable to remove student', 'X', {duration:2000})
-        }
-      )
-    );
+    const student_id = student.id;
+    classroom.enrolled_students = classroom.enrolled_students
+      .filter(student => student_id !== student.id );
+
+    this.updateClassroom(classroom);
+
+
+
+
+
+
   }
 }
