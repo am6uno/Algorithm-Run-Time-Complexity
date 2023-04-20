@@ -32,6 +32,4 @@ public class Teacher {
     private String teacherEmail;
     @OneToMany(mappedBy = "teacher")
     private Set<Classroom> owned_classrooms;
-    private char[] password_hash;
-
 }
