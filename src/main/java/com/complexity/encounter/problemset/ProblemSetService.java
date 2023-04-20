@@ -20,9 +20,9 @@ public class ProblemSetService
      * This method saves a ProblemSet to the backend.
      * @param set - the ProblemSet to be saved
      */
-    public void saveProblemSet(ProblemSet set)
+    public ProblemSet saveProblemSet(ProblemSet set)
     {
-        problemSetRepository.save(set);
+        return problemSetRepository.save(set);
     }
 
     /**
@@ -32,6 +32,10 @@ public class ProblemSetService
     public List<ProblemSet> getAllProblemSets()
     {
         return problemSetRepository.findAll();
+    }
+
+    public List<ProblemSet> getProblemSetsByClassroomId(long classroomId) {
+        return problemSetRepository.findByClassroomId(classroomId);
     }
 
     /**
@@ -62,8 +66,13 @@ public class ProblemSetService
     {
         Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
         updatedProblemSet.get().setName(set.getName());
+        updatedProblemSet.get().setClassroomId(set.getClassroomId());
         updatedProblemSet.get().setProblemList(set.getProblemList());
-        updatedProblemSet.get().setNumCompleted(set.getNumCompleted());
+        updatedProblemSet.get().setType(set.getType());
+        updatedProblemSet.get().setShowDate(set.getShowDate());
+        updatedProblemSet.get().setDueDate(set.getDueDate());
+        updatedProblemSet.get().setVisibility(set.getVisibility());
         problemSetRepository.save(updatedProblemSet.get());
     }
+
 }

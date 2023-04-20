@@ -1,0 +1,102 @@
+.teacher-problemset-page {
+    margin: 5%;
+    padding: 0px 0px 10px 0px;
+}
+
+.sets {
+    margin: 3% 0;
+}
+
+.set {
+    color: #d1bfa7;
+    background-color: #49494b;
+    border: 5px solid #bd8c7d;
+    border-width: 5px;
+    border-radius: 5px;
+    padding: 0px 0px 0px 4px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.set-flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.set-content {
+    margin: 0px 35px 10px 0px;
+}
+
+.sidebar {
+    width: 400px;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.form-button {
+    background-color: #d1bfa7;
+    padding: 10px;
+    margin: 0px 0px 5px 0px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration:none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.buttom-form-group {
+    text-align: left;
+    margin: 1% 4%;
+    padding: 10px 10px 0px;
+    font-weight: bold;
+    width: 80.5%;
+}
+
+.inline-form-group {
+    display: inline-flex;
+    width: 100%;
+    gap: 4px;
+}
+
+.form-group {
+    text-align: left;
+    margin: 1% 4%;
+    padding: 10px 10px 0px;
+    font-weight: bold;
+}
+
+.form-group input{
+    width: 90%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 8px 3px 0px;
+    outline: none;
+    border: 3px solid #49494b;
+    border-radius: 5px;
+}
+
+.custom-select {
+    width: 90%;
+    height: 24px;
+    padding: 2px;
+    margin: 3px 8px 3px 0px;
+    outline: none;
+    border: 3px solid #49494b;
+    border-radius: 5px;
+}
+
+.custom-select select {
+    width: 100%; 
+    border: none;
+}

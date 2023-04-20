@@ -34,6 +34,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddProblemModalComponent } from './add-problem-modal/add-problem-modal.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
+import { DatePipe } from '@angular/common';
+
 
 
 const APP_ROUTES: Routes = [
@@ -41,6 +44,8 @@ const APP_ROUTES: Routes = [
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]}
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
@@ -58,6 +63,7 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    TeacherProblemsetPageComponent,
     TeacherProblemComponent,
     ProblemSetComponent,
     ConfirmationModalComponent,
@@ -94,6 +100,8 @@ const APP_ROUTES: Routes = [
       multi: true,
       deps: [KeycloakService]
     },
+    AuthService,
+    DatePipe
     AuthService,
   ],
   bootstrap: [AppComponent],
