@@ -11,6 +11,7 @@ import java.util.List;
 */
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 public class ProblemController {
 
     @Autowired
@@ -23,7 +24,6 @@ public class ProblemController {
      * @return the list of problems
      */
     @RequestMapping("/problems")
-    @CrossOrigin(origins ="http://localhost:4200")
     public List<Problem> getAllProblems(){
         return problemService.getAllProblems();
     }
@@ -35,7 +35,6 @@ public class ProblemController {
      * @param id the id of desired problem
      * @return the problem
      */
-    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping("/problems/{id}")
     public Problem getProblem(@PathVariable long id){
         return problemService.getProblemById(id).get();
