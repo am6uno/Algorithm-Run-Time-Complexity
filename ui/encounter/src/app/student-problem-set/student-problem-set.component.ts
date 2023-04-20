@@ -12,10 +12,10 @@ import { ProblemService } from '../problem-service/problem.service';
   styleUrls: ['./student-problem-set.component.css'],
 })
 export class StudentProblemSetComponent implements OnInit {
-  Problems: Problem[] = [];
-  Sets: any = [];
+  problems: Problem[] = [];
+  sets: any = [];
 
-  constructor(private problemSetService: ProblemSetService, private activatedRoute: ActivatedRoute) {
+  constructor(private problemSetService: ProblemSetService, private problemService: ProblemService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -30,9 +30,22 @@ export class StudentProblemSetComponent implements OnInit {
     });
 
     this.problemSetService.getProblemSetsByClassroomId(this.classroomId).subscribe(data => {
-      this.Sets = data;
+      this.sets = sets;
+      this.sets.forEach((set:any) => {
+        ProblemService.getProblemSetsByClassroomId({
+          next(): (problems: Problem[]) => {set.problems = this.problems},
+          error(): () => {set.problems = []}
+        });
+      });
     });
 
+    //My version of the above logic, keeping for any future need
+
+    //Populating array of arrays of problems
+    //for (let i = 0; i < Sets.length; i++)
+    //{
+    //  Problems[i] = this.problemService.getProblemBySetId(Sets[i].)
+    //}
 
   }
 }

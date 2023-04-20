@@ -8,8 +8,7 @@
           </h3>
           <!-- FIXME: *ngFor to loop through each problem in each set and create a button for each -->
           <!-- FIXME: need to access the list of all problems for each set.....this isn't how it should be, just writing -->
-          <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of Problems">
-
+          <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of set.problems">
             <button (click) = "selectProblem(problem.problemId)"></button>
           </button>
         </mat-panel-title>
