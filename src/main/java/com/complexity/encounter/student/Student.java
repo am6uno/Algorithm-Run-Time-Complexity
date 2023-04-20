@@ -30,6 +30,5 @@ public class Student {
     private String last_name;
     @ManyToMany(mappedBy = "enrolled_students")
     private Set<Classroom> enrolled_classes;
-    private char[] password_hash;
 
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 /**
  * This is the controller for the ProblemSet class.
  * @Author Cole Gregory

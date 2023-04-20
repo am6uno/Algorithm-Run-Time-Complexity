@@ -1,0 +1,12 @@
+<div class="modal">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <div mat-dialog-content>
+        <div class="message">
+            <p>{{message}}</p>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="accept()" color="primary">{{acceptText}}</button>
+        <button mat-raised-button (click)="cancel()" color="warn">{{cancelText}}</button>
+    </div>
+</div>

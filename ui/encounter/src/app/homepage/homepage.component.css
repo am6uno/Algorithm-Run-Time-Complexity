@@ -3,21 +3,70 @@
     width: 100%;
     display: flex;
     justify-content: center;
-
     background-color: white;
+    top: 5%;
 }
 
-.role-selection{
+.page-title{
+    text-align: left;
+    margin: 15px;
+}
+
+.login{
     position: relative;
-    top: 20%;
     width: auto;
     height: fit-content;
+    text-align: center;
+    top: 25%;
 }
 
-.role-selection > button {
+.user-info {
+    text-align: left;
+    float: left;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    width: 250px;
+}
+.role-title {
+    text-align: left;
+    color: #bd8c7d;
+}
+
+.role {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info > p {
+    display: inline;
+}
+
+.info > b{
+    color: #bd8c7d;
+}
+
+
+.login > button {
     margin: 30px;
-    padding: 40px;
+    padding: 30px;
     color: #49494b;
     font-size: larger;
     background-color: #d1bfa7;
+}
+
+.user-info > button {
+    margin: 30px;
+    padding: 30px;
+    color: #49494b;
+    font-size: larger;
+    background-color: #d1bfa7;
+}
+
+.select-role {
+    margin-top: 20px;
 }

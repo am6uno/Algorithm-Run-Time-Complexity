@@ -12,6 +12,7 @@ import java.util.Optional;
 */
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
@@ -21,7 +22,6 @@ public class TeacherController {
      * @return A List object containing all Teachers
      */
     @RequestMapping("/teachers")
-    @CrossOrigin(origins="http://locahost:4200")
     public List<Teacher> getAllTeachers() {return teacherService.getAllTeachers();}
     /**
      * This method looks up a Teacher by id and have the Teacher service return it.
@@ -39,7 +39,6 @@ public class TeacherController {
      * @return A Teacher object matching the email address.
      */
     @RequestMapping("/teachers/email/{email}")
-    @CrossOrigin(origins ="http://localhost:4200")
     public Optional<Teacher> getTeacherByEmail(@PathVariable String email){
         return teacherService.getTeacherByEmail(email);
     }
@@ -48,7 +47,6 @@ public class TeacherController {
      * Sends a Teacher object to the service to be added to the database.
      * @param teacher The Teacher object to be added.
      */
-    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/teachers")
     public void addTeacher(@RequestBody Teacher teacher){
         teacherService.saveTeacher(teacher);
