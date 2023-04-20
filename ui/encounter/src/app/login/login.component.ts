@@ -45,17 +45,17 @@ export class LoginComponent implements OnInit {
   }
 
   handleStudentLogin(userDetails: any){
+    userDetails.classroomCode = this.userService.userDetails.classroomCode
     this.userService.getStudentByEmail(userDetails.email).subscribe({
       next: student => {
         if(!student){
           this.addStudent(userDetails);
         }
-        this.userService.updateUser(userDetails, 'student');
+        this.userService.updateUser(student, 'student')
         this.router.navigate(['problem-selection']);
       },
       error: () => {
         this.addStudent(userDetails);
-        this.userService.updateUser(userDetails, 'student');
         this.router.navigate(['problem-selection']);
       }
     });
@@ -67,12 +67,11 @@ export class LoginComponent implements OnInit {
         if(!teacher){
           this.addTeacher(userDetails);
         }
-        this.userService.updateUser(userDetails, 'teacher');
+        this.userService.updateUser(teacher, 'teacher')
         this.router.navigate(['problem-creation']);
       },
       error: () => {
         this.addTeacher(userDetails);
-        this.userService.updateUser(userDetails, 'teacher');
         this.router.navigate(['problem-creation']);
       }
     });
@@ -80,7 +79,6 @@ export class LoginComponent implements OnInit {
   }
 
   addTeacher(userDetails: any){
-    console.log(userDetails);
     let teacher: Teacher = {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
@@ -88,6 +86,9 @@ export class LoginComponent implements OnInit {
       password_hash: "placeholder"
     }
     this.userService.addTeacher(teacher).subscribe({
+      next: () => {
+        this.router.navigate(['./']);
+      },
       error: () => {
         console.log("Unable to add teacher");
         this.router.navigate(['']);
@@ -96,7 +97,7 @@ export class LoginComponent implements OnInit {
   }
 
   addStudent(userDetails: any){
-    console.log(userDetails);
+    console.log("classroomCode: %s",userDetails.classroomCode);
     let student: Student = {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
@@ -105,6 +106,9 @@ export class LoginComponent implements OnInit {
       password_hash: "placeholder"
     }
     this.userService.addStudent(student).subscribe({
+      next: () => {
+        this.router.navigate(['./']);
+      },
       error: () => {
         console.log("Unable to add student");
         this.router.navigate(['']);

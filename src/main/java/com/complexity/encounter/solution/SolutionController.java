@@ -17,7 +17,6 @@ public class SolutionController {
     private SolutionService solutionService;
 
     @RequestMapping("/solutions")
-    @CrossOrigin(origins ="http://localhost:4200")
     public List<Solution> getAllSolutions(){
         return solutionService.getAllSolutions();
     }

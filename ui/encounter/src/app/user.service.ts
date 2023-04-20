@@ -14,18 +14,17 @@ export class UserService {
   * Holds the information of the current logged in user.
   **/
   user: any;
+  userDetails: any;
 
   /**
   *   updates the user information
   *   @param userDetails the user details from keycloak.
   *   @param role the user role specifying if they are a teacher or a student.
   **/
-  updateUser(userDetails: any, role: string){
-    this.user = {
-      firstName: userDetails.given_name,
-      lastName: userDetails.family_name,
-      email: userDetails.email,
-      role: role,
+  updateUser(userObject: any, role: string){
+    this.user = userObject;
+    if(this.user){
+      this.user.role = role;
     }
   }
 

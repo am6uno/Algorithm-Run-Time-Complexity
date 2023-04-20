@@ -25,6 +25,7 @@ import { AuthGuard } from './auth';
 import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
 import { ProblemSetComponent } from './problem-set/problem-set.component';
 import { MatExpansionModule} from '@angular/material/expansion';
@@ -84,6 +85,7 @@ const APP_ROUTES: Routes = [
     MatDialogModule,
     MatCheckboxModule,
     MatTabsModule,
+    MatSelectModule
   ],
   providers: [
     KeycloakService,
