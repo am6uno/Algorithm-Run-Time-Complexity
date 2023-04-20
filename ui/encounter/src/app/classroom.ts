@@ -6,6 +6,8 @@ export interface Classroom {
   name: string
   teacher: any
   access_code: string
-  enrolled_students: Student[]
+  enrolled_students: any;
+
+
 
 }

@@ -6,7 +6,7 @@ import {Classroom} from "../classroom";
 import {Student} from "../student";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClassroomService {
 
@@ -48,16 +48,22 @@ export class ClassroomService {
   }
 
   addStudentToClassroom(classroom: Classroom, student:Student): void {
-    classroom.enrolled_students.concat(student);
+    console.log(classroom);
+    console.log(student);
+    console.log("TYPE: " + typeof classroom.enrolled_students)
+    let student_list = new Set(classroom.enrolled_students)
+    student_list.add(student);
+    classroom.enrolled_students = student_list
+    // classroom.enrolled_students.add(student);
 
     this.updateClassroom(classroom);
+    console.log(classroom);
   }
 
   removeStudentFromClassroom(classroom: Classroom, student:Student): void {
 
     const student_id = student.id;
-    classroom.enrolled_students = classroom.enrolled_students
-      .filter(student => student_id !== student.id );
+    classroom.enrolled_students.delete(student)
 
     this.updateClassroom(classroom);
 

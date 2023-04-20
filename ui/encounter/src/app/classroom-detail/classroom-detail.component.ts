@@ -18,7 +18,7 @@ export class ClassroomDetailComponent implements OnChanges{
 
   message = '';
   students = true;
-  student_list: Student[]
+  student_list: Set<any>
   viewdetail = false;
 
   classroom_id: number
@@ -32,9 +32,11 @@ export class ClassroomDetailComponent implements OnChanges{
     console.log(changes);
     this.student_list = this.classroom.enrolled_students
     console.log(this.student_list);
-    if (this.student_list.length === 0){
+    if (this.student_list.size === 0){
       this.students = false;
       this.message = 'No Students Currently Enrolled'
+    } else {
+      this.message = 'Found students'
     }
     this.classroom_id = this.classroom.id !== undefined ? this.classroom.id: 404;
   }

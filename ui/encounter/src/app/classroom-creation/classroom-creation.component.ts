@@ -94,7 +94,19 @@ export class ClassroomCreationComponent {
 
   addStudentTest(): void {
     // @ts-ignore
+    console.log(this.teacherClassrooms[0]);
+    // @ts-ignore
+    console.log(this.student_list[0]);
+    // @ts-ignore
     this.classroomService.addStudentToClassroom(this.teacherClassrooms[0], this.student_list[0])
+    // @ts-ignore
+    console.log(this.teacherClassrooms[0])
+    // @ts-ignore
+    console.log(this.student_list[1]);
+    // @ts-ignore
+    this.classroomService.addStudentToClassroom(this.teacherClassrooms[0], this.student_list[1])
+    // @ts-ignore
+    console.log(this.teacherClassrooms[0])
   }
 
 
