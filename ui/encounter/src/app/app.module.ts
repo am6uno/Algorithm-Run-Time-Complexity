@@ -45,7 +45,7 @@ const APP_ROUTES: Routes = [
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]}
+  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
@@ -102,7 +102,6 @@ const APP_ROUTES: Routes = [
     },
     AuthService,
     DatePipe
-    AuthService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmationModalComponent, AddProblemModalComponent]
