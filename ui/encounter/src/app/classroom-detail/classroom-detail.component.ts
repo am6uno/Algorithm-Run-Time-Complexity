@@ -4,6 +4,7 @@ import {ClassroomService} from "../classroom-service/classroom.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Student} from "../student";
 import {StudentService} from "../student-service/student.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-classroom-detail',
@@ -13,13 +14,19 @@ import {StudentService} from "../student-service/student.service";
 export class ClassroomDetailComponent implements OnChanges{
   @Input() classroom: Classroom;
   @Input() classroom_service: ClassroomService;
+
+
   message = '';
   students = true;
   student_list: Student[]
   viewdetail = false;
 
+  classroom_id: number
 
-  constructor(private classroomService:ClassroomService, private _snackBar: MatSnackBar ) {
+
+
+
+  constructor(private classroomService:ClassroomService, private _snackBar: MatSnackBar, private router: Router ) {
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
@@ -29,7 +36,19 @@ export class ClassroomDetailComponent implements OnChanges{
       this.students = false;
       this.message = 'No Students Currently Enrolled'
     }
+    this.classroom_id = this.classroom.id !== undefined ? this.classroom.id: 404;
+  }
 
+  viewProblemSet(): void {
+    //
+    this.router.navigate(['teacher-problemset-classroom/' + this.classroom?.id] )
+    // this.router.navigate(['problem-selection'])
+  }
+
+
+
+  toggleView(): void {
+    this.viewdetail = !this.viewdetail;
   }
 
 

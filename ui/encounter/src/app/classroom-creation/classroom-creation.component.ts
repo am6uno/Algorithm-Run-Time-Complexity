@@ -92,6 +92,11 @@ export class ClassroomCreationComponent {
     this.view_student = true;
   }
 
+  addStudentTest(): void {
+    // @ts-ignore
+    this.classroomService.addStudentToClassroom(this.teacherClassrooms[0], this.student_list[0])
+  }
+
 
   submitClassroom() {
     if (!this.formComplete()) {
