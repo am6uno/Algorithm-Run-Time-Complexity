@@ -22,7 +22,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializer } from './AppInit';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth';
-import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
+import { StudentSolutionComponent } from './student-solution/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
@@ -45,7 +45,7 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, }
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent}
 
 ];
 
@@ -62,7 +62,6 @@ const APP_ROUTES: Routes = [
     ProblemSetComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent
-
   ],
   imports: [
     BrowserModule,
