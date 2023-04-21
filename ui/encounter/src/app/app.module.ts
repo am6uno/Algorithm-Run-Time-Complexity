@@ -19,14 +19,23 @@ import { FormsModule } from '@angular/forms';
 import { NgComponentOutlet } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { initializer } from 'AppInit';
+import { initializer } from './AppInit';
 import { AuthService } from './auth.service';
-import { AuthGuard } from 'auth';
-import { StudentSolutionComponent } from './student-solution-component/student-solution.component';
+import { AuthGuard } from './auth';
+import { StudentSolutionComponent } from './student-solution/student-solution.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
 import { ProblemSetComponent } from './problem-set/problem-set.component';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule} from '@angular/material/expansion';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddProblemModalComponent } from './add-problem-modal/add-problem-modal.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -36,6 +45,12 @@ const APP_ROUTES: Routes = [
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
+  {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
+  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent},
   {path: 'student-problem-set', component: StudentProblemSetComponent, canActivate: [AuthGuard]}
 
 ];
@@ -49,8 +64,12 @@ const APP_ROUTES: Routes = [
     ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
+    TeacherProblemsetPageComponent,
+    TeacherProblemComponent,
+    ProblemSetComponent,
+    ConfirmationModalComponent,
+    AddProblemModalComponent,
     StudentProblemSetComponent
-
   ],
   imports: [
     BrowserModule,
@@ -70,6 +89,10 @@ const APP_ROUTES: Routes = [
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [
     KeycloakService,
@@ -79,8 +102,10 @@ const APP_ROUTES: Routes = [
       multi: true,
       deps: [KeycloakService]
     },
-    AuthService
+    AuthService,
+    DatePipe
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationModalComponent, AddProblemModalComponent]
 })
 export class AppModule { }
