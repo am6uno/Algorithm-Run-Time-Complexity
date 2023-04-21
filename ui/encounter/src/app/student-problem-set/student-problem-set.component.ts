@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
+import { ProblemsetService } from '../problemset-service/problemset.service';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * @title Accordion with expand/collapse all toggles
@@ -14,8 +16,9 @@ import { ProblemService } from '../problem-service/problem.service';
 export class StudentProblemSetComponent implements OnInit {
   problems: Problem[] = [];
   sets: any = [];
+  classroomId: number;
 
-  constructor(private problemSetService: ProblemSetService, private problemService: ProblemService, private activatedRoute: ActivatedRoute) {
+  constructor(private problemsetService: ProblemsetService, private problemService: ProblemService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -46,6 +49,10 @@ export class StudentProblemSetComponent implements OnInit {
     //{
     //  Problems[i] = this.problemService.getProblemBySetId(Sets[i].)
     //}
+
+  }
+
+  selectProblem(problem: Problem){
 
   }
 }
