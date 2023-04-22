@@ -1,5 +1,5 @@
 <div class="search-page">
-    <h1>{{set.name}}</h1>
+    <h1>{{this.set && this.set.name ? this.set.name : 'Problems'}}</h1>
 
     <div class="add-problem">
         <button mat-button color="basic" (click)="addProblemsModalOpen()">

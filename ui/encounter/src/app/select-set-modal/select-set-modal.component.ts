@@ -11,7 +11,7 @@ import { ProblemSet } from '../problemset';
 export class SelectSetModalComponent implements OnInit {
   constructor(public dialog: MatDialogRef<SelectSetModalComponent>, private problemsetService: ProblemsetService) {}
   sets: ProblemSet[] = [];
-  selectedSetId: number | undefined;
+  selectedSets: Map<number, number> = new Map<number, number>();
 
   ngOnInit(): void {
     // TODO: switch to get sets from all the teachers classrooms.
@@ -26,13 +26,19 @@ export class SelectSetModalComponent implements OnInit {
     });
   }
 
-  selectSet(setId: any){
-    this.selectedSetId != setId ? this.selectedSetId = setId : this.selectedSetId = undefined;
-    console.log(this.selectedSetId)
+  selectSet(set: ProblemSet){
+    if(set.id){
+      const setId = set.id;
+      this.selectedSets.has(setId) ? this.selectedSets.delete(setId) : this.selectedSets.set(setId, setId);
+    }
+  }
+
+  isSelected(set: ProblemSet){
+    return set.id && this.selectedSets.has(set.id) ? true : false;
   }
 
   add(){
-    this.dialog.close(this.selectedSetId);
+    this.dialog.close(this.selectedSets);
   }
 
   close(){

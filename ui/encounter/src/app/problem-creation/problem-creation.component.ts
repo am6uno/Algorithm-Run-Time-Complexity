@@ -145,21 +145,26 @@ export class ProblemCreationComponent {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = false;
-        dialogConfig.width = '20%';
+        dialogConfig.width = '270px';
 
         const dialogRef = this.dialog.open(SelectSetModalComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(
-          setId => {
-            if(setId) {
-              this.setId = setId;
-              createdProblem.setId = this.setId;
-              this.problemService.addProblem(createdProblem).subscribe({
-                next: () => this.router.navigate(['/teacher-set-problems/' + this.setId])
-              });
+          (setIds: Map<number, number>) => {
+            if(setIds){
+              setIds.forEach((setId: number) => {
+                this.addProblemToSets(createdProblem, setId);
+                this.router.navigate(['teacher-problemset-classroom/1'])
+              })
             }
-          });
+        });
       }
     }
+  }
+
+  addProblemToSets(problem: Problem, setId: number){
+    let postedProblem = {...problem};
+    postedProblem.setId = setId;
+    this.problemService.addProblem(postedProblem).subscribe();
   }
 
   getTotalScore(){
