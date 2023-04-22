@@ -11,6 +11,10 @@ export class ProblemsetService {
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
+  getAllProblemSets(): Observable<ProblemSet[]>{
+    return this.http.get<ProblemSet[]>("http://localhost:8080/problemsets");
+  }
+
   getProblemSetsByClassroomId(classroomId: number): Observable<ProblemSet[]>{
     return this.http.get<ProblemSet[]>("http://localhost:8080/problemsets/classroom/" + classroomId);
   }

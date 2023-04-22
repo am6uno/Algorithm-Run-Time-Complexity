@@ -36,6 +36,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
+import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
 
 
 
@@ -67,7 +68,8 @@ const APP_ROUTES: Routes = [
     TeacherProblemComponent,
     ProblemSetComponent,
     ConfirmationModalComponent,
-    AddProblemModalComponent
+    AddProblemModalComponent,
+    SelectSetModalComponent
   ],
   imports: [
     BrowserModule,
