@@ -45,16 +45,12 @@ const APP_ROUTES: Routes = [
   {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-<<<<<<< HEAD
-  {path: 'student-problem-set', component: StudentProblemSetComponent, canActivate: [AuthGuard]}
-=======
   {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]},
   {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]}
->>>>>>> 9774d84912c79f018fa876dac6909c2213c3bdf0
 
 ];
 
@@ -104,12 +100,8 @@ const APP_ROUTES: Routes = [
       multi: true,
       deps: [KeycloakService]
     },
-<<<<<<< HEAD
-    AuthService
-=======
     AuthService,
     DatePipe
->>>>>>> 9774d84912c79f018fa876dac6909c2213c3bdf0
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmationModalComponent, AddProblemModalComponent]
