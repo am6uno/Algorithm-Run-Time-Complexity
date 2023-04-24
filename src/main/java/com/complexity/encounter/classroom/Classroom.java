@@ -6,7 +6,9 @@ import com.complexity.encounter.teacher.Teacher;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -42,7 +44,7 @@ public class Classroom {
             joinColumns = @JoinColumn(name="classroom_id"),
             inverseJoinColumns = @JoinColumn(name="student_id")
     )
-    private Set<Student> enrolled_students = new HashSet<>();
+    private List<Student> enrolled_students = new ArrayList<>();
 
     public void addStudent(Student student){
         enrolled_students.add(student);

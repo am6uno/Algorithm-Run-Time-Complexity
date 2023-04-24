@@ -79,9 +79,9 @@ public class ClassroomController {
 
     @CrossOrigin(origins=host_url)
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/addStudent/{classroom_id}/{student_id}")
-    public void addStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
+    public Classroom addStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
         System.out.println("Request Received");
-        classroomService.addStudent(classroom_id, student_id);
+        return classroomService.addStudent(classroom_id, student_id);
     }
 
 

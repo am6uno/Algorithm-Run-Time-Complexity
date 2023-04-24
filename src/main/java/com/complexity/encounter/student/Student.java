@@ -35,7 +35,7 @@ public class Student {
 
     @ManyToMany(mappedBy = "enrolled_students", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<Classroom> enrolled_classrooms = new HashSet<>();
+    private List<Classroom> enrolled_classrooms = new ArrayList<>();
     private char[] password_hash;
 
     public void addClassroom(Classroom classroom){
