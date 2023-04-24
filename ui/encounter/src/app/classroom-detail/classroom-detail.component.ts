@@ -30,8 +30,9 @@ export class ClassroomDetailComponent implements OnChanges{
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
-    this.student_list = this.classroom.enrolled_students
-    console.log(this.student_list);
+    console.log(this.classroom.enrolled_students)
+    this.student_list = new Set<Student>(this.classroom.enrolled_students)
+    console.log("XXXXXXXXXXXXXXXX" + this.classroom.enrolled_students.type);
     if (this.student_list.size === 0){
       this.students = false;
       this.message = 'No Students Currently Enrolled'

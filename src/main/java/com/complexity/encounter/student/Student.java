@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,10 +19,12 @@ import java.util.Set;
  * @author Jason Siciliano
 */
 
-@Data
+
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="Student")
 public class Student {
     @Id
     @GeneratedValue
@@ -28,9 +32,20 @@ public class Student {
     private String email;
     private String first_name;
     private String last_name;
-    @ManyToMany(mappedBy = "enrolled_students")
+
+    @ManyToMany(mappedBy = "enrolled_students", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<Classroom> enrolled_classes= new HashSet<>();
+    private Set<Classroom> enrolled_classrooms = new HashSet<>();
     private char[] password_hash;
+
+    public void addClassroom(Classroom classroom){
+        enrolled_classrooms.add(classroom);
+    }
+
+    public void removeClassroom(Classroom classroom) {
+        enrolled_classrooms.remove(classroom);
+    }
+
+
 
 }

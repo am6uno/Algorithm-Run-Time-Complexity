@@ -47,17 +47,21 @@ export class ClassroomService {
     return this.http.put<Classroom>("http://localhost:8080/classrooms/", classroom);
   }
 
-  addStudentToClassroom(classroom: Classroom, student:Student): void {
-    console.log(classroom);
-    console.log(student);
-    console.log("TYPE: " + typeof classroom.enrolled_students)
-    let student_list = new Set(classroom.enrolled_students)
-    student_list.add(student);
-    classroom.enrolled_students = student_list
-    // classroom.enrolled_students.add(student);
+  // addStudentToClassroom(classroom: Classroom, student:Student): void {
+  //   console.log(classroom);
+  //   console.log(student);
+  //   console.log("TYPE: " + typeof classroom.enrolled_students)
+  //   let student_list = classroom.enrolled_students as Student[]
+  //   student_list.push(student);
+  //   classroom.enrolled_students = student_list
+  //   // classroom.enrolled_students.add(student);
+  //
+  //   this.updateClassroom(classroom);
+  //   console.log(classroom);
+  // }
 
-    this.updateClassroom(classroom);
-    console.log(classroom);
+  addStudent(classroom: Classroom, student_id: number){
+      return this.http.post<Classroom>(`http://localhost:8080/classrooms/add/${student_id}`, classroom)
   }
 
   removeStudentFromClassroom(classroom: Classroom, student:Student): void {

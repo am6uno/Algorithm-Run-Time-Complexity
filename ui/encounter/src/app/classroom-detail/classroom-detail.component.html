@@ -3,7 +3,7 @@
   <div  class="all details" *ngIf="this.viewdetail">
     <h3>Entry Code: {{classroom.access_code}}</h3>
     <h4>{{message}}</h4>
-    <h4 *ngFor="let student of student_list.values()">
+    <h4 *ngFor="let student of (classroom.enrolled_students)">
       {{student.first_name}} {{student.last_name}} ({{student.email}})
     </h4>
   </div>

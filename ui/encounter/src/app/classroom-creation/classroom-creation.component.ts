@@ -58,7 +58,7 @@ export class ClassroomCreationComponent {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
       }
     })
-
+    console.log(this.teacherClassrooms)
   }
 
   /** Generates a random 8 digit code for classroom enrollment. Not secure. */
@@ -94,17 +94,13 @@ export class ClassroomCreationComponent {
 
   addStudentTest(): void {
     // @ts-ignore
-    console.log(this.teacherClassrooms[0]);
+    console.log(this.student_list[0])
     // @ts-ignore
-    console.log(this.student_list[0]);
-    // @ts-ignore
-    this.classroomService.addStudentToClassroom(this.teacherClassrooms[0], this.student_list[0])
+    console.log(this.student_list[1])
     // @ts-ignore
     console.log(this.teacherClassrooms[0])
     // @ts-ignore
-    console.log(this.student_list[1]);
-    // @ts-ignore
-    this.classroomService.addStudentToClassroom(this.teacherClassrooms[0], this.student_list[1])
+    this.classroomService.addStudent(this.teacherClassrooms[0], 1)
     // @ts-ignore
     console.log(this.teacherClassrooms[0])
   }

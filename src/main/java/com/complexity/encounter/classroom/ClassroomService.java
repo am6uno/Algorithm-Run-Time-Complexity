@@ -3,8 +3,11 @@ package com.complexity.encounter.classroom;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.complexity.encounter.student.Student;
 import com.complexity.encounter.student.StudentRepository;
+import com.complexity.encounter.student.StudentService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 
@@ -23,6 +26,8 @@ public class ClassroomService {
     private ClassroomRepository classroomRepository;
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private StudentService studentService;
 
     /**
      * Communicates with the database to create a new Classroom object.
@@ -42,7 +47,7 @@ public class ClassroomService {
      * @param id The id used in the query to look up a Classroom
      * @return An Optional object which contains the Classroom object on a hit.
      */
-    public Optional<Classroom> getClassroomById(Long id) { return classroomRepository.findById(id);}
+    public Optional<Classroom> getClassroomById(Long id) {return classroomRepository.findById(id);}
 
 
     /**
@@ -56,9 +61,20 @@ public class ClassroomService {
      * @param classroom A Classroom object with updated information.
      * @param id The id of the Classroom being updated.
      */
-    public void updateClassroom(Classroom classroom, Long id) {
+    @Transactional
+    @Modifying
+    public Classroom updateClassroom(Classroom classroom, Long id) {
         Optional<Classroom> updatedClassroom = classroomRepository.findById(id);
         updatedClassroom.get().setEnrolled_students(classroom.getEnrolled_students());
-        classroomRepository.save(updatedClassroom.get());
+        return classroomRepository.save(updatedClassroom.get());
+    }
+
+    public Classroom addStudent(Long classroom_id, Long student_id) {
+        Optional<Student> student = studentService.getStudentById(student_id);
+        Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
+        Set<Student> updatedStudents = updatedClassroom.get().getEnrolled_students();
+        System.out.println(student);
+        System.out.println(updatedStudents.getClass());
+        return classroomRepository.save(updatedClassroom.get());
     }
 }

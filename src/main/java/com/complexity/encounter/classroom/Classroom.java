@@ -21,6 +21,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Classroom")
 public class Classroom {
 
     @Id
@@ -35,11 +36,20 @@ public class Classroom {
 
     private String access_code;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name="classroom_set",
             joinColumns = @JoinColumn(name="classroom_id"),
             inverseJoinColumns = @JoinColumn(name="student_id")
     )
     private Set<Student> enrolled_students = new HashSet<>();
+
+    public void addStudent(Student student){
+        enrolled_students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        enrolled_students.remove(student);
+    }
+
 }

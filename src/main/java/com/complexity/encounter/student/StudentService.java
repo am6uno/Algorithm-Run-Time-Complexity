@@ -56,7 +56,7 @@ public class StudentService {
         updatedStudent.get().setFirst_name(student.getFirst_name());
         updatedStudent.get().setLast_name(student.getLast_name());
         updatedStudent.get().setPassword_hash(student.getPassword_hash());
-        updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
+//        updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
         studentRepository.save(updatedStudent.get());
     }
 }
