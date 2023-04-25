@@ -123,6 +123,7 @@ export class ProblemCreationComponent {
         overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
       }
+
       if(this.problemId){
         this.problemService.updateProblem(this.problemId, createdProblem).subscribe({
           next: () => {
@@ -137,7 +138,6 @@ export class ProblemCreationComponent {
           next: () => this.router.navigate(['/teacher-set-problems/' + this.setId])
         });
       }
-      
     }
   }
 

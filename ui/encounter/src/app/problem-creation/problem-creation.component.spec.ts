@@ -99,9 +99,55 @@ import { of } from 'rxjs';
         });
 
         describe('getTotalScore', () => {
-            it('should calculate the total score', () => {
+            it('should return the number of possible points, complexity lines + 1', () => {
                 component.complexity = ["O(N)", "O(N)"];
                 expect(component.getTotalScore()).toEqual(3);
+            });
+        });
+
+        describe('setAllToConstant', () => {
+            it('should set complexities, hints and overall complexity to be linear', () => {
+                const expectedComplexity = ["o(1)","o(1)"];
+                const expectedHints = ["The complexity is linear","The complexity is linear"]
+                component.complexity = ["O(N)", "O(N)"];
+                component.hints = ["", ""];
+                component.setAllToConstant();
+                expect(component.complexity).toEqual(expectedComplexity);
+                expect(component.hints).toEqual(expectedHints);
+                expect(component.overallComplexity).toEqual("o(1)");
+            });
+        });
+
+        describe('formatComplexity', () => {
+            it('should return o(1)', () => {
+                expect((component as any).formatComplexity(0)).toBe("o(1)");
+            });
+
+            it('should return o(n)', () => {
+                expect((component as any).formatComplexity(1)).toBe("o(n)");
+            });
+
+            it('should return o(3)', () => {
+                expect((component as any).formatComplexity(3)).toBe("o(n^3)");
+            });
+        });
+
+        describe('parse', () => {
+            it('should set overall complexity to 0(1)', () => {
+                component.sourceCode = ["int x = 5;\n", "int y = 6;"];
+                component.parse();
+                expect(component.overallComplexity).toBe("o(1)");
+            });
+
+            it('should set overall complexity to 0(n)', () => {
+                component.sourceCode = [
+                    "int x = 5;\n",
+                     "for (int i = 0; i < n; i++){\n",
+                     "System.out.print(\"hello world\");\n",
+                     "}\n"
+                    ];
+                component.parse();
+                expect(component.overallComplexity).toBe("o(n)");
             });
         });
 
