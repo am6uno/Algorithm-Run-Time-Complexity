@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import { Problem } from '../problem';
+import {ProblemSet} from '../problemset'
 import { ProblemService } from '../problem-service/problem.service';
 import { ProblemsetService } from '../problemset-service/problemset.service';
 import { ActivatedRoute } from '@angular/router';
@@ -45,10 +46,8 @@ export class StudentProblemSetComponent implements OnInit {
    });
   }
 
-
   selectProblem(problemId: number)
   {
-    //FIXME: logic to route button press here, used in html
     this.router.navigate(['student-solution/' + problemId])
   }
 }
