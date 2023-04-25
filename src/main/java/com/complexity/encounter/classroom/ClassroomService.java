@@ -74,10 +74,13 @@ public class ClassroomService {
         Optional<Student> student = studentService.getStudentById(student_id);
         Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
 
-        List updatedList = updatedClassroom.get().getEnrolled_students();
+        boolean contains = updatedClassroom.get().getEnrolled_students().contains(student.get());
 
-        updatedClassroom.get().setEnrolled_students(updatedList);
-
+        if (!contains){
+            List updatedList = updatedClassroom.get().getEnrolled_students();
+            updatedList.add(student.get());
+            updatedClassroom.get().setEnrolled_students(updatedList);
+        }
         return classroomRepository.save(updatedClassroom.get());
     }
 
@@ -87,6 +90,9 @@ public class ClassroomService {
         Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
 
         List updatedList = updatedClassroom.get().getEnrolled_students();
+
+        if (updatedList.contains(student.get()))
+            updatedList.remove(student.get());
 
         updatedClassroom.get().setEnrolled_students(updatedList);
 
