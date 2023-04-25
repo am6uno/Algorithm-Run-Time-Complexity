@@ -75,19 +75,22 @@ public class ClassroomService {
         Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
 
         List updatedList = updatedClassroom.get().getEnrolled_students();
-        updatedList.add(student.get());
 
         updatedClassroom.get().setEnrolled_students(updatedList);
 
         return classroomRepository.save(updatedClassroom.get());
-
-
-
-//        System.out.println(student.get().getEnrolled_classrooms());
-//        updatedClassroom.get().addStudent(student.get());
-//        updatedClassroom.get().getEnrolled_students();
-//        System.out.println(student.get().getEnrolled_classrooms());
-//        updateClassroom(updatedClassroom.get(), classroom_id);
-//        return classroomRepository.save(updatedClassroom.get());
     }
+
+    public Classroom removeStudent(Long classroom_id, Long student_id) {
+
+        Optional<Student> student = studentService.getStudentById(student_id);
+        Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
+
+        List updatedList = updatedClassroom.get().getEnrolled_students();
+
+        updatedClassroom.get().setEnrolled_students(updatedList);
+
+        return classroomRepository.save(updatedClassroom.get());
+    }
+
 }

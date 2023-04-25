@@ -83,6 +83,12 @@ public class ClassroomController {
         System.out.println("Request Received");
         return classroomService.addStudent(classroom_id, student_id);
     }
+    @CrossOrigin(origins=host_url)
+    @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/removeStudent/{classroom_id}/{student_id}")
+    public Classroom removeStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
+        System.out.println("Request Received");
+        return classroomService.removeStudent(classroom_id, student_id);
+    }
 
 
 }
