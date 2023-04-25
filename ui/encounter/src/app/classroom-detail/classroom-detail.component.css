@@ -4,6 +4,16 @@
   border: 5px solid #bd8c7d;
   border-radius: 5px;
   padding: 0px 0px 0px 4px;
-  margin: 10px 0px;
+  margin: 10px 10px 10px 5px;
+  cursor: pointer;
+}
+
+.classroom-detail-student-table{
+  color: #d1bfa7;
+  background-color: #49494b;
+  border: 5px solid #bd8c7d;
+  border-radius: 5px;
+  padding: 0px 0px 0px 4px;
+  margin: 10px 10px 10px 5px;
   cursor: pointer;
 }

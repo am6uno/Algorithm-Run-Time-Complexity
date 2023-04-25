@@ -60,16 +60,18 @@ export class ClassroomService {
   //   console.log(classroom);
   // }
 
-  addStudent(classroom: Classroom, student_id: number){
-      return this.http.post<Classroom>(`http://localhost:8080/classrooms/add/${student_id}`, classroom)
+  addStudent(access_code: string, classroom: Classroom, student_id: number){
+      if (access_code === classroom.access_code) {
+        return this.http.put<Classroom>(
+          `http://localhost:8080/classrooms/addStudent/${classroom.id}/${student_id}`,
+          classroom
+        )
+      }
   }
-
-  removeStudentFromClassroom(classroom: Classroom, student:Student): void {
-
-    const student_id = student.id;
-    classroom.enrolled_students.delete(student)
-
-    this.updateClassroom(classroom);
-
+  removeStudent(classroom: Classroom, student_id: number){
+      return this.http.put(
+        `http://localhost:8080/classrooms/removeStudent/${classroom.id}/${student_id}`,
+        classroom
+      )
   }
 }
