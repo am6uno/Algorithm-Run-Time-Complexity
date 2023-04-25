@@ -6,8 +6,6 @@ import { ProblemsetService } from '../problemset-service/problemset.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
-
-
 /**
  * @title Accordion with expand/collapse all toggles
  */
@@ -39,13 +37,14 @@ export class StudentProblemSetComponent implements OnInit {
       //FIXME: do we just need to pull data from above into sets?
       this.sets = sets;
       this.sets.forEach((set:any) => {
-        this.problemsetService.getProblemSetsByClassroomId({
-          next(): (problems: Problem[]) => {set.problems = this.problems},
-          error(): () => {set.problems = []}
-        });
+        this.problemsetService.getProblemSetsByClassroomId(this.classroomId).subscribe({
+          next : (problemset: ProblemSet[]) => {set.problems = problemset},
+          error : () => {set.problems = []}
       });
     });
+   });
   }
+
 
   selectProblem(problemId: number)
   {
