@@ -31,15 +31,15 @@ export class StudentProblemSetComponent implements OnInit {
     In the Html you can use *ngFor on the Sets variable to create a mat expansion panel for each set.*/
 
     this.activatedRoute.params.subscribe(params => {
-      this.classroomId = params["id"];
+      this.classroomId = params["classroomId"];
     });
 
     this.problemsetService.getProblemSetsByClassroomId(this.classroomId).subscribe(sets => {
       //FIXME: do we just need to pull data from above into sets?
       this.sets = sets;
       this.sets.forEach((set:any) => {
-        this.problemsetService.getProblemSetsByClassroomId(this.classroomId).subscribe({
-          next : (problemset: ProblemSet[]) => {set.problems = problemset},
+        this.problemService.getProblemBySetId(set.id).subscribe({
+          next : (problems: Problem[]) => {set.problems = problems},
           error : () => {set.problems = []}
       });
     });
