@@ -46,6 +46,10 @@ public class ProblemService {
         return problemRepository.findById(id);
     }
 
+    public List<Problem> getProblemsBySetId(long setId) {
+        return problemRepository.findBySetId(setId);
+    }
+
     /**
      * <p>
      *     Deletes a problem

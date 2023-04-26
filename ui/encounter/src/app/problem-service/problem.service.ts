@@ -50,4 +50,31 @@ export class ProblemService {
   getProblemById(problemId:number): Observable<Problem>{
     return this.http.get<Problem>("http://localhost:8080/problems/" + problemId);
   }
+
+  /**
+  *   Retrieves the problems from the backend with the specified setId.
+  *   @param setId The id of the set that the problems belong to.
+  *   @returns Returns an observable of the problem that it receives from the backend.
+  **/
+  getProblemBySetId(setId:number): Observable<Problem[]>{
+    return this.http.get<Problem[]>("http://localhost:8080/set/problems/" + setId);
+  }
+
+  /**
+  *   Deletes the problems from the backend with the specified problemId.
+  *   @param problemId The id of the problem.
+  *   @returns The result from the delete request.
+  **/
+  deleteProblem(problemId:number){
+      return this.http.delete<Problem>("http://localhost:8080/problems/" + problemId);
+  }
+
+    /**
+  *   Updates the problems with the specified problemId.
+  *   @param problemId The id of the problem.
+  *   @returns The result from the delete request.
+  **/
+  updateProblem(problemId:number, problem: Problem){
+    return this.http.put<Problem>("http://localhost:8080/problems/" + problemId, problem);
+  }
 }

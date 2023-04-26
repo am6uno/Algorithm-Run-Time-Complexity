@@ -50,13 +50,14 @@ public class StudentService {
      * @param student A Student object with updated information.
      * @param id The id of the Student being updated.
      */
-    public void updateStudent(Student student, Long id) {
-        Optional<Student> updatedStudent = studentRepository.findById(id);
-        updatedStudent.get().setEmail(student.getEmail());
-        updatedStudent.get().setFirst_name(student.getFirst_name());
-        updatedStudent.get().setLast_name(student.getLast_name());
-        updatedStudent.get().setPassword_hash(student.getPassword_hash());
-//        updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
-        studentRepository.save(updatedStudent.get());
-    }
+  //  public void updateStudent(Student student, Long id) {
+ //       Optional<Student> updatedStudent = studentRepository.findById(id);
+  //      updatedStudent.get().setEmail(student.getEmail());
+ //       updatedStudent.get().setFirst_name(student.getFirst_name());
+ //       updatedStudent.get().setLast_name(student.getLast_name());
+ //       updatedStudent.get().setPassword_hash(student.getPassword_hash());
+//      updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
+//
+//        studentRepository.save(updatedStudent.get());
+//    }
 }

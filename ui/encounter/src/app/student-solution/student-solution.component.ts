@@ -17,7 +17,8 @@ import { Block } from '../complexity-parser/block';
 export class StudentSolutionComponent implements OnInit{
   constructor(
     private problemService: ProblemService,
-    private router: Router, private route: ActivatedRoute,
+    private router: Router, 
+    private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private solutionService: SolutionService,
     private complexityParserService: ComplexityParserService

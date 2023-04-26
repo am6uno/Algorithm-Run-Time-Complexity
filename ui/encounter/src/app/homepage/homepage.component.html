@@ -1,10 +1,25 @@
-<div class="homepage-content">
-    <div class="role-selection" *ngIf="loggedIn">
-        <button mat-raised-button class="teacher" routerLink="login/teacher">Teachers</button>
-        <br>
-        <button mat-raised-button class="student" routerLink="login/student">Students</button>
+<h1 class="page-title" *ngIf="loggedIn">Account Creation</h1>
+<div class="homepage-content" *ngIf="loggedIn">
+      <span class="user-info">
+        <div class="info"><b>First Name: </b><p>{{userService.userDetails.given_name}}</p></div><br>
+        <div class="info"><b>Last Name:  </b><p>{{userService.userDetails.family_name}}</p></div><br>
+        <div class="info"><b>Email: </b><p>{{userService.userDetails.email}}</p></div><br>
+        <div class="role">
+          <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select class="role-select"[(ngModel)]="role" >
+              <mat-option value="teacher" selected>Teacher</mat-option>
+              <mat-option value="student">Student</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+          <mat-form-field *ngIf="role == 'student'">
+            <mat-label>Classroom code</mat-label>
+            <input matInput [(ngModel)]="classroomCode">
+          </mat-form-field>
+        </div><br>
+        <button mat-raised-button type="submit" (click)="createAccountRedirect()">Create Account</button>
+      </span>
     </div>
-    <div class="role-selection" *ngIf="!loggedIn">
-        <button mat-raised-button routerLink="login/login">Login</button>
-    </div>
+<div class="login" *ngIf="!loggedIn">
+  <button mat-raised-button routerLink="login/login">Login</button>
 </div>

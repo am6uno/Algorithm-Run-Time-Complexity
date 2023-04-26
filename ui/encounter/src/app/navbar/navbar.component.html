@@ -1,13 +1,10 @@
 <nav>
   <div class="navbar">
-    <button mat-icon-button class="menu" [matMenuTriggerFor]="navMenu">
+    <span class="menu" *ngIf="!userExists()"></span>
+    <button mat-icon-button class="menu" *ngIf="userExists()" [matMenuTriggerFor]="navMenu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu class="dropdown-menu" #navMenu="matMenu">
-      <button mat-menu-item routerLink="">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
       <button mat-menu-item routerLink="problem-selection">
         <mat-icon>search</mat-icon>
         <span>Problem Search</span>
@@ -16,18 +13,27 @@
         <mat-icon>create</mat-icon>
         <span>Create a Problem</span>
       </button>
+      <button mat-menu-item routerLink="teacher-set-problems/1">
+        <mat-icon>school</mat-icon>
+        <span>Temporary Teacher Problem page nav link</span>
+      </button>
+      <button mat-menu-item routerLink="teacher-problemset-classroom/1">
+        <mat-icon>report_problem</mat-icon>
+        <span>TEMPORARY - Set List</span>
+      </button>
       <button mat-menu-item routerLink="classroom-creation">
         <mat-icon>create</mat-icon>
         <span>Create a Classroom</span>
       </button>
-      <button mat-menu-item (click)="logout()"> <!-- add logic so this only shows up to teachers -->
+      <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Log Out</span>
       </button>
     </mat-menu>
 
     <span class="title">Encounter</span>
-    <input class="search" matInput placeholder="Search">
+    <b class="user-exists" *ngIf="userExists()">{{firstName.charAt(0).toUpperCase()}}{{lastName.charAt(0).toUpperCase()}}</b>
+    <span class="user" *ngIf="!userExists()"></span>
   </div>
   <div class="line"></div>
 </nav>

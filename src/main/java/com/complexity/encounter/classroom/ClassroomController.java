@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 */
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 public class ClassroomController {
     @Autowired
     private ClassroomService classroomService;
