@@ -8,6 +8,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddProblemModalComponent } from '../add-problem-modal/add-problem-modal.component';
 import { SolutionService } from '../solution-service/solution.service';
 import { Solution } from '../solution';
+import { ProblemSet } from '../problemset';
+import { ProblemsetService } from '../problemset-service/problemset.service';
 
 
 
@@ -18,13 +20,15 @@ import { Solution } from '../solution';
 })
 export class TeacherProblemComponent {
   setId: number;
+  set: ProblemSet;
   problems: Problem[] = [];
   detailedProblemList: any[] = []
 
   constructor(
     private problemService: ProblemService,
     private solutionService: SolutionService,
-    private router: Router, 
+    private problemsetService: ProblemsetService,
+    private router: Router,
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private dialog: MatDialog,
@@ -35,8 +39,12 @@ export class TeacherProblemComponent {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.setId = +params['setId'];
+      this.problemsetService.getProblemSetById(this.setId).subscribe((set: ProblemSet) => {
+        this.set = set;
+      })
       this.updateProblemList();
    });
+
   }
 
   handleDelete(problemId: any){
@@ -157,7 +165,7 @@ export class TeacherProblemComponent {
   createProblem(){
     this.router.navigate(['problem-creation/' + this.setId]);
   }
-  
+
   updateProblem(problemId: any){
     this.router.navigate(['problem-creation/' + this.setId + '/' + problemId]);
   }
@@ -170,7 +178,7 @@ export class TeacherProblemComponent {
         this.updateProblemList();
       });
     })
-    
+
   }
 
 }

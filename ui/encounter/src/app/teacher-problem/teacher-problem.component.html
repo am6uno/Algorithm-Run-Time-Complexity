@@ -1,6 +1,6 @@
 <div class="search-page">
-    <h1>Problems</h1>
-  
+    <h1>{{this.set && this.set.name ? this.set.name : 'Problems'}}</h1>
+
     <div class="add-problem">
         <button mat-button color="basic" (click)="addProblemsModalOpen()">
             <mat-icon>add</mat-icon>
@@ -12,7 +12,7 @@
         </button>
     </div>
     <div class="problems">
-        <mat-accordion multi>
+        <mat-accordion multi *ngIf="detailedProblemList.length > 0">
             <mat-expansion-panel class="problem"  *ngFor="let problem of detailedProblemList">
                 <mat-expansion-panel-header class="header">
                     <mat-panel-title class="problem-info">
@@ -68,19 +68,16 @@
                                     </tr>
                                 </table>
                             </div>
-                            <!--<div class="has-submissions" *ngIf="problem.submissions && problem.submissions > 0">
-                                <h4>Number of Submissions:</h4><p>{{problem.submissions}}</p>
-                                <h4>Average Score:</h4><p>{{problem.avg}}</p>
-                                <h4>High Score:</h4><p>{{problem.highScore}}</p>
-                                <h4>Low Score:</h4><p>{{problem.lowScore}}</p>
-                            </div>-->
                             <div class="no-submissions" *ngIf="!problem.submissions || problem.submissions < 0">
                                 <h4>No submissions</h4>
                             </div>
                         </div>
-                    </mat-tab>        
-                </mat-tab-group>    
+                    </mat-tab>
+                </mat-tab-group>
             </mat-expansion-panel>
         </mat-accordion>
+        <div class="no-problems" *ngIf="detailedProblemList.length == 0">
+            <h4>Set Empty</h4>
+        </div>
     </div>
 </div>
