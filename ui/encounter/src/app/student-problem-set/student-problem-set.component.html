@@ -6,12 +6,10 @@
           <h3 class = "set-name">
             {{set.name}}
           </h3>
-          <!-- FIXME: *ngFor to loop through each problem in each set and create a button for each -->
-          <!-- FIXME: need to access the list of all problems for each set.....this isn't how it should be, just writing -->
         </mat-panel-title>
       </mat-expansion-panel-header>
       <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of set.problems">
-        <button (click) = "selectProblem(problem.problemId)">{{problem.name}}</button>
+        <button (click) = "selectProblem(problem.id)">{{problem.name}}</button>
       </button>
     </mat-expansion-panel>
   </mat-accordion>
