@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Problem } from '../problem';
 import { ProblemService } from '../problem-service/problem.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComplexityParserService } from '../complexity-parser/complexity-parser.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SelectSetModalComponent } from '../select-set-modal/select-set-modal.component';
 
 @Component({
   selector: 'app-problem-creation',
@@ -11,7 +13,7 @@ import { ComplexityParserService } from '../complexity-parser/complexity-parser.
   styleUrls: ['./problem-creation.component.css']
 })
 export class ProblemCreationComponent {
-  setId: number = 1;
+  setId: number;
   sourceCode: string[] = [];
   name: string = '';
   complexity: string[] = [];
@@ -21,10 +23,11 @@ export class ProblemCreationComponent {
   codeInput: string = '';
   problemId: number;
 
-  constructor(private problemService: ProblemService, 
-    private router: Router, private _snackBar: MatSnackBar, 
+  constructor(private problemService: ProblemService,
+    private router: Router, private _snackBar: MatSnackBar,
     private complexityParserService: ComplexityParserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
     ){ }
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -109,6 +112,7 @@ export class ProblemCreationComponent {
         range.setEndAfter(tabNode)
       }
   }
+
   submitProblem(){
     if(!this.formComplete()){
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
@@ -133,12 +137,35 @@ export class ProblemCreationComponent {
           error: () => this._snackBar.open('Unable to Update Problem','X', {duration: 2000})
         });
       }
-      else {
+      else if(this.setId) {
         this.problemService.addProblem(createdProblem).subscribe({
           next: () => this.router.navigate(['/teacher-set-problems/' + this.setId])
         });
       }
+      else {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = false;
+        dialogConfig.autoFocus = false;
+        dialogConfig.width = '270px';
+
+        const dialogRef = this.dialog.open(SelectSetModalComponent, dialogConfig);
+        dialogRef.afterClosed().subscribe(
+          (setIds: Map<number, number>) => {
+            if(setIds){
+              setIds.forEach((setId: number) => {
+                this.addProblemToSets(createdProblem, setId);
+                this.router.navigate(['teacher-problemset-classroom/1'])
+              })
+            }
+        });
+      }
     }
+  }
+
+  addProblemToSets(problem: Problem, setId: number){
+    let postedProblem = {...problem};
+    postedProblem.setId = setId;
+    this.problemService.addProblem(postedProblem).subscribe();
   }
 
   getTotalScore(){

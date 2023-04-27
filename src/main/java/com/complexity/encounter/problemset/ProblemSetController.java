@@ -20,14 +20,13 @@ public class ProblemSetController
      * A Getter method for all problem sets.
      */
     
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @RequestMapping("/problemsets")
     public List<ProblemSet> getAllProblemSets()
     {
         return problemSetService.getAllProblemSets();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/problemsets/classroom/{classroomId}")
     public List<ProblemSet> getProblemSetsByClassroomId(@PathVariable long classroomId){
         return problemSetService.getProblemSetsByClassroomId(classroomId);
@@ -36,7 +35,6 @@ public class ProblemSetController
     /**
      * A Getter method for a single problem set.
      */
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/problemsets/{id}")
     public ProblemSet getProblemSet(@PathVariable long id)
     {
@@ -46,7 +44,6 @@ public class ProblemSetController
     /**
      * This method adds a problem set to the backend
      */
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/problemsets")
     public ProblemSet addProblemSet(@RequestBody ProblemSet ps)
     {
@@ -56,7 +53,6 @@ public class ProblemSetController
     /**
      * This method is for updating a problem set.
      */
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}")
     public void updateProblemSet(@RequestBody ProblemSet ps, @PathVariable Long id)
     {
@@ -66,7 +62,6 @@ public class ProblemSetController
     /**
      * This method deletes a problem set from the backend.
      */
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")
     public void deleteProblemSet(@PathVariable long id)
     {

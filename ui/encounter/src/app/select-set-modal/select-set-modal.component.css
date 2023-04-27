@@ -1,0 +1,22 @@
+.set {
+    color: #d1bfa7;
+    background-color: #49494b;
+    border: 5px solid #bd8c7d;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 10px 0px;
+    cursor: pointer;
+  }
+
+  .selectedSet {
+    outline: 3px solid red;
+  }
+
+  .mat-mdc-dialog-actions{
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-mdc-dialog-actions > button{
+    margin: 10px;
+  }

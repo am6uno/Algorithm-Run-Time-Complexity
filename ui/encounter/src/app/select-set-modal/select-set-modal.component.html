@@ -1,0 +1,16 @@
+<div class="modal">
+    <h1 mat-dialog-title>Add Problem to Set</h1>
+    <div mat-dialog-content>
+        <div class="set" [ngClass]="{'selectedSet': isSelected(set)}" *ngFor="let set of sets" (click)="selectSet(set)">
+            {{set.name}}
+        </div>
+        <div *ngIf="sets.length == 0">
+            No sets found
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="add()" color="primary" [disabled]="this.selectedSets.size == 0">Add to Set</button>
+        <button mat-raised-button (click)="close()" color="warn">Close</button>
+    </div>
+</div>
+

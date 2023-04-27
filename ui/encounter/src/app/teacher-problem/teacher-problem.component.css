@@ -111,3 +111,12 @@ table {
   justify-content: center;
   margin: 10px;
 }
+
+.no-problems{
+  position: relative;
+  width: auto;
+  height: fit-content;
+  text-align: center;
+  top: 25%;
+
+}
