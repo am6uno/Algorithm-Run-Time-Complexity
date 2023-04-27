@@ -1,13 +1,11 @@
 package com.complexity.encounter.student;
 
 import com.complexity.encounter.classroom.Classroom;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,12 +17,10 @@ import java.util.Set;
  * @author Jason Siciliano
 */
 
-
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Student")
 public class Student {
     @Id
     @GeneratedValue

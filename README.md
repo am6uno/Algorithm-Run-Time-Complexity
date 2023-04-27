@@ -4,6 +4,16 @@
   - We aim to create an online web application which emphasizes an interesting presentation to appeal to students, interactivity, and understandable feedback. This webpage will allow teachers to upload programs/code snippets. The teachers will then go on to annotate line by line the time complexity of each program. Students will then go in and annotate the programs. The students' annotations will be compared with the teachers' annotations and feedback will be provided on which lines the student has annotated incorrectly.
 
 - **Release notes:**
+  - **Milestone 4 (4/19/2023)**
+    - Updated the login process to include a screen for the user to pick their role and for students to enter their classroom code.
+    - Added a page to manage sets. Teachers can create, update and delete sets from this page.
+    - Added a page to manage problems within a set. Teachers can create problems to add to the set or add exisiting problems to the set. Problems can be updated and deleted from this page as well.
+    - Two branches were close to getting merged in but we ran out of time. These branches will be merged in soon. A description of the branches can be found below.
+    
+    *Additional branches*
+    * classroom: This branch deals with the management of classrooms.
+    * problem-set: This will be a replacement for our problem selection page. The problems will be shown within their sets.
+
   - **Milestone 3 (4/05/2023)**
     - Added Keycloak to handle login and account creation.
     - Added the ability for students to enter solutions to problems.

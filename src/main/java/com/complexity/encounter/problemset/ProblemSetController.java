@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins ="http://localhost:4200")
 /**
  * This is the controller for the ProblemSet class.
  * @Author Cole Gregory
@@ -13,49 +14,58 @@ import java.util.List;
 public class ProblemSetController
 {
     @Autowired
-    private ProblemSetService set;
+    private ProblemSetService problemSetService;
 
-    //FIXME: is this where this should be mapped? or just /problems?
-    @RequestMapping("/problemsets")
-    @CrossOrigin(origins = "http://localhost:4200")
     /**
      * A Getter method for all problem sets.
      */
+    
+
+    @RequestMapping("/problemsets")
     public List<ProblemSet> getAllProblemSets()
     {
-        return set.getAllProblemSets();
+        return problemSetService.getAllProblemSets();
     }
-    @RequestMapping("/problemsets{id}")
+
+    @RequestMapping("/problemsets/classroom/{classroomId}")
+    public List<ProblemSet> getProblemSetsByClassroomId(@PathVariable long classroomId){
+        return problemSetService.getProblemSetsByClassroomId(classroomId);
+    }
+
     /**
      * A Getter method for a single problem set.
      */
+    @RequestMapping("/problemsets/{id}")
     public ProblemSet getProblemSet(@PathVariable long id)
     {
-        return set.getProblemSetById(id).get();
+        return problemSetService.getProblemSetById(id).get();
     }
-    @RequestMapping(method= RequestMethod.POST, value="/problemsets")
+
     /**
      * This method adds a problem set to the backend
      */
-    public void addProblemSet(@RequestBody ProblemSet ps)
+    @RequestMapping(method= RequestMethod.POST, value="/problemsets")
+    public ProblemSet addProblemSet(@RequestBody ProblemSet ps)
     {
-        set.saveProblemSet(ps);
+        return problemSetService.saveProblemSet(ps);
     }
-    @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}")
+
     /**
      * This method is for updating a problem set.
      */
+    @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}")
     public void updateProblemSet(@RequestBody ProblemSet ps, @PathVariable Long id)
     {
-        set.updateProblemSet(ps, id);
+        problemSetService.updateProblemSet(ps, id);
     }
-    @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")
+
     /**
      * This method deletes a problem set from the backend.
      */
+    @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")
     public void deleteProblemSet(@PathVariable long id)
     {
-        set.deleteProblemSet(id);
+        problemSetService.deleteProblemSet(id);
     }
 
 }

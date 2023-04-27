@@ -1,0 +1,122 @@
+.search-page {
+  margin: 10px 5% 5%;
+  padding: 0px 0px 10px 0px;
+}
+
+.search-page > h1 {
+  margin: 10px 0px;
+}
+
+
+.problem {
+  color: #d1bfa7;
+  background-color: #49494b;
+  border: 5px solid #bd8c7d;
+  border-radius: 5px;
+  padding: 0px 0px 0px 4px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.problem-info {
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:  #d1bfa7;
+}
+
+.options {
+  background-color: inherit;
+  color: white;
+}
+
+.problems{
+  margin: 5px 3px 3px 3px;
+  height: 67vh;
+  overflow: auto;
+  border-radius: 2px;
+}
+
+.mat-expansion-panel-header {
+  flex-direction: row-reverse;
+  padding: 0px 2px 0px 10px;
+}
+
+::ng-deep .header > .mat-expansion-indicator:after {
+  color: white;
+}
+
+.expanded-content-problem {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+td, th {
+  border: 3px solid #bd8c7d;
+  border-collapse: collapse;
+  font-size: .9em;
+  padding: 3px;
+  cursor:default;
+  color: white;
+  background-color: #49494b;
+}
+
+table {
+  width: 90%;
+  border-radius: 3px;
+  border: 1px solid #bd8c7d;
+  border-spacing: 0px;
+  margin-top: 10px;
+}
+
+.overall-complexity {
+  margin-left: 5.2%;
+}
+
+.add-problem  > button{
+  margin: 0 3px;
+  font-weight: 600;
+}
+
+.mat-basic {
+  background-color: #bd8c7d;
+}
+
+.mat-mdc-tab-group {
+  background-color: #d1bfa7;
+  border-radius: 3px;
+  color: #49494b;
+  cursor: default;
+}
+
+::ng-deep .mat-mdc-tab-label-container {
+  background-color: #B8A68E;
+  color: green;
+}
+
+::ng-deep .mdc-tab__text-label {
+  color: #49494b !important;
+}
+
+.has-submissions{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.expanded-content-stats{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.no-problems{
+  position: relative;
+  width: auto;
+  height: fit-content;
+  text-align: center;
+  top: 25%;
+
+}
