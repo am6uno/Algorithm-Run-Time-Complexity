@@ -43,7 +43,7 @@ import { SelectSetModalComponent } from './select-set-modal/select-set-modal.com
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
+  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
