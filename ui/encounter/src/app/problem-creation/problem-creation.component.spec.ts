@@ -9,6 +9,8 @@ import { jest } from '@jest/globals';
 import { mockMatSnackBar } from '../../mocks/snack.bar.mock';
 import { of } from 'rxjs';
 import { mockSelection } from '../../mocks/selection.mock';
+import { mockMatDialog } from '../../mocks/dialog.mock';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -18,6 +20,7 @@ import { mockSelection } from '../../mocks/selection.mock';
         let problemService: ProblemService;
         let router: Router;
         let _snackBar: MatSnackBar;
+        let dialog: MatDialog;
 
         beforeEach(waitForAsync(() => {
             TestBed.configureTestingModule({
@@ -26,7 +29,8 @@ import { mockSelection } from '../../mocks/selection.mock';
                 providers: [
                 { provide: ProblemService, useValue: MockProblemService },
                 { provide: Router, Router},
-                { provide: MatSnackBar, useValue: mockMatSnackBar}
+                { provide: MatSnackBar, useValue: mockMatSnackBar},
+                {provide: MatDialog, useValue: mockMatDialog},
                 ]
             }).compileComponents();
         }));
@@ -36,6 +40,7 @@ import { mockSelection } from '../../mocks/selection.mock';
             problemService = TestBed.inject(ProblemService);
             router = TestBed.inject(Router);
             _snackBar = TestBed.inject(MatSnackBar);
+            dialog = TestBed.inject(MatDialog);
             component = fixture.componentInstance;
             fixture.detectChanges();
         });
@@ -120,8 +125,21 @@ import { mockSelection } from '../../mocks/selection.mock';
                 expect(snackBarOpenSpy).toHaveBeenCalled();
             });
 
-            it('should submit the problem with no problem id', ()=> {
+            it('should submit the problem after getting info from the modal', ()=> {
                 component.name = "Problem 1";
+                component.sourceCode = ["int x = 5;", "int z = 6;"];
+                component.complexity = ["O(C)","O(C)"];
+                component.overallComplexity = "O(C)";
+                const problemServiceSpy = jest.spyOn(problemService, 'addProblem').mockReturnValue(of(mockProblemArray as any));
+                const dialogSpy = jest.spyOn(dialog, 'open');
+                component.submitProblem()
+                expect(problemServiceSpy).toHaveBeenCalled();
+                expect(dialogSpy).toHaveBeenCalled();
+            });
+
+            it('should submit the problem if it has a setId', ()=> {
+                component.name = "Problem 1";
+                component.setId = 1234;
                 component.sourceCode = ["int x = 5;", "int z = 6;"];
                 component.complexity = ["O(C)","O(C)"];
                 component.overallComplexity = "O(C)";
