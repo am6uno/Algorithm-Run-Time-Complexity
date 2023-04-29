@@ -39,33 +39,17 @@ export class ClassroomService {
   }
 
   getClassroomsByTeacherEmail(teacherEmail: string): Observable<any> {
-    console.log(teacherEmail);
-    return this.http.get<Classroom[]>(`http://localhost:8080/classrooms?email=${teacherEmail}`)
+    return this.http.get<Classroom[]>(`http://localhost:8080/classrooms/email/${teacherEmail}`)
   }
 
   updateClassroom(classroom: Classroom): Observable<Classroom> {
     return this.http.put<Classroom>("http://localhost:8080/classrooms/", classroom);
   }
 
-  // addStudentToClassroom(classroom: Classroom, student:Student): void {
-  //   console.log(classroom);
-  //   console.log(student);
-  //   console.log("TYPE: " + typeof classroom.enrolled_students)
-  //   let student_list = classroom.enrolled_students as Student[]
-  //   student_list.push(student);
-  //   classroom.enrolled_students = student_list
-  //   // classroom.enrolled_students.add(student);
-  //
-  //   this.updateClassroom(classroom);
-  //   console.log(classroom);
-  // }
-
-  addStudent(access_code: string, classroom: Classroom, student_id: number){
+  addStudentToClassroom(access_code: string, classroom: Classroom, student_id: number): any {
+    const url = `http://localhost:8080/classrooms/addStudent/${classroom.id}/${student_id}`
       if (access_code === classroom.access_code) {
-        return this.http.put<Classroom>(
-          `http://localhost:8080/classrooms/addStudent/${classroom.id}/${student_id}`,
-          classroom
-        )
+        return this.http.put(url, null)
       }
   }
   removeStudent(classroom: Classroom, student_id: number){

@@ -4,6 +4,8 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.complexity.encounter.student.Student;
 import com.complexity.encounter.student.StudentRepository;
 import com.complexity.encounter.student.StudentService;
+import com.complexity.encounter.teacher.Teacher;
+import com.complexity.encounter.teacher.TeacherService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
@@ -28,6 +30,8 @@ public class ClassroomService {
     private StudentRepository studentRepository;
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private TeacherService teacherService;
 
     /**
      * Communicates with the database to create a new Classroom object.
@@ -97,6 +101,11 @@ public class ClassroomService {
         updatedClassroom.get().setEnrolled_students(updatedList);
 
         return classroomRepository.save(updatedClassroom.get());
+    }
+
+    public List<Classroom> getClassroomsByTeacherEmail(String email){
+        Optional<Teacher> teacher = teacherService.getTeacherByEmail(email);
+        return classroomRepository.findByTeacher(teacher.get());
     }
 
 }

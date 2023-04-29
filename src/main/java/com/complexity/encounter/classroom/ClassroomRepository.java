@@ -18,4 +18,6 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
     @Query("update Classroom c set c.enrolled_students = ?1 where c.id = ?2")
     int addStudent(Set<Student> students, Long id);
 
+    List<Classroom> findByTeacher(Teacher teacher);
+
 }

@@ -38,19 +38,16 @@ export class ClassroomCreationComponent {
       .subscribe(students => {
         this.student_list = students;
       });
+    this.userService.getTeacherByEmail(this.userService.user.teacherEmail).subscribe({next:teacher =>
+      this.teacher = teacher})
+    this.teacher = {
+      first_name: this.userService.user.first_name,
+      last_name: this.userService.user.last_name,
+      teacherEmail: this.userService.user.teacherEmail,
+    }
+    this.teacherEmail = this.userService.user.teacherEmail
 
-    this.userService.getTeacherByEmail(this.userService.user.email).subscribe({
-    next:(teacher) => {
-      this.teacher = teacher;
-      this.teacherEmail = teacher.teacherEmail;
-
-    },
-      error: () => {
-        this._snackBar.open('Could not fetch teacher','X', {duration: 2000});
-      }
-    })
-
-    this.classroomService.getClassroomsByTeacherEmail(this.userService.user.email).subscribe({
+    this.classroomService.getClassroomsByTeacherEmail(this.teacherEmail).subscribe({
       next: data=>{
       this.teacherClassrooms = data
       },
@@ -58,7 +55,6 @@ export class ClassroomCreationComponent {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
       }
     })
-    console.log(this.teacherClassrooms)
   }
 
   /** Generates a random 8 digit code for classroom enrollment. Not secure. */
@@ -94,15 +90,11 @@ export class ClassroomCreationComponent {
 
   addStudentTest(): void {
     // @ts-ignore
-    console.log(this.student_list[0])
     // @ts-ignore
-    console.log(this.student_list[1])
+ this.classroomService.addStudentToClassroom(
     // @ts-ignore
-    console.log(this.teacherClassrooms[0])
-    // @ts-ignore
-    this.classroomService.addStudent(this.teacherClassrooms[0], 1)
-    // @ts-ignore
-    console.log(this.teacherClassrooms[0])
+      this.teacherClassrooms[0].access_code, this.teacherClassrooms[0], 1
+    ).subscribe()
   }
 
 
@@ -118,10 +110,11 @@ export class ClassroomCreationComponent {
         name: this.name,
         access_code: this.generateAccessCode(),
         teacher: this.teacher,
-        enrolled_students: this.enrolled_students
+        enrolled_students: [],
+
       }
+      console.log(newClassroom)
       this.classroomService.addClassroom(newClassroom).subscribe();
-      this._snackBar.open('Classroom added','X', {duration: 2000})
     }
   }
 }

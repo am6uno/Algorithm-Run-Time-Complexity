@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
       teacherEmail: userDetails.email,
-      password_hash: "placeholder"
+      // password_hash: "placeholder"
     }
     this.userService.addTeacher(teacher).subscribe({
       next: () => {

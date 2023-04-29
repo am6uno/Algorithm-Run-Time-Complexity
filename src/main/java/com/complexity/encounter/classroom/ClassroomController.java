@@ -40,15 +40,11 @@ public class ClassroomController {
     @RequestMapping(classroom_url + "/{id}")
     public Classroom getClassroom(@PathVariable Long id) { return classroomService.getClassroomById(id).get();}
 
-    @GetMapping(classroom_url)
+    @GetMapping(classroom_url + "/email/{email}")
     @CrossOrigin(origins ="http://localhost:4200")
-    public List<Classroom> getClassroomsByEmail(@RequestParam("email") String email) {
-        List<Classroom> items = classroomService.getAllClassrooms();
-                List<Classroom> classrooms = items.stream()
-                        .filter(item -> item.getTeacher().getTeacherEmail().equals(email))
-                        .collect(Collectors.toList());
-
-        return classrooms;
+    public List<Classroom> getClassroomsByEmail(@PathVariable String email) {
+        System.out.println("Getting classrooms...");
+        return classroomService.getClassroomsByTeacherEmail(email);
     }
 
     /**
@@ -78,7 +74,7 @@ public class ClassroomController {
     @RequestMapping(method=RequestMethod.DELETE, value=classroom_url + "/{id}")
     public void deleteClassroom(@PathVariable Long id) {classroomService.deleteClassroom(id);}
 
-    @CrossOrigin(origins=host_url)
+
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/addStudent/{classroom_id}/{student_id}")
     public Classroom addStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
         System.out.println("Request Received");
