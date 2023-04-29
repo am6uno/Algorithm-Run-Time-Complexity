@@ -1,0 +1,17 @@
+<div class = "student-problem-set">
+  <mat-accordion>
+    <mat-expansion-panel class = "problem-set" *ngFor = "let set of sets">
+      <mat-expansion-panel-header class = "header">
+        <mat-panel-title class = "set info">
+          <h3 class = "set-name">
+            {{set.name}}
+          </h3>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of set.problems">
+        <button (click) = "selectProblem(problem.id)">{{problem.name}}</button>
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
