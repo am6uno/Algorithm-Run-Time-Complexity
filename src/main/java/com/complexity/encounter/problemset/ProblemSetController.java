@@ -60,6 +60,16 @@ public class ProblemSetController
     }
 
     /**
+     * This method is for updating a problem set's problem list.
+     */
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}/problemlist")
+    public void updateProblemSetProblemList(@RequestBody Long problemId, @PathVariable Long id)
+    {
+        problemSetService.updateProblemSetProblemList(id, problemId);
+    }
+
+    /**
      * This method deletes a problem set from the backend.
      */
     @RequestMapping(method= RequestMethod.DELETE, value="/problemsets/{id}")

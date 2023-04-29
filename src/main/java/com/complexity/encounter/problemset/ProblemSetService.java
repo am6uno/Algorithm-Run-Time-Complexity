@@ -75,4 +75,16 @@ public class ProblemSetService
         problemSetRepository.save(updatedProblemSet.get());
     }
 
+    /**
+     * This method updates a ProblemSet's list.
+     * @param id - the set id
+     * @param problemId - the problem id to add to the ProblemSet list
+     */
+    public void updateProblemSetProblemList(Long id, Long problemId)
+    {
+        Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
+        updatedProblemSet.get().getProblemList().add(problemId);
+        problemSetRepository.save(updatedProblemSet.get());
+    }
+
 }

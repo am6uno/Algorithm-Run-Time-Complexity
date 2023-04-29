@@ -174,11 +174,10 @@ export class TeacherProblemComponent {
     problems.forEach(problem => {
       problem.id = undefined;
       problem.setId = this.setId;
-      this.problemService.addProblem(problem).subscribe(() => {
+      this.problemService.addProblem(problem, this.setId).subscribe(() => {
         this.updateProblemList();
       });
     })
 
   }
-
 }

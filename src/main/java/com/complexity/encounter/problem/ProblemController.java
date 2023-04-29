@@ -1,5 +1,6 @@
 package com.complexity.encounter.problem;
 
+import com.complexity.encounter.problemset.ProblemSetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class ProblemController {
 
     @Autowired
     private ProblemService problemService;
+
+    @Autowired
+    private ProblemSetService problemSetService;
 
     /**
      * <p>
@@ -58,9 +62,11 @@ public class ProblemController {
      * @param problem the problem to add
      */
     @CrossOrigin(origins ="http://localhost:4200")
-    @RequestMapping(method= RequestMethod.POST, value="/problems")
-    public void addProblem(@RequestBody Problem problem){
-        problemService.saveProblem(problem);
+    @RequestMapping(method= RequestMethod.POST, value="/problemset/{problemsetId}/problems")
+    public Problem addProblem(@RequestBody Problem problem, @PathVariable Long problemsetId){
+        Problem newProblem = problemService.saveProblem(problem);
+        problemSetService.updateProblemSetProblemList(problemsetId, newProblem.getId());
+        return newProblem;
     }
 
     /**

@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -28,7 +30,7 @@ public class ProblemSet
     //The ID of the classroom this problem set belongs to
     private Long classroomId;
     //Each problem set contains a list of problems accessible via an array of their ids
-    private int[] problemList;
+    private ArrayList<Long> problemList = new ArrayList<>();
     // The type of set - (Practice, Quiz, or Assignment)
     private String type;
     // The date in which the problem set will be shown

@@ -21,8 +21,8 @@ public class ProblemService {
      * </p>
      * @param problem the problem to add
      */
-    public void saveProblem(Problem problem) {
-        problemRepository.save(problem);
+    public Problem saveProblem(Problem problem) {
+        return problemRepository.save(problem);
     }
 
     /**
