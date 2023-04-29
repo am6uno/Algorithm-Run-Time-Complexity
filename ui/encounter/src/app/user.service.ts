@@ -51,8 +51,8 @@ export class UserService {
   *   @param email the email of the student.
   *   @returns a Student Observable.
   **/
-  getStudentByEmail(email: string): Observable<Teacher>{
-    return this.http.get<Teacher>("http://localhost:8080/students/email/" + email)
+  getStudentByEmail(email: string): Observable<Student>{
+    return this.http.get<Student>("http://localhost:8080/students/email/" + email)
   }
 
     /**

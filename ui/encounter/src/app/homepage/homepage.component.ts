@@ -19,12 +19,12 @@ export class HomepageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.authService.getLoggedUser()){
+    if(this.authService.getUserDetails()){
       this.loggedIn = true;
       if(this.userService.user){
         this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
       }
-      const userDetails: any = this.authService.getLoggedUser();
+      const userDetails: any = this.authService.getUserDetails();
       this.userService.userDetails = userDetails;
       this.userService.getStudentByEmail(userDetails.email).subscribe({
         next: student => {
