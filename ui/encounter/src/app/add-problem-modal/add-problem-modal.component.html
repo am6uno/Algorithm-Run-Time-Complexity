@@ -22,7 +22,7 @@
                 <p class="overall-complexity">Overall Complexity: {{problem.overallComplexity}}</p>
             </mat-expansion-panel>
         </mat-accordion>
-        <p *ngIf="problemCandidates.length == 0">Unable to find any problems to add.</p>
+        <p *ngIf="problemCandidates.length == 0">No problems to add.</p>
     </div>
     <div mat-dialog-actions>
         <button mat-raised-button (click)="add()" color="primary" [disabled]="this.problemsToAdd.size == 0">Add problems</button>

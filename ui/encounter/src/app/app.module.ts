@@ -35,6 +35,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
+import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
 import { StudentProblemSetComponent } from './student-problem-set/student-problem-set.component';
 
 
@@ -49,8 +50,8 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]},
-  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]}
+  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]}}
 
 ];
 
@@ -67,7 +68,8 @@ const APP_ROUTES: Routes = [
     TeacherProblemComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
-    StudentProblemSetComponent
+    StudentProblemSetComponent,
+    SelectSetModalComponent
   ],
   imports: [
     BrowserModule,
