@@ -37,7 +37,6 @@ export class ComplexityParserService {
     stack.reverse()
     initialStackLength = stack.length
 
-    console.log(stack)
 
     for (let i = 0; i < initialStackLength; i++) {
 
@@ -98,7 +97,6 @@ export class ComplexityParserService {
       }
     }
 
-    console.log(blockList);
     return blockList
   }
 
@@ -133,7 +131,7 @@ export class ComplexityParserService {
 
     // Rules for other uneeded characters and whitespace
     // Ignore single line comment
-    lexer.rule(/\/\/[^\r\n]*\r?\n/, (ctx, match) => {
+    lexer.rule(/\/\/[^\r\n]*\r?\n?/, (ctx, match) => {
       ctx.ignore();
     });
 

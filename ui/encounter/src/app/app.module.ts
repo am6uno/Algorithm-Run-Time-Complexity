@@ -27,7 +27,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
-import { ProblemSetComponent } from './problem-set/problem-set.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -37,6 +36,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
 import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
+import { StudentProblemSetComponent } from './student-problem-set/student-problem-set.component';
 
 
 
@@ -50,9 +50,8 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent}
-
+  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -66,9 +65,9 @@ const APP_ROUTES: Routes = [
     StudentSolutionComponent,
     TeacherProblemsetPageComponent,
     TeacherProblemComponent,
-    ProblemSetComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
+    StudentProblemSetComponent,
     SelectSetModalComponent
   ],
   imports: [

@@ -23,8 +23,8 @@ export class ProblemCreationComponent {
   codeInput: string = '';
   problemId: number;
 
-  constructor(private problemService: ProblemService, 
-    private router: Router, private _snackBar: MatSnackBar, 
+  constructor(private problemService: ProblemService,
+    private router: Router, private _snackBar: MatSnackBar,
     private complexityParserService: ComplexityParserService,
     private route: ActivatedRoute,
     private dialog: MatDialog
@@ -127,6 +127,7 @@ export class ProblemCreationComponent {
         overallComplexity: this.overallComplexity,
         totalScore: this.getTotalScore(),
       }
+
       if(this.problemId){
         this.problemService.updateProblem(this.problemId, createdProblem).subscribe({
           next: () => {
