@@ -1,9 +1,9 @@
 <div class = "student-problem-set">
   <mat-accordion>
     <mat-expansion-panel class = "problem-set" *ngFor = "let set of sets">
-      <!--Display a set only if its visibility is set to 0 (enabled) OR current date is null, the visibility is show by date, and current day < duedate-->
+      <!--Display a set only if its visibility is set to 0 (enabled) OR the visibility is show by date, current date is null, and current day < duedate-->
       <!--TODO: update so that headers for sets show due dates-->
-      <div *ngIf = "set.visibility == 0 || (currentDate != null && set.visibility == 2 && set.dueDate < currentDate)">
+      <div *ngIf = "set.visibility == 0 || (set.visibility == 2 && currentDate != null && set.dueDate > currentDate)">
       <mat-expansion-panel-header class = "header">
         <mat-panel-title class = "set info">
           <h3 class = "set-name">
