@@ -4,16 +4,16 @@
       <!--Display a set only if its visibility is set to 0 (enabled) OR the visibility is show by date, current date is null, and current day < duedate-->
       <!--TODO: update so that headers for sets show due dates-->
       <div *ngIf = "set.visibility == 0 || (set.visibility == 2 && currentDate != null && set.dueDate > currentDate)">
-      <mat-expansion-panel-header class = "header">
-        <mat-panel-title class = "set info">
-          <h3 class = "set-name">
-            {{set.name}}
-          </h3>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of set.problems">
-        <button (click) = "selectProblem(problem.id)">{{problem.name}}</button>
-      </button>
+        <mat-expansion-panel-header class = "header">
+          <mat-panel-title class = "set info">
+            <h3 class = "set-name">
+              {{set.name}}
+            </h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-raised-button color = "primary" class = "problem" *ngFor = "let problem of set.problems">
+          <button (click) = "selectProblem(problem.id)">{{problem.name}}</button>
+        </button>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
