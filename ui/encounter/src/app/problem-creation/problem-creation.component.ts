@@ -165,7 +165,7 @@ export class ProblemCreationComponent {
   addProblemToSets(problem: Problem, setId: number){
     let postedProblem = {...problem};
     postedProblem.setId = setId;
-    this.problemService.addProblem(postedProblem, setId).subscribe();
+    this.problemService.addProblem(postedProblem).subscribe();
   }
 
   getTotalScore(){

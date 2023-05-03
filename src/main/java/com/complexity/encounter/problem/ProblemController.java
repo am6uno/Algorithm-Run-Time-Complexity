@@ -62,11 +62,10 @@ public class ProblemController {
      * @param problem the problem to add
      */
     @CrossOrigin(origins ="http://localhost:4200")
-    @RequestMapping(method= RequestMethod.POST, value="/problemset/{problemsetId}/problems")
-    public Problem addProblem(@RequestBody Problem problem, @PathVariable Long problemsetId){
+    @RequestMapping(method= RequestMethod.POST, value="/problems")
+    public void addProblem(@RequestBody Problem problem){
         Problem newProblem = problemService.saveProblem(problem);
-        problemSetService.addToProblemSetProblemList(problemsetId, newProblem.getId());
-        return newProblem;
+        problemSetService.addToProblemSetProblemList(newProblem);
     }
 
     /**

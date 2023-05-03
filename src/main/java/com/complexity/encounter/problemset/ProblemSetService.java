@@ -1,5 +1,6 @@
 package com.complexity.encounter.problemset;
 
+import com.complexity.encounter.problem.Problem;
 import com.complexity.encounter.problem.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,6 @@ public class ProblemSetService
 {
     @Autowired
     private ProblemSetRepository problemSetRepository;
-
     @Autowired
     private ProblemService problemService;
 
@@ -85,22 +85,20 @@ public class ProblemSetService
 
     /**
      * This method updates a ProblemSet's list with a new problem ID.
-     * @param id - the set id
-     * @param problemId - the problem id to add to the ProblemSet list
+     * @param problem - the problem to add
      */
     @Transactional
-    public void addToProblemSetProblemList(Long id, Long problemId)
+    public void addToProblemSetProblemList(Problem problem)
     {
-        // Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
 
-        System.out.println("Recieved Problem: " + problemId);
-
+        /*
+        System.out.println("Recieved Problem: " + problem.getId());
 
         Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(
-                problemService.getProblemById(problemId).get().getSetId());
+                problemService.getProblemById(problem.getId()).get().getSetId());
 
         ArrayList<Long> problemList = updatedProblemSet.get().getProblemList();
-        problemList.add(problemId);
+        problemList.add(problem.getId());
 
 
         System.out.println("Problem list in problem set " + updatedProblemSet.get().getId() + " being saved is:");
@@ -113,6 +111,17 @@ public class ProblemSetService
 
 
       //  updatedProblemSet.get().getProblemList().add(problemId);
+         */
+
+        Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(problem.getSetId());
+
+        updatedProblemSet.get().getProblemList().add(problem.getId());
+
+
+        System.out.println("Set " + updatedProblemSet.get().getId() + " will now save problem IDs:");
+        for (int i = 0; i < updatedProblemSet.get().getProblemList().size(); i++) {
+            System.out.println("#" + i + " ID:" + updatedProblemSet.get().getProblemList().get(i));
+        }
 
         problemSetRepository.save(updatedProblemSet.get());
     }
