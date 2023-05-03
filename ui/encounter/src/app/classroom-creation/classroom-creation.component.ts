@@ -26,6 +26,7 @@ export class ClassroomCreationComponent {
   enrolled_students: any = undefined
   student_list?: Student[]
   view_student: boolean = false;
+  newclass: Classroom
 
   constructor(private userService: UserService, private classroomService: ClassroomService,
               private studentService: StudentService, private router: Router,
@@ -113,9 +114,11 @@ export class ClassroomCreationComponent {
         enrolled_students: [],
 
       }
-      console.log(newClassroom)
-      this.classroomService.addClassroom(newClassroom).subscribe();
+      this.classroomService.addClassroom(newClassroom).subscribe(
+classroom => this.teacherClassrooms?.push(classroom)
+      );
     }
+
   }
 }
 

@@ -37,7 +37,7 @@ public class ClassroomService {
      * Communicates with the database to create a new Classroom object.
      * @param classroom Classroom object containing the new data to be added.
      */
-    public void saveClassroom(Classroom classroom) {classroomRepository.save(classroom);}
+    public Classroom saveClassroom(Classroom classroom) {return classroomRepository.save(classroom);}
 
     /**
      * Queries the database to look up all Classroom objects and returns them as a List
@@ -52,7 +52,6 @@ public class ClassroomService {
      * @return An Optional object which contains the Classroom object on a hit.
      */
     public Optional<Classroom> getClassroomById(Long id) {return classroomRepository.findById(id);}
-
 
     /**
      * Deletes a Classroom object from the database.

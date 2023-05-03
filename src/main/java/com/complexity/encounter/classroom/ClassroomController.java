@@ -53,7 +53,7 @@ public class ClassroomController {
      */
     @CrossOrigin(origins=host_url)
     @RequestMapping(method = RequestMethod.POST, value=classroom_url)
-    public void addClassroom(@RequestBody Classroom classroom) {classroomService.saveClassroom(classroom);}
+    public Classroom addClassroom(@RequestBody Classroom classroom) { return classroomService.saveClassroom(classroom);}
 
     /**
      * This method take a Classroom object, usually from a form and updated the Classroom
