@@ -65,7 +65,7 @@ public class ProblemController {
     @RequestMapping(method= RequestMethod.POST, value="/problemset/{problemsetId}/problems")
     public Problem addProblem(@RequestBody Problem problem, @PathVariable Long problemsetId){
         Problem newProblem = problemService.saveProblem(problem);
-        problemSetService.updateProblemSetProblemList(problemsetId, newProblem.getId());
+        problemSetService.addToProblemSetProblemList(problemsetId, newProblem.getId());
         return newProblem;
     }
 
@@ -87,7 +87,8 @@ public class ProblemController {
      * @param id the id of the problem to delete
      */
     @RequestMapping(method= RequestMethod.DELETE, value="/problems/{id}")
-    public void deleteProblem(@PathVariable long id){
+    public void deleteProblem(@PathVariable long id) {
+        problemSetService.removeFromProblemSetProblemList(id);
         problemService.deleteProblem(id);
     }
 }

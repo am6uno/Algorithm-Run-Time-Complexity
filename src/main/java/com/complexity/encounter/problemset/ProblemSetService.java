@@ -1,12 +1,17 @@
 package com.complexity.encounter.problemset;
 
+import com.complexity.encounter.problem.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableTransactionManagement
 /**
  * This is the service for the ProblemSet class.
  * @Author Cole Gregory
@@ -15,6 +20,9 @@ public class ProblemSetService
 {
     @Autowired
     private ProblemSetRepository problemSetRepository;
+
+    @Autowired
+    private ProblemService problemService;
 
     /**
      * This method saves a ProblemSet to the backend.
@@ -76,14 +84,49 @@ public class ProblemSetService
     }
 
     /**
-     * This method updates a ProblemSet's list.
+     * This method updates a ProblemSet's list with a new problem ID.
      * @param id - the set id
      * @param problemId - the problem id to add to the ProblemSet list
      */
-    public void updateProblemSetProblemList(Long id, Long problemId)
+    @Transactional
+    public void addToProblemSetProblemList(Long id, Long problemId)
     {
-        Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
-        updatedProblemSet.get().getProblemList().add(problemId);
+        // Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(id);
+
+        System.out.println("Recieved Problem: " + problemId);
+
+
+        Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(
+                problemService.getProblemById(problemId).get().getSetId());
+
+        ArrayList<Long> problemList = updatedProblemSet.get().getProblemList();
+        problemList.add(problemId);
+
+
+        System.out.println("Problem list in problem set " + updatedProblemSet.get().getId() + " being saved is:");
+        for (int i = 0; i < problemList.size(); i++) {
+            System.out.println("#" + i + " ID:" + problemList.get(i));
+        }
+
+
+        updatedProblemSet.get().setProblemList(problemList);
+
+
+      //  updatedProblemSet.get().getProblemList().add(problemId);
+
+        problemSetRepository.save(updatedProblemSet.get());
+    }
+
+    /**
+     * This method removes a problem ID from a ProblemSet's list.
+     * @param problemId - the problem id to remove to the ProblemSet list
+     */
+    public void removeFromProblemSetProblemList(Long problemId)
+    {
+        Optional<ProblemSet> updatedProblemSet = problemSetRepository.findById(
+                problemService.getProblemById(problemId).get().getSetId());
+
+        updatedProblemSet.get().getProblemList().remove(problemId);
         problemSetRepository.save(updatedProblemSet.get());
     }
 

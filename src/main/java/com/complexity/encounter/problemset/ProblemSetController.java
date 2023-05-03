@@ -66,7 +66,7 @@ public class ProblemSetController
     @RequestMapping(method= RequestMethod.PUT, value="/problemsets/{id}/problemlist")
     public void updateProblemSetProblemList(@RequestBody Long problemId, @PathVariable Long id)
     {
-        problemSetService.updateProblemSetProblemList(id, problemId);
+       // problemSetService.addToProblemSetProblemList(id, problemId);     THIS REQUEST IS NO LONGER NEEDED
     }
 
     /**
