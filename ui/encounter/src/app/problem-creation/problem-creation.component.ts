@@ -138,7 +138,7 @@ export class ProblemCreationComponent {
         });
       }
       else if(this.setId) {
-        this.problemService.addProblem(createdProblem, this.setId).subscribe({
+        this.problemService.addProblem(createdProblem).subscribe({
           next: () => this.router.navigate(['/teacher-set-problems/' + this.setId])
         });
       }

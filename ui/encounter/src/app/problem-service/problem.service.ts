@@ -31,8 +31,8 @@ export class ProblemService {
   *   @param problem a problem.
   *   @returns a Problem Observable.
   **/
-  addProblem(problem: Problem, problemsetId: number): Observable<Problem>{
-    return this.http.post<Problem>(`http://localhost:8080/problemset/${problemsetId}/problems`, problem).pipe(
+  addProblem(problem: Problem): Observable<Problem>{
+    return this.http.post<Problem>("http://localhost:8080/problems", problem).pipe(
       tap(
       {
         next: () => this._snackBar.open(`Problem ${problem.name} Created`, 'X', {duration: 2000}),

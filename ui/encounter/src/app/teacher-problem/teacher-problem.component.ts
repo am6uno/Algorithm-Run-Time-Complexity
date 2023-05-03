@@ -174,8 +174,7 @@ export class TeacherProblemComponent {
     problems.forEach(problem => {
       problem.id = undefined;
       problem.setId = this.setId;
-      console.log("Adding problem to set ..." + problem.setId);
-      this.problemService.addProblem(problem, this.setId).subscribe(() => {
+      this.problemService.addProblem(problem).subscribe(() => {
         this.updateProblemList();
       });
     })
