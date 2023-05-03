@@ -9,16 +9,16 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
-@Data
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
 /**
  * This Java class instantiates objects which act as lists of Problems. Contains data for name, id, the number of
  * completed problems, and an array of integer ids which refer to Problem objects.
  * @Author Cole Gregory
  *
  */
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProblemSet
 {
     @Id

@@ -4,19 +4,15 @@ import com.complexity.encounter.problem.Problem;
 import com.complexity.encounter.problem.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@EnableTransactionManagement
 /**
  * This is the service for the ProblemSet class.
  * @Author Cole Gregory
  */
+@Service
 public class ProblemSetService
 {
     @Autowired
@@ -87,7 +83,6 @@ public class ProblemSetService
      * This method updates a ProblemSet's list with a new problem ID.
      * @param problem - the problem to add
      */
-    @Transactional
     public void addToProblemSetProblemList(Problem problem)
     {
 
@@ -118,12 +113,15 @@ public class ProblemSetService
         updatedProblemSet.get().getProblemList().add(problem.getId());
 
 
+
         System.out.println("Set " + updatedProblemSet.get().getId() + " will now save problem IDs:");
         for (int i = 0; i < updatedProblemSet.get().getProblemList().size(); i++) {
             System.out.println("#" + i + " ID:" + updatedProblemSet.get().getProblemList().get(i));
         }
 
+
         problemSetRepository.save(updatedProblemSet.get());
+        problemSetRepository.flush();
     }
 
     /**
