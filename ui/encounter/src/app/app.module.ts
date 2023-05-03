@@ -49,8 +49,6 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-problemset-classroom/:id', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},

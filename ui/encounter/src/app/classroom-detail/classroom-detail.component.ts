@@ -41,9 +41,7 @@ export class ClassroomDetailComponent implements OnChanges{
   }
 
   viewProblemSet(): void {
-    //
     this.router.navigate(['teacher-problemset-classroom/' + this.classroom?.id] )
-    // this.router.navigate(['problem-selection'])
   }
 
 
