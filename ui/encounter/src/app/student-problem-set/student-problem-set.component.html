@@ -1,7 +1,7 @@
 <div class = "student-problem-set">
   <mat-accordion>
     <div *ngFor = "let set of sets">
-      <mat-expansion-panel class = "problem-set" *ngIf = "set.visibility === 'Enabled' || (set.visibility === 'Based on due date' && currentDate != null && set.dueDate > currentDate)">
+      <mat-expansion-panel class = "problem-set" *ngIf = "set.visibility === 'Enabled' || (set.visibility === 'Based on due date' && currentDate != null && (set.dueDate > currentDate && set.showDate < currentDate))">
         <mat-expansion-panel-header class = "header">
           <mat-panel-title class = "set info">
             <h3 class = "set-name">
