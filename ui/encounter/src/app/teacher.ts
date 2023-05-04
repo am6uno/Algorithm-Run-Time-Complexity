@@ -3,5 +3,5 @@ export interface Teacher {
     first_name: string;
     last_name: string;
     teacherEmail: string;
-    password_hash: string;
+    // password_hash: string;
 }

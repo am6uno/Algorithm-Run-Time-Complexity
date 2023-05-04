@@ -4,10 +4,11 @@ package com.complexity.encounter.classroom;
 import com.complexity.encounter.student.Student;
 import com.complexity.encounter.teacher.Teacher;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -22,21 +23,35 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Classroom")
 public class Classroom {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    private String name;
+
     @ManyToOne
     @JoinColumn(name="teacher_id", nullable = false)
     private Teacher teacher;
 
-    @ManyToMany
+    private String access_code;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name="classroom_set",
             joinColumns = @JoinColumn(name="classroom_id"),
             inverseJoinColumns = @JoinColumn(name="student_id")
     )
-    private Set<Student> enrolled_students;
+    private List<Student> enrolled_students = new ArrayList<>();
+
+    public void addStudent(Student student){
+        enrolled_students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        enrolled_students.remove(student);
+    }
+
 }

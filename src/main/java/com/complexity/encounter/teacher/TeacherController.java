@@ -38,7 +38,7 @@ public class TeacherController {
      * @param email The email address of the desired Teacher.
      * @return A Teacher object matching the email address.
      */
-    @RequestMapping("/teachers/email/{email}")
+    @GetMapping("/teachers/email/{email}")
     public Optional<Teacher> getTeacherByEmail(@PathVariable String email){
         return teacherService.getTeacherByEmail(email);
     }
