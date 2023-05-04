@@ -1,3 +1,5 @@
+import {Classroom} from "./classroom";
+
 export interface Student {
     id?: number;
     email: string;
@@ -5,4 +7,5 @@ export interface Student {
     last_name: string;
     enrolled_classes: any;
     password_hash: string;
+
 }

@@ -18,7 +18,8 @@ public class StudentController {
      * This method is used to return a list of all Students in the database.
      * @return A List object containing all Students
      */
-    @RequestMapping("/students")
+    @GetMapping("/students")
+    @CrossOrigin(origins="*")
     public List<Student> getAllStudents() {return studentService.getAllStudents();}
     /**
      * This method looks up a Student by id and have the Student service return it.
@@ -35,6 +36,7 @@ public class StudentController {
      * @return A Student object matching the email address.
      */
     @RequestMapping("/students/email/{email}")
+    @CrossOrigin(origins ="http://localhost:4200")
     public Optional<Student> getStudentByEmail(@PathVariable String email){
         return studentService.getStudentByEmail(email);
     }
@@ -42,6 +44,7 @@ public class StudentController {
      * Sends a Student object to the service to be added to the database.
      * @param student The Student object to be added.
      */
+    @CrossOrigin(origins ="http://localhost:4200")
     @RequestMapping(method= RequestMethod.POST, value="/students")
     public void addStudent(@RequestBody Student student){
         studentService.saveStudent(student);

@@ -241,6 +241,10 @@ private formatComplexity(complexity: number): string {
 let output: string
 
 switch (complexity) {
+    case -1: {
+      output = "o(log n)"
+      break;
+    }
     case 0: {
       output = "o(1)"
       break;

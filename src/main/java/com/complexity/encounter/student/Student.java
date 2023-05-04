@@ -1,11 +1,14 @@
 package com.complexity.encounter.student;
 
 import com.complexity.encounter.classroom.Classroom;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,7 +31,20 @@ public class Student {
     private String email;
     private String first_name;
     private String last_name;
-    @ManyToMany(mappedBy = "enrolled_students")
-    private Set<Classroom> enrolled_classes;
+
+    @ManyToMany(mappedBy = "enrolled_students", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Classroom> enrolled_classrooms = new ArrayList<>();
+    private char[] password_hash;
+
+    public void addClassroom(Classroom classroom){
+        enrolled_classrooms.add(classroom);
+    }
+
+    public void removeClassroom(Classroom classroom) {
+        enrolled_classrooms.remove(classroom);
+    }
+
+
 
 }
