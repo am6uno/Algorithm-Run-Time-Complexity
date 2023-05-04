@@ -43,13 +43,12 @@ export class ClassroomDetailComponent implements OnChanges{
   viewProblemSet(): void {
     this.router.navigate(['teacher-problemset-classroom/' + this.classroom?.id] )
   }
-
-  removeStudent(student_id: number): void {
-
+  removeStudent(student: Student): void {
+    if (student.id != null) {
+      this.classroomService.removeStudent(this.classroom, student.id)
+    }
+    this.student_list.delete(student);
   }
-
-
-
   toggleView(): void {
     this.viewdetail = !this.viewdetail;
   }

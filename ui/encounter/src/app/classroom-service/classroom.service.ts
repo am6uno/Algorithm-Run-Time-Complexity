@@ -56,6 +56,6 @@ export class ClassroomService {
       return this.http.put(
         `http://localhost:8080/classrooms/removeStudent/${classroom.id}/${student_id}`,
         classroom
-      )
+      ).subscribe()
   }
 }

@@ -23,7 +23,7 @@
             <td>{{student.first_name}}</td>
             <td>{{student.email}}</td>
             <td><mat-icon>ballot</mat-icon></td>
-            <td><mat-icon>remove_circle_outline</mat-icon></td>
+            <td><span (click)="this.removeStudent(student)" ><mat-icon>remove_circle_outline</mat-icon></span></td>
           </tr>
         </tbody>
       </table>
