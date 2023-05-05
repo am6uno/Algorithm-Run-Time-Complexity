@@ -6,6 +6,7 @@
 .access-code{
   padding-left: 15px;
   font-weight: bolder;
+  font-size: larger;
   color: limegreen;
 }
 
@@ -20,7 +21,7 @@
   border-radius: 5px;
   padding: 0px 0px 0px 0px;
   margin: 10px 10px 10px 5px;
-  cursor: pointer;
+
 }
 
 .classroom-detail-student-table{
@@ -76,7 +77,7 @@ button {
   font-size: 14px;
   text-align: center;
   text-decoration:none;
-  border: none;
+  border: solid #393a34;
   outline: none;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);

@@ -2,8 +2,10 @@
   <div class="classroom-list">
     <div class="classroom-list-items">
       <h1 class="page-title">Your Classrooms</h1>
-      <div *ngFor="let classroom of teacherClassrooms">
-        <app-classroom-detail [classroom]="classroom"></app-classroom-detail>
+      <div *ngFor="let classroom of teacherClassrooms; let i = index">
+        <div *ngIf="showChild[i]">
+        <app-classroom-detail [classroom]="classroom" [index]="i" (removeChild)="onChildRemove(i)"></app-classroom-detail>
+        </div>
       </div>
     </div>
     <h1  *ngIf="!this.teacherClassrooms">No Classrooms Have been Created Yet.</h1>

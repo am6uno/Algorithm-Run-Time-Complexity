@@ -58,4 +58,8 @@ export class ClassroomService {
         classroom
       ).subscribe()
   }
+
+  deleteClassroom(classroom_id: number) {
+    return this.http.delete<Classroom>("http://localhost:8080/classrooms/" + classroom_id).subscribe()
+  }
 }

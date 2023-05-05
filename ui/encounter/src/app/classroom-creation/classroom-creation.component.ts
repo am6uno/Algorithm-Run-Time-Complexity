@@ -28,6 +28,7 @@ export class ClassroomCreationComponent {
   student_list?: Student[]
   view_student: boolean = false;
   dialog: MatDialog
+  showChild: any
 
   constructor(private userService: UserService, private classroomService: ClassroomService,
               private studentService: StudentService, private router: Router,
@@ -52,6 +53,7 @@ export class ClassroomCreationComponent {
     this.classroomService.getClassroomsByTeacherEmail(this.teacherEmail).subscribe({
       next: data=>{
       this.teacherClassrooms = data
+      this.showChild = Array(this.teacherClassrooms?.length).fill(true)
       },
       error: () => {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
@@ -116,10 +118,15 @@ export class ClassroomCreationComponent {
 
       }
       this.classroomService.addClassroom(newClassroom).subscribe(
-classroom => this.teacherClassrooms?.push(classroom)
+classroom => this.teacherClassrooms?.push(classroom),
+        this.showChild.push(true)
       );
     }
 
+  }
+
+  onChildRemove(index: number) {
+    this.showChild[index] = false;
   }
 }
 

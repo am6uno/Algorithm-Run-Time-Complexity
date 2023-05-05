@@ -4,7 +4,7 @@
       <mat-expansion-panel-header class="mat-header">
         <h3 class="classroom-title">{{ classroom.name}}</h3>
       </mat-expansion-panel-header>
-      <p><span class="access-header">Access Code:</span><span class="access-code">{{classroom.access_code}}</span></p>
+      <p><span class="access-header">Access Code:</span><span class="access-code" (click)="selectAccessCode($event)">{{classroom.access_code}}</span></p>
       <h4>{{message}}</h4>
       <div *ngIf="student_list.size > 0">
         <table class="classroom-table">
@@ -32,11 +32,11 @@
           <span class="button-text">View Problem Sets</span>
         </button>
         <button type="button" class="form-button align-button left-button" (click)="viewProblemSet()">
-          <mat-icon>reorder</mat-icon>
+          <mat-icon>edit</mat-icon>
           <span class="button-text">Rename Classroom</span>
         </button>
-        <button type="button" class="form-button align-button right-button" (click)="viewProblemSet()">
-          <mat-icon>reorder</mat-icon>
+        <button type="button" class="form-button align-button right-button" (click)="deleteClassroom(true)">
+          <mat-icon>delete_forever</mat-icon>
           <span class="button-text">Delete Classroom</span>
         </button>
       </div>
