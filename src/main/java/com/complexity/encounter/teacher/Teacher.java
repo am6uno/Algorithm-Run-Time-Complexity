@@ -1,6 +1,7 @@
 package com.complexity.encounter.teacher;
 
 import com.complexity.encounter.classroom.Classroom;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,6 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,5 +34,6 @@ public class Teacher {
     private String last_name;
     private String teacherEmail;
     @OneToMany(mappedBy = "teacher")
-    private Set<Classroom> owned_classrooms;
+    @JsonIgnore
+    private List<Classroom> owned_classrooms = new ArrayList<>();
 }

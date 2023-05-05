@@ -1,0 +1,27 @@
+<div class="classroom-creation">
+  <div class="classroom-list">
+    <div class="classroom-list-items">
+      <h2>Existing Classrooms</h2>
+      <div class = classroom *ngFor="let classroom of teacherClassrooms">
+        <app-classroom-detail [classroom]="classroom"></app-classroom-detail>
+      </div>
+    </div>
+    <h1  *ngIf="!this.teacherClassrooms">No Classrooms Have been Created Yet.</h1>
+  </div>
+  <h1 class="page-title">Create a New Classroom</h1>
+  <div class="classroom-form-entry">
+    <h2 class="classroom-name-label">What would you like to name this classroom?</h2>
+    <div class="classroom-form-field"[(ngModel)]="name" (keyup)="setTitleInput($event)" ngDefaultControl contenteditable>
+    </div>
+    <input type="submit" (click)="submitClassroom()">
+
+  </div>
+  <div>
+    <input type="submit" value = "View Students" (click)="getAllStudents()">
+    <input type="submit" value = "Test Add Student" (click)="addStudentTest()">
+    <div *ngIf="this.view_student">
+      <div *ngFor="let student of student_list">{{student.first_name}} {{student.last_name}} ({{student.email}})</div>
+    </div>
+  </div>
+
+</div>

@@ -39,7 +39,7 @@ public class TeacherService {
     }
 
     /**
-     * Queries the database useing the pass email address and converts the result into
+     * Queries the database using the pass email address and converts the result into
      * and Optional object.
      * @param email The email address used in the query.
      * @return An Optional object which contains the Teacher object on a hit.

@@ -1,10 +1,22 @@
 package com.complexity.encounter.classroom;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.complexity.encounter.student.Student;
+import com.complexity.encounter.student.StudentRepository;
+import com.complexity.encounter.student.StudentService;
+import com.complexity.encounter.teacher.Teacher;
+import com.complexity.encounter.teacher.TeacherService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
+
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
 * This service contains the business logic for Classroom objects.
@@ -14,12 +26,18 @@ import java.util.Optional;
 public class ClassroomService {
     @Autowired
     private ClassroomRepository classroomRepository;
+    @Autowired
+    private StudentRepository studentRepository;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private TeacherService teacherService;
 
     /**
      * Communicates with the database to create a new Classroom object.
      * @param classroom Classroom object containing the new data to be added.
      */
-    public void saveClassroom(Classroom classroom) {classroomRepository.save(classroom);}
+    public Classroom saveClassroom(Classroom classroom) {return classroomRepository.save(classroom);}
 
     /**
      * Queries the database to look up all Classroom objects and returns them as a List
@@ -33,7 +51,7 @@ public class ClassroomService {
      * @param id The id used in the query to look up a Classroom
      * @return An Optional object which contains the Classroom object on a hit.
      */
-    public Optional<Classroom> getClassroomById(Long id) { return classroomRepository.findById(id);}
+    public Optional<Classroom> getClassroomById(Long id) {return classroomRepository.findById(id);}
 
     /**
      * Deletes a Classroom object from the database.
@@ -46,9 +64,47 @@ public class ClassroomService {
      * @param classroom A Classroom object with updated information.
      * @param id The id of the Classroom being updated.
      */
-    public void updateClassroom(Classroom classroom, Long id) {
+    @Transactional
+    @Modifying
+    public Classroom updateClassroom(Classroom classroom, Long id) {
         Optional<Classroom> updatedClassroom = classroomRepository.findById(id);
         updatedClassroom.get().setEnrolled_students(classroom.getEnrolled_students());
-        classroomRepository.save(updatedClassroom.get());
+        return classroomRepository.save(updatedClassroom.get());
     }
+
+    public Classroom addStudent(Long classroom_id, Long student_id) {
+
+        Optional<Student> student = studentService.getStudentById(student_id);
+        Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
+
+        boolean contains = updatedClassroom.get().getEnrolled_students().contains(student.get());
+
+        if (!contains){
+            List updatedList = updatedClassroom.get().getEnrolled_students();
+            updatedList.add(student.get());
+            updatedClassroom.get().setEnrolled_students(updatedList);
+        }
+        return classroomRepository.save(updatedClassroom.get());
+    }
+
+    public Classroom removeStudent(Long classroom_id, Long student_id) {
+
+        Optional<Student> student = studentService.getStudentById(student_id);
+        Optional<Classroom> updatedClassroom = getClassroomById(classroom_id);
+
+        List updatedList = updatedClassroom.get().getEnrolled_students();
+
+        if (updatedList.contains(student.get()))
+            updatedList.remove(student.get());
+
+        updatedClassroom.get().setEnrolled_students(updatedList);
+
+        return classroomRepository.save(updatedClassroom.get());
+    }
+
+    public List<Classroom> getClassroomsByTeacherEmail(String email){
+        Optional<Teacher> teacher = teacherService.getTeacherByEmail(email);
+        return classroomRepository.findByTeacher(teacher.get());
+    }
+
 }

@@ -42,6 +42,23 @@ export class ComplexityParserService {
 
       let currToken = stack.pop()
 
+      if (currToken?.type === "logloop") {
+        let newBlock = {
+          complexity: -1,
+          begLine: currToken.line,
+          endLine: -1,
+          depth: 0
+        }
+
+        blockList.push(newBlock)
+
+        if (blockDepth == 0) {
+          rootBlock = blockList.length - 1;
+        }
+
+        blockDepth++;
+      }
+
       if (currToken?.type === "loop") {
 
         let newBlock = {
@@ -107,6 +124,10 @@ export class ComplexityParserService {
   private parserConfiguration(lexer: Tokenizr) {
 
     // Rules for the loop headers
+    lexer.rule(/for\s*\(.*\s*;.*;\s*.+\/\s*\d+\s*\)\s*{/,(ctx, match) => {
+      ctx.accept("logloop");
+    });
+
     lexer.rule(/for\s*\(.*\)\s*\{/, (ctx, match) => {
       ctx.accept("loop");
     });
@@ -127,6 +148,7 @@ export class ComplexityParserService {
     lexer.rule(/\}/, (ctx, match) => {
       ctx.accept("closeCur");
     });
+
 
 
     // Rules for other uneeded characters and whitespace

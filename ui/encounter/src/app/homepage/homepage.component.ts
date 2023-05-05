@@ -46,8 +46,18 @@ export class HomepageComponent implements OnInit {
   }
 
   createAccountRedirect(){
+    // if (this.role == 'teacher' || this.role == 'student' && this.classroomCode){
+    //   this.userService.userDetails.classroomCode = this.classroomCode;
+    //   this.router.navigate(['login/' + this.role])
+    // }
+    // else {
+    //   this._snackBar.open('Enter a classroom code','X', {duration: 2000})
+    // }
     if (this.role == 'teacher' || this.role == 'student' && this.classroomCode){
       this.userService.userDetails.classroomCode = this.classroomCode;
+      if (this.role =='student'){
+
+      }
       this.router.navigate(['login/' + this.role])
     }
     else {

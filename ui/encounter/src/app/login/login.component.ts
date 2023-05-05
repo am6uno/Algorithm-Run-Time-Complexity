@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { Teacher } from '../teacher';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from '../student';
+import {Classroom} from "../classroom";
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,8 @@ import { Student } from '../student';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private authService: AuthService, 
-    private userService: UserService, 
+    private authService: AuthService,
+    private userService: UserService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -79,7 +80,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['problem-creation']);
       }
     });
-    
+
   }
 
   addTeacher(userDetails: any){
@@ -87,7 +88,7 @@ export class LoginComponent implements OnInit {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
       teacherEmail: userDetails.email,
-      password_hash: "placeholder"
+      // password_hash: "placeholder"
     }
     this.userService.addTeacher(teacher).subscribe({
       next: () => {
@@ -106,7 +107,8 @@ export class LoginComponent implements OnInit {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
       email: userDetails.email,
-      enrolled_classes: [],
+      enrolled_classes: new Set<Classroom>(),
+      // enrolled_classes: [],
       password_hash: "placeholder"
     }
     this.userService.addStudent(student).subscribe({

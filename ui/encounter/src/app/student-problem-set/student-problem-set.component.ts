@@ -6,6 +6,7 @@ import { ProblemService } from '../problem-service/problem.service';
 import { ProblemsetService } from '../problemset-service/problemset.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 /**
  * @title Accordion with expand/collapse all toggles
@@ -18,11 +19,12 @@ import { Router } from '@angular/router';
 export class StudentProblemSetComponent implements OnInit {
 
   constructor(private problemsetService: ProblemsetService, private problemService: ProblemService, private activatedRoute: ActivatedRoute,
-    private router : Router) {
+    private router : Router, private datePipe: DatePipe) {
   }
   problems: Problem[] = [];
   sets: any = [];
   classroomId: number;
+  currentDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
 
   ngOnInit(): void {
     /* this method runs when the component is initialized. You could create a method in the problem service to make a get request
