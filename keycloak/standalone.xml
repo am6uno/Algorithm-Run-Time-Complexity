@@ -1,0 +1,17 @@
+<server name="default-server">
+  <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+  <https-listener name="https" socket-binding="https" security-realm="ssl-realm" enable-http2="true"/>
+  <host name="default-host" alias="localhost">
+    <location name="/" handler="welcome-content"/>
+    <filter-ref name="server-header"/>
+    <filter-ref name="x-powered-by-header"/>
+  </host>
+</server>
+
+<security-realm name="ssl-realm">
+  <server-identities>
+    <ssl>
+      <keystore path="../certs/keystore.jks" relative-to="jboss.server.config.dir" keystore-password="encounter" alias="localhost" key-password="encounter"/>
+    </ssl>
+  </server-identities>
+</security-realm>

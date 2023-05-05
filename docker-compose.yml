@@ -28,8 +28,11 @@ services:
     image: quay.io/keycloak/keycloak:13.0.1
     volumes:
       - ./keycloak:/opt/jboss/keycloak/imports
+      
+      - ./certs/keystore.jks:/opt/jboss/keycloak/configuration/application.keystore
     restart: always
     environment:
+      COMMAND_TIMEOUT: 600
       DB_VENDOR: MYSQL
       DB_ADDR: mysql
       DB_DATABASE: ${db_database}
@@ -37,9 +40,14 @@ services:
       DB_PASSWORD: ${db_password}
       KEYCLOAK_USER: ${keycloak_admin_username}
       KEYCLOAK_PASSWORD: ${keycloak_admin_password}
-    command: ["-Djboss.http.port=8084", "-Dkeycloak.import=/opt/jboss/keycloak/imports/realm-export.json"]
+      KEYCLOAK_HTTPS_PORT: 8443
+      KEYSTORE: /certs/keystore.jks
+      KEYSTORE_PASSWORD: encounter
+      KEYCLOAK_OPTS: "-Djboss.as.management.blocking.timeout=600 -Dkeycloak.profile.feature.upload_scripts=enabled -Djavax.net.ssl.keyStore=/certs/keystore.jks -Djavax.net.ssl.keyStorePassword=encounter -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.private=0.0.0.0 -Djboss.socket.binding.port-offset=100"
+    command: ["-Djboss.http.port=8084"]
+    # "-Dkeycloak.import=/opt/jboss/keycloak/imports/realm-export.json"
     ports:
-      - 8084:8084
+      - 8443:8443
     depends_on:
       mysql:
         condition: service_healthy
