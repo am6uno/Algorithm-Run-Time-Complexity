@@ -1,3 +1,7 @@
+:host{
+  overflow: hidden;
+}
+
 .page-title{
   text-align: left;
   margin: 15px;

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, SimpleChanges} from '@angular/core';
 import {Classroom} from "../classroom";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -35,7 +35,7 @@ export class ClassroomDetailComponent implements OnChanges{
       this.students = false;
       this.message = 'No Students Currently Enrolled'
     } else {
-      this.message = 'Found students'
+      this.message = 'Student List'
     }
     this.classroom_id = this.classroom.id !== undefined ? this.classroom.id: 404;
   }
@@ -49,9 +49,8 @@ export class ClassroomDetailComponent implements OnChanges{
     }
     this.student_list.delete(student);
   }
-  toggleView(): void {
-    this.viewdetail = !this.viewdetail;
-  }
+
+
 
 
 

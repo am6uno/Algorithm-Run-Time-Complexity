@@ -1,8 +1,8 @@
 <div class="classroom-creation">
   <div class="classroom-list">
     <div class="classroom-list-items">
-      <h2>Existing Classrooms</h2>
-      <div class = classroom *ngFor="let classroom of teacherClassrooms">
+      <h1 class="page-title">Your Classrooms</h1>
+      <div *ngFor="let classroom of teacherClassrooms">
         <app-classroom-detail [classroom]="classroom"></app-classroom-detail>
       </div>
     </div>

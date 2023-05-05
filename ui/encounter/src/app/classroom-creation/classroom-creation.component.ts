@@ -8,6 +8,7 @@ import {UserService} from "../user.service";
 import {Student} from "../student";
 import {BehaviorSubject, Observable, switchMap, tap} from "rxjs";
 import {StudentService} from "../student-service/student.service";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-classroom-creation',
@@ -26,7 +27,7 @@ export class ClassroomCreationComponent {
   enrolled_students: any = undefined
   student_list?: Student[]
   view_student: boolean = false;
-  newclass: Classroom
+  dialog: MatDialog
 
   constructor(private userService: UserService, private classroomService: ClassroomService,
               private studentService: StudentService, private router: Router,

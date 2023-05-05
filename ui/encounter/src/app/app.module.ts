@@ -39,6 +39,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
 import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
+import { ClassroomModalComponent } from './classroom-modal/classroom-modal.component';
 
 
 
@@ -74,7 +75,8 @@ const APP_ROUTES: Routes = [
     ProblemSetComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
-    SelectSetModalComponent
+    SelectSetModalComponent,
+    ClassroomModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,30 @@
+
+.access-header{
+  font-weight: bold;
+}
+
+.access-code{
+  padding-left: 15px;
+  font-weight: bolder;
+  color: limegreen;
+}
+
+.classroom-title {
+  padding-left: 15px;
+}
+
 .classroom-detail-item{
+  color: #d1bfa7;
+  background-color: #49494b;
+  border: 5px solid #bd8c7d;
+  border-radius: 5px;
+  padding: 0px 0px 0px 0px;
+  margin: 10px 10px 10px 5px;
+  cursor: pointer;
+}
+
+.classroom-detail-student-table{
+
   color: #d1bfa7;
   background-color: #49494b;
   border: 5px solid #bd8c7d;
@@ -8,12 +34,62 @@
   cursor: pointer;
 }
 
-.classroom-detail-student-table{
-  color: #d1bfa7;
-  background-color: #49494b;
-  border: 5px solid #bd8c7d;
-  border-radius: 5px;
-  padding: 0px 0px 0px 4px;
-  margin: 10px 10px 10px 5px;
+.classroom-table{
+  width: 100%;
+}
+
+.mat-header{
+  flex-direction: row-reverse;
+  padding: 0px 2px 0px 10px;
+}
+
+.mat-expansion-panel:hover {
+  border-color: #5cb85c;
+}
+
+.mat-expansion-panel.mat-expanded {
+  border-color: #5cb85c;
+}
+
+.classroom-table {
+  padding-bottom: 20px;
+}
+
+.classroom-table td, th {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 2px;
+  border-collapse: collapse;
+  font-size: .9em;
+  padding: 3px;
+  cursor:default;
+  color: black;
+  background-color: #d1bfa7;
+}
+
+button {
+  background-color: #d1bfa7;
+  padding: 20px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration:none;
+  border: none;
+  outline: none;
   cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.align-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+
+.button-text {
+  margin-left: 10px;
+  font-weight: bolder;
 }
