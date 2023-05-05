@@ -63,7 +63,7 @@ export class ClassroomCreationComponent {
 
   /** Generates a random 8 digit code for classroom enrollment. Not secure. */
   generateAccessCode = function (length = 10) {
-    return Math.random().toString(36).substring(2, length);
+    return Math.random().toString(36).substring(2, length).toUpperCase();
   }
 
   setTitleInput(event: any){
@@ -124,7 +124,6 @@ classroom => this.teacherClassrooms?.push(classroom),
     }
 
   }
-
   onChildRemove(index: number) {
     this.showChild[index] = false;
   }

@@ -21,7 +21,7 @@
             <th scope="row">{{student.last_name}}</th>
             <td>{{student.first_name}}</td>
             <td>{{student.email}}</td>
-            <td><span (click)="this.removeStudent(student)" ><mat-icon>remove_circle_outline</mat-icon></span></td>
+            <td><span (click)="this.removeStudent(student)" ><span class="student-remove"><mat-icon>remove_circle_outline</mat-icon></span></span></td>
           </tr>
           </tbody>
         </table>
@@ -34,6 +34,10 @@
         <button type="button" class="form-button align-button left-button" (click)="viewProblemSet()">
           <mat-icon>edit</mat-icon>
           <span class="button-text">Rename Classroom</span>
+        </button>
+        <button type="button" class="form-button align-button left-button" (click)="newAccessCode()">
+          <mat-icon>edit</mat-icon>
+          <span class="button-text">Generate New Access Code</span>
         </button>
         <button type="button" class="form-button align-button right-button" (click)="deleteClassroom(true)">
           <mat-icon>delete_forever</mat-icon>

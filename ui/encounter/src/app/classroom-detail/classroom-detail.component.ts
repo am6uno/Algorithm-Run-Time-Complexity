@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, NgZone, OnChanges, Output, SimpleChange, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, NgZone, OnChanges, Output, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
+import {ClassroomCreationComponent} from "../classroom-creation/classroom-creation.component";
 import {Classroom} from "../classroom";
 import {ClassroomService} from "../classroom-service/classroom.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -33,7 +34,7 @@ export class ClassroomDetailComponent implements OnChanges{
 
 
   constructor(private classroomService:ClassroomService, private _snackBar: MatSnackBar, private router: Router,
-              private zone: NgZone, private dialog: MatDialog, ) {
+              private zone: NgZone, private dialog: MatDialog, private parent: ClassroomCreationComponent ) {
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
@@ -71,10 +72,42 @@ export class ClassroomDetailComponent implements OnChanges{
     }
   }
   removeStudent(student: Student): void {
-    if (student.id != null) {
-      this.classroomService.removeStudent(this.classroom, student.id)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = {
+      title: "Remove Student",
+      message: `Remove ${student.first_name} ${student.last_name}? They can still rejoin using the access code.`,
+      acceptText: "Remove"
     }
-    this.student_list.delete(student);
+    this.zone.run(() => {
+      const dialogRef = this.dialog.open(ConfirmationModalComponent, dialogConfig);
+      dialogRef.afterClosed().subscribe(
+        data => {
+          if(data) {
+            console.log(this.classroom_id)
+            if (student.id != null) {
+              this.classroomService.removeStudent(this.classroom, student.id)
+              this.student_list.delete(student);
+            }
+          }
+        }
+      );
+    });
+  }
+
+  newAccessCode(){
+    const new_code = this.parent.generateAccessCode()
+    console.log(new_code)
+    this.classroom.access_code = new_code
+    // this.classroom_service.updateClassroom(this.classroom)
+    this.classroom_service.getClassroomById(this.classroom_id).subscribe(
+      classroom => {
+        let updated_classroom = classroom
+        updated_classroom.access_code = new_code
+        this.classroom_service.updateClassroom(updated_classroom)
+      }
+    )
   }
 
   deleteClassroom(classroom: any) {
@@ -83,7 +116,7 @@ export class ClassroomDetailComponent implements OnChanges{
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
       title: "Delete " + this.classroom.name,
-      message: "Are you sure you want to delete this classroom? This is irreversible.",
+      message: "WARNING: This is irreversible. Consider removing all students and regenerating access code to preserve your problem sets.",
       acceptText: "Delete"
     }
     this.zone.run(() => {
