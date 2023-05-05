@@ -17,7 +17,7 @@ export class ProblemService {
    * @returns The list of all problems.
    */
   getAllProblems(): Observable<Problem[]>{
-    return this.http.get<Problem[]>("http://localhost:8080/problems").pipe(
+    return this.http.get<Problem[]>("http://18.117.164.173:8080/problems").pipe(
       tap(
       {
         error: () => this._snackBar.open('Unable to get problems','X', {duration: 2000})
@@ -32,7 +32,7 @@ export class ProblemService {
   *   @returns a Problem Observable.
   **/
   addProblem(problem: Problem): Observable<Problem>{
-    return this.http.post<Problem>("http://localhost:8080/problems", problem).pipe(
+    return this.http.post<Problem>("http://18.117.164.173:8080/problems", problem).pipe(
       tap(
       {
         next: () => this._snackBar.open(`Problem ${problem.name} Created`, 'X', {duration: 2000}),
@@ -48,7 +48,7 @@ export class ProblemService {
   *   @returns Returns an observable of the problem that it receives from the backend.
   **/
   getProblemById(problemId:number): Observable<Problem>{
-    return this.http.get<Problem>("http://localhost:8080/problems/" + problemId);
+    return this.http.get<Problem>("http://18.117.164.173:8080/problems/" + problemId);
   }
 
   /**
@@ -57,7 +57,7 @@ export class ProblemService {
   *   @returns Returns an observable of the problem that it receives from the backend.
   **/
   getProblemBySetId(setId:number): Observable<Problem[]>{
-    return this.http.get<Problem[]>("http://localhost:8080/set/problems/" + setId);
+    return this.http.get<Problem[]>("http://18.117.164.173:8080/set/problems/" + setId);
   }
 
   /**
@@ -66,7 +66,7 @@ export class ProblemService {
   *   @returns The result from the delete request.
   **/
   deleteProblem(problemId:number){
-      return this.http.delete<Problem>("http://localhost:8080/problems/" + problemId);
+      return this.http.delete<Problem>("http://18.117.164.173:8080/problems/" + problemId);
   }
 
     /**
@@ -75,6 +75,6 @@ export class ProblemService {
   *   @returns The result from the delete request.
   **/
   updateProblem(problemId:number, problem: Problem){
-    return this.http.put<Problem>("http://localhost:8080/problems/" + problemId, problem);
+    return this.http.put<Problem>("http://18.117.164.173:8080/problems/" + problemId, problem);
   }
 }

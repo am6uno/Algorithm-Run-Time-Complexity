@@ -17,7 +17,7 @@ export class SolutionService {
   *   @returns a Solution Observable.
   **/
   addSolution(solution: Solution): Observable<Solution>{
-    return this.http.post<Solution>("http://localhost:8080/solutions", solution);
+    return this.http.post<Solution>("http://18.117.164.173:8080/solutions", solution);
   }
 
   /**
@@ -26,6 +26,6 @@ export class SolutionService {
   *   @returns a Solution Observable.
   **/
   getSolutionByProblemId(problemId: number){
-    return this.http.get<Solution[]>("http://localhost:8080/solutions/problem/" + problemId);
+    return this.http.get<Solution[]>("http://18.117.164.173:8080/solutions/problem/" + problemId);
   }
 }

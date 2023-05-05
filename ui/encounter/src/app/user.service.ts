@@ -34,7 +34,7 @@ export class UserService {
   *   @returns an Teacher Observable.
   **/
   addTeacher(teacher: Teacher): Observable<Teacher>{
-    return this.http.post<Teacher>("http://localhost:8080/teachers", teacher)
+    return this.http.post<Teacher>("http://18.117.164.173:8080/teachers", teacher)
   }
 
   /**
@@ -43,7 +43,7 @@ export class UserService {
   *   @returns a Teacher Observable.
   **/
   getTeacherByEmail(email: string): Observable<Teacher>{
-    return this.http.get<Teacher>("http://localhost:8080/teachers/email/" + email)
+    return this.http.get<Teacher>("http://18.117.164.173:8080/teachers/email/" + email)
   }
 
   /**
@@ -52,7 +52,7 @@ export class UserService {
   *   @returns a Student Observable.
   **/
   getStudentByEmail(email: string): Observable<Teacher>{
-    return this.http.get<Teacher>("http://localhost:8080/students/email/" + email)
+    return this.http.get<Teacher>("http://18.117.164.173:8080/students/email/" + email)
   }
 
     /**
@@ -61,7 +61,7 @@ export class UserService {
     *   @returns a Student Observable.
     **/
   addStudent(student: Student): Observable<Student>{
-    return this.http.post<Student>("http://localhost:8080/students", student)
+    return this.http.post<Student>("http://18.117.164.173:8080/students", student)
   }
 
 }

@@ -9,13 +9,13 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   providedIn: 'root'
 })
 export class StudentService {
-  private studentUrl = 'http://localhost:8080/students';
+  private studentUrl = 'http://18.117.164.173:8080/students';
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   // Get all students
   getStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>('http://localhost:8080/students').pipe(
+    return this.http.get<Student[]>('http://18.117.164.173:8080/students').pipe(
       tap(
         {error: () => this._snackBar.open('Unable to get problems','X', {duration: 2000})}
       )

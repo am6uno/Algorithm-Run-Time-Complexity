@@ -3,14 +3,14 @@
 const keycloakConfig = {
     clientId: 'encounter-ui',
     realm: 'encounter-realm',
-    url: 'https://localhost:8443/auth'
+    url: 'https://18.117.164.173:8443/auth'
 }
 
 export function initializer(keycloak: KeycloakService): () => Promise<any> {
     const options: KeycloakOptions = {
         config: keycloakConfig,
         initOptions: {
-            redirectUri: 'https://localhost:4200/',   
+            redirectUri: 'http://18.117.164.173:80/',   
             checkLoginIframe: false
         }
     };

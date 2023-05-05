@@ -12,19 +12,19 @@ export class ProblemsetService {
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   getAllProblemSets(): Observable<ProblemSet[]>{
-    return this.http.get<ProblemSet[]>("http://localhost:8080/problemsets");
+    return this.http.get<ProblemSet[]>("http://18.117.164.173:8080/problemsets");
   }
 
   getProblemSetsByClassroomId(classroomId: number): Observable<ProblemSet[]>{
-    return this.http.get<ProblemSet[]>("http://localhost:8080/problemsets/classroom/" + classroomId);
+    return this.http.get<ProblemSet[]>("http://18.117.164.173:8080/problemsets/classroom/" + classroomId);
   }
 
   getProblemSetById(problemsetId: number): Observable<ProblemSet>{
-    return this.http.get<ProblemSet>("http://localhost:8080/problemsets/" + problemsetId);
+    return this.http.get<ProblemSet>("http://18.117.164.173:8080/problemsets/" + problemsetId);
   }
 
   addProblemSet(problemset: ProblemSet): Observable<ProblemSet>{
-    return this.http.post<ProblemSet>("http://localhost:8080/problemsets", problemset).pipe(
+    return this.http.post<ProblemSet>("http://18.117.164.173:8080/problemsets", problemset).pipe(
       tap(
       {
         next: () => this._snackBar.open(`Problem Set ${problemset.name} Created`, 'X', {duration: 2000}),
@@ -35,7 +35,7 @@ export class ProblemsetService {
   }
 
   updateProblemSet(problemset: ProblemSet, problemsetId: number): Observable<ProblemSet>{
-    return this.http.put<ProblemSet>("http://localhost:8080/problemsets/" + problemsetId, problemset).pipe(
+    return this.http.put<ProblemSet>("http://18.117.164.173:8080/problemsets/" + problemsetId, problemset).pipe(
       tap(
       {
         next: () => this._snackBar.open(`Problem Set ${problemset.name} was Updated`, 'X', {duration: 2000}),
@@ -46,6 +46,6 @@ export class ProblemsetService {
   }
 
   deleteProblemSet(problemsetId: number): Observable<ProblemSet>{
-    return this.http.delete<ProblemSet>("http://localhost:8080/problemsets/" + problemsetId);
+    return this.http.delete<ProblemSet>("http://18.117.164.173:8080/problemsets/" + problemsetId);
   }
 }

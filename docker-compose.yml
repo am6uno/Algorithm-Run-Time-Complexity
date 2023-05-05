@@ -62,9 +62,9 @@ services:
   #    mysql:
   #      condition: service_healthy
 
-  #encounter-frontend:
-  #  container_name: encounter-frontend
-  #  build: ./ui/encounter
-  #  ports:
-  #    - "4200:4200"
-  #  restart: always
+  encounter-frontend:
+    container_name: encounter-frontend
+    build: ./ui/encounter
+    ports:
+      - "4200:4200"
+    restart: always
