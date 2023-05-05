@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userService.user){
-      this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
+      this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-problem-set/1']);
     }
     this.route.params.subscribe(params => {
       this.role = params['role'];
@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.userService.updateUser(student, 'student')
-          this.router.navigate(['problem-selection']);
+          this.router.navigate(['student-problem-set/1']);
         }
       },
       error: () => {
         this.addStudent(userDetails);
-        this.router.navigate(['problem-selection']);
+        this.router.navigate(['student-problem-set/1']);
       }
     });
   }
@@ -72,12 +72,12 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.userService.updateUser(teacher, 'teacher')
-          this.router.navigate(['problem-creation']);
+          this.router.navigate(['classroom-creation']);
         }
       },
       error: () => {
         this.addTeacher(userDetails);
-        this.router.navigate(['problem-creation']);
+        this.router.navigate(['classroom-creation']);
       }
     });
 
@@ -129,7 +129,7 @@ export class LoginComponent implements OnInit {
           this.authService.logout();
         }
         this.userService.updateUser(receivedStudent, 'student')
-        this.router.navigate(['problem-selection']);
+        this.router.navigate(['student-problem-set/1']);
       },
       error: () => {
         this.authService.logout();
@@ -144,7 +144,7 @@ export class LoginComponent implements OnInit {
           this.authService.logout();
         }
         this.userService.updateUser(receivedTeacher, 'teacher')
-        this.router.navigate(['problem-creation']);
+        this.router.navigate(['classroom-creation']);
       },
       error: () => {
         this.authService.logout();
