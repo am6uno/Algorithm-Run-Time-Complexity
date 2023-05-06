@@ -20,6 +20,8 @@ export class StudentClassroomsComponent implements OnInit {
   maxlength = 8
   teacher: Teacher
   student_id: number
+  valid_code: boolean
+  in_class: boolean
   constructor(private authService: AuthService, protected userservice: UserService,
               private router: Router, private _snackBar: MatSnackBar, private studentservice:StudentService,
               private classroomservice: ClassroomService, private route:ActivatedRoute){}
@@ -47,13 +49,31 @@ export class StudentClassroomsComponent implements OnInit {
     }
   }
 
+  checkValidCode(event: any) {
+    let element = event.target as HTMLElement
+    let ac = element.textContent!.trim()
+    let submitButton = document.getElementById('search-for-classroom-button') as HTMLElement
+    if (ac.length === 8) {
+      element.classList.add('signup-code-valid')
+      submitButton.classList.add("clickable")
+      this.valid_code = true
+    } else {
+      element.classList.remove('signup-code-valid')
+      submitButton.classList.remove("clickable")
+      this.valid_code = false
+    }
+  }
+
   joinClassroom() {
-    console.log(this.access_code)
-    this.classroomservice.getClassroomByAccessCode(this.access_code).subscribe({
-      next: classroom => {this.classroom = classroom;
-      this.teacher = this.classroom.teacher;
-      }}
-    )
+    if (this.valid_code) {
+      this.classroomservice.getClassroomByAccessCode(this.access_code).subscribe({
+          next: classroom => {
+            this.classroom = classroom;
+            this.teacher = this.classroom.teacher;
+          }
+        }
+      )
+    }
   }
 
   confirmJoinClassroom(): void {

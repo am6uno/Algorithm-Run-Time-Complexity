@@ -1,0 +1,102 @@
+.signup-main{
+  padding: 12px 16px 12px 16px;
+}
+
+.signup-title{
+  text-align: center;
+}
+
+.signup-code-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-code-entry{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 6px 12px 6px;
+  width: 35%;
+  resize: none;
+  border: solid 4px black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.signup-code-valid {
+  border: solid 4px limegreen;
+}
+.centered-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.classroom-detail div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.classroom-detail-item{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+button, input[type=submit]{
+  background-color: darkgray;
+  padding: 20px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.teacher-name, .teacher-email {
+  font-weight: bold;
+}
+.teacher-name {
+  color: blue;
+}
+.teacher-email {
+  color: red;
+}
+
+.classroom-name {
+  margin-top: 20px;
+  font-size: 130%;
+}
+
+.not-clickable {
+  cursor: not-allowed;
+}
+
+.clickable {
+  background-color: #d1bfa7 !important;
+  cursor: pointer;
+}
+
+.confirm-join-class{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-button{
+
+}
+.center-button mat-icon {
+  margin-right: 5px; /* adjust as needed */
+}
