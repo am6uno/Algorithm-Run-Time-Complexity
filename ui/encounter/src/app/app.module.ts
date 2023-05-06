@@ -39,8 +39,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
 import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
-import { ClassroomModalComponent } from './classroom-modal/classroom-modal.component';
 import {StudentClassroomsComponent} from "./student-classrooms/student-classrooms.component";
+import { StudentProblemSetComponent } from './student-problem-set/student-problem-set.component';
+
 
 
 const APP_ROUTES: Routes = [
@@ -54,6 +55,8 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
+  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]}
   {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
   {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent},
   {path: 'student-signup', component: StudentClassroomsComponent},
@@ -77,8 +80,9 @@ const APP_ROUTES: Routes = [
     ConfirmationModalComponent,
     AddProblemModalComponent,
     SelectSetModalComponent,
-    // ClassroomModalComponent,
     StudentClassroomsComponent,
+    StudentProblemSetComponent,
+    SelectSetModalComponent
   ],
   imports: [
     BrowserModule,
@@ -101,8 +105,7 @@ const APP_ROUTES: Routes = [
     MatDialogModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatSelectModule,
-    // NgxContentEditableModule
+    MatSelectModule
   ],
   providers: [
     KeycloakService,
