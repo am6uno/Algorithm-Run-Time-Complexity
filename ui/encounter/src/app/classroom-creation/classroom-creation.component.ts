@@ -113,7 +113,7 @@ export class ClassroomCreationComponent {
     else {
       const newClassroom: Classroom = {
         name: this.name,
-        access_code: this.generateAccessCode(),
+        accessCode: this.generateAccessCode(),
         teacher: this.teacher,
         enrolled_students: [],
 

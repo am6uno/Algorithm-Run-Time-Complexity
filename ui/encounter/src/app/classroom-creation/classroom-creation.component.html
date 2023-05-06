@@ -4,7 +4,7 @@
       <h1 class="page-title">Your Classrooms</h1>
       <div *ngFor="let classroom of teacherClassrooms; let i = index">
         <div *ngIf="showChild[i]">
-        <app-classroom-detail [classroom]="classroom" [index]="i" (removeChild)="onChildRemove(i)"></app-classroom-detail>
+        <app-classroom-detail [classroom]="classroom" [index]="i" [access_code]="classroom.accessCode" (removeChild)="onChildRemove(i)"></app-classroom-detail>
         </div>
       </div>
     </div>

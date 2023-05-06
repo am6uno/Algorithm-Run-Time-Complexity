@@ -95,8 +95,9 @@ button, input[type=submit]{
 }
 
 .center-button{
-
+  cursor: pointer;
+  background-color: #d1bfa7 !important;
 }
 .center-button mat-icon {
-  margin-right: 5px; /* adjust as needed */
+  margin-right: 5px;
 }

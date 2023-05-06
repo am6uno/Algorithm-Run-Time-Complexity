@@ -4,7 +4,7 @@
       <mat-expansion-panel-header class="mat-header">
         <h3 class="classroom-title">{{ classroom.name}}</h3>
       </mat-expansion-panel-header>
-      <p><span class="access-header">Access Code:</span><span class="access-code" (click)="selectAccessCode($event)">{{classroom.access_code}}</span></p>
+      <p><span class="access-header">Access Code:</span><span class="access-code" (click)="selectAccessCode($event)">{{this.access_code}}</span></p>
       <h4>{{message}}</h4>
       <div *ngIf="student_list.size > 0">
         <table class="classroom-table">

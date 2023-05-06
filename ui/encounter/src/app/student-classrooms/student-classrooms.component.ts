@@ -69,7 +69,12 @@ export class StudentClassroomsComponent implements OnInit {
       this.classroomservice.getClassroomByAccessCode(this.access_code).subscribe({
           next: classroom => {
             this.classroom = classroom;
-            this.teacher = this.classroom.teacher;
+            if (this.classroom == null) {
+              this._snackBar.open('Classroom Not Found!','X', {duration: 2000})
+            } else {
+              this.teacher = this.classroom.teacher;
+              this._snackBar.open('Classroom Found!','X', {duration: 2000})
+            }
           }
         }
       )
@@ -78,6 +83,8 @@ export class StudentClassroomsComponent implements OnInit {
 
   confirmJoinClassroom(): void {
     this.classroomservice.addStudentToClassroom(this.access_code, this.classroom, this.student_id).subscribe()
+    this._snackBar.open('Enrolled Successfully!','X', {duration: 2000})
+    this.router.navigate([''])
   }
 
 }

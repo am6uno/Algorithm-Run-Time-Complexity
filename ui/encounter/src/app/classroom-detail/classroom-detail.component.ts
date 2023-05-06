@@ -18,6 +18,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 export class ClassroomDetailComponent implements OnChanges{
   @Input() classroom: Classroom;
   @Input() classroom_service: ClassroomService;
+  @Input() access_code: string;
   @Input() index: any
 
   @Output() removeChild = new EventEmitter<number>();
@@ -38,6 +39,7 @@ export class ClassroomDetailComponent implements OnChanges{
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
+    console.log(this.classroom)
     this.student_list = new Set<Student>(this.classroom.enrolled_students)
     if (this.student_list.size === 0){
       this.students = false;
@@ -99,12 +101,12 @@ export class ClassroomDetailComponent implements OnChanges{
   newAccessCode(){
     const new_code = this.parent.generateAccessCode()
     console.log(new_code)
-    this.classroom.access_code = new_code
+    this.classroom.accessCode = new_code
     // this.classroom_service.updateClassroom(this.classroom)
     this.classroom_service.getClassroomById(this.classroom_id).subscribe(
       classroom => {
         let updated_classroom = classroom
-        updated_classroom.access_code = new_code
+        updated_classroom.accessCode = new_code
         this.classroom_service.updateClassroom(updated_classroom)
       }
     )
