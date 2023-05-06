@@ -1,0 +1,25 @@
+<div class="signup-main">
+
+  <h1>Enroll In A Class</h1>
+  <div [(ngModel)]="access_code" (keyup)="setCodeInput($event)" (keydown)="enforceMaxLength($event)" ngDefaultControl contenteditable></div>
+  <input type="submit" (click)="joinClassroom()">
+
+  <ng-container *ngIf="this.classroom != null; else elseBlock">
+    <h2>{{this.classroom.name}}</h2>
+    <div>
+      <p>Teacher: {{this.teacher.first_name}} {{this.teacher.last_name}}</p>
+      <p>Email: {{this.teacher.teacherEmail}}</p>
+    </div>
+    <button type="button" class="form-button" (click)="confirmJoinClassroom()">
+      <mat-icon>reorder</mat-icon>
+      <span class="button-text">Confirm and Join Classroom</span>
+    </button>
+  </ng-container>
+
+  <ng-template #elseBlock>
+    Nothing here.
+  </ng-template>
+
+
+
+</div>
