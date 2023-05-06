@@ -29,7 +29,7 @@ import { ClassroomCreationComponent } from './classroom-creation/classroom-creat
 import { ClassroomDetailComponent } from './classroom-detail/classroom-detail.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
-import { ProblemSetComponent } from './problem-set/problem-set.component';
+// import { ProblemSetComponent } from './problem-set/problem-set.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -56,8 +56,8 @@ const APP_ROUTES: Routes = [
   {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]}
-  {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]},
+  // {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
   {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent},
   {path: 'student-signup', component: StudentClassroomsComponent},
 
@@ -76,7 +76,7 @@ const APP_ROUTES: Routes = [
     ClassroomDetailComponent,
     TeacherProblemsetPageComponent,
     TeacherProblemComponent,
-    ProblemSetComponent,
+    // ProblemSetComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
     SelectSetModalComponent,
