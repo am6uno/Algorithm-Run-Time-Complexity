@@ -1,4 +1,5 @@
 package com.complexity.encounter.student;
+import com.complexity.encounter.classroom.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,16 @@ public class StudentController {
     @CrossOrigin(origins ="http://localhost:4200")
     public Optional<Student> getStudentByEmail(@PathVariable String email){
         return studentService.getStudentByEmail(email);
+    }
+    /**
+     * This method returns all the classes that a student is enrolled to.
+     * @param id The id of the student
+     * @return A classroom list
+     */
+    @RequestMapping("/students/{id}/classrooms")
+    @CrossOrigin(origins ="http://localhost:4200")
+    public List<Classroom> getStudentClassrooms(@PathVariable long id){
+        return studentService.getStudentClassrooms(id);
     }
     /**
      * Sends a Student object to the service to be added to the database.
