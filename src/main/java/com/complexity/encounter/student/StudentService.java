@@ -29,7 +29,7 @@ public class StudentService {
      * @param id The id used in the query to look up a Student
      * @return An Optional object which contains the Student object on a hit.
      */
-    public Optional<Student> getStudentById(long id) {return studentRepository.findById(id);}
+    public Optional<Student> getStudentById(long id) {System.out.print("!!!"); return studentRepository.findById(id);}
     /**
      * Queries the database using the pass email address and converts the result into
      * and Optional object.

@@ -54,10 +54,14 @@ export class ClassroomService {
 
   addStudentToClassroom(access_code: string, classroom: Classroom, student_id: number): any {
     const url = `http://localhost:8080/classrooms/addStudent/${classroom.id}/${student_id}`
-      if (access_code === classroom.access_code) {
-        return this.http.put(url, null)
-      }
+    return this.http.put(url, null)
   }
+
+  getClassroomByAccessCode(access_code: string): Observable<any> {
+    const url = `http://localhost:8080/classrooms/code/${access_code}`
+    return this.http.get<Classroom>(url)
+  }
+
   removeStudent(classroom: Classroom, student_id: number){
       return this.http.put(
         `http://localhost:8080/classrooms/removeStudent/${classroom.id}/${student_id}`,

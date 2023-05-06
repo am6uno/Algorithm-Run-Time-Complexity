@@ -35,8 +35,8 @@ public class Classroom {
     @ManyToOne
     @JoinColumn(name="teacher_id", nullable = false)
     private Teacher teacher;
-
-    private String access_code;
+    @Column(name="access_code")
+    private String accessCode;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
