@@ -41,6 +41,7 @@ import { DatePipe } from '@angular/common';
 import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
 import {StudentClassroomsComponent} from "./student-classrooms/student-classrooms.component";
 import { StudentProblemSetComponent } from './student-problem-set/student-problem-set.component';
+import { StudentClassroomViewComponent } from './student-classroom-view/student-classroom-view.component';
 
 
 
@@ -80,7 +81,8 @@ const APP_ROUTES: Routes = [
     SelectSetModalComponent,
     StudentClassroomsComponent,
     StudentProblemSetComponent,
-    SelectSetModalComponent
+    SelectSetModalComponent,
+    StudentClassroomViewComponent
   ],
   imports: [
     BrowserModule,
