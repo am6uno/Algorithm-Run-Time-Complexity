@@ -72,6 +72,12 @@ public class ClassroomService {
         return classroomRepository.save(updatedClassroom.get());
     }
 
+    /**
+     * Adds a Student to the Classroom repository.
+     * @param classroom_id - the id of the Classroom associated with the Student
+     * @param student_id - the id of the Student being added
+     * @return the updated repository
+     */
     public Classroom addStudent(Long classroom_id, Long student_id) {
 
         Optional<Student> student = studentService.getStudentById(student_id);
@@ -87,6 +93,12 @@ public class ClassroomService {
         return classroomRepository.save(updatedClassroom.get());
     }
 
+    /**
+     * Removes a student from the Classroom repository.
+     * @param classroom_id - the id of the Classroom associated with the Student
+     * @param student_id - the id of the Student being removed
+     * @return the updated Classroom repository
+     */
     public Classroom removeStudent(Long classroom_id, Long student_id) {
 
         Optional<Student> student = studentService.getStudentById(student_id);
@@ -102,6 +114,11 @@ public class ClassroomService {
         return classroomRepository.save(updatedClassroom.get());
     }
 
+    /**
+     * This method returns a list of each Classroom associated with the given teacher email.
+     * @param email - the teacher's email
+     * @return a list of that teacher's Classrooms
+     */
     public List<Classroom> getClassroomsByTeacherEmail(String email){
         Optional<Teacher> teacher = teacherService.getTeacherByEmail(email);
         return classroomRepository.findByTeacher(teacher.get());

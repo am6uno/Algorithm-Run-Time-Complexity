@@ -40,6 +40,11 @@ public class ClassroomController {
     @RequestMapping(classroom_url + "/{id}")
     public Classroom getClassroom(@PathVariable Long id) { return classroomService.getClassroomById(id).get();}
 
+    /**
+     * This method looks up a classroom by the teacher's email and has the Classroom service return it.
+     * @param email - The email of the teacher associated with the desired Classroom
+     * @return the Classroom object matching the email passed.
+     */
     @GetMapping(classroom_url + "/email/{email}")
     @CrossOrigin(origins ="http://localhost:4200")
     public List<Classroom> getClassroomsByEmail(@PathVariable String email) {
@@ -74,12 +79,24 @@ public class ClassroomController {
     @RequestMapping(method=RequestMethod.DELETE, value=classroom_url + "/{id}")
     public void deleteClassroom(@PathVariable Long id) {classroomService.deleteClassroom(id);}
 
-
+    /**
+     * This method adds a Student to a Classroom.
+     * @param classroom_id the id of the Classroom to be added to
+     * @param student_id the id of the Student being added
+     * @return the added Student.
+     */
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/addStudent/{classroom_id}/{student_id}")
     public Classroom addStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
         System.out.println("Request Received");
         return classroomService.addStudent(classroom_id, student_id);
     }
+
+    /**
+     * This method removes a Student from a Classroom.
+     * @param classroom_id the id of the Classroom
+     * @param student_id the id of the Student being removed
+     * @return the removed Student.
+     */
     @CrossOrigin(origins=host_url)
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/removeStudent/{classroom_id}/{student_id}")
     public Classroom removeStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){

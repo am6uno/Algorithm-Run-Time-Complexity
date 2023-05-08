@@ -19,14 +19,17 @@ public class ProblemSetController
     /**
      * A Getter method for all problem sets.
      */
-    
-
     @RequestMapping("/problemsets")
     public List<ProblemSet> getAllProblemSets()
     {
         return problemSetService.getAllProblemSets();
     }
 
+    /**
+     * Returns all the problem sets associated with a Classroom
+     * @param classroomId - the id of the Classroom
+     * @return the list of ProblemSets
+     */
     @RequestMapping("/problemsets/classroom/{classroomId}")
     public List<ProblemSet> getProblemSetsByClassroomId(@PathVariable long classroomId){
         return problemSetService.getProblemSetsByClassroomId(classroomId);

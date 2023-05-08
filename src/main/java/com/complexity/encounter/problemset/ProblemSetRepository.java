@@ -9,6 +9,5 @@ import java.util.List;
  * @Author Cole Gregory
  */
 public interface ProblemSetRepository extends JpaRepository<ProblemSet, Long>{
-
     List<ProblemSet> findByClassroomId(long classroomId);
 }

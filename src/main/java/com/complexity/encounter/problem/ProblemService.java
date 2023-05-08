@@ -46,6 +46,11 @@ public class ProblemService {
         return problemRepository.findById(id);
     }
 
+    /**
+     * Retrieves a list of Problems by the id of the set they are associated with.
+     * @param setId - the id of the set
+     * @return the list of problems in the set
+     */
     public List<Problem> getProblemsBySetId(long setId) {
         return problemRepository.findBySetId(setId);
     }

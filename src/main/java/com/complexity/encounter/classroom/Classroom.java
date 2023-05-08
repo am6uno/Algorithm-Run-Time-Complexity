@@ -46,10 +46,18 @@ public class Classroom {
     )
     private List<Student> enrolled_students = new ArrayList<>();
 
+    /**
+     * Adds a Student into enrolled_students
+     * @param student - the Student being added.
+     */
     public void addStudent(Student student){
         enrolled_students.add(student);
     }
 
+    /**
+     * Removes a Student from enrolled_students
+     * @param student - the Student being removed.
+     */
     public void removeStudent(Student student) {
         enrolled_students.remove(student);
     }
