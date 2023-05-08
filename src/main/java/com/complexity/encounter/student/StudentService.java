@@ -1,8 +1,10 @@
 package com.complexity.encounter.student;
 import com.complexity.encounter.classroom.Classroom;
+import com.complexity.encounter.classroom.ClassroomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private ClassroomRepository classroomRepository;
     /**
      * Communicates with the database to create a new Student object.
      * @param student Student object containing the new data to be added.
@@ -38,14 +42,7 @@ public class StudentService {
      * @return An Optional object which contains the Student object on a hit.
      */
     public Optional<Student> getStudentByEmail(String email){ return studentRepository.findByEmail(email);}
-    /**
-     * This method returns all the classes that a student is enrolled to.
-     * @param id The id of the student
-     * @return A classroom list
-     */
-    public  List<Classroom> getStudentClassrooms(long id) {
-        return studentRepository.findById(id).get().getEnrolled_classrooms();
-    }
+
     /**
      * Deletes a Student object from the database.
      * @param id The id of the Student to be deleted.
@@ -69,8 +66,13 @@ public class StudentService {
         studentRepository.save(updatedStudent.get());
     }
 
-    public  Long[] getStudentClassrooms(long id) {
+    public  List<Classroom> getStudentClassrooms(long id) {
         Optional<Long[]> ids = studentRepository.findByEnrollment(id);
-        return ids.get();
+        List<Classroom> classrooms = new ArrayList<>();
+        for (Long i : ids.get()) {
+            Optional<Classroom> classroom = classroomRepository.findById(i);
+            classrooms.add(classroom.get());
+        }
+        return classrooms;
     }
 }

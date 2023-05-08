@@ -42,16 +42,6 @@ public class StudentController {
         return studentService.getStudentByEmail(email);
     }
     /**
-     * This method returns all the classes that a student is enrolled to.
-     * @param id The id of the student
-     * @return A classroom list
-     */
-    @RequestMapping("/students/{id}/classrooms")
-    @CrossOrigin(origins ="http://localhost:4200")
-    public List<Classroom> getStudentClassrooms(@PathVariable long id){
-        return studentService.getStudentClassrooms(id);
-    }
-    /**
      * Sends a Student object to the service to be added to the database.
      * @param student The Student object to be added.
      */
@@ -81,7 +71,7 @@ public class StudentController {
 
     @RequestMapping(method=RequestMethod.GET, value="/students/{id}/classrooms")
     @CrossOrigin(origins ="http://localhost:4200")
-    public Long[] getStudentClassrooms(@PathVariable long id){
+    public List<Classroom> getStudentClassrooms(@PathVariable long id){
         return studentService.getStudentClassrooms(id);
     }
 
