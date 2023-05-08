@@ -7,7 +7,6 @@ import {Student} from "../student";
 import {StudentService} from "../student-service/student.service";
 import {Router} from "@angular/router";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
-import {ClassroomModalComponent} from "../classroom-modal/classroom-modal.component";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 
 @Component({
