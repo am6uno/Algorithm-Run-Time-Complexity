@@ -4,6 +4,7 @@ import {Observable, tap} from 'rxjs';
 
 import { Student } from '../student';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Classroom} from "../classroom";
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,10 @@ export class StudentService {
   deleteStudent(id: number): Observable<void> {
     const url = `${this.studentUrl}/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  getEnrollment(student_id: number): Observable<Classroom[]> {
+    const url = `${this.studentUrl}/${student_id}/classrooms`
+    return this.http.get<Classroom[]>(url)
   }
 }
