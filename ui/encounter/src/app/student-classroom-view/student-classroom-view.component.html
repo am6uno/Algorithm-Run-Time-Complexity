@@ -3,5 +3,6 @@
 <div class="classroom_list" *ngFor="let classroom of enrolledClassrooms">
   <div class="classroom-detail">
     <p>{{classroom.name}}</p>
+    <button routerLink="../student-problem-set/{{classroom.id}}">Click me</button>
   </div>
 </div>

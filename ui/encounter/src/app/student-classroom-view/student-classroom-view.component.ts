@@ -24,6 +24,11 @@ export class StudentClassroomViewComponent implements OnInit{
               private classroomservice: ClassroomService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.studentservice.getStudent(this.userservice.user.id).subscribe(
+      student => {
+        this.student = student as Student
+      }
+    )
     if(this.authService.getLoggedUser()){
       this.studentservice.getEnrollment(this.userservice.user.id).subscribe(
         classrooms => {
@@ -34,11 +39,6 @@ export class StudentClassroomViewComponent implements OnInit{
           } else {
             this.message = "You are currently enrolled in: "
           }
-        }
-      )
-      this.studentservice.getStudent(this.userservice.user.id).subscribe(
-        student => {
-          this.student = student as Student
         }
       )
     }
