@@ -1,6 +1,7 @@
 package com.complexity.encounter.student;
 import com.complexity.encounter.classroom.Classroom;
 import com.complexity.encounter.classroom.ClassroomRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

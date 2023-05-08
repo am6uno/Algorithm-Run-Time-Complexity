@@ -44,3 +44,18 @@
   margin: 10px 0px;
   cursor: pointer;
 }
+
+input {
+  background-color: #d1bfa7;
+  padding: 20px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration:none;
+  border: solid #393a34;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
