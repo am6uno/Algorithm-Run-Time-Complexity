@@ -15,7 +15,7 @@ import {Student} from "../student";
   styleUrls: ['./student-classroom-view.component.css']
 })
 export class StudentClassroomViewComponent implements OnInit{
-  student: Student
+  student: any
   enrolledClassrooms : Classroom[]
   message: string
 
@@ -43,6 +43,10 @@ export class StudentClassroomViewComponent implements OnInit{
       )
     }
     // this.studentservice.getEnrollment()
+  }
+
+  viewProblemSet(id: any): void {
+    this.router.navigate(['student-problem-set/' + id] )
   }
 
 
