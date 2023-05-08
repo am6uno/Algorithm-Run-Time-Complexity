@@ -1,0 +1,7 @@
+<h1>Classrooms for {{student.first_name}} {{student.last_name}}</h1>
+<p>{{message}}</p>
+<div class="classroom_list" *ngFor="let classroom of enrolledClassrooms">
+  <div class="classroom-detail">
+    <p>{{classroom.name}}</p>
+  </div>
+</div>
