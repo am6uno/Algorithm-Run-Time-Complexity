@@ -39,6 +39,14 @@ public class StudentService {
      */
     public Optional<Student> getStudentByEmail(String email){ return studentRepository.findByEmail(email);}
     /**
+     * This method returns all the classes that a student is enrolled to.
+     * @param id The id of the student
+     * @return A classroom list
+     */
+    public  List<Classroom> getStudentClassrooms(long id) {
+        return studentRepository.findById(id).get().getEnrolled_classrooms();
+    }
+    /**
      * Deletes a Student object from the database.
      * @param id The id of the Student to be deleted.
      */
