@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ProblemsetService } from '../problemset-service/problemset.service';
 import { ProblemSet } from '../problemset';
+import { UserService } from '../user.service';
+import { Classroom } from '../classroom';
+import { ClassroomService } from '../classroom-service/classroom.service';
 
 @Component({
   selector: 'app-select-set-modal',
@@ -9,21 +12,34 @@ import { ProblemSet } from '../problemset';
   styleUrls: ['./select-set-modal.component.css']
 })
 export class SelectSetModalComponent implements OnInit {
-  constructor(public dialog: MatDialogRef<SelectSetModalComponent>, private problemsetService: ProblemsetService) {}
+  constructor(
+    public dialog: MatDialogRef<SelectSetModalComponent>, 
+    private problemsetService: ProblemsetService, 
+    private userService: UserService, 
+    private classroomService: ClassroomService
+  ) {}
+
   sets: ProblemSet[] = [];
   selectedSets: Map<number, number> = new Map<number, number>();
 
   ngOnInit(): void {
-    // TODO: switch to get sets from all the teachers classrooms.
-    this.problemsetService.getAllProblemSets().subscribe({
-      next: (sets: ProblemSet[]) => {
-        this.sets = sets;
+    this.classroomService.getClassroomsByTeacherEmail(this.userService.user.teacherEmail).subscribe({
+      next: (classrooms: Classroom[]) => {
+        classrooms.forEach((classroom: Classroom) => {
+          this.problemsetService.getProblemSetsByClassroomId(classroom.id as any).subscribe({
+            next: (sets: ProblemSet[]) => {
+              this.sets = this.sets.concat(sets);
+            }
+          });
+        });
       },
       error: () => {
-        console.log("no sets found");
         this.sets = []
       }
-    });
+    })
+
+
+   
   }
 
   selectSet(set: ProblemSet){

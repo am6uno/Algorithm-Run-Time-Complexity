@@ -95,14 +95,12 @@ export class LoginComponent implements OnInit {
         this.updateFrontendTeacherAndRedirect(teacher);
       },
       error: () => {
-        console.log("Unable to add teacher");
         this.router.navigate(['']);
       }
     })
   }
 
   addStudent(userDetails: any){
-    console.log("classroomCode: %s",userDetails.classroomCode);
     let student: Student = {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
@@ -116,7 +114,6 @@ export class LoginComponent implements OnInit {
         this.updateFrontendStudentAndRedirect(student);
       },
       error: () => {
-        console.log("Unable to add student");
         this.router.navigate(['']);
       }
     })

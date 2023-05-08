@@ -23,6 +23,7 @@ export class StudentSolutionComponent implements OnInit{
     private solutionService: SolutionService,
     private complexityParserService: ComplexityParserService
   ) {}
+  classroomId: number;
   showResults: boolean = false;
   problem: Problem;
   studentId: number;
@@ -39,7 +40,8 @@ export class StudentSolutionComponent implements OnInit{
     this.problemService
 
     this.route.params.subscribe(params => {
-      this.problemId = +params['id'];
+      this.problemId = params['problemId'];
+      this.classroomId = params['classroomId'];
       this.problemService.getProblemById(this.problemId).subscribe({
         next: (problem) => {
           this.problem = problem;
