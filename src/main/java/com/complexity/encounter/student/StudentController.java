@@ -1,4 +1,5 @@
 package com.complexity.encounter.student;
+import com.complexity.encounter.classroom.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,6 +67,12 @@ public class StudentController {
     @RequestMapping(method= RequestMethod.DELETE, value="/students/{id}")
     public void deleteStudent(@PathVariable long id){
         studentService.deleteStudent(id);
+    }
+
+    @RequestMapping(method=RequestMethod.GET, value="/students/{id}/classrooms")
+    @CrossOrigin(origins ="http://localhost:4200")
+    public Long[] getStudentClassrooms(@PathVariable long id){
+        return studentService.getStudentClassrooms(id);
     }
 
 

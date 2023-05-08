@@ -89,18 +89,18 @@ export class ClassroomCreationComponent {
     return true
   }
 
-  getAllStudents(): void {
-    this.view_student = true;
-  }
+  // getAllStudents(): void {
+  //   this.view_student = true;
+  // }
 
-  addStudentTest(): void {
+  // addStudentTest(): void {
     // @ts-ignore
     // @ts-ignore
- this.classroomService.addStudentToClassroom(
-    // @ts-ignore
-      this.teacherClassrooms[0].access_code, this.teacherClassrooms[0], 1
-    ).subscribe()
-  }
+ // this.classroomService.addStudentToClassroom(
+ //    @ts-ignore
+      // this.teacherClassrooms[0].access_code, this.teacherClassrooms[0], 1
+    // ).subscribe()
+  // }
 
 
   submitClassroom() {

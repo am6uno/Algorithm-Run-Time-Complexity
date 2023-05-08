@@ -62,8 +62,8 @@ public class ClassroomController {
      * @param id The id of the Classroom to be updated in the database.
      */
     @RequestMapping(method=RequestMethod.PUT, value=classroom_url + "/{id}")
-    public void updateClassroom(@RequestBody Classroom classroom, @PathVariable Long id){
-        classroomService.updateClassroom(classroom, id);
+    public Classroom updateClassroom(@RequestBody Classroom classroom, @PathVariable Long id){
+        return classroomService.updateClassroom(classroom, id);
     }
 
     /**

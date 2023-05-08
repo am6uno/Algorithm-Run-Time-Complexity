@@ -99,13 +99,10 @@ export class ClassroomDetailComponent implements OnChanges{
   }
 
   newAccessCode(){
-    const new_code = this.parent.generateAccessCode()
-    console.log(new_code)
-    this.classroom.accessCode = new_code
-    // this.classroom_service.updateClassroom(this.classroom)
     this.classroom_service.getClassroomById(this.classroom_id).subscribe(
       classroom => {
         let updated_classroom = classroom
+        const new_code = this.parent.generateAccessCode()
         updated_classroom.accessCode = new_code
         this.classroom_service.updateClassroom(updated_classroom)
       }

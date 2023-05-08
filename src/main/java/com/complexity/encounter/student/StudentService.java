@@ -1,4 +1,5 @@
 package com.complexity.encounter.student;
+import com.complexity.encounter.classroom.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +59,10 @@ public class StudentService {
         updatedStudent.get().setPassword_hash(student.getPassword_hash());
 //        updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
         studentRepository.save(updatedStudent.get());
+    }
+
+    public  Long[] getStudentClassrooms(long id) {
+        Optional<Long[]> ids = studentRepository.findByEnrollment(id);
+        return ids.get();
     }
 }

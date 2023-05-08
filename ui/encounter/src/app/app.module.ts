@@ -57,8 +57,6 @@ const APP_ROUTES: Routes = [
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
   {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
   {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]},
-  // {path: 'problem-set', component: ProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent},
   {path: 'student-signup', component: StudentClassroomsComponent},
 
 ];
