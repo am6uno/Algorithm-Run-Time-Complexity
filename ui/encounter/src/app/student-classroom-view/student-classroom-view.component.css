@@ -36,6 +36,7 @@
 
 .classroom-acc .mat-expansion-panel-header:hover {
   background-color: #393a34;
+  border-color: #5cb85c;
   font-weight: bold;
 }
 
