@@ -5,6 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 import java.util.List;
 
+/**
+ * The repository for the Solution object.
+ */
 public interface SolutionRepository extends JpaRepository<Solution, Long> {
     List<Solution> findByStudentId(long studentId);
     List<Solution> findByProblemId(long studentId);
