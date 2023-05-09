@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userService.user){
-      this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-problem-set/1']);
+      this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-classroom-view']);
     }
     this.route.params.subscribe(params => {
       this.role = params['role'];
@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.userService.updateUser(student, 'student')
-          this.router.navigate(['student-problem-set/1']);
+          this.router.navigate(['student-classroom-view']);
         }
       },
       error: () => {
         this.addStudent(userDetails);
-        this.router.navigate(['student-problem-set/1']);
+        this.router.navigate(['student-classroom-view']);
       }
     });
   }
@@ -126,7 +126,7 @@ export class LoginComponent implements OnInit {
           this.authService.logout();
         }
         this.userService.updateUser(receivedStudent, 'student')
-        this.router.navigate(['student-problem-set/1']);
+        this.router.navigate(['student-classroom-view']);
       },
       error: () => {
         this.authService.logout();

@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
     if(this.authService.getUserDetails()){
       this.loggedIn = true;
       if(this.userService.user){
-        this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-problem-set/1']);
+        this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-classroom-view']);
       }
       const userDetails: any = this.authService.getUserDetails();
       this.userService.userDetails = userDetails;
@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
         next: student => {
           if(student){
             this.userService.updateUser(student, 'student');
-            this.router.navigate(['student-problem-set/1']);
+            this.router.navigate(['student-classroom-view']);
           }
         }
       });
