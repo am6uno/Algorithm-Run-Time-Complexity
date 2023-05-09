@@ -58,7 +58,7 @@ export class ClassroomService {
   }
 
   getClassroomByAccessCode(access_code: string): Observable<any> {
-    const url = `http://localhost:8080/classrooms/code/${access_code}`
+    const url = `http://18.117.164.173:8080/classrooms/code/${access_code}`
     return this.http.get<Classroom>(url)
   }
 
