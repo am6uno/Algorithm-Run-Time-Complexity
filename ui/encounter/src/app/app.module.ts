@@ -46,17 +46,17 @@ import { StudentClassroomViewComponent } from './student-classroom-view/student-
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]},
-  {path: 'student-classroom-view', component:StudentClassroomViewComponent, canActivate: [AuthGuard]},
-  {path: 'student-signup', component: StudentClassroomsComponent},
+  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'student-solution/:classroomId/:problemId', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'student-classroom-view', component:StudentClassroomViewComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'student-signup', component: StudentClassroomsComponent, canActivate: [AuthGuard], data: {role: 'student'}},
 
 ];
 

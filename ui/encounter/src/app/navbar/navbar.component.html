@@ -17,12 +17,11 @@
         <mat-icon>create</mat-icon>
         <span>Create a Problem</span>
       </button>
-      </button>
-      <button mat-menu-item routerLink="student-signup">
+      <button mat-menu-item *ngIf="isStudent()" routerLink="student-signup">
         <mat-icon>create</mat-icon>
         <span>Sign up for Classes</span>
       </button>
-      <button mat-menu-item routerLink="student-classroom-view">
+      <button mat-menu-item *ngIf="isStudent()" routerLink="student-classroom-view">
         <mat-icon>create</mat-icon>
         <span>View Classrooms</span>
       </button>

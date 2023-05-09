@@ -26,15 +26,12 @@ export class StudentClassroomsComponent implements OnInit {
               private router: Router, private _snackBar: MatSnackBar, private studentservice:StudentService,
               private classroomservice: ClassroomService, private route:ActivatedRoute){}
   ngOnInit() {
-    if(this.authService.getLoggedUser()) {
-
       if (!(this.userservice.user.role = 'student')) {
         this.router.navigate([''])
       }
       else {
         this.student_id = this.userservice.user.id
       }
-    }
   }
 
   setCodeInput(event: any){

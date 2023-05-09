@@ -29,7 +29,7 @@ export class StudentClassroomViewComponent implements OnInit{
         this.student = student as Student
       }
     )
-    if(this.authService.getLoggedUser()){
+
       this.studentservice.getEnrollment(this.userservice.user.id).subscribe(
         classrooms => {
           this.enrolledClassrooms = classrooms
@@ -41,7 +41,6 @@ export class StudentClassroomViewComponent implements OnInit{
           }
         }
       )
-    }
     // this.studentservice.getEnrollment()
   }
 
