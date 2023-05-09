@@ -6,10 +6,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Student} from "../student";
 import {Router} from "@angular/router";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
-<<<<<<< HEAD
-=======
-//import {ClassroomModalComponent} from "../classroom-modal/classroom-modal.component";
->>>>>>> 420a6f36012243efdb38a1565524104b2ac38fe7
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 
 @Component({
