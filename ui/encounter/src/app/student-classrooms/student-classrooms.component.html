@@ -1,0 +1,35 @@
+<div class="signup-main">
+
+  <h1 class="signup-title">Enroll In A Classroom</h1>
+  <h3 class="signup-title">Please enter your 8 character access code. This should be supplied by your teacher.</h3>
+  <div class="container signup-code-container">
+    <div class="signup-code-entry" [(ngModel)]="access_code"
+         (keyup)="setCodeInput($event)"
+         (keydown)="enforceMaxLength($event)"
+         (input)="checkValidCode($event)"
+         spellcheck="false"
+         ngDefaultControl contenteditable></div>
+    <br><br>
+    <input type="submit" class="not-clickable" id="search-for-classroom-button" (click)="joinClassroom()">
+  </div>
+<div class="centered-container">
+  <div *ngIf="this.classroom != null">
+    <hr><br>
+    <h2 class="signup-title">Would you like to enroll in this classroom:<br><br><span class="classroom-name">{{this.classroom.name}}</span></h2><br>
+    <div class="classroom-detail">
+      <p class="classroom-detail-item"><span class="teacher-name">Teacher:</span> {{this.teacher.first_name}} {{this.teacher.last_name}}</p>
+      <p class="classroom-detail-item"><span class="teacher-email">Email:</span> {{this.teacher.teacherEmail}}</p><br>
+    </div>
+  </div>
+</div>
+<br>
+  <div *ngIf="this.classroom != null" class="confirm-join-class">
+    <button type="button" class="form-button center-button" (click)="confirmJoinClassroom()">
+      <mat-icon>done_outline</mat-icon>
+      <span class="button-text">Confirm and Join Classroom</span>
+    </button>
+  </div>
+
+
+
+</div>

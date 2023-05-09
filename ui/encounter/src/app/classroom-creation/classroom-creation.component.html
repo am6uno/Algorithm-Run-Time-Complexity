@@ -1,9 +1,11 @@
 <div class="classroom-creation">
   <div class="classroom-list">
     <div class="classroom-list-items">
-      <h2>Existing Classrooms</h2>
-      <div class = classroom *ngFor="let classroom of teacherClassrooms">
-        <app-classroom-detail [classroom]="classroom"></app-classroom-detail>
+      <h1 class="page-title">Your Classrooms</h1>
+      <div *ngFor="let classroom of teacherClassrooms; let i = index">
+        <div *ngIf="showChild[i]">
+        <app-classroom-detail [classroom]="classroom" [index]="i" [access_code]="classroom.accessCode" (removeChild)="onChildRemove(i)"></app-classroom-detail>
+        </div>
       </div>
     </div>
     <h1  *ngIf="!this.teacherClassrooms">No Classrooms Have been Created Yet.</h1>
@@ -16,12 +18,12 @@
     <input type="submit" (click)="submitClassroom()">
 
   </div>
-  <div>
-    <input type="submit" value = "View Students" (click)="getAllStudents()">
-    <input type="submit" value = "Test Add Student" (click)="addStudentTest()">
-    <div *ngIf="this.view_student">
-      <div *ngFor="let student of student_list">{{student.first_name}} {{student.last_name}} ({{student.email}})</div>
-    </div>
-  </div>
+<!--  <div>-->
+<!--    <input type="submit" value = "View Students" (click)="getAllStudents()">-->
+<!--    <input type="submit" value = "Test Add Student" (click)="addStudentTest()">-->
+<!--    <div *ngIf="this.view_student">-->
+<!--      <div *ngFor="let student of student_list">{{student.first_name}} {{student.last_name}} ({{student.email}})</div>-->
+<!--    </div>-->
+<!--  </div>-->
 
 </div>

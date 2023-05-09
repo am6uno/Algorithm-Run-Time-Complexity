@@ -19,5 +19,6 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
     int addStudent(Set<Student> students, Long id);
 
     List<Classroom> findByTeacher(Teacher teacher);
+    Classroom findFirstByAccessCode(String access_code);
 
 }

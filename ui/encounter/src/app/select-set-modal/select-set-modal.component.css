@@ -9,7 +9,7 @@
   }
 
   .selectedSet {
-    outline: 3px solid red;
+    outline: 3px solid #5cb85c;
   }
 
   .mat-mdc-dialog-actions{

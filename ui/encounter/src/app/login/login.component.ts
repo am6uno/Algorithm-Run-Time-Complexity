@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userService.user){
-      this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
+      this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-classroom-view']);
     }
     this.route.params.subscribe(params => {
       this.role = params['role'];
@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
       }
     });
 
-    if(this.authService.getLoggedUser()){
-      const userDetails: any = this.authService.getLoggedUser();
+    if(this.authService.getUserDetails()){
+      const userDetails: any = this.authService.getUserDetails();
       if(this.role == 'teacher'){
         this.handleTeacherLogin(userDetails);
       }
@@ -52,12 +52,14 @@ export class LoginComponent implements OnInit {
         if(!student){
           this.addStudent(userDetails);
         }
-        this.userService.updateUser(student, 'student')
-        this.router.navigate(['problem-selection']);
+        else{
+          this.userService.updateUser(student, 'student')
+          this.router.navigate(['student-classroom-view']);
+        }
       },
       error: () => {
         this.addStudent(userDetails);
-        this.router.navigate(['problem-selection']);
+        this.router.navigate(['student-classroom-view']);
       }
     });
   }
@@ -68,12 +70,14 @@ export class LoginComponent implements OnInit {
         if(!teacher){
           this.addTeacher(userDetails);
         }
-        this.userService.updateUser(teacher, 'teacher')
-        this.router.navigate(['problem-creation']);
+        else{
+          this.userService.updateUser(teacher, 'teacher')
+          this.router.navigate(['classroom-creation']);
+        }
       },
       error: () => {
         this.addTeacher(userDetails);
-        this.router.navigate(['problem-creation']);
+        this.router.navigate(['classroom-creation']);
       }
     });
 
@@ -88,17 +92,15 @@ export class LoginComponent implements OnInit {
     }
     this.userService.addTeacher(teacher).subscribe({
       next: () => {
-        this.router.navigate(['./']);
+        this.updateFrontendTeacherAndRedirect(teacher);
       },
       error: () => {
-        console.log("Unable to add teacher");
         this.router.navigate(['']);
       }
     })
   }
 
   addStudent(userDetails: any){
-    console.log("classroomCode: %s",userDetails.classroomCode);
     let student: Student = {
       first_name: userDetails.given_name,
       last_name: userDetails.family_name,
@@ -109,11 +111,40 @@ export class LoginComponent implements OnInit {
     }
     this.userService.addStudent(student).subscribe({
       next: () => {
-        this.router.navigate(['./']);
+        this.updateFrontendStudentAndRedirect(student);
       },
       error: () => {
-        console.log("Unable to add student");
         this.router.navigate(['']);
+      }
+    })
+  }
+
+  updateFrontendStudentAndRedirect(student: Student){
+    this.userService.getStudentByEmail(student.email).subscribe({
+      next: (receivedStudent: Student) => {
+        if(!receivedStudent){
+          this.authService.logout();
+        }
+        this.userService.updateUser(receivedStudent, 'student')
+        this.router.navigate(['student-classroom-view']);
+      },
+      error: () => {
+        this.authService.logout();
+      }
+    })
+  }
+
+  updateFrontendTeacherAndRedirect(teacher: Teacher){
+    this.userService.getTeacherByEmail(teacher.teacherEmail).subscribe({
+      next: (receivedTeacher: Teacher) => {
+        if(!receivedTeacher){
+          this.authService.logout();
+        }
+        this.userService.updateUser(receivedTeacher, 'teacher')
+        this.router.navigate(['classroom-creation']);
+      },
+      error: () => {
+        this.authService.logout();
       }
     })
   }
