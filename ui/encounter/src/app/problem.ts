@@ -1,3 +1,6 @@
+/**
+ * Interface for the Problem object.
+ */
 export interface Problem {
     id?: number;
     setId: number;

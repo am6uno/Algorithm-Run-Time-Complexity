@@ -12,6 +12,10 @@ import { SelectSetModalComponent } from '../select-set-modal/select-set-modal.co
   templateUrl: './problem-creation.component.html',
   styleUrls: ['./problem-creation.component.css']
 })
+
+/**
+ * This component handles problem creation by teachers.
+ */
 export class ProblemCreationComponent {
   setId: number;
   sourceCode: string[] = [];
@@ -23,12 +27,25 @@ export class ProblemCreationComponent {
   codeInput: string = '';
   problemId: number;
 
+  /**
+   * The constructor for the component
+   * @param problemService - the problemService used to access problem methods 
+   * @param router - used for routing to the correct page
+   * @param _snackBar - used to send the user messages
+   * @param complexityParserService - used for parsing algorithmic complexity
+   * @param route - the route being used
+   * @param dialog - the dialog box to deliver messages
+   */
   constructor(private problemService: ProblemService,
     private router: Router, private _snackBar: MatSnackBar,
     private complexityParserService: ComplexityParserService,
     private route: ActivatedRoute,
     private dialog: MatDialog
     ){ }
+
+  /**
+   * This code is ran when the component is initialized. 
+   */
   ngOnInit(){
     this.route.params.subscribe(params => {
       const setIdParam = params['setId'];
@@ -54,7 +71,9 @@ export class ProblemCreationComponent {
    }
   }
 
-
+  /**
+   * Obtains a problem (in the form of code) via a text box
+   */
   getSourceCodeFromTextInput(){
     if(this.codeInput.length > 0){
       for (let line of this.codeInput.split(/[\r\n]+/)){
@@ -68,6 +87,10 @@ export class ProblemCreationComponent {
     }
   }
 
+  /**
+   * Allows the user to upload code via a file upload box.
+   * @param event - the current event
+   */
   onFileSelected(event: any){
     const file:File = event.target.files[0];
     let reader = new FileReader();
@@ -83,6 +106,10 @@ export class ProblemCreationComponent {
   }
 
 
+  /**
+   * This method checks if a form is complete
+   * @returns true if the orm is complete, false if not
+   */
   formComplete(){
     if(this.name && this.overallComplexity && this.sourceCode.length > 0
       && this.complexity.length > 0){
@@ -91,12 +118,20 @@ export class ProblemCreationComponent {
     return false;
   }
 
+  /**
+   * This method sets the code input to the text inside the event's textbox
+   * @param event - the current event
+   */
   setCodeInput(event: any){
     this.codeInput = event.target.innerText;
   }
 
   /*https://stackoverflow.com/questions/2237497/make-the-tab-key-insert-a-tab-character
   -in-a-contenteditable-div-and-not-blur */
+  /**
+   * This method handles indentation in a text-uploaded problem
+   * @param event - the current event
+   */
   handleTab(event: any){
     this.codeInput = event.target.innerText;
 
@@ -113,6 +148,9 @@ export class ProblemCreationComponent {
       }
   }
 
+  /**
+   * This method submits a problem to the backend if its information is valid.
+   */
   submitProblem(){
     if(!this.formComplete()){
       this._snackBar.open('Form Incomplete','X', {duration: 2000})
@@ -162,12 +200,21 @@ export class ProblemCreationComponent {
     }
   }
 
+  /**
+   * This method adds a probem to a set.
+   * @param problem - the problem being added
+   * @param setId - the set the problem is being added to
+   */
   addProblemToSets(problem: Problem, setId: number){
     let postedProblem = {...problem};
     postedProblem.setId = setId;
     this.problemService.addProblem(postedProblem).subscribe();
   }
 
+  /**
+   * This method returns the total score for a problem based on the number of lines.
+   * @returns the total score for a problem.
+   */
   getTotalScore(){
     let totalScore: number = 1;
     this.complexity.forEach(line => {
@@ -180,7 +227,7 @@ export class ProblemCreationComponent {
 
 
 /**
-*   Parses the source code to autofill the complexity within the problem creation panel and find the total complexity.
+*   This method parses the source code to autofill the complexity within the problem creation panel and find the total complexity.
 **/
 parse() {
 
@@ -221,7 +268,7 @@ parse() {
 }
 
 /**
-*   Sets all line to constant. Hints will mention constant complexiity.
+*   This method sets all line to constant. Hints will mention constant complexiity.
 **/
 setAllToConstant() {
   for (let i = 0; i < this.complexity.length; i++) {

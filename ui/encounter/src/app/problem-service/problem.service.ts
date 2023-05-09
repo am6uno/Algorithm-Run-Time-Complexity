@@ -7,8 +7,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
-export class ProblemService {
 
+/**
+ * This is the service for the Problem class.
+ */
+export class ProblemService {
+  
+  /**
+   * This is the constructor for the service.
+   * @param http - the HTTP client for the service
+   * @param _snackBar - used to deliver messages to the user
+   */
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
   }
 

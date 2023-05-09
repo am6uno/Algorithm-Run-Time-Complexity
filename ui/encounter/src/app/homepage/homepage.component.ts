@@ -9,7 +9,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
+
+/**
+ * This component provides a homepage for the user.
+ */
 export class HomepageComponent implements OnInit {
+
+  /**
+   * The constructor for this component, contains data for the authservice, userservice, router, and snackbar.
+   * @param authService - used for authenticating a user session
+   * @param userService  - used to determine a user's role and route them to the correct side of the app.
+   * @param router - used to route the correct page
+   * @param _snackBar - used to provide messages to the user
+   */
   constructor(private authService: AuthService, protected userService: UserService, private router: Router, private _snackBar: MatSnackBar){}
   checkingIsTeacher: boolean = true;
   checkingIsStudent: boolean = true;
@@ -17,7 +29,9 @@ export class HomepageComponent implements OnInit {
   role: string = "student";
   classroomCode: string;
 
-
+  /**
+   * This code is ran when the component is initialized
+   */
   ngOnInit(): void {
     if(this.authService.getLoggedUser()){
       this.loggedIn = true;
@@ -45,6 +59,9 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  /**
+   * When the user logs in, this method routes the user to the proper side based on their role.
+   */
   createAccountRedirect(){
     // if (this.role == 'teacher' || this.role == 'student' && this.classroomCode){
     //   this.userService.userDetails.classroomCode = this.classroomCode;

@@ -1,3 +1,6 @@
+/**
+ * Interface for the ProblemSet object.
+ */
 export interface ProblemSet {
     id?: number;
     name: string;

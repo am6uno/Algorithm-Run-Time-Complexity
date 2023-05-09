@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
+
+/**
+ * This service handles authentication for user sessions.
+ */
 export class AuthService {
     constructor(private keycloakService: KeycloakService, private _snackBar: MatSnackBar) {}
 

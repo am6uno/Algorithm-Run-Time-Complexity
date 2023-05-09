@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './problem-selection.component.html',
   styleUrls: ['./problem-selection.component.css']
 })
+
+/**
+ * This component handles problem selection.
+ */
 export class ProblemSelectionComponent implements OnInit {
 
   /**
@@ -62,8 +66,11 @@ export class ProblemSelectionComponent implements OnInit {
     }
   }
 
+  /**
+   * This method navigates to a problem based on problemId.
+   * @param problemId - the id of the problem to be navigated to.
+   */
   selectProblem(problemId: number){
     this.router.navigate(['student-solution/' + problemId])
   }
-
 }

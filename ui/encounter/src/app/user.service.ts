@@ -7,9 +7,18 @@ import { Student } from './student';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * This is the User object service.
+ */
 export class UserService {
 
+  /**
+   * This is the constructor for the service
+   * @param http - the HTTP client being used for requests.
+   */
   constructor(private http: HttpClient) {}
+  
   /**
   * Holds the information of the current logged in user.
   **/
@@ -63,5 +72,4 @@ export class UserService {
   addStudent(student: Student): Observable<Student>{
     return this.http.post<Student>("http://localhost:8080/students", student)
   }
-
 }

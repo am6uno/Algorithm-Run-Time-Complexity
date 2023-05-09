@@ -1,5 +1,8 @@
 import {Classroom} from "./classroom";
 
+/**
+ * Interface for the Student object.
+ */
 export interface Student {
     id?: number;
     email: string;

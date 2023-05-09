@@ -1,3 +1,6 @@
+/**
+ * Interface for the Teacher object.
+ */
 export interface Teacher {
     id?: number;
     first_name: string;

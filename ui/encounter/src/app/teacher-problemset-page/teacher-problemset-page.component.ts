@@ -11,8 +11,20 @@ import { Router } from '@angular/router';
   templateUrl: './teacher-problemset-page.component.html',
   styleUrls: ['./teacher-problemset-page.component.css']
 })
+
+/**
+ * This component handles the Teacher-side problem set page.
+ */
 export class TeacherProblemsetPageComponent {
 
+  /**
+   * The constructor for the component.
+   * @param problemSetService - the service for manipulating problem sets
+   * @param activatedRoute - the current route
+   * @param datePipe - the DatePipe for visibility settings
+   * @param _snackBar - used for delivering messages to the user
+   * @param router - used for routing to the correct web page
+   */
   constructor(private problemSetService: ProblemsetService, private activatedRoute: ActivatedRoute, 
     private datePipe: DatePipe, private _snackBar: MatSnackBar, private router: Router) {}
 
@@ -22,7 +34,9 @@ export class TeacherProblemsetPageComponent {
   problemsetForm: ProblemSet;                        // The problemSet in the form
   currentDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
   
-
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit(){
     this.activatedRoute.params.subscribe(params => {
       this.classroomId = params["id"]
@@ -35,6 +49,11 @@ export class TeacherProblemsetPageComponent {
     this.problemsetForm = this.getEmptyProblemSet();
   }  
 
+  /**
+   * This method is used when a user is clicking on a set to select it
+   * @param problemset - the problemSet being selected
+   * @returns Nothing, there's just a return statement
+   */
   selectProblemSet(problemset: ProblemSet) {
 
     // Check if the same problemset is being selected, if so, unselect it.
@@ -47,11 +66,17 @@ export class TeacherProblemsetPageComponent {
     this.problemsetForm = this.selectedProblemset;
   }
 
+  /**
+   * This method handles unselecting a problem set. If a user clicks a selected set, it is no longer the selected set.
+   */
   unSelectProblemSet() {
     this.selectedProblemset = null;
     this.problemsetForm = this.getEmptyProblemSet();
   }
 
+  /**
+   * This method handles problem set creation for teachers in the frontend.
+   */
   createProblemSet() {
     // If name is empty and blank, reject the request. We only need to check for name
     // as everything else in the form is already filled out
@@ -68,6 +93,9 @@ export class TeacherProblemsetPageComponent {
     }
   }
 
+  /**
+   * This method handles problem set deletion from the frontend.
+   */
   deleteProblemSet() {
     if (this.selectedProblemset && this.selectedProblemset.id !== undefined) {
       this.removefromAllProblemSetsList(this.selectedProblemset);
@@ -78,7 +106,10 @@ export class TeacherProblemsetPageComponent {
       this.problemsetForm = this.getEmptyProblemSet();
     }
   }
-
+  
+  /**
+   * This method handles problem set updating from the front end. 
+   */
   updateProblemSet() {
     // If name is empty and blank, reject the request. We only need to check for name
     // as everything else in the form is already filled out
@@ -91,11 +122,18 @@ export class TeacherProblemsetPageComponent {
       this._snackBar.open('Set cannot have empty name.','X', {duration: 2000})
     }
   }
-
+  
+  /**
+   * This method navigates the user to the selected problemset.
+   */
   viewProblemSet() {
     this.router.navigate(['teacher-set-problems/' + this.selectedProblemset?.id])
   }
 
+  /**
+   * This method adds the problemset to the list of all problem sets.
+   * @param problemSet - the problem set to be added.
+   */
   addToAllProblemSetsList(problemSet: ProblemSet) {
     this.allProblemSets.push({
       id: problemSet.id,
@@ -109,10 +147,19 @@ export class TeacherProblemsetPageComponent {
     });
   }
 
+  /**
+   * This method removes the passed set from the list of all problem sets.
+   * @param problemSetToRemove - the set to be removed.
+   */
   removefromAllProblemSetsList(problemSetToRemove: ProblemSet) {
     this.allProblemSets = this.allProblemSets.filter((problemset) => problemset.id != problemSetToRemove.id);
   }
 
+  /**
+   * This method handles what the color of the border should be for the set. They are different when selected/unselected.
+   * @param problemset - the problem set to check the color of
+   * @returns a hex code for the corresponding color.
+   */
   getBorderColor(problemset: ProblemSet): String {
     if (problemset === this.selectedProblemset) {
       return "#ff8864";
@@ -120,6 +167,10 @@ export class TeacherProblemsetPageComponent {
     return "#bd8c7d";
   }
 
+  /**
+   * This method returns an empty problem set.
+   * @returns an empty problem set.
+   */
   getEmptyProblemSet(): ProblemSet {
     return {
       name: "",

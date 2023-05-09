@@ -11,7 +11,19 @@ import {Classroom} from "../classroom";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+/**
+ * This component handles user login.
+ */
 export class LoginComponent implements OnInit {
+
+  /**
+   * The constructor for the component, contains information for the authentication service, userservice, router, and routes.
+   * @param authService - The authentication service for the session
+   * @param userService - the userService for handling roles
+   * @param router - routes the user to the correct page
+   * @param route - the route being used
+   */
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -22,6 +34,9 @@ export class LoginComponent implements OnInit {
   studentExists: boolean = false;
   role: string = 'student';
 
+  /**
+   * This code is ran when the component is initialized. 
+   */
   ngOnInit(): void {
     if(this.userService.user){
       this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
@@ -45,6 +60,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * This method handles the student side of logging in.
+   * @param userDetails - information about the user currently in the session
+   */
   handleStudentLogin(userDetails: any){
     userDetails.classroomCode = this.userService.userDetails.classroomCode
     this.userService.getStudentByEmail(userDetails.email).subscribe({
@@ -62,6 +81,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /**
+   * This method hanles the teacher side of logging in.
+   * @param userDetails - information about the user currently in the session.
+   */
   handleTeacherLogin(userDetails: any){
     this.userService.getTeacherByEmail(userDetails.email).subscribe({
       next: teacher => {
@@ -79,6 +102,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /**
+   * Registers a teacher based on the information they enter
+   * @param userDetails - the entered information
+   */
   addTeacher(userDetails: any){
     let teacher: Teacher = {
       first_name: userDetails.given_name,
@@ -97,6 +124,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  /**
+   * Registers a student based on the information they enter
+   * @param userDetails - the entered information
+   */
   addStudent(userDetails: any){
     console.log("classroomCode: %s",userDetails.classroomCode);
     let student: Student = {
@@ -117,5 +148,4 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
 }

@@ -5,6 +5,10 @@ import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 @Injectable({
     providedIn: 'root'
 })
+
+/**
+ * This class handles the Keycloak session authentication.
+ */
 export class AuthGuard extends KeycloakAuthGuard{
     constructor(protected override router: Router, protected override keycloakAngular: KeycloakService){
         super(router, keycloakAngular);
