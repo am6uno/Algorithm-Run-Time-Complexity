@@ -14,6 +14,10 @@ import {Classroom} from "../classroom";
   templateUrl: './student-classrooms.component.html',
   styleUrls: ['./student-classrooms.component.css']
 })
+
+/**
+ * This component handles the student side of Classroom management.
+ */
 export class StudentClassroomsComponent implements OnInit {
   classroom: Classroom
   access_code: string
@@ -22,9 +26,24 @@ export class StudentClassroomsComponent implements OnInit {
   student_id: number
   valid_code: boolean
   in_class: boolean
+
+  /**
+   * The constructor for this component.
+   * @param authService - the authentication service that handles the session.
+   * @param userservice - the service for handling User objects
+   * @param router - used for routing the user to the correct page
+   * @param _snackBar - used for delivering messages to the user
+   * @param studentservice - the service for for manipulating Student objects
+   * @param classroomservice - the service for manipulating Classroom objects
+   * @param route - the activated route for this component
+   */
   constructor(private authService: AuthService, protected userservice: UserService,
               private router: Router, private _snackBar: MatSnackBar, private studentservice:StudentService,
               private classroomservice: ClassroomService, private route:ActivatedRoute){}
+
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit() {
       if (!(this.userservice.user.role = 'student')) {
         this.router.navigate([''])
@@ -34,10 +53,18 @@ export class StudentClassroomsComponent implements OnInit {
       }
   }
 
+  /**
+   * This method handles the access code input by the student.
+   * @param event - the current event
+   */
   setCodeInput(event: any){
     this.access_code = event.target.innerText;
   }
 
+  /**
+   * This method enforces the max length fo an access code entered.
+   * @param event - the current event
+   */
   enforceMaxLength(event: any) {
     let element = event.target as HTMLElement
     let text = element.textContent!.trim()
@@ -46,6 +73,10 @@ export class StudentClassroomsComponent implements OnInit {
     }
   }
 
+  /**
+   * This method checks if the access code entered by the student is valid.
+   * @param event - the current event
+   */
   checkValidCode(event: any) {
     let element = event.target as HTMLElement
     let ac = element.textContent!.trim()
@@ -61,6 +92,9 @@ export class StudentClassroomsComponent implements OnInit {
     }
   }
 
+  /**
+   * This method finds the classroom to be joined by the student and provides a success/error message.
+   */
   joinClassroom() {
     if (this.valid_code) {
       this.classroomservice.getClassroomByAccessCode(this.access_code).subscribe({
@@ -78,10 +112,12 @@ export class StudentClassroomsComponent implements OnInit {
     }
   }
 
+  /**
+   * This method adds the student to the classroom and provides the user with a confirmation message.
+   */
   confirmJoinClassroom(): void {
     this.classroomservice.addStudentToClassroom(this.access_code, this.classroom, this.student_id).subscribe()
     this._snackBar.open('Enrolled Successfully!','X', {duration: 2000})
     this.router.navigate([''])
   }
-
 }

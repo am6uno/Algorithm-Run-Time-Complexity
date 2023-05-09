@@ -14,15 +14,32 @@ import {Student} from "../student";
   templateUrl: './student-classroom-view.component.html',
   styleUrls: ['./student-classroom-view.component.css']
 })
+
+/**
+ * This component handles the student view for Classrooms.
+ */
 export class StudentClassroomViewComponent implements OnInit{
   student: any
   enrolledClassrooms : Classroom[]
   message: string
-
+  
+  /**
+   * The constructor for this component.
+   * @param authService - the authentication service for the session
+   * @param userservice - the service for manipulating User objects
+   * @param router - used to route the user to the right web page
+   * @param _snackBar - used to deliver messages to the user 
+   * @param studentservice - the service for manipulating Student objects
+   * @param classroomservice - the service for manipulating Classroom objects
+   * @param route - the Activated Route for this component
+   */
   constructor(private authService: AuthService, protected userservice: UserService,
               private router: Router, private _snackBar: MatSnackBar, private studentservice: StudentService,
               private classroomservice: ClassroomService, private route: ActivatedRoute) {}
 
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit() {
     this.studentservice.getStudent(this.userservice.user.id).subscribe(
       student => {
@@ -44,9 +61,11 @@ export class StudentClassroomViewComponent implements OnInit{
     // this.studentservice.getEnrollment()
   }
 
+  /**
+   * This method routes the student to the problem based on the problem id passed.
+   * @param id - the id of the problem to be routed to
+   */
   viewProblemSet(id: any): void {
     this.router.navigate(['student-problem-set/' + id] )
   }
-
-
 }

@@ -60,7 +60,7 @@ export class HomepageComponent implements OnInit {
   }
 
   /**
-   * When the user logs in, this method routes the user to the proper side based on their role.
+   * When the user creates their account, this method routes the user to the proper side based on their role.
    */
   createAccountRedirect(){
     // if (this.role == 'teacher' || this.role == 'student' && this.classroomCode){

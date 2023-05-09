@@ -8,15 +8,15 @@ import {Router} from "@angular/router";
 import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 
-/**
- * This component is for handling changes to Classrooms and provides messages to the user.
- */
 @Component({
   selector: 'app-classroom-detail',
   templateUrl: './classroom-detail.component.html',
   styleUrls: ['./classroom-detail.component.css']
 })
 
+/**
+ * This component is for handling changes to Classrooms and provides messages to the user.
+ */
 export class ClassroomDetailComponent implements OnChanges{
   @Input() classroom: Classroom;
   @Input() classroom_service: ClassroomService;
@@ -31,6 +31,15 @@ export class ClassroomDetailComponent implements OnChanges{
   classroom_id: number
   window: Window
 
+  /**
+   * The constructor for this component.
+   * @param classroomService - the service to be used for manipulating classroom objects
+   * @param _snackBar - used for delivering messages to the user
+   * @param router - used for routing to the correct page 
+   * @param zone - NGZone object
+   * @param dialog - the dialog box
+   * @param parent - the parent class 
+   */
   constructor(private classroomService:ClassroomService, private _snackBar: MatSnackBar, private router: Router,
               private zone: NgZone, private dialog: MatDialog, private parent: ClassroomCreationComponent ) {
   }
@@ -61,6 +70,10 @@ export class ClassroomDetailComponent implements OnChanges{
     this.router.navigate(['teacher-problemset-classroom/' + this.classroom?.id] )
   }
 
+  /**
+   * This method selects the access code and allows the user to copy it to their clipboard.
+   * @param event - the current MouseEvent 
+   */
   selectAccessCode(event: MouseEvent){
     const span = event.target as HTMLSpanElement;
     const range = document.createRange();
@@ -78,6 +91,11 @@ export class ClassroomDetailComponent implements OnChanges{
       console.log('Error copying to clipboard: ', error);
     }
   }
+
+  /**
+   * This method provides the frontend support for removing a student from a classroom.
+   * @param student - the Student object to be removed.
+   */
   removeStudent(student: Student): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -103,6 +121,9 @@ export class ClassroomDetailComponent implements OnChanges{
     });
   }
 
+  /**
+   * This method generates a new access code for the classroom.
+   */
   newAccessCode(){
     this.classroom_service.getClassroomById(this.classroom_id).subscribe(
       classroom => {
@@ -114,6 +135,10 @@ export class ClassroomDetailComponent implements OnChanges{
     )
   }
 
+  /**
+   * This method provides a means for teacher users to delete classrooms associated with their account.
+   * @param classroom - the Classroom object to be deleted.
+   */
   deleteClassroom(classroom: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
