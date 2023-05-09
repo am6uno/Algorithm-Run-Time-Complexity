@@ -10,7 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
-import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { ProblemCreationComponent } from './problem-creation/problem-creation.component';
@@ -29,7 +28,6 @@ import { ClassroomCreationComponent } from './classroom-creation/classroom-creat
 import { ClassroomDetailComponent } from './classroom-detail/classroom-detail.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TeacherProblemComponent } from './teacher-problem/teacher-problem.component';
-// import { ProblemSetComponent } from './problem-set/problem-set.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -48,7 +46,6 @@ import { StudentClassroomViewComponent } from './student-classroom-view/student-
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
   {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
   {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard]},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
@@ -69,14 +66,12 @@ const APP_ROUTES: Routes = [
     NavbarComponent,
     HomepageComponent,
     LoginComponent,
-    ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
     ClassroomCreationComponent,
     ClassroomDetailComponent,
     TeacherProblemsetPageComponent,
     TeacherProblemComponent,
-    // ProblemSetComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
     SelectSetModalComponent,

@@ -2,7 +2,7 @@
   "id": "encounter-realm",
   "realm": "encounter-realm",
   "displayName": "Encounter",
-  "displayNameHtml": "<div class=\"kc-logo-text\"><span>Encounter</span></div>",
+  "displayNameHtml": "<div><span>Encounter</span></div>",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
