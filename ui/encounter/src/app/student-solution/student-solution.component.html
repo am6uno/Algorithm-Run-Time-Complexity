@@ -38,7 +38,7 @@
             </div>
         </div><br>
             <button type="submit" class="problem-submit" (click)="submitSolution()" *ngIf="!showResults">Submit</button>
-            <button class="problem-submit" *ngIf="showResults" routerLink="/problem-selection">Back to problems</button>
+            <button class="problem-submit" *ngIf="showResults" routerLink="/student-problem-set/{{classroomId}}">Back to problems</button>
     </div>
     <div class="loading" *ngIf="isLoading">
         <mat-spinner></mat-spinner>
