@@ -33,18 +33,18 @@ export class HomepageComponent implements OnInit {
    * This code is ran when the component is initialized
    */
   ngOnInit(): void {
-    if(this.authService.getLoggedUser()){
+    if(this.authService.getUserDetails()){
       this.loggedIn = true;
       if(this.userService.user){
-        this.userService.user.role == 'teacher' ? this.router.navigate(['problem-creation']) : this.router.navigate(['problem-selection']);
+        this.userService.user.role == 'teacher' ? this.router.navigate(['classroom-creation']) : this.router.navigate(['student-classroom-view']);
       }
-      const userDetails: any = this.authService.getLoggedUser();
+      const userDetails: any = this.authService.getUserDetails();
       this.userService.userDetails = userDetails;
       this.userService.getStudentByEmail(userDetails.email).subscribe({
         next: student => {
           if(student){
             this.userService.updateUser(student, 'student');
-            this.router.navigate(['problem-selection']);
+            this.router.navigate(['student-classroom-view']);
           }
         }
       });
@@ -52,7 +52,7 @@ export class HomepageComponent implements OnInit {
         next: teacher => {
           if(teacher){
             this.userService.updateUser(teacher, 'teacher');
-            this.router.navigate(['problem-creation']);
+            this.router.navigate(['classroom-creation']);
           }
         }
       });

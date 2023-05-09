@@ -10,7 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
-import { ProblemSelectionComponent } from './problem-selection/problem-selection.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { ProblemCreationComponent } from './problem-creation/problem-creation.component';
@@ -38,23 +37,27 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TeacherProblemsetPageComponent } from './teacher-problemset-page/teacher-problemset-page.component';
 import { DatePipe } from '@angular/common';
 import { SelectSetModalComponent } from './select-set-modal/select-set-modal.component';
+import {StudentClassroomsComponent} from "./student-classrooms/student-classrooms.component";
 import { StudentProblemSetComponent } from './student-problem-set/student-problem-set.component';
+import { StudentClassroomViewComponent } from './student-classroom-view/student-classroom-view.component';
 
 
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login/:role', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: 'problem-selection', component: ProblemSelectionComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard]},
-  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard]},
-  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard]},
-  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard]}
+  {path: 'problem-creation', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'classroom-creation', component: ClassroomCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'student-solution/:classroomId/:problemId', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
+  {path: 'student-classroom-view', component:StudentClassroomViewComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'student-signup', component: StudentClassroomsComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+
 ];
 
 @NgModule({
@@ -63,7 +66,6 @@ const APP_ROUTES: Routes = [
     NavbarComponent,
     HomepageComponent,
     LoginComponent,
-    ProblemSelectionComponent,
     ProblemCreationComponent,
     StudentSolutionComponent,
     ClassroomCreationComponent,
@@ -72,8 +74,11 @@ const APP_ROUTES: Routes = [
     TeacherProblemComponent,
     ConfirmationModalComponent,
     AddProblemModalComponent,
+    SelectSetModalComponent,
+    StudentClassroomsComponent,
     StudentProblemSetComponent,
-    SelectSetModalComponent
+    SelectSetModalComponent,
+    StudentClassroomViewComponent
   ],
   imports: [
     BrowserModule,

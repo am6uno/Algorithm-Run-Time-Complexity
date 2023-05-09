@@ -124,4 +124,8 @@ public class ClassroomService {
         return classroomRepository.findByTeacher(teacher.get());
     }
 
+    public Classroom getClassroomByAccessCode(String access_code){
+        return classroomRepository.findFirstByAccessCode(access_code);
+    }
+
 }

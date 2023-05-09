@@ -8,6 +8,7 @@ import {UserService} from "../user.service";
 import {Student} from "../student";
 import {BehaviorSubject, Observable, switchMap, tap} from "rxjs";
 import {StudentService} from "../student-service/student.service";
+import {MatDialog} from "@angular/material/dialog";
 
 /**
  * This is the compnent for teacher Classroom creation.
@@ -33,7 +34,9 @@ export class ClassroomCreationComponent {
   enrolled_students: any = undefined
   student_list?: Student[]
   view_student: boolean = false;
-  newclass: Classroom
+  dialog: MatDialog
+  showChild: any
+
 
   /**
    * This is the constructor for the component. 
@@ -71,6 +74,7 @@ export class ClassroomCreationComponent {
     this.classroomService.getClassroomsByTeacherEmail(this.teacherEmail).subscribe({
       next: data=>{
       this.teacherClassrooms = data
+      this.showChild = Array(this.teacherClassrooms?.length).fill(true)
       },
       error: () => {
         this._snackBar.open('Cannot Fetch Classrooms', 'X', {duration: 2000});
@@ -84,7 +88,7 @@ export class ClassroomCreationComponent {
    * @returns a random 8 digit access code.
    */
   generateAccessCode = function (length = 10) {
-    return Math.random().toString(36).substring(2, length);
+    return Math.random().toString(36).substring(2, length).toUpperCase();
   }
 
   /**
@@ -121,24 +125,18 @@ export class ClassroomCreationComponent {
     return true
   }
 
-  /**
-   * This method returns all students.
-   */
-  getAllStudents(): void {
-    this.view_student = true;
-  }
+  // getAllStudents(): void {
+  //   this.view_student = true;
+  // }
 
-  /**
-   * This method adds a student to a classroom.
-   */
-  addStudentTest(): void {
+  // addStudentTest(): void {
     // @ts-ignore
     // @ts-ignore
- this.classroomService.addStudentToClassroom(
-    // @ts-ignore
-      this.teacherClassrooms[0].access_code, this.teacherClassrooms[0], 1
-    ).subscribe()
-  }
+ // this.classroomService.addStudentToClassroom(
+ //    @ts-ignore
+      // this.teacherClassrooms[0].access_code, this.teacherClassrooms[0], 1
+    // ).subscribe()
+  // }
 
   /**
    * This method creates the classroom if the form has been completed and the classroom name is unique.
@@ -153,15 +151,25 @@ export class ClassroomCreationComponent {
     else {
       const newClassroom: Classroom = {
         name: this.name,
-        access_code: this.generateAccessCode(),
+        accessCode: this.generateAccessCode(),
         teacher: this.teacher,
         enrolled_students: [],
 
       }
       this.classroomService.addClassroom(newClassroom).subscribe(
-classroom => this.teacherClassrooms?.push(classroom)
+classroom => this.teacherClassrooms?.push(classroom),
+        this.showChild.push(true)
       );
     }
 
   }
+  onChildRemove(index: number) {
+    this.showChild[index] = false;
+  }
 }
+
+
+
+
+
+

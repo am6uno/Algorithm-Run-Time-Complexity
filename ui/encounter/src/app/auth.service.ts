@@ -10,7 +10,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class AuthService {
     constructor(private keycloakService: KeycloakService, private _snackBar: MatSnackBar) {}
 
-    getLoggedUser(){
+    getUserDetails(){
         try {
             let userDetails = this.keycloakService.getKeycloakInstance().idTokenParsed;
             return userDetails;

@@ -162,7 +162,7 @@ export class TeacherProblemsetPageComponent {
    */
   getBorderColor(problemset: ProblemSet): String {
     if (problemset === this.selectedProblemset) {
-      return "#ff8864";
+      return "#5cb85c";
     }
     return "#bd8c7d";
   }

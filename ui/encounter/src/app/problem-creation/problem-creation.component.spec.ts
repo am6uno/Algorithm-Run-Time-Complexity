@@ -168,9 +168,9 @@ import { MatDialog } from '@angular/material/dialog';
         });
 
         describe('setAllToConstant', () => {
-            it('should set complexities, hints and overall complexity to be linear', () => {
+            it('should set complexities, hints and overall complexity to be constant', () => {
                 const expectedComplexity = ["o(1)","o(1)"];
-                const expectedHints = ["The complexity is linear","The complexity is linear"]
+                const expectedHints = ["The complexity is constant","The complexity is constant"]
                 component.complexity = ["O(N)", "O(N)"];
                 component.hints = ["", ""];
                 component.setAllToConstant();

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
+import { UserService } from './user.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
  * This class handles the Keycloak session authentication.
  */
 export class AuthGuard extends KeycloakAuthGuard{
-    constructor(protected override router: Router, protected override keycloakAngular: KeycloakService){
+    constructor(protected override router: Router, protected override keycloakAngular: KeycloakService, private userService: UserService){
         super(router, keycloakAngular);
     }
 
@@ -21,17 +22,14 @@ export class AuthGuard extends KeycloakAuthGuard{
                 resolve(false);
                 return;
             }
-            const requiredRoles = route.data['roles'];
+            const requiredRole = route.data['role'];
             let granted: boolean = false;
-            if (!requiredRoles || requiredRoles.length === 0){
+            if (!requiredRole){
                 granted = true;
             }
             else {
-                for (const requiredRole of requiredRoles){
-                    if(this.roles.indexOf(requiredRole) > -1){
-                        granted = true;
-                        break;
-                    }
+                if(requiredRole == this.userService.user.role){
+                    granted = true;
                 }
             }
 

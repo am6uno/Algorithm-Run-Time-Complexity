@@ -67,6 +67,6 @@ export class StudentProblemSetComponent implements OnInit {
    */
   selectProblem(problemId: number)
   {
-    this.router.navigate(['student-solution/' + problemId])
+    this.router.navigate(['student-solution/'+ this.classroomId + '/' + problemId])
   }
 }

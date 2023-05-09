@@ -47,4 +47,9 @@ export class NavbarComponent {
     this.lastName = this.userService?.user?.last_name;
     return this.userService.user ? true : false;
   }
+
+  isStudent(): boolean{
+    return this.userService?.user?.role == 'student'? true : false;
+  }
+
 }

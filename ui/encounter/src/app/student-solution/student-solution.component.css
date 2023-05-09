@@ -144,4 +144,6 @@ mat-label{
 
 .line-answer{
     height: 42px;
+    width: 5%;
+    text-align: right;
 }

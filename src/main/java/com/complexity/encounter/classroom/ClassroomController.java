@@ -67,8 +67,8 @@ public class ClassroomController {
      * @param id The id of the Classroom to be updated in the database.
      */
     @RequestMapping(method=RequestMethod.PUT, value=classroom_url + "/{id}")
-    public void updateClassroom(@RequestBody Classroom classroom, @PathVariable Long id){
-        classroomService.updateClassroom(classroom, id);
+    public Classroom updateClassroom(@RequestBody Classroom classroom, @PathVariable Long id){
+        return classroomService.updateClassroom(classroom, id);
     }
 
     /**
@@ -87,7 +87,6 @@ public class ClassroomController {
      */
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/addStudent/{classroom_id}/{student_id}")
     public Classroom addStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
-        System.out.println("Request Received");
         return classroomService.addStudent(classroom_id, student_id);
     }
 
@@ -100,8 +99,14 @@ public class ClassroomController {
     @CrossOrigin(origins=host_url)
     @RequestMapping(method=RequestMethod.PUT, value= classroom_url + "/removeStudent/{classroom_id}/{student_id}")
     public Classroom removeStudent(@PathVariable Long classroom_id, @PathVariable Long student_id){
-        System.out.println("Request Received");
         return classroomService.removeStudent(classroom_id, student_id);
+    }
+
+    @CrossOrigin(origins=host_url)
+    @RequestMapping(method=RequestMethod.GET, value = classroom_url + "/code/{access_code}")
+    public Classroom getClassroomByAccessCode(@PathVariable String access_code){
+        System.out.println(access_code);
+        return this.classroomService.getClassroomByAccessCode(access_code);
     }
 
 

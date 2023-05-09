@@ -1,0 +1,20 @@
+
+<div class="classroom-container">
+  <h1 class="page-title">Classrooms for {{student?.first_name}} {{student?.last_name}}</h1>
+  <p>{{message}}</p>
+  <mat-accordion class="classroom-acc">
+    <mat-expansion-panel *ngFor="let classroom of enrolledClassrooms">
+      <mat-expansion-panel-header>
+        {{classroom?.name}}
+      </mat-expansion-panel-header>
+        <div class="panel-contents">
+          <div class="button-form-group">
+            <button type="button" class="form-button align-button left-button" (click)="viewProblemSet(classroom.id)">
+              <mat-icon>reorder</mat-icon>
+              <span class="button-text">View Problem Sets</span>
+            </button>
+          </div>
+        </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
