@@ -28,4 +28,8 @@ export class NavbarComponent {
     return this.userService.user ? true : false;
   }
 
+  isStudent(): boolean{
+    return this.userService?.user?.role == 'student'? true : false;
+  }
+
 }
