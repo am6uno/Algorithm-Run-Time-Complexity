@@ -9,15 +9,29 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 /**
- * @title Accordion with expand/collapse all toggles
+ * This component contains the Student problemset page. It displays sets of problems visible to a given student and routes them
+ * to the appropriate problem page when accessed.
  */
 @Component({
   selector: 'app-student-problem-set-component',
   templateUrl: './student-problem-set.component.html',
   styleUrls: ['./student-problem-set.component.css'],
 })
-export class StudentProblemSetComponent implements OnInit {
 
+/**
+ * The main component class.
+ */
+export class StudentProblemSetComponent implements OnInit {
+  
+  /**
+    * The constructor for the component. Contains data for the constructor, which generates a list for problems, a list for sets,
+    * a classroom id, and the date for use with visibility settings.
+    * @param problemsetService - the problemsetservice associated with this class
+    * @param problemService - the problemService associated with this class
+    * @param activatedRoute - the activatedRoute associated with this class
+    * @param router - the router used with this class to navigate to Problems
+    * @param datePipe - the DatePipe used to retrieve the current date, used for set visibility 
+    */
   constructor(private problemsetService: ProblemsetService, private problemService: ProblemService, private activatedRoute: ActivatedRoute,
     private router : Router, private datePipe: DatePipe) {
   }
@@ -26,18 +40,17 @@ export class StudentProblemSetComponent implements OnInit {
   classroomId: number;
   currentDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
 
+  /**
+   * This method runs when the component is initialized. It retrieves the classroom id from the backend as well as all of the 
+   * problem sets associated with a classroom. Then it retrieves all of the problems in a separate list for each given problemset
+   * for use in the html.
+   */
   ngOnInit(): void {
-    /* this method runs when the component is initialized. You could create a method in the problem service to make a get request
-    to get all the problems from the getAllProblemSets method in the backend.
-
-    In the Html you can use *ngFor on the Sets variable to create a mat expansion panel for each set.*/
-
     this.activatedRoute.params.subscribe(params => {
       this.classroomId = params["classroomId"];
     });
 
     this.problemsetService.getProblemSetsByClassroomId(this.classroomId).subscribe(sets => {
-      //FIXME: do we just need to pull data from above into sets?
       this.sets = sets;
       this.sets.forEach((set:any) => {
         this.problemService.getProblemBySetId(set.id).subscribe({
@@ -48,6 +61,10 @@ export class StudentProblemSetComponent implements OnInit {
    });
   }
 
+  /**
+   * Routes to the appropriate problem page by problem id.
+   * @param problemId - the id of the problem to be routed to.
+   */
   selectProblem(problemId: number)
   {
     this.router.navigate(['student-solution/' + problemId])

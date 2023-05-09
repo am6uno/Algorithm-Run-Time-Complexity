@@ -7,13 +7,16 @@ import Tokenizr, { Token } from "tokenizr";
 })
 export class ComplexityParserService {
 
+  /**
+   * The constructor for the parser. It doesn't require any information.
+   */
   constructor() { }
 
-   /**
-     * Parses the source code and returns the blocks of code.
-     * @param {string} sourceCode  The source code being parsed.
-     * @returns A list of blocks.
-     */
+  /**
+   * Parses the source code and returns the blocks of code.
+   * @param {string} sourceCode  The source code being parsed.
+   * @returns A list of blocks.
+   */
   parse(sourceCode: string): Block[] {
 
     let lexer = new Tokenizr()
