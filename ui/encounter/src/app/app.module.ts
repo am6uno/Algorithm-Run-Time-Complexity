@@ -51,7 +51,7 @@ const APP_ROUTES: Routes = [
   {path: 'student-solution/:classroomId/:problemId', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
   {path: 'teacher-problemset-classroom/:id', component: TeacherProblemsetPageComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
   {path: 'problem-creation/:setId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
-  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'student'}},
+  {path: 'problem-creation/:setId/:problemId', component: ProblemCreationComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
   {path: 'student-solution/:id', component: StudentSolutionComponent, canActivate: [AuthGuard], data: {role: 'student'}},
   {path: 'student-problem-set/:classroomId', component: StudentProblemSetComponent, canActivate: [AuthGuard], data: {role: 'student'}},
   {path: 'teacher-set-problems/:setId', component: TeacherProblemComponent, canActivate: [AuthGuard], data: {role: 'teacher'}},
