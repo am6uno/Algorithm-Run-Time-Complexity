@@ -5,7 +5,7 @@
   <mat-accordion class="classroom-acc">
     <mat-expansion-panel *ngFor="let classroom of enrolledClassrooms">
       <mat-expansion-panel-header>
-        {{classroom.name}}
+        {{classroom?.name}}
       </mat-expansion-panel-header>
         <div class="panel-contents">
           <div class="button-form-group">
