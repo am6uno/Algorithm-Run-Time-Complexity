@@ -1,7 +1,11 @@
 package com.complexity.encounter.student;
+import com.complexity.encounter.classroom.Classroom;
+import com.complexity.encounter.classroom.ClassroomRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +17,8 @@ import java.util.Optional;
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private ClassroomRepository classroomRepository;
     /**
      * Communicates with the database to create a new Student object.
      * @param student Student object containing the new data to be added.
@@ -29,7 +35,7 @@ public class StudentService {
      * @param id The id used in the query to look up a Student
      * @return An Optional object which contains the Student object on a hit.
      */
-    public Optional<Student> getStudentById(long id) {return studentRepository.findById(id);}
+    public Optional<Student> getStudentById(long id) {System.out.print("!!!"); return studentRepository.findById(id);}
     /**
      * Queries the database using the pass email address and converts the result into
      * and Optional object.
@@ -37,6 +43,7 @@ public class StudentService {
      * @return An Optional object which contains the Student object on a hit.
      */
     public Optional<Student> getStudentByEmail(String email){ return studentRepository.findByEmail(email);}
+
     /**
      * Deletes a Student object from the database.
      * @param id The id of the Student to be deleted.
@@ -58,5 +65,15 @@ public class StudentService {
         updatedStudent.get().setPassword_hash(student.getPassword_hash());
 //        updatedStudent.get().setEnrolled_classes(student.getEnrolled_classes());
         studentRepository.save(updatedStudent.get());
+    }
+
+    public  List<Classroom> getStudentClassrooms(long id) {
+        Optional<Long[]> ids = studentRepository.findByEnrollment(id);
+        List<Classroom> classrooms = new ArrayList<>();
+        for (Long i : ids.get()) {
+            Optional<Classroom> classroom = classroomRepository.findById(i);
+            classrooms.add(classroom.get());
+        }
+        return classrooms;
     }
 }
