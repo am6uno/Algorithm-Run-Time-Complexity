@@ -8,26 +8,408 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css">
+	    <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="../" class="navbar-brand">encounter documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../">encounter documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HomepageComponent.html" >HomepageComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/AuthGuard.html" >AuthGuard</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ClassroomService.html" >ClassroomService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ProblemService.html" >ProblemService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ProblemsetService.html" >ProblemsetService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SolutionService.html" >SolutionService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/StudentService.html" >StudentService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/UserService.html" >UserService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/Block.html" >Block</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Classroom.html" >Classroom</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Problem.html" >Problem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/ProblemSet.html" >ProblemSet</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Solution.html" >Solution</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Student.html"  class="active" >Student</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Teacher.html" >Teacher</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../">encounter documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HomepageComponent.html" >HomepageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/AuthGuard.html" >AuthGuard</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ClassroomService.html" >ClassroomService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ProblemService.html" >ProblemService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ProblemsetService.html" >ProblemsetService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SolutionService.html" >SolutionService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/StudentService.html" >StudentService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/UserService.html" >UserService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/Block.html" >Block</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Classroom.html" >Classroom</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Problem.html" >Problem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/ProblemSet.html" >ProblemSet</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Solution.html" >Solution</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Student.html"  class="active" >Student</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Teacher.html" >Teacher</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
                </div>
-               <!-- START CONTENT -->
                <div class="content interface">
                    <div class="content-data">
 
@@ -37,30 +419,22 @@
 
 
 
-
-
-
-
-
-
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li
-  >
-  Student</li>
+  <li>Student</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="infos">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -68,64 +442,14 @@
             <code>src/app/student.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for the Student object.</p>
 
+            </p>
 
-
-        <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Properties</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#email" 
->
-                                            email
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#enrolled_classes" 
->
-                                            enrolled_classes
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#first_name" 
->
-                                            first_name
-                                        </a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#id" 
->
-                                            id
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#last_name" 
->
-                                            last_name
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#password_hash" 
->
-                                            password_hash
-                                        </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
 
 
 
@@ -135,30 +459,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="email"></a>
-                                        <span class="name "><b>email</b>
-                                            <a href="#email">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>email</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>email:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
+                                        <code>email:     <code>string</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string</code>
 
                                         </td>
                                     </tr>
-
-
 
 
 
@@ -168,30 +485,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="enrolled_classes"></a>
-                                        <span class="name "><b>enrolled_classes</b>
-                                            <a href="#enrolled_classes">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>enrolled_classes</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>enrolled_classes:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
+                                        <code>enrolled_classes:     <code>any</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            <i>Type : </i>    <code>any</code>
 
                                         </td>
                                     </tr>
-
-
 
 
 
@@ -201,30 +511,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="first_name"></a>
-                                        <span class="name "><b>first_name</b>
-                                            <a href="#first_name">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>first_name</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>first_name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
+                                        <code>first_name:     <code>string</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string</code>
 
                                         </td>
                                     </tr>
-
-
 
 
 
@@ -234,35 +537,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="id"></a>
-                                        <span class="name "><b>id</b>
-                                            <a href="#id">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>id</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
+                                        <code>id:     <code>number</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <i>Type : </i>    <code>number</code>
 
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
 
 
 
@@ -272,30 +563,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="last_name"></a>
-                                        <span class="name "><b>last_name</b>
-                                            <a href="#last_name">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>last_name</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>last_name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
+                                        <code>last_name:     <code>string</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string</code>
 
                                         </td>
                                     </tr>
-
-
 
 
 
@@ -305,30 +589,23 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="password_hash"></a>
-                                        <span class="name "><b>password_hash</b>
-                                            <a href="#password_hash">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
+                                        <b>password_hash</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>password_hash:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
+                                        <code>password_hash:     <code>string</code>
+</bcode>
                                     </td>
                                 </tr>
 
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string</code>
 
                                         </td>
                                     </tr>
-
-
 
 
 
@@ -336,23 +613,24 @@
                     </table>
             </section>
     </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import {Classroom} from &quot;./classroom&quot;;
 
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Student {
+/**
+ * Interface for the Student object.
+ */
+export interface Student {
     id?: number;
     email: string;
     first_name: string;
     last_name: string;
     enrolled_classes: any;
     password_hash: string;
-}</code></pre>
+
+}
+</code></pre>
     </div>
 </div>
-
-
-
-
 
 
 
@@ -367,31 +645,8 @@
     </div>
 </div>
 </div>
-               <!-- END CONTENT -->
            </div>
        </div>
-
-          <label class="dark-mode-switch">
-               <input type="checkbox">
-               <span class="slider">
-                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-               </span>
-          </label>
-
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Student.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
-
-       <script src="../js/libs/custom-elements.min.js"></script>
-       <script src="../js/libs/lit-html.js"></script>
-
-       <script src="../js/menu-wc.js" defer></script>
-       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
@@ -402,17 +657,20 @@
 
        <script src="../js/compodoc.js"></script>
 
-       <script src="../js/tabs.js"></script>
-       <script src="../js/menu.js"></script>
-       <script src="../js/libs/clipboard.min.js"></script>
-       <script src="../js/libs/prism.js"></script>
-       <script src="../js/sourceCode.js"></script>
-          <script src="../js/search/search.js"></script>
-          <script src="../js/search/lunr.min.js"></script>
-          <script src="../js/search/search-lunr.js"></script>
-          <script src="../js/search/search_index.js"></script>
-       <script src="../js/lazy-load-graphs.js"></script>
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
 
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/highlight.pack.js"></script>
+       <script src="../js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="../js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
 
     </body>
 </html>

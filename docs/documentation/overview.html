@@ -8,247 +8,451 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css">
+	    <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="./" class="navbar-brand">encounter documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./">encounter documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                         href="./overview.html" 
+                                        
+                                         href="./overview.html" 
+                                         class="active" >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemService.html" >ProblemService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SolutionService.html" >SolutionService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/StudentService.html" >StudentService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserService.html" >UserService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="interfaces/Block.html" >Block</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Classroom.html" >Classroom</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Problem.html" >Problem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Solution.html" >Solution</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Student.html" >Student</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Teacher.html" >Teacher</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./">encounter documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                                href="./overview.html" 
+                                               
+                                                href="./overview.html" 
+                                                class="active" >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemService.html" >ProblemService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/SolutionService.html" >SolutionService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/StudentService.html" >StudentService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/UserService.html" >UserService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="interfaces/Block.html" >Block</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Classroom.html" >Classroom</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Problem.html" >Problem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Solution.html" >Solution</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Student.html" >Student</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Teacher.html" >Teacher</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
                </div>
-               <!-- START CONTENT -->
                <div class="content overview">
                    <div class="content-data">
-
-
-<ol class="breadcrumb">
-    <li>Overview</li>
-</ol>
-  
-<div class="text-center module-graph-container">
-    <div id="module-graph-svg">
-        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 5.0.0 (20220707.1540)
- -->
-<!-- Title: dependencies Pages: 1 -->
-<svg width="1321pt" height="247pt"
- viewBox="0.00 0.00 1321.00 246.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 242.8)">
-<title>dependencies</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-242.8 1317,-242.8 1317,4 -4,4"/>
-<text text-anchor="middle" x="656.5" y="-8.2" font-family="sans-serif" font-size="14.00">dependencies</text>
-<g id="clust1" class="cluster">
-<title>cluster_AppModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 1305,-230.8 1305,-32.8 8,-32.8"/>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_AppModule_declarations</title>
-<polygon fill="none" stroke="black" points="158,-40.8 158,-92.8 1297,-92.8 1297,-40.8 158,-40.8"/>
-</g>
-<g id="clust12" class="cluster">
-<title>cluster_AppModule_bootstrap</title>
-<polygon fill="none" stroke="black" points="665,-170.8 665,-222.8 789,-222.8 789,-170.8 665,-170.8"/>
-</g>
-<g id="clust13" class="cluster">
-<title>cluster_AppModule_providers</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 150,-92.8 150,-40.8 16,-40.8"/>
-</g>
-<!-- AppComponent -->
-<g id="node1" class="node">
-<title>AppComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1288.94,-84.8 1183.06,-84.8 1183.06,-48.8 1288.94,-48.8 1288.94,-84.8"/>
-<text text-anchor="middle" x="1236" y="-62.6" font-family="Times,serif" font-size="14.00">AppComponent</text>
-</g>
-<!-- AppModule -->
-<g id="node8" class="node">
-<title>AppModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="768.66,-149.8 765.66,-153.8 744.66,-153.8 741.66,-149.8 685.34,-149.8 685.34,-113.8 768.66,-113.8 768.66,-149.8"/>
-<text text-anchor="middle" x="727" y="-127.6" font-family="Times,serif" font-size="14.00">AppModule</text>
-</g>
-<!-- AppComponent&#45;&gt;AppModule -->
-<g id="edge1" class="edge">
-<title>AppComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M1236,-85.09C1236,-107.01 1236,-140.8 1236,-140.8 1236,-140.8 779.09,-140.8 779.09,-140.8"/>
-<polygon fill="black" stroke="black" points="779.09,-137.3 769.09,-140.8 779.09,-144.3 779.09,-137.3"/>
-</g>
-<!-- HomepageComponent -->
-<g id="node2" class="node">
-<title>HomepageComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1164.97,-84.8 1023.03,-84.8 1023.03,-48.8 1164.97,-48.8 1164.97,-84.8"/>
-<text text-anchor="middle" x="1094" y="-62.6" font-family="Times,serif" font-size="14.00">HomepageComponent</text>
-</g>
-<!-- HomepageComponent&#45;&gt;AppModule -->
-<g id="edge2" class="edge">
-<title>HomepageComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M1094,-84.91C1094,-104.14 1094,-131.8 1094,-131.8 1094,-131.8 778.74,-131.8 778.74,-131.8"/>
-<polygon fill="black" stroke="black" points="778.74,-128.3 768.74,-131.8 778.74,-135.3 778.74,-128.3"/>
-</g>
-<!-- LoginComponent -->
-<g id="node3" class="node">
-<title>LoginComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1005.27,-84.8 890.73,-84.8 890.73,-48.8 1005.27,-48.8 1005.27,-84.8"/>
-<text text-anchor="middle" x="948" y="-62.6" font-family="Times,serif" font-size="14.00">LoginComponent</text>
-</g>
-<!-- LoginComponent&#45;&gt;AppModule -->
-<g id="edge3" class="edge">
-<title>LoginComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M948,-84.83C948,-101.2 948,-122.8 948,-122.8 948,-122.8 778.83,-122.8 778.83,-122.8"/>
-<polygon fill="black" stroke="black" points="778.83,-119.3 768.83,-122.8 778.83,-126.3 778.83,-119.3"/>
-</g>
-<!-- NavbarComponent -->
-<g id="node4" class="node">
-<title>NavbarComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="872.03,-84.8 749.97,-84.8 749.97,-48.8 872.03,-48.8 872.03,-84.8"/>
-<text text-anchor="middle" x="811" y="-62.6" font-family="Times,serif" font-size="14.00">NavbarComponent</text>
-</g>
-<!-- NavbarComponent&#45;&gt;AppModule -->
-<g id="edge4" class="edge">
-<title>NavbarComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M759.28,-84.91C759.28,-84.91 759.28,-103.79 759.28,-103.79"/>
-<polygon fill="black" stroke="black" points="755.78,-103.79 759.28,-113.79 762.78,-103.79 755.78,-103.79"/>
-</g>
-<!-- ProblemCreationComponent -->
-<g id="node5" class="node">
-<title>ProblemCreationComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="731.48,-84.8 554.52,-84.8 554.52,-48.8 731.48,-48.8 731.48,-84.8"/>
-<text text-anchor="middle" x="643" y="-62.6" font-family="Times,serif" font-size="14.00">ProblemCreationComponent</text>
-</g>
-<!-- ProblemCreationComponent&#45;&gt;AppModule -->
-<g id="edge5" class="edge">
-<title>ProblemCreationComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M708.33,-84.91C708.33,-84.91 708.33,-103.79 708.33,-103.79"/>
-<polygon fill="black" stroke="black" points="704.83,-103.79 708.33,-113.79 711.83,-103.79 704.83,-103.79"/>
-</g>
-<!-- ProblemSelectionComponent -->
-<g id="node6" class="node">
-<title>ProblemSelectionComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="536.37,-84.8 355.63,-84.8 355.63,-48.8 536.37,-48.8 536.37,-84.8"/>
-<text text-anchor="middle" x="446" y="-62.6" font-family="Times,serif" font-size="14.00">ProblemSelectionComponent</text>
-</g>
-<!-- ProblemSelectionComponent&#45;&gt;AppModule -->
-<g id="edge6" class="edge">
-<title>ProblemSelectionComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M446,-84.83C446,-101.2 446,-122.8 446,-122.8 446,-122.8 675.23,-122.8 675.23,-122.8"/>
-<polygon fill="black" stroke="black" points="675.23,-126.3 685.23,-122.8 675.23,-119.3 675.23,-126.3"/>
-</g>
-<!-- StudentSolutionComponent -->
-<g id="node7" class="node">
-<title>StudentSolutionComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="337.57,-84.8 166.43,-84.8 166.43,-48.8 337.57,-48.8 337.57,-84.8"/>
-<text text-anchor="middle" x="252" y="-62.6" font-family="Times,serif" font-size="14.00">StudentSolutionComponent</text>
-</g>
-<!-- StudentSolutionComponent&#45;&gt;AppModule -->
-<g id="edge7" class="edge">
-<title>StudentSolutionComponent&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M252,-84.91C252,-104.14 252,-131.8 252,-131.8 252,-131.8 675.26,-131.8 675.26,-131.8"/>
-<polygon fill="black" stroke="black" points="675.26,-135.3 685.26,-131.8 675.26,-128.3 675.26,-135.3"/>
-</g>
-<!-- AppComponent  -->
-<g id="node9" class="node">
-<title>AppComponent </title>
-<polygon fill="#80b1d3" stroke="black" points="781.44,-214.8 672.56,-214.8 672.56,-178.8 781.44,-178.8 781.44,-214.8"/>
-<text text-anchor="middle" x="727" y="-192.6" font-family="Times,serif" font-size="14.00">AppComponent </text>
-</g>
-<!-- AppModule&#45;&gt;AppComponent  -->
-<g id="edge8" class="edge">
-<title>AppModule&#45;&gt;AppComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M727,-149.91C727,-149.91 727,-168.79 727,-168.79"/>
-<polygon fill="black" stroke="black" points="723.5,-168.79 727,-178.79 730.5,-168.79 723.5,-168.79"/>
-</g>
-<!-- AuthService -->
-<g id="node10" class="node">
-<title>AuthService</title>
-<ellipse fill="#fdb462" stroke="black" cx="83" cy="-66.8" rx="59.11" ry="18"/>
-<text text-anchor="middle" x="83" y="-62.6" font-family="Times,serif" font-size="14.00">AuthService</text>
-</g>
-<!-- AuthService&#45;&gt;AppModule -->
-<g id="edge9" class="edge">
-<title>AuthService&#45;&gt;AppModule</title>
-<path fill="none" stroke="black" d="M83,-85.09C83,-107.01 83,-140.8 83,-140.8 83,-140.8 675.24,-140.8 675.24,-140.8"/>
-<polygon fill="black" stroke="black" points="675.24,-144.3 685.24,-140.8 675.24,-137.3 675.24,-144.3"/>
-</g>
-</g>
-</svg>
-
-    </div>
-    <i id="fullscreen" class="icon ion-ios-resize module-graph-fullscreen-btn" aria-hidden="true"></i>
-    <div class="btn-group size-buttons">
+<h3>Overview</h3>
+<div class="text-center">
+    <object id="demo-svg" type="image/svg+xml" data="graph/dependencies.svg" style="width: 100%; height: 250px;">
+            Your browser does not support SVG
+    </object>
+    <div class="btn-group">
         <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
         <button id="reset" class="btn btn-default btn-sm">Reset</button>
         <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
     </div>
 </div>
-  
-<div class="tab-content overview">
+<div class="container-fluid overview">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-ios-archive"></span></h4>
-                    <p class="card-text">
-                        <a href="./modules.html">1 Module</a>
-                    </p>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-cogs"></span></h4>
+                        <p class="card-text">16 components</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-cog"></span></h4>
-                    <p class="card-text">7 Components</p>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-code-fork"></span></h4>
+                        <p class="card-text">9 injectables</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
-                    <p class="card-text">5 Injectables</p>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-info"></span></h4>
+                        <p class="card-text">7 interfaces</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
-                    <p class="card-text">5 Interfaces</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-ios-git-branch"></span></h4>
-                    <p class="card-text">
-                        <a href="./routes.html">0 </a>
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <script src="js/libs/svg-pan-zoom.min.js"></script>
-<script src="js/svg-pan-zoom.controls.js"></script> 
-
-
-
-
-
-
-
+<script src="js/svg-pan-zoom.controls.js"></script>
 
 
 
@@ -270,31 +474,8 @@
     </div>
 </div>
 </div>
-               <!-- END CONTENT -->
            </div>
        </div>
-
-          <label class="dark-mode-switch">
-               <input type="checkbox">
-               <span class="slider">
-                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-               </span>
-          </label>
-
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'overview';
-            var COMPODOC_CURRENT_PAGE_URL = 'overview.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
-
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
-
-       <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
@@ -305,17 +486,20 @@
 
        <script src="./js/compodoc.js"></script>
 
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
 
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/highlight.pack.js"></script>
+       <script src="./js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="./js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
 
     </body>
 </html>
