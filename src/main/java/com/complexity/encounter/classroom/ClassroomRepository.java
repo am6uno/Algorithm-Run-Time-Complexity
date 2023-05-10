@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * This is the repository for the Classroom object.
+ */
 public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
 
     @Transactional

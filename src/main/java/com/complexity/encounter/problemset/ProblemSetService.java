@@ -34,6 +34,11 @@ public class ProblemSetService
         return problemSetRepository.findAll();
     }
 
+    /**
+     * This method returns all the ProblemSets in a Classroom
+     * @param classroomId - the id of the Classroom
+     * @return the list of ProblemSets
+     */
     public List<ProblemSet> getProblemSetsByClassroomId(long classroomId) {
         return problemSetRepository.findByClassroomId(classroomId);
     }
@@ -74,5 +79,4 @@ public class ProblemSetService
         updatedProblemSet.get().setVisibility(set.getVisibility());
         problemSetRepository.save(updatedProblemSet.get());
     }
-
 }

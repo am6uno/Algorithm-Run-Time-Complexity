@@ -12,18 +12,32 @@ import { ProblemSet } from '../problemset';
 import { ProblemsetService } from '../problemset-service/problemset.service';
 
 
-
 @Component({
   selector: 'app-teacher-problem',
   templateUrl: './teacher-problem.component.html',
   styleUrls: ['./teacher-problem.component.css']
 })
+
+/**
+ * This is the component that handles Problem objects from the Teacher side.
+ */
 export class TeacherProblemComponent {
   setId: number;
   set: ProblemSet;
   problems: Problem[] = [];
   detailedProblemList: any[] = []
 
+  /**
+   * This is the constructor for the component.
+   * @param problemService - the service for manipulating problems
+   * @param solutionService - the service for manipulating solutions
+   * @param problemsetService - the service for manipulating problem sets
+   * @param router - used for routing to the correct page
+   * @param route - the current route
+   * @param _snackBar - used to deliver messages to the user
+   * @param dialog - a dialog box
+   * @param zone - an NGZone object 
+   */
   constructor(
     private problemService: ProblemService,
     private solutionService: SolutionService,
@@ -36,6 +50,9 @@ export class TeacherProblemComponent {
     ) {
   }
 
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.setId = +params['setId'];
@@ -47,6 +64,10 @@ export class TeacherProblemComponent {
 
   }
 
+  /**
+   * This method handles the frontend for a Teacher deleting a Problem
+   * @param problemId - the id of the problem to be deleted
+   */
   handleDelete(problemId: any){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -69,6 +90,10 @@ export class TeacherProblemComponent {
     });
   }
 
+  /**
+   * This method deletes a problem from a problem list
+   * @param problemId - the id of the problem to be deleted
+   */
   deleteProblem(problemId: number){
     this.problemService.deleteProblem(problemId).subscribe({
       next: () => {
@@ -82,10 +107,17 @@ export class TeacherProblemComponent {
     });
   }
 
+  /**
+   * This method opens the option menu.
+   * @param event - the current event
+   */
   openOptionMenu(event:Event){
     event.stopPropagation();
   }
 
+  /**
+   * This method updates the problem list.
+   */
   updateProblemList(){
     this.problemService.getProblemBySetId(this.setId).subscribe({
       next: (problems) => {
@@ -99,6 +131,9 @@ export class TeacherProblemComponent {
     });
   }
 
+  /**
+   * This method generates the existing problem list but with more details.
+   */
   generateDetailedProblemList(){
     this.detailedProblemList = [];
     this.problems.forEach((problem: Problem) => {
@@ -110,6 +145,11 @@ export class TeacherProblemComponent {
     })
   }
 
+  /**
+   * This method adds solution information to a problem.
+   * @param problemId - the id of the problem object to add information to.
+   * @param detailedProblemInfo - the detailed data retrieved from the method above.
+   */
   addSolutionsInfo(problemId: number, detailedProblemInfo: any): any{
     this.solutionService.getSolutionByProblemId(problemId).subscribe({
       next: (solutions) => {
@@ -118,6 +158,11 @@ export class TeacherProblemComponent {
     });
   }
 
+  /**
+   * This method analyzes the solutions to a problem and generates high, low, and average scores for a problem.
+   * @param solutions - the solutions being submitted
+   * @param detailedProblemInfo - the detailed information for a problem 
+   */
   analyzeSolutions(solutions: Solution[], detailedProblemInfo: any){
     let scoreSum = 0;
     let highScore: any;
@@ -143,6 +188,9 @@ export class TeacherProblemComponent {
     detailedProblemInfo.submissions = solutions.length;
   }
 
+  /**
+   * This method adds problems to the Problem modal.
+   */
   addProblemsModalOpen(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
@@ -162,14 +210,25 @@ export class TeacherProblemComponent {
     });
   }
 
+  /**
+   * This method routes a teacher to the problem creation page.
+   */
   createProblem(){
     this.router.navigate(['problem-creation/' + this.setId]);
   }
 
+  /**
+   * This method navigates the teacher to the page to update a problem.
+   * @param problemId - the id of the problem object to be updated
+   */
   updateProblem(problemId: any){
     this.router.navigate(['problem-creation/' + this.setId + '/' + problemId]);
   }
 
+  /**
+   * This method adds the passed problems via the problem service
+   * @param problems - the map associated with a number and a Problem
+   */
   addProblems(problems: Map<number, Problem>){
     problems.forEach(problem => {
       problem.id = undefined;
@@ -178,7 +237,5 @@ export class TeacherProblemComponent {
         this.updateProblemList();
       });
     })
-
   }
-
 }

@@ -1,3 +1,6 @@
+/**
+ * Interface for the Solution object.
+ */
 export interface Solution {
     id?: number;
     studentId: number;

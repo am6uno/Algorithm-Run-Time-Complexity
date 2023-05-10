@@ -5,6 +5,10 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
+/**
+ * The repository for the Student object.
+ */
+
 public interface StudentRepository extends JpaRepository<Student, Long> {
     Optional<Student> findByEmail(String email);
 

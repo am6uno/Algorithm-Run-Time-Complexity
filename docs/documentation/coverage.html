@@ -8,26 +8,408 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css">
+	    <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="./" class="navbar-brand">encounter documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./">encounter documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="./overview.html" 
+                                         href="./overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemService.html" >ProblemService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SolutionService.html" >SolutionService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/StudentService.html" >StudentService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserService.html" >UserService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="interfaces/Block.html" >Block</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Classroom.html" >Classroom</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Problem.html" >Problem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Solution.html" >Solution</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Student.html" >Student</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Teacher.html" >Teacher</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html"  class="active" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./">encounter documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="./overview.html" 
+                                                href="./overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentSolutionComponent.html" >StudentSolutionComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemService.html" >ProblemService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/SolutionService.html" >SolutionService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/StudentService.html" >StudentService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/UserService.html" >UserService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="interfaces/Block.html" >Block</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Classroom.html" >Classroom</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Problem.html" >Problem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Solution.html" >Solution</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Student.html" >Student</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Teacher.html" >Teacher</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html"  class="active" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
                </div>
-               <!-- START CONTENT -->
                <div class="content coverage">
                    <div class="content-data">
 
@@ -40,329 +422,507 @@
 
 
 
-
-
-
-
-
-
-
-
-
 <ol class="breadcrumb">
-    <li>Documentation coverage</li>
+  <li>Documentation coverage</li> 
 </ol>
 
-<div>
-    <img src="./images/coverage-badge-documentation.svg">
+<div class="coverage-badge">
+    <span>Project</span>
+    <span class="count medium">39%</span>
 </div>
 
-<table class="table table-bordered coverage" id="coverage-table">
+<table class="table table-bordered coverage">
     <thead class="coverage-header">
         <tr>
             <th>File</th>
             <th>Type</th>
             <th>Identifier</th>
-            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+            <th style="text-align:right">Statements</th>
         </tr>
     </thead>
     <tbody>
+        <tr class="good">
+            <td>
+                <a href="./components/AddProblemModalComponent.html">src/app/add-problem-modal/add-problem-modal.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                AddProblemModalComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">64 %</span>
+                <span class="coverage-count">(9/14)</span>
+            </td>
+        </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
                 <a href="./components/AppComponent.html">src/app/app.component.ts</a>
             </td>
-            <td>component</td>
-            <td>AppComponent</td>
-            <td align="right" data-sort="0">
+            <td>
+                component
+            </td>
+            <td>
+                AppComponent
+            </td>
+            <td align="right">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/2)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
                 <a href="./injectables/AuthService.html">src/app/auth.service.ts</a>
             </td>
-            <td>injectable</td>
-            <td>AuthService</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/6)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./interfaces/Block.html">src/app/complexity-parser/block.ts</a>
+                injectable
             </td>
-            <td>interface</td>
-            <td>Block</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/5)</span>
-            </td>
-        </tr>
-        <tr class="medium">
             <td>
-                <!-- miscellaneous -->
-                <a href="./injectables/ComplexityParserService.html">src/app/complexity-parser/complexity-parser.service.ts</a>
+                AuthService
             </td>
-            <td>injectable</td>
-            <td>ComplexityParserService</td>
-            <td align="right" data-sort="50">
-                <span class="coverage-percent">50 %</span>
-                <span class="coverage-count">(2/4)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./components/HomepageComponent.html">src/app/homepage/homepage.component.ts</a>
-            </td>
-            <td>component</td>
-            <td>HomepageComponent</td>
-            <td align="right" data-sort="0">
+            <td align="right">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/4)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./components/LoginComponent.html">src/app/login/login.component.ts</a>
+                <a href="./injectables/AuthGuard.html">src/app/auth.ts</a>
             </td>
-            <td>component</td>
-            <td>LoginComponent</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/10)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./components/NavbarComponent.html">src/app/navbar/navbar.component.ts</a>
+                injectable
             </td>
-            <td>component</td>
-            <td>NavbarComponent</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/3)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./components/ProblemCreationComponent.html">src/app/problem-creation/problem-creation.component.ts</a>
+                AuthGuard
             </td>
-            <td>component</td>
-            <td>ProblemCreationComponent</td>
-            <td align="right" data-sort="15">
-                <span class="coverage-percent">15 %</span>
-                <span class="coverage-count">(3/20)</span>
+            <td align="right">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
             </td>
         </tr>
         <tr class="medium">
             <td>
-                <!-- miscellaneous -->
-                <a href="./components/ProblemSelectionComponent.html">src/app/problem-selection/problem-selection.component.ts</a>
+                <a href="./components/ClassroomCreationComponent.html">src/app/classroom-creation/classroom-creation.component.ts</a>
             </td>
-            <td>component</td>
-            <td>ProblemSelectionComponent</td>
-            <td align="right" data-sort="37">
-                <span class="coverage-percent">37 %</span>
-                <span class="coverage-count">(3/8)</span>
+            <td>
+                component
+            </td>
+            <td>
+                ClassroomCreationComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">30 %</span>
+                <span class="coverage-count">(6/20)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/ClassroomDetailComponent.html">src/app/classroom-detail/classroom-detail.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                ClassroomDetailComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">31 %</span>
+                <span class="coverage-count">(5/16)</span>
             </td>
         </tr>
         <tr class="good">
             <td>
-                <!-- miscellaneous -->
-                <a href="./injectables/ProblemService.html">src/app/problem-service/problem.service.ts</a>
+                <a href="./injectables/ClassroomService.html">src/app/classroom-service/classroom.service.ts</a>
             </td>
-            <td>injectable</td>
-            <td>ProblemService</td>
-            <td align="right" data-sort="60">
-                <span class="coverage-percent">60 %</span>
-                <span class="coverage-count">(3/5)</span>
+            <td>
+                injectable
+            </td>
+            <td>
+                ClassroomService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(6/9)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./interfaces/Problem.html">src/app/problem.ts</a>
+                <a href="./interfaces/Classroom.html">src/app/classroom.ts</a>
             </td>
-            <td>interface</td>
-            <td>Problem</td>
-            <td align="right" data-sort="0">
+            <td>
+                interface
+            </td>
+            <td>
+                Classroom
+            </td>
+            <td align="right">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/9)</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <a href="./interfaces/Block.html">src/app/complexity-parser/block.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                Block
+            </td>
+            <td align="right">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <a href="./injectables/ComplexityParserService.html">src/app/complexity-parser/complexity-parser.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                ComplexityParserService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
         <tr class="medium">
             <td>
-                <!-- miscellaneous -->
+                <a href="./components/ConfirmationModalComponent.html">src/app/confirmation-modal/confirmation-modal.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                ConfirmationModalComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">44 %</span>
+                <span class="coverage-count">(4/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <a href="./components/HomepageComponent.html">src/app/homepage/homepage.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                HomepageComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/LoginComponent.html">src/app/login/login.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                LoginComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">40 %</span>
+                <span class="coverage-count">(4/10)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/NavbarComponent.html">src/app/navbar/navbar.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                NavbarComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">42 %</span>
+                <span class="coverage-count">(3/7)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <a href="./components/ProblemCreationComponent.html">src/app/problem-creation/problem-creation.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                ProblemCreationComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">52 %</span>
+                <span class="coverage-count">(11/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <a href="./injectables/ProblemService.html">src/app/problem-service/problem.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                ProblemService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <a href="./interfaces/Problem.html">src/app/problem.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                Problem
+            </td>
+            <td align="right">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <a href="./injectables/ProblemsetService.html">src/app/problemset-service/problemset.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                ProblemsetService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <a href="./interfaces/ProblemSet.html">src/app/problemset.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                ProblemSet
+            </td>
+            <td align="right">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <a href="./components/SelectSetModalComponent.html">src/app/select-set-modal/select-set-modal.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                SelectSetModalComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">62 %</span>
+                <span class="coverage-count">(5/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
                 <a href="./injectables/SolutionService.html">src/app/solution-service/solution.service.ts</a>
             </td>
-            <td>injectable</td>
-            <td>SolutionService</td>
-            <td align="right" data-sort="33">
-                <span class="coverage-percent">33 %</span>
-                <span class="coverage-count">(1/3)</span>
+            <td>
+                injectable
+            </td>
+            <td>
+                SolutionService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
                 <a href="./interfaces/Solution.html">src/app/solution.ts</a>
             </td>
-            <td>interface</td>
-            <td>Solution</td>
-            <td align="right" data-sort="0">
+            <td>
+                interface
+            </td>
+            <td>
+                Solution
+            </td>
+            <td align="right">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/7)</span>
+                <span class="coverage-count">(0/6)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./components/StudentSolutionComponent.html">src/app/student-solution-component/student-solution.component.ts</a>
+                <a href="./components/StudentClassroomViewComponent.html">src/app/student-classroom-view/student-classroom-view.component.ts</a>
             </td>
-            <td>component</td>
-            <td>StudentSolutionComponent</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/18)</span>
+            <td>
+                component
+            </td>
+            <td>
+                StudentClassroomViewComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(1/5)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/StudentClassroomsComponent.html">src/app/student-classrooms/student-classrooms.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                StudentClassroomsComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">38 %</span>
+                <span class="coverage-count">(5/13)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/StudentProblemSetComponent.html">src/app/student-problem-set/student-problem-set.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                StudentProblemSetComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(2/6)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <a href="./injectables/StudentService.html">src/app/student-service/student.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                StudentService
+            </td>
+            <td align="right">
+                <span class="coverage-percent">71 %</span>
+                <span class="coverage-count">(5/7)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <a href="./components/StudentSolutionComponent.html">src/app/student-solution/student-solution.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                StudentSolutionComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">29 %</span>
+                <span class="coverage-count">(5/17)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
-                <!-- miscellaneous -->
                 <a href="./interfaces/Student.html">src/app/student.ts</a>
             </td>
-            <td>interface</td>
-            <td>Student</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/7)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./interfaces/Teacher.html">src/app/teacher.ts</a>
+                interface
             </td>
-            <td>interface</td>
-            <td>Teacher</td>
-            <td align="right" data-sort="0">
+            <td>
+                Student
+            </td>
+            <td align="right">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
         </tr>
         <tr class="good">
             <td>
-                <!-- miscellaneous -->
+                <a href="./components/TeacherProblemComponent.html">src/app/teacher-problem/teacher-problem.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                TeacherProblemComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">68 %</span>
+                <span class="coverage-count">(11/16)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <a href="./components/TeacherProblemsetPageComponent.html">src/app/teacher-problemset-page/teacher-problemset-page.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                TeacherProblemsetPageComponent
+            </td>
+            <td align="right">
+                <span class="coverage-percent">62 %</span>
+                <span class="coverage-count">(10/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <a href="./interfaces/Teacher.html">src/app/teacher.ts</a>
+            </td>
+            <td>
+                interface
+            </td>
+            <td>
+                Teacher
+            </td>
+            <td align="right">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
                 <a href="./injectables/UserService.html">src/app/user.service.ts</a>
             </td>
-            <td>injectable</td>
-            <td>UserService</td>
-            <td align="right" data-sort="75">
-                <span class="coverage-percent">75 %</span>
-                <span class="coverage-count">(6/8)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockAddProblem">src/mocks/problem.service.mock.ts</a>
+                injectable
             </td>
-            <td>variable</td>
-            <td>mockAddProblem</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
             <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockProblem1">src/mocks/problem.service.mock.ts</a>
+                UserService
             </td>
-            <td>variable</td>
-            <td>mockProblem1</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockProblem2">src/mocks/problem.service.mock.ts</a>
-            </td>
-            <td>variable</td>
-            <td>mockProblem2</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockProblemArray">src/mocks/problem.service.mock.ts</a>
-            </td>
-            <td>variable</td>
-            <td>mockProblemArray</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockProblemList">src/mocks/problem.service.mock.ts</a>
-            </td>
-            <td>variable</td>
-            <td>mockProblemList</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#MockProblemService">src/mocks/problem.service.mock.ts</a>
-            </td>
-            <td>variable</td>
-            <td>MockProblemService</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#mockMatSnackBar">src/mocks/snack.bar.mock.ts</a>
-            </td>
-            <td>variable</td>
-            <td>mockMatSnackBar</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td align="right">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(6/7)</span>
             </td>
         </tr>
     </tbody>
 </table>
-
-<script src="js/libs/tablesort.min.js"></script>
-<script src="js/libs/tablesort.number.min.js"></script>
-<script>
-    new Tablesort(document.getElementById('coverage-table'));
-</script>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -374,31 +934,8 @@
     </div>
 </div>
 </div>
-               <!-- END CONTENT -->
            </div>
        </div>
-
-          <label class="dark-mode-switch">
-               <input type="checkbox">
-               <span class="slider">
-                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-               </span>
-          </label>
-
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
-            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
-
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
-
-       <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
@@ -409,17 +946,20 @@
 
        <script src="./js/compodoc.js"></script>
 
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
 
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/highlight.pack.js"></script>
+       <script src="./js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="./js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
 
     </body>
 </html>

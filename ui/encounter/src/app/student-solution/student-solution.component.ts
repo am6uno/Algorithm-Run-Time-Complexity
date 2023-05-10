@@ -14,7 +14,21 @@ import { Block } from '../complexity-parser/block';
   templateUrl: './student-solution.component.html',
   styleUrls: ['./student-solution.component.css']
 })
+
+/**
+ * This component handles student solutions.
+ */
 export class StudentSolutionComponent implements OnInit{
+
+  /**
+   * The constructor for the component.
+   * @param problemService - the problem service for manipulating problems
+   * @param router - for routing to the correct page
+   * @param route - the route
+   * @param _snackBar - for delivering messages to users
+   * @param solutionService - the solution service for manipulating solutions
+   * @param complexityParserService - used for problem parsing
+   */
   constructor(
     private problemService: ProblemService,
     private router: Router, 
@@ -36,6 +50,9 @@ export class StudentSolutionComponent implements OnInit{
 
   isLoading = true;
 
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit(): void {
     this.problemService
 
@@ -58,6 +75,9 @@ export class StudentSolutionComponent implements OnInit{
 
   }
 
+  /**
+   * This method submits a solution to the solution service and either shows the results or presents the user with an error message.
+   */
   submitSolution(){
     this.score = this.calculateScore();
     const studentSolution: Solution = {
@@ -77,6 +97,10 @@ export class StudentSolutionComponent implements OnInit{
     });
   }
 
+  /**
+   * This method calculates the score for a given problem
+   * @returns the score obtained on the problem
+   */
   calculateScore(): number{
     let score = 0;
     for(let i = 0; i < this.problem.complexity.length; i++){
@@ -91,14 +115,28 @@ export class StudentSolutionComponent implements OnInit{
     return score;
   }
 
+  /**
+   * This method determines if the Student got the correct answer for overall complexity.
+   * @returns true if the answer is correct, false if not
+   */
   overallComplexityCorrect(){
     return this.problem.overallComplexity?.toLowerCase() == this.overallComplexity?.toLowerCase() ? true : false;
   }
 
+  /**
+   * This method determines if a student got the complexity for an individual line correct.
+   * @param index - the index of the line being analyzed
+   * @returns true if correct, false if incorrect 
+   */
   lineComplexityCorrect(index: number){
     return this.problem.complexity[index].toLowerCase() === this.complexityAnswer[index].toLowerCase() ? true : false;
   }
 
+  /**
+   * This method determines the background color for a line in a solution - useful for nesting problems, etc.
+   * @param lineNum - the line number to be analyzed
+   * @returns the color the line should be
+   */
   getLineColor(lineNum: number): string {
 
     // Start from line 1

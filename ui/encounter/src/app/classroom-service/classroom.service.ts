@@ -8,12 +8,24 @@ import {Student} from "../student";
 @Injectable({
   providedIn: 'root',
 })
+
+/**
+ * The service module for Classrooms
+ */
 export class ClassroomService {
 
+  /**
+   * The constructor for this service, contains info for the http client and a snack bar
+   * @param http - the client for performing HTTP requests
+   * @param _snackBar - used for providing messages to the user
+   */
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
-
   }
 
+  /**
+   * Returns all the classrooms from the pipe.
+   * @returns the list of classrooms, presents an error message if classrooms are unable to be obtained.
+   */
   getAllClassRooms(): Observable<Classroom[]> {
     return this.http.get<Classroom[]>("http://localhost:8080/classrooms").pipe(
       tap({
@@ -23,6 +35,11 @@ export class ClassroomService {
     );
   }
 
+  /**
+   * This method adds a classroom to the backend.
+   * @param classroom the classroom to be added
+   * @returns the post request.
+   */
   addClassroom(classroom: Classroom): Observable<Classroom> {
     return this.http.post<Classroom>("http://localhost:8080/classrooms", classroom).pipe(
       tap(
@@ -34,14 +51,29 @@ export class ClassroomService {
     );
   }
 
+  /**
+   * This method returns a classroom by id from the backend.
+   * @param classroomId - the id of the classroom.
+   * @returns the get request from the backend.
+   */
   getClassroomById(classroomId: number): Observable<Classroom> {
     return this.http.get<Classroom> ("http://localhost:8080/classrooms/" + classroomId)
   }
 
+  /**
+   * This method returns all the classrooms associated with a teacher's email from the backend. 
+   * @param teacherEmail - the email of the teacher
+   * @returns the get request from the backend.
+   */
   getClassroomsByTeacherEmail(teacherEmail: string): Observable<any> {
     return this.http.get<Classroom[]>(`http://localhost:8080/classrooms/email/${teacherEmail}`)
   }
 
+  /**
+   * This method updates a classroom in the backend with new information.
+   * @param classroom - the information to be added
+   * @returns the put request from the backend
+   */
   updateClassroom(classroom: Classroom): Observable<Classroom> {
     return this.http.put<Classroom>(`http://localhost:8080/classrooms/${classroom.id}`, classroom).pipe(
       tap(
@@ -52,6 +84,13 @@ export class ClassroomService {
     );
   }
 
+  /**
+   * This method adds a student to a classroom in the backennd
+   * @param access_code - the access code for the classroom
+   * @param classroom - the classroom to be added to
+   * @param student_id - the id of the student to be added
+   * @returns the put request from the backend.
+   */
   addStudentToClassroom(access_code: string, classroom: Classroom, student_id: number): any {
     const url = `http://localhost:8080/classrooms/addStudent/${classroom.id}/${student_id}`
     return this.http.put(url, null)

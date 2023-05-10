@@ -37,10 +37,18 @@ public class Student {
     private List<Classroom> enrolled_classrooms = new ArrayList<>();
     private char[] password_hash;
 
+    /**
+     * Adds a Classroom to enrolled_classrooms
+     * @param classroom - the Classroom object to add to the list
+     */
     public void addClassroom(Classroom classroom){
         enrolled_classrooms.add(classroom);
     }
 
+    /**
+     * Removes a Classroom from enrolled_classrooms
+     * @param classroom - the Classroom to be removed
+     */
     public void removeClassroom(Classroom classroom) {
         enrolled_classrooms.remove(classroom);
     }

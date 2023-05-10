@@ -7,81 +7,443 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">encounter documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+            <a href="./" class="navbar-brand">encounter documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./">encounter documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="./overview.html" 
+                                         href="./overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StudentSolutionComponent.html"  class="active" >StudentSolutionComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemService.html" >ProblemService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SolutionService.html" >SolutionService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/StudentService.html" >StudentService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserService.html" >UserService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="interfaces/Block.html" >Block</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Classroom.html" >Classroom</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Problem.html" >Problem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Solution.html" >Solution</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Student.html" >Student</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/Teacher.html" >Teacher</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./">encounter documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="./overview.html" 
+                                                href="./overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="components/AddProblemModalComponent.html" >AddProblemModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomCreationComponent.html" >ClassroomCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ClassroomDetailComponent.html" >ClassroomDetailComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ConfirmationModalComponent.html" >ConfirmationModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/HomepageComponent.html" >HomepageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/ProblemCreationComponent.html" >ProblemCreationComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/SelectSetModalComponent.html" >SelectSetModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomViewComponent.html" >StudentClassroomViewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentClassroomsComponent.html" >StudentClassroomsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentProblemSetComponent.html" >StudentProblemSetComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StudentSolutionComponent.html"  class="active" >StudentSolutionComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemComponent.html" >TeacherProblemComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/TeacherProblemsetPageComponent.html" >TeacherProblemsetPageComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="injectables/AuthGuard.html" >AuthGuard</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ClassroomService.html" >ClassroomService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ComplexityParserService.html" >ComplexityParserService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemService.html" >ProblemService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/ProblemsetService.html" >ProblemsetService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/SolutionService.html" >SolutionService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/StudentService.html" >StudentService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="injectables/UserService.html" >UserService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="interfaces/Block.html" >Block</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Classroom.html" >Classroom</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Problem.html" >Problem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/ProblemSet.html" >ProblemSet</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Solution.html" >Solution</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Student.html" >Student</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/Teacher.html" >Teacher</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
                </div>
-               <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
 
 
-
-
 <ol class="breadcrumb">
   <li>Components</li>
-  <li
-  >
-  StudentSolutionComponent</li>
+  <li>StudentSolutionComponent</li>
 </ol>
 
-<ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
-</ul>
 
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/student-solution-component/student-solution.component.ts</code>
+    <code>src/app/student-solution/student-solution.component.ts</code>
 </p>
 
-
-
-
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover metadata">
+    <table class="table table-sm table-hover">
         <tbody>
+
 
 
 
@@ -100,812 +462,491 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./student-solution.component.css</code></td>
+                <td class="col-md-9"><code>student-solution.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./student-solution.component.html</code></td>
+                <td class="col-md-9"><code>student-solution.component.html</code></td>
             </tr>
 
 
-
-
-
-
-
-
         </tbody>
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#blockColors" >blockColors</a>
-                            </li>
-                            <li>
-                                <a href="#blockList" >blockList</a>
-                            </li>
-                            <li>
-                                <a href="#complexityAnswer" >complexityAnswer</a>
-                            </li>
-                            <li>
-                                <a href="#isLoading" >isLoading</a>
-                            </li>
-                            <li>
-                                <a href="#overallComplexity" >overallComplexity</a>
-                            </li>
-                            <li>
-                                <a href="#problem" >problem</a>
-                            </li>
-                            <li>
-                                <a href="#problemId" >problemId</a>
-                            </li>
-                            <li>
-                                <a href="#score" >score</a>
-                            </li>
-                            <li>
-                                <a href="#showResults" >showResults</a>
-                            </li>
-                            <li>
-                                <a href="#studentId" >studentId</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#calculateScore" >calculateScore</a>
-                            </li>
-                            <li>
-                                <a href="#getLineColor" >getLineColor</a>
-                            </li>
-                            <li>
-                                <a href="#lineComplexityCorrect" >lineComplexityCorrect</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
-                                <a href="#overallComplexityCorrect" >overallComplexityCorrect</a>
-                            </li>
-                            <li>
-                                <a href="#submitSolution" >submitSolution</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
 
     <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(problemService: <a href="../injectables/ProblemService.html" target="_self">ProblemService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, _snackBar: MatSnackBar, solutionService: <a href="../injectables/SolutionService.html" target="_self">SolutionService</a>, complexityParserService: <a href="../injectables/ComplexityParserService.html" target="_self">ComplexityParserService</a>)</code>
-                    </td>
-                </tr>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(problemService: <a href="../injectables/ProblemService.html" >ProblemService</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>, route: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRoute-interface.html" target="_blank" >ActivatedRoute</a>, _snackBar: MatSnackBar, solutionService: <a href="../injectables/SolutionService.html" >SolutionService</a>, complexityParserService: <a href="../injectables/ComplexityParserService.html" >ComplexityParserService</a>)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The constructor for the component.</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>problemService</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>the problem service for manipulating problems</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>router</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>for routing to the correct page</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>route</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>the route</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>_snackBar</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>for delivering messages to users</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>solutionService</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>the solution service for manipulating solutions</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>complexityParserService</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>used for problem parsing</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> submitSolution</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>submitSolution()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>This method submits a solution to the solution service and either shows the results or presents the user with an error message.</p>
+    </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> calculateScore</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>calculateScore()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>This method calculates the score for a given problem</p>
+    </div>
+                                <div class="io-description">
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>number</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>the score obtained on the problem</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> overallComplexityCorrect</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>overallComplexityCorrect()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>This method determines if the Student got the correct answer for overall complexity.</p>
+    </div>
+                                <div class="io-description">
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>true if the answer is correct, false if not</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> lineComplexityCorrect</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>lineComplexityCorrect(index: number)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>This method determines if a student got the complexity for an individual line correct.</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>index</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>the index of the line being analyzed</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>true if correct, false if incorrect </p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> getLineColor</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>getLineColor(lineNum: number)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>This method determines the background color for a line in a solution - useful for nesting problems, etc.</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>lineNum</b>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+    <li>the line number to be analyzed</li>
+    </ul>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>string</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>the color the line should be</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> blockColors</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>blockColors:     <code>string[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> blockList</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>blockList:     <code>Block[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> classroomId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>classroomId:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> complexityAnswer</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>complexityAnswer:     <code>string[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> isLoading</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>isLoading:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:17</a></div>
+                                <i>Default value: </i><code>true</code>
                             </td>
                         </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>problemService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/ProblemService.html" target="_self" >ProblemService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>route</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>_snackBar</td>
-                                                  
-                                                        <td>
-                                                                    <code>MatSnackBar</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>solutionService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SolutionService.html" target="_self" >SolutionService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>complexityParserService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/ComplexityParserService.html" target="_self" >ComplexityParserService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-
-
-
-
-    <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="calculateScore"></a>
-                    <span class="name">
-                        <span ><b>calculateScore</b></span>
-                        <a href="#calculateScore"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>calculateScore()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:77</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getLineColor"></a>
-                    <span class="name">
-                        <span ><b>getLineColor</b></span>
-                        <a href="#getLineColor"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getLineColor(lineNum: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:99</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>lineNum</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="lineComplexityCorrect"></a>
-                    <span class="name">
-                        <span ><b>lineComplexityCorrect</b></span>
-                        <a href="#lineComplexityCorrect"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>lineComplexityCorrect(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:95</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>index</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="overallComplexityCorrect"></a>
-                    <span class="name">
-                        <span ><b>overallComplexityCorrect</b></span>
-                        <a href="#overallComplexityCorrect"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>overallComplexityCorrect()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:91</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="submitSolution"></a>
-                    <span class="name">
-                        <span ><b>submitSolution</b></span>
-                        <a href="#submitSolution"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>submitSolution()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:58</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-    <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="blockColors"></a>
-                    <span class="name">
-                        <span ><b>blockColors</b></span>
-                        <a href="#blockColors"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>string[]</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[&quot;#feffb7&quot;, &quot;#d0ffb7&quot;, &quot;#b7fff8&quot;, &quot;#b8b7ff&quot;, &quot;#ffb7f5&quot;, &quot;#ffb7bd&quot;]</code>
-                    </td>
-                </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:33</a></div>
+                            <b> overallComplexity</b>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="blockList"></a>
-                    <span class="name">
-                        <span ><b>blockList</b></span>
-                        <a href="#blockList"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Block.html" target="_self" >Block[]</a></code>
-
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:32</a></div>
+                            <code>overallComplexity:     <code>string</code>
+    </bcode>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="complexityAnswer"></a>
-                    <span class="name">
-                        <span ><b>complexityAnswer</b></span>
-                        <a href="#complexityAnswer"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>string[]</code>
-
-                    </td>
-                </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:29</a></div>
+                            <b> problem</b>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isLoading"></a>
-                    <span class="name">
-                        <span ><b>isLoading</b></span>
-                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:35</a></div>
+                            <code>problem:     <code>Problem</code>
+    </bcode>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="overallComplexity"></a>
-                    <span class="name">
-                        <span ><b>overallComplexity</b></span>
-                        <a href="#overallComplexity"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;&quot;</code>
-                    </td>
-                </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:30</a></div>
+                            <b> problemId</b>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="problem"></a>
-                    <span class="name">
-                        <span ><b>problem</b></span>
-                        <a href="#problem"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Problem.html" target="_self" >Problem</a></code>
-
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:26</a></div>
+                            <code>problemId:     <code>number</code>
+    </bcode>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="problemId"></a>
-                    <span class="name">
-                        <span ><b>problemId</b></span>
-                        <a href="#problemId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>0</code>
-                    </td>
-                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>0</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:28</a></div>
+                            <b> score</b>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="score"></a>
-                    <span class="name">
-                        <span ><b>score</b></span>
-                        <a href="#score"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>0</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:31</a></div>
+                            <code>score:     <code>number</code>
+    </bcode>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="showResults"></a>
-                    <span class="name">
-                        <span ><b>showResults</b></span>
-                        <a href="#showResults"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>0</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:25</a></div>
+                            <b> showResults</b>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="studentId"></a>
-                    <span class="name">
-                        <span ><b>studentId</b></span>
-                        <a href="#studentId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/student-solution-component/student-solution.component.ts:27</a></div>
+                            <code>showResults:     <code>boolean</code>
+    </bcode>
                         </td>
                     </tr>
-
-
-        </tbody>
-    </table>
-</section>
-
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> studentId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>studentId:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
 import { ActivatedRoute, ParamMap, Router } from &#x27;@angular/router&#x27;;
 import { tap } from &#x27;rxjs&#x27;;
@@ -921,14 +962,30 @@ import { Block } from &#x27;../complexity-parser/block&#x27;;
   templateUrl: &#x27;./student-solution.component.html&#x27;,
   styleUrls: [&#x27;./student-solution.component.css&#x27;]
 })
+
+/**
+ * This component handles student solutions.
+ */
 export class StudentSolutionComponent implements OnInit{
+
+  /**
+   * The constructor for the component.
+   * @param problemService - the problem service for manipulating problems
+   * @param router - for routing to the correct page
+   * @param route - the route
+   * @param _snackBar - for delivering messages to users
+   * @param solutionService - the solution service for manipulating solutions
+   * @param complexityParserService - used for problem parsing
+   */
   constructor(
     private problemService: ProblemService,
-    private router: Router, private route: ActivatedRoute,
+    private router: Router, 
+    private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private solutionService: SolutionService,
     private complexityParserService: ComplexityParserService
   ) {}
+  classroomId: number;
   showResults: boolean &#x3D; false;
   problem: Problem;
   studentId: number;
@@ -941,11 +998,15 @@ export class StudentSolutionComponent implements OnInit{
 
   isLoading &#x3D; true;
 
+  /**
+   * This method executes when the component is initialized.
+   */
   ngOnInit(): void {
     this.problemService
 
     this.route.params.subscribe(params &#x3D;&gt; {
-      this.problemId &#x3D; +params[&#x27;id&#x27;];
+      this.problemId &#x3D; params[&#x27;problemId&#x27;];
+      this.classroomId &#x3D; params[&#x27;classroomId&#x27;];
       this.problemService.getProblemById(this.problemId).subscribe({
         next: (problem) &#x3D;&gt; {
           this.problem &#x3D; problem;
@@ -962,6 +1023,9 @@ export class StudentSolutionComponent implements OnInit{
 
   }
 
+  /**
+   * This method submits a solution to the solution service and either shows the results or presents the user with an error message.
+   */
   submitSolution(){
     this.score &#x3D; this.calculateScore();
     const studentSolution: Solution &#x3D; {
@@ -981,6 +1045,10 @@ export class StudentSolutionComponent implements OnInit{
     });
   }
 
+  /**
+   * This method calculates the score for a given problem
+   * @returns the score obtained on the problem
+   */
   calculateScore(): number{
     let score &#x3D; 0;
     for(let i &#x3D; 0; i &lt; this.problem.complexity.length; i++){
@@ -995,14 +1063,28 @@ export class StudentSolutionComponent implements OnInit{
     return score;
   }
 
+  /**
+   * This method determines if the Student got the correct answer for overall complexity.
+   * @returns true if the answer is correct, false if not
+   */
   overallComplexityCorrect(){
     return this.problem.overallComplexity?.toLowerCase() &#x3D;&#x3D; this.overallComplexity?.toLowerCase() ? true : false;
   }
 
+  /**
+   * This method determines if a student got the complexity for an individual line correct.
+   * @param index - the index of the line being analyzed
+   * @returns true if correct, false if incorrect 
+   */
   lineComplexityCorrect(index: number){
     return this.problem.complexity[index].toLowerCase() &#x3D;&#x3D;&#x3D; this.complexityAnswer[index].toLowerCase() ? true : false;
   }
 
+  /**
+   * This method determines the background color for a line in a solution - useful for nesting problems, etc.
+   * @param lineNum - the line number to be analyzed
+   * @returns the color the line should be
+   */
   getLineColor(lineNum: number): string {
 
     // Start from line 1
@@ -1023,249 +1105,8 @@ export class StudentSolutionComponent implements OnInit{
   }
 }
 </code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;student-solution&quot;&gt;
-    &lt;div class&#x3D;&quot;solution-form&quot; *ngIf&#x3D;&quot;!isLoading&quot;&gt;
-        &lt;div class&#x3D;&quot;page-header&quot;&gt;
-            &lt;h1 class&#x3D;&quot;problem-name&quot;&gt;{{problem.name}}&lt;/h1&gt;
-            &lt;h1 class&#x3D;&quot;score&quot; *ngIf&#x3D;&quot;showResults&quot;&gt;{{score}}/{{problem.totalScore}}&lt;/h1&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;annotations&quot;&gt;
-            &lt;div class&#x3D;&quot;column-labels&quot;&gt;
-                &lt;div class&#x3D;&quot;complexity-column-label&quot;&gt;
-                    &lt;mat-label&gt;Complexity&lt;/mat-label&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;form-line&quot; *ngFor&#x3D;&quot;let code of problem.sourceCode; index as i&quot;&gt;
-                &lt;span class&#x3D;&quot;line-answer&quot; *ngIf&#x3D;&quot;showResults&quot;&gt;
-                    &lt;p&gt;{{problem.complexity[i]}}&lt;/p&gt;
-                &lt;/span&gt;
-                &lt;span class&#x3D;&quot;line-complexity&quot;&gt;
-                    &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;complexityAnswer[i]&quot; maxlength&#x3D;&quot;20&quot; [disabled]&#x3D;&quot;showResults&quot; [ngClass]&#x3D;&quot;{
-                        &#x27;correctAnswer&#x27; : lineComplexityCorrect(i) &amp;&amp; showResults,
-                        &#x27;incorrectAnswer&#x27; : !lineComplexityCorrect(i) &amp;&amp; showResults
-                     }&quot;&gt;
-                &lt;/span&gt;
-                &lt;span class&#x3D;&quot;code&quot; [ngStyle]&#x3D;&quot;{&#x27;background-color&#x27;: getLineColor(i)}&quot;&gt;
-                    &lt;span class&#x3D;&quot;line-number&quot;&gt;{{i + 1}}&lt;/span&gt;
-                    &lt;span class&#x3D;&quot;line-code&quot; style&#x3D;&quot;white-space:pre&quot; matTooltip&#x3D;&quot;{{problem.hints[i]}}&quot; [matTooltipPosition]&#x3D;&quot;&#x27;right&#x27;&quot;&gt;{{problem.sourceCode[i]}}&lt;/span&gt;
-                &lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;overall-complexity&quot;&gt;
-                &lt;mat-label&gt;Overall Complexity&lt;/mat-label&gt;&lt;br&gt;
-                &lt;div class&#x3D;&quot;form-line&quot;&gt;
-                &lt;span *ngIf&#x3D;&quot;showResults&quot;&gt;&lt;p&gt;{{problem.overallComplexity}}&lt;/p&gt;&lt;/span&gt;
-                &lt;!-- change to ternary --&gt;
-                &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;overallComplexity&quot; [disabled]&#x3D;&quot;showResults&quot; [ngClass]&#x3D;&quot;{
-                    &#x27;correctAnswer&#x27; : overallComplexityCorrect() &amp;&amp; showResults,
-                    &#x27;incorrectAnswer&#x27; : !overallComplexityCorrect() &amp;&amp; showResults
-                }&quot;&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;&lt;br&gt;
-            &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;problem-submit&quot; (click)&#x3D;&quot;submitSolution()&quot; *ngIf&#x3D;&quot;!showResults&quot;&gt;Submit&lt;/button&gt;
-            &lt;button class&#x3D;&quot;problem-submit&quot; *ngIf&#x3D;&quot;showResults&quot; routerLink&#x3D;&quot;/problem-selection&quot;&gt;Back to problems&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;loading&quot; *ngIf&#x3D;&quot;isLoading&quot;&gt;
-        &lt;mat-spinner&gt;&lt;/mat-spinner&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./student-solution.component.css</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">.page-header{
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    margin: 15px 15px 0px 15px;
-}
-
-.annotations{
-    text-align: left;
-    margin: 2% 4%;
-    padding: 10px 10px 0px 10px;
-    width: 90%;
-}
-
-.complexity-column-label{
-    display: inline-block;
-    width: 10%;
-    height: 24px;
-    padding: 2px;
-    margin: 3px 10px 0px 0px;
-}
-
-.form-line{
-    display: flex;
-    align-items: center;
-    height: 40px;
-}
-
-.line-complexity{
-    width: 10%;
-    height: 30px;
-    padding: 4px;
-    margin: 0px 10px 0px 0px;
-    line-height: 1;
-}
-
-.line-complexity input{
-    width: 100%;
-    height: 24px;
-    padding: 2px;
-    margin: 3px 8px 3px 0px;
-    outline: none;
-    border: 3px solid #49494b;
-    border-radius: 5px;
-}
-
-.line-hints input:focus, .line-complexity input:focus, .problem-name input:focus, .overall-complexity input:focus{
-    outline: 3px solid #bd8c7d;
-    background-color: #FBFAF7;
-}
-
-mat-label{
-    font-weight: bold;
-}
-
-.code{
-    display: flex;
-    align-content: center;
-    vertical-align: middle;
-    width: 60%;
-    height: 30px;
-    padding: 5px;
-    margin: 0px 12px;
-}
-
-.line-number{
-    line-height: 2.5;
-    margin: 0px 10px 0px 0px;
-    color: #bd8c7d;
-} 
-
-.line-code{
-    line-height: 2.5;
-    font-family: Consolas,&quot;courier new&quot;;
-}
-
-.annotations:nth-child(1n) .form-line:nth-child(2) .code{
-    border-width: 3px 3px 0px 3px;
-    border-style: solid;
-    border-color: #d1bfa7;
-    border-radius: 5px 5px 0px 0px;
-}
-
-.form-line:nth-child(n) .code{
-    border-width: 0px 3px 0px 3px;
-    border-style: solid;
-    border-color: #d1bfa7;
-}
-
-.annotations:nth-child(1n) .form-line:nth-last-child(2) .code{
-    border-width: 0px 3px 3px 3px;
-    border-style: solid;
-    border-color: #d1bfa7;
-    border-radius:0px 0px 5px 5px;
-}
-
-
-.overall-complexity{
-    margin: 2% 0%;
-}
-.overall-complexity input{
-    width: 10%;
-    height: 24px;
-    padding: 2px;
-    margin: 3px 4px 3px 3px;
-    outline: none;
-    border: 3px solid #49494b;
-    border-radius: 5px;
-}
-
- button, input[type&#x3D;submit]{
-    background-color: #d1bfa7;
-    padding: 20px;
-    margin: 6px 8px 6px 8px;
-    min-width: 88px;
-    border-radius: 3px;
-    font-size: 14px;
-    text-decoration:none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-
-.loading {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    top: 50%;
-    left: 50%;
-}
-
-.correctAnswer{
-    background-color: #e6ffe6;
-}
-
-.incorrectAnswer{
-    background-color: #ffe6e6;
-}
-
-.solution-form{
-    text-align: center;
-}
-
-.line-answer{
-    height: 42px;
-}</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
         </div>
     </div>
-
-    
-</div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><div class="student-solution">    <div class="solution-form" *ngIf="!isLoading">        <div class="page-header">            <h1 class="problem-name">{{problem.name}}</h1>            <h1 class="score" *ngIf="showResults">{{score}}/{{problem.totalScore}}</h1>        </div>        <div class="annotations">            <div class="column-labels">                <div class="complexity-column-label">                    <mat-label>Complexity</mat-label>                </div>            </div>            <div class="form-line" *ngFor="let code of problem.sourceCode; index as i">                <span class="line-answer" *ngIf="showResults">                    <p>{{problem.complexity[i]}}</p>                </span>                <span class="line-complexity">                    <input type="text" [(ngModel)]="complexityAnswer[i]" maxlength="20" [disabled]="showResults" [ngClass]="{                        \'correctAnswer\' : lineComplexityCorrect(i) && showResults,                        \'incorrectAnswer\' : !lineComplexityCorrect(i) && showResults                     }">                </span>                <span class="code" [ngStyle]="{\'background-color\': getLineColor(i)}">                    <span class="line-number">{{i + 1}}</span>                    <span class="line-code" style="white-space:pre" matTooltip="{{problem.hints[i]}}" [matTooltipPosition]="\'right\'">{{problem.sourceCode[i]}}</span>                </span>            </div>            <div class="overall-complexity">                <mat-label>Overall Complexity</mat-label><br>                <div class="form-line">                <span *ngIf="showResults"><p>{{problem.overallComplexity}}</p></span>                <!-- change to ternary -->                <input type="text" [(ngModel)]="overallComplexity" [disabled]="showResults" [ngClass]="{                    \'correctAnswer\' : overallComplexityCorrect() && showResults,                    \'incorrectAnswer\' : !overallComplexityCorrect() && showResults                }">                </div>            </div>        </div><br>            <button type="submit" class="problem-submit" (click)="submitSolution()" *ngIf="!showResults">Submit</button>            <button class="problem-submit" *ngIf="showResults" routerLink="/problem-selection">Back to problems</button>    </div>    <div class="loading" *ngIf="isLoading">        <mat-spinner></mat-spinner>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomepageComponent', 'selector': 'app-homepage'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProblemCreationComponent', 'selector': 'app-problem-creation'},{'name': 'ProblemSelectionComponent', 'selector': 'app-problem-selection'},{'name': 'StudentSolutionComponent', 'selector': 'app-student-solution'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'StudentSolutionComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
-
-
-
 
 
 
@@ -1286,52 +1127,32 @@ mat-label{
     </div>
 </div>
 </div>
-               <!-- END CONTENT -->
            </div>
        </div>
 
-          <label class="dark-mode-switch">
-               <input type="checkbox">
-               <span class="slider">
-                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-               </span>
-          </label>
+       <script src="./js/libs/bootstrap-native.js"></script>
 
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/highlight.pack.js"></script>
+       <script src="./js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="./js/search/search_index.js"></script>
        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'StudentSolutionComponent.html';
-            var MAX_SEARCH_RESULTS = 15;
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
        </script>
-
-       <script src="../js/libs/custom-elements.min.js"></script>
-       <script src="../js/libs/lit-html.js"></script>
-
-       <script src="../js/menu-wc.js" defer></script>
-       <script nomodule src="../js/menu-wc_es5.js" defer></script>
-
-       <script src="../js/libs/bootstrap-native.js"></script>
-
-       <script src="../js/libs/es6-shim.min.js"></script>
-       <script src="../js/libs/EventDispatcher.js"></script>
-       <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
-
-       <script src="../js/compodoc.js"></script>
-
-       <script src="../js/tabs.js"></script>
-       <script src="../js/menu.js"></script>
-       <script src="../js/libs/clipboard.min.js"></script>
-       <script src="../js/libs/prism.js"></script>
-       <script src="../js/sourceCode.js"></script>
-          <script src="../js/search/search.js"></script>
-          <script src="../js/search/lunr.min.js"></script>
-          <script src="../js/search/search-lunr.js"></script>
-          <script src="../js/search/search_index.js"></script>
-       <script src="../js/lazy-load-graphs.js"></script>
-
 
     </body>
 </html>

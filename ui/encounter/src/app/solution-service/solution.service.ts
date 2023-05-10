@@ -7,8 +7,16 @@ import { Problem } from '../problem';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * This is the service for the Solution class.
+ */
 export class SolutionService {
 
+  /**
+   * This is the constructor for the service.
+   * @param http - the HTTP client for requests.
+   */
   constructor(private http: HttpClient) { }
 
   /**
